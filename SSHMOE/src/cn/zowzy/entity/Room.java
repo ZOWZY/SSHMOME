@@ -15,7 +15,6 @@ public class Room {
 	private Integer rid;  //房源ID
 	private String title;  //房源的标题
 	private String location;  //房源的地理位置
-	private Integer rState;  //房源的状态
 	private Integer maxPersonNumber;  //房源允许的最大的入住人数
 	private float price;  //房源的价格
 	private double longitude;  //房源的经度
@@ -33,7 +32,7 @@ public class Room {
 	private Integer park; //房源是否有停车位
 	private Integer lift; //房源是否有电梯
 	
-	//还需要用户信息  房源类型
+	//还需要用户信息  房源类型  房源状态
 	
 	
 	
@@ -55,12 +54,7 @@ public class Room {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public Integer getrState() {
-		return rState;
-	}
-	public void setrState(Integer rState) {
-		this.rState = rState;
-	}
+
 	public Integer getMaxPersonNumber() {
 		return maxPersonNumber;
 	}

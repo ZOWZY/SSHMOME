@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://www.hibernamte.org.dtd/hibernate-mapping-3.0.dtd">
+		
+		
+<hibernate-mapping>
+	<class  name="cn.zowzy.entity.Room"  table="room">
+		<id  name="rid"  column="rid">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="title"  column="title"></property>
+		
+		<property name="location"  column="location"></property>
+		
+		<property name="maxPersonNumber"  column="maxpersonnumber"></property>
+		
+		<property name="price"  column="price"></property>
+		
+		<property name="longitude"  column="longitude"></property>
+		
+		<property name="latitude"  column="latitude"></property>
+		
+		<property name="score"  column="score"></property>
+		
+		<property name="description"  column="description"></property>
+		
+		<property name="bad"  column="bad"></property>
+		
+		
+		<property name="badroom"  column="badroom"></property>
+		
+		<property name="bathroom"  column="bathroom"></property>
+		<property name="kitchen"  column="kitchen"></property>
+		<property name="wifi"  column="wifi"></property>
+		<property name="tv"  column="tv"></property>
+		<property name="park"  column="park"></property>
+		<property name="lift"  column="lift"></property>
+		
+		
+	</class>
+
+</hibernate-mapping>

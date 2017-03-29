@@ -12,7 +12,6 @@ public class User {
 	private String password;  //登陆密码
 	private String email;  //邮箱
 	private String activeCode;  //激活码
-	private Integer uState;  //用户状态
 	private String payPassword;  //支付密码
 	private float balance;  //用户余额
 	private String phone;//用户电话  
@@ -46,12 +45,7 @@ public class User {
 	public void setActiveCode(String activeCode) {
 		this.activeCode = activeCode;
 	}
-	public Integer getuState() {
-		return uState;
-	}
-	public void setuState(Integer uState) {
-		this.uState = uState;
-	}
+
 	public String getPayPassword() {
 		return payPassword;
 	}

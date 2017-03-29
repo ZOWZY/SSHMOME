@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 全的约束 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation ="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<!-- 引入数据库的配置信息 -->	
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+	<!-- 配置C3P0的连接池 -->
+	<bean  id="dataSource"  class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass"  value="${driverClass}"/>
+		<property name="jdbcUrl"  value="${jdbcUrl}"/>
+		<property name="user"  value="${user}"/>
+		<property name="password"  value="${password}"/>
+	</bean>
+	
+	
+	<!-- 配置事务管理器 -->
+	<bean id="hibernateTransactionManager"  class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<!-- 注入sessionFactory,这里不需要注入dataSource，因为下面的sessionFactory中注入了dataSource -->
+		<property name="sessionFactory"  ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 开启事务 -->
+	<tx:annotation-driven transaction-manager="hibernateTransactionManager"/>
+	
+	
+	
+	<!-- 把sessionFactory对象的创建  交给spring -->
+	<bean id="sessionFactory"  class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<!-- 注入数据库的配置属性 -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 指定使用的hibernate的核心配置文件 -->
+		<property name="configLocations"  value="classpath:hibernate.cfg.xml"></property>
+	</bean>
+	
+	
+	
+	<!-- 引入外部的配置文件 -->
+	<import resource="classpath:beans.xml"/>
+	
+	
+</beans>

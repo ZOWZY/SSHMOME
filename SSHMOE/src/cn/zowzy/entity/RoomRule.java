@@ -11,7 +11,7 @@ package cn.zowzy.entity;
  */
 public class RoomRule {
 	
-	private Integer ruleid;  // ÿ‘Ú±‡∫≈
+	private Integer rrid;  // ÿ‘Ú±‡∫≈
 
 	
 	private String content;  // ÿ‘Úƒ⁄»›
@@ -21,17 +21,19 @@ public class RoomRule {
 	
 	
 	
-	public Integer getRuleid() {
-		return ruleid;
-	}
-
-	public void setRuleid(Integer ruleid) {
-		this.ruleid = ruleid;
-	}
+	
 
 	
 	public String getContent() {
 		return content;
+	}
+
+	public Integer getRrid() {
+		return rrid;
+	}
+
+	public void setRrid(Integer rrid) {
+		this.rrid = rrid;
 	}
 
 	public void setContent(String content) {

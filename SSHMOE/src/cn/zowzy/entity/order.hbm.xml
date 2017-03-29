@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://www.hibernamte.org.dtd/hibernate-mapping-3.0.dtd">
+		
+		
+<hibernate-mapping>
+	<class  name="cn.zowzy.entity.Order"  table="order">
+		<id  name="oid"  column="oid">
+			<generator class="cn.zowzy.util.MakeOrderNum"></generator>
+		</id>
+		
+		<property name="dateTime"  column="datetime"></property>
+		
+		<property name="unDatetime"  column="unDatetime"></property>
+		
+		<property name="cost"  column="cost"></property>
+		
+		<property name="pNumber"  column="pnumber"></property>
+		
+		<property name="checkinTime"  column="checkintime"></property>
+		
+		<property name="checkoutTime"  column="checkouttime"></property>
+		
+		<property name="remark"  column="remark"></property>
+		
+		<property name="comments"  column="remark"></property>
+		
+		<property name="score"  column="score"></property>
+		
+	</class>
+
+</hibernate-mapping>

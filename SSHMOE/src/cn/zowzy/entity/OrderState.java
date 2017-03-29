@@ -11,7 +11,7 @@ package cn.zowzy.entity;
  */
 public class OrderState {
 	
-	private Integer osid;//·¿Ô´×´Ì¬ID
+	private Integer osid;//¶©µ¥×´Ì¬ID
 	private String description;  //×´Ì¬ÃèÊö
 	
 	

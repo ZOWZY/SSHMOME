@@ -13,7 +13,6 @@ import java.util.Date;
 public class Order {
 
 	private String oid;  //订单编号
-	private String orderUsername;  //订单的创建人  即租房人
 	private Date dateTime;//订单创建时间
 	private Date unDateTime; //订单退订时间
 	private float cost;  //订单价格
@@ -23,11 +22,13 @@ public class Order {
 	private String remark;  //备注
 	private String comments;  //评论
 	
+	private float score; //评论得分
 	
 	
 	
 	
-	//还需要订单状态 房源信息
+	//还需要订单状态 房源信息  订单创建人
+	
 	
 	
 	
@@ -37,15 +38,16 @@ public class Order {
 	public String getOid() {
 		return oid;
 	}
+	public float getScore() {
+		return score;
+	}
+	public void setScore(float score) {
+		this.score = score;
+	}
 	public void setOid(String oid) {
 		this.oid = oid;
 	}
-	public String getOrderUsername() {
-		return orderUsername;
-	}
-	public void setOrderUsername(String orderUsername) {
-		this.orderUsername = orderUsername;
-	}
+	
 	public Date getDateTime() {
 		return dateTime;
 	}

@@ -66,5 +66,6 @@
 	<classpathentry kind="lib" path="E:/JAVA/jar/SSH/struts2-core-2.3.24.jar"/>
 	<classpathentry kind="lib" path="E:/JAVA/jar/SSH/struts2-spring-plugin-2.3.4.1.jar"/>
 	<classpathentry kind="lib" path="E:/JAVA/jar/SSH/xwork-core-2.3.24.jar"/>
+	<classpathentry kind="lib" path="E:/JAVA/jar/utils-zjh.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

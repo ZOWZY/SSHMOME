@@ -1,6 +1,14 @@
 package cn.zowzy.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.orm.hibernate5.HibernateTemplate;
+
+import cn.zjh.uuid.UUIDUtils;
+import cn.zowzy.entity.User;
+import cn.zowzy.entity.UserState;
+import cn.zowzy.entity.UserType;
 
 /**
  * 
@@ -23,6 +31,122 @@ public class UserDao {
 		this.hibernateTemplate = hibernateTemplate;
 	}
 	
+	
+	
+	/**
+	 * 查找所有用户
+	 * @return
+	 */
+	public List<User>  findAllUser(){
+		String hql="from User";
+		List<User> list = (List<User>) hibernateTemplate.find(hql);
+		if(list==null){//做null处理
+			list=new ArrayList<User>();
+		}
+		return list;
+	}
+	
+	
+	
+
+	/**
+	 * 根据用户名查找密码
+	 * @param username  用户名
+	 * @return 密码
+	 */
+	public String findPasswordByUsername(String username){
+		String hql="from User where username=?";
+		List<User> list = (List<User>) hibernateTemplate.find(hql, username);
+		String password="";
+		if(list!=null&&list.size()>0){
+			password=list.get(0).getPassword();
+		}
+		return password;
+	}
+	
+	
+	/**
+	 * 根据激活码查找用户
+	 * @param activeCode
+	 * @return
+	 */
+	public User findUserByActiveCode(String activeCode){
+		User  user=null;
+		String hql="from User where activecode=?";
+		List<User> list = (List<User>) hibernateTemplate.find(hql, activeCode);
+		if(list!=null&&list.size()>0){
+			user=list.get(0);
+		}
+		return user;
+	}
+	
+	
+	/**
+	 * 根据用户名查找用户
+	 * @param username
+	 * @return
+	 */
+	public User findUserByUsername(String username){
+		User  user=null;
+		String hql="from User where username=?";
+		List<User> list = (List<User>) hibernateTemplate.find(hql, username);
+		if(list!=null&&list.size()>0){
+			user=list.get(0);
+		}
+		return user;
+	}
+	
+	/**
+	 * 添加普通用户
+	 * @param user
+	 */
+	public void  addUser(User user){
+		UserState us=new UserState();
+		us.setUsid(2);//2代表没有激活  1代表已经激活
+		user.setUserState(us);
+		user.setActiveCode(UUIDUtils.getUUID64WithoutLine());
+		user.setBalance(2000.00f);
+		UserType ut=new UserType();
+		ut.setUtid(1);//1代表普通用户 2代表管理员
+		hibernateTemplate.save(user);
+	}
+	
+	
+	/**
+	 * 根据激活码激活用户
+	 * @param activeCode
+	 */
+	public void activeUser(String activeCode){
+		User user=findUserByActiveCode(activeCode);
+		user.setActiveCode("");
+		user.getUserState().setUsid(1);//设置用户状态为激活
+		hibernateTemplate.update(user);
+	}
+	
+	
+	/**
+	 * 根据32为激活码修改密码
+	 * @param activeCode  激活码
+	 * @param password  新密码
+	 * @return  修改true修改成功，false修改失败
+	 */
+	public Boolean  changePasswordByActiveCode(String activeCode,String password){
+		Boolean result=false;
+		
+		if(activeCode.length()!=32){//如果激活码不是32位  不允许修改
+			return false;
+		}
+		User user=findUserByActiveCode(activeCode);
+		if(user==null){//如果没有此验证码的用户
+			return false;
+		}else{
+			user.setPassword(password);
+			hibernateTemplate.update(user);
+			result=true;
+		}
+		
+		return result;
+	}
 	
 	
 

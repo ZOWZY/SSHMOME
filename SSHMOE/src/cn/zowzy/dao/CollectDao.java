@@ -32,7 +32,9 @@ public class CollectDao {
 	 * @param collect  收藏对象
 	 */
 	public void addCollect(Collect collect){
-		hibernateTemplate.save(collect);
+		if(collect!=null){
+			hibernateTemplate.save(collect);			
+		}
 	}
 	
 	
@@ -43,9 +45,6 @@ public class CollectDao {
 	public List<Collect>  findAll(){
 		String hql="from Collect";
 		List<Collect> list = (List<Collect>) hibernateTemplate.find(hql);
-		if(list==null){
-			list=new ArrayList<Collect>();
-		}
 		return list;
 	}
 	
@@ -56,11 +55,11 @@ public class CollectDao {
 	 * @return
 	 */
 	public List<Collect> findCollectsByUsername(String username){
+		if(username==null||username.length()<=0){
+			return null;
+		}
 		String hql="from Collect where usernameid=?";
 		List<Collect> list = (List<Collect>) hibernateTemplate.find(hql, username);
-		if(list==null){
-			list=new ArrayList<Collect>();
-		}
 		return list;
 	}
 	
@@ -70,11 +69,14 @@ public class CollectDao {
 	 * @return
 	 */
 	public List<Collect> findCollectsByRoomId(String roomid){
+		
+		if(roomid==null||roomid.length()<=0){
+			return  null;
+		}
+		
 		String hql="from Collect where roomid=?";
 		List<Collect> list = (List<Collect>) hibernateTemplate.find(hql, roomid);
-		if(list==null){
-			list=new ArrayList<Collect>();
-		}
+		
 		return list;
 	} 
 	
@@ -87,6 +89,9 @@ public class CollectDao {
 	 * @return  true取消收藏成功 ，false取消收藏失败
 	 */
 	public boolean cancleCollect(String username,String roomid){
+		if(roomid==null||roomid.length()<=0||username==null||username.length()<=0){
+			return  false;
+		}
 		boolean result=true;
 		String hql="from Collect where usernameid=? and roomid=?";
 		List<Collect> list = (List<Collect>) hibernateTemplate.find(hql, username,roomid);

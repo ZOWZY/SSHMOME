@@ -40,9 +40,6 @@ public class UserDao {
 	public List<User>  findAllUser(){
 		String hql="from User";
 		List<User> list = (List<User>) hibernateTemplate.find(hql);
-		if(list==null){//做null处理
-			list=new ArrayList<User>();
-		}
 		return list;
 	}
 	
@@ -55,6 +52,9 @@ public class UserDao {
 	 * @return 密码
 	 */
 	public String findPasswordByUsername(String username){
+		if(username==null||username.length()<=0){
+			return null;
+		}
 		String hql="from User where username=?";
 		List<User> list = (List<User>) hibernateTemplate.find(hql, username);
 		String password="";
@@ -71,6 +71,9 @@ public class UserDao {
 	 * @return
 	 */
 	public User findUserByActiveCode(String activeCode){
+		if(activeCode==null||activeCode.length()!=32||activeCode.length()!=64){
+			return null;
+		}
 		User  user=null;
 		String hql="from User where activecode=?";
 		List<User> list = (List<User>) hibernateTemplate.find(hql, activeCode);
@@ -87,6 +90,9 @@ public class UserDao {
 	 * @return
 	 */
 	public User findUserByUsername(String username){
+		if(username==null||username.length()<=0){
+			return null;
+		}
 		User  user=null;
 		String hql="from User where username=?";
 		List<User> list = (List<User>) hibernateTemplate.find(hql, username);
@@ -117,6 +123,9 @@ public class UserDao {
 	 * @param activeCode
 	 */
 	public void activeUser(String activeCode){
+		if(activeCode==null||activeCode.length()!=32||activeCode.length()!=64){
+			return ;
+		}
 		User user=findUserByActiveCode(activeCode);
 		user.setActiveCode("");
 		user.getUserState().setUsid(1);//设置用户状态为激活
@@ -131,6 +140,14 @@ public class UserDao {
 	 * @return  修改true修改成功，false修改失败
 	 */
 	public Boolean  changePasswordByActiveCode(String activeCode,String password){
+		
+		if(activeCode==null||activeCode.length()!=32||activeCode.length()!=64){
+			return false;
+		}
+		if(password==null||password.length()<=0){
+			return false;
+		}
+		
 		Boolean result=false;
 		
 		if(activeCode.length()!=32){//如果激活码不是32位  不允许修改

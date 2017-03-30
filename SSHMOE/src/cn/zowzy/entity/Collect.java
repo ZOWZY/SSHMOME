@@ -16,6 +16,28 @@ public class Collect {
 	private Integer cid;  //收藏编号
 	
 	//还需要 房源信息 用户信息
+	private Room room=new Room();
+	private User user=new User();
+	
+	
+	
+	
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public Integer getCid() {
 		return cid;
 	}

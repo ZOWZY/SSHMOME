@@ -1,5 +1,8 @@
 package cn.zowzy.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 
 *  
@@ -14,9 +17,17 @@ public class RoomState {
 	private Integer rsid;//·¿Ô´×´Ì¬ID
 	private String description;  //×´Ì¬ÃèÊö
 	
+
+	private Set<Room>  roomSet=new HashSet<Room>();
 	
 	
 	
+	public Set<Room> getRoomSet() {
+		return roomSet;
+	}
+	public void setRoomSet(Set<Room> roomSet) {
+		this.roomSet = roomSet;
+	}
 	
 	public Integer getRsid() {
 		return rsid;

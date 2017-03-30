@@ -1,5 +1,8 @@
 package cn.zowzy.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 
 *  
@@ -15,10 +18,17 @@ public class OrderState {
 	private String description;  //×´Ì¬ÃèÊö
 	
 	
+	private Set<Orders>  orderSet=new HashSet<Orders>();
 	
 	
 	
 	
+	public Set<Orders> getOrderSet() {
+		return orderSet;
+	}
+	public void setOrderSet(Set<Orders> orderSet) {
+		this.orderSet = orderSet;
+	}
 	public Integer getOsid() {
 		return osid;
 	}

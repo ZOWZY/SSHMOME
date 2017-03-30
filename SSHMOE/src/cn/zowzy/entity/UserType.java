@@ -1,5 +1,8 @@
 package cn.zowzy.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 
 *  
@@ -13,6 +16,21 @@ public class UserType {
 	
 	private Integer utid;//用户类型ID
 	private String description;  //类型描述
+	
+	
+	private Set<User> userSet=new HashSet<User>();
+	
+	
+	
+	
+	
+	public Set<User> getUserSet() {
+		return userSet;
+	}
+	public void setUserSet(Set<User> userSet) {
+		this.userSet = userSet;
+	}
+	
 	
 	public Integer getUtid() {
 		return utid;

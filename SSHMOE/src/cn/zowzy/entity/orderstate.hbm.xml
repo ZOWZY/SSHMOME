@@ -14,7 +14,10 @@
 		
 		<property name="description"  column="description"></property>
 		
-		
+		<set  name="orderSet"  cascade="save-update,delete">
+			<key column="orderstateid"></key>
+			<one-to-many class="cn.zowzy.entity.Orders"/>
+		</set>
 		
 	</class>
 

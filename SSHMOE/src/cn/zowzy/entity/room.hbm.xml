@@ -40,6 +40,23 @@
 		<property name="park"  column="park"></property>
 		<property name="lift"  column="lift"></property>
 		
+		<many-to-one name="user" class="cn.zowzy.entity.User"  column="usernameid"></many-to-one>
+		<many-to-one name="roomType" class="cn.zowzy.entity.RoomType"  column="roomtypeid"></many-to-one>
+		<many-to-one name="roomState" class="cn.zowzy.entity.RoomState"  column="roomstateid"></many-to-one>
+		<set name="roomRuleSet" cascade="save-update,delete">
+			<key column="roomid"></key>
+			<one-to-many  class="cn.zowzy.entity.RoomRule"/>
+		</set>
+		
+		<set name="collectSet"  cascade="save-update,delete">
+			<key column="roomid"></key>
+			<one-to-many  class="cn.zowzy.entity.Collect"/>
+		</set>
+		
+		<set name="orderSet" cascade="save-update,delete">
+			<key  column="roomid"></key>
+			<one-to-many  class="cn.zowzy.entity.Orders"/>
+		</set>
 		
 	</class>
 

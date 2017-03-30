@@ -4,6 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import cn.zowzy.entity.User;
+import cn.zowzy.service.UserService;
 
 /**
  * 
@@ -18,6 +19,17 @@ public class LoginAndRegisterAction extends ActionSupport implements ModelDriven
 
 	private User user;
 	
+	private UserService userService=new UserService();
+	
+	
+	public UserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
 	@Override
 	public User getModel() {
 		return user;

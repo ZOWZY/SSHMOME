@@ -1,5 +1,6 @@
 package cn.zowzy.dao;
 
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 /**
  * 
@@ -11,5 +12,18 @@ package cn.zowzy.dao;
 *
  */
 public class UserDao {
+	
+	private HibernateTemplate hibernateTemplate=new HibernateTemplate();
+
+	public HibernateTemplate getHibernateTemplate() {
+		return hibernateTemplate;
+	}
+
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+		this.hibernateTemplate = hibernateTemplate;
+	}
+	
+	
+	
 
 }

@@ -13,8 +13,9 @@
 			<generator class="native"></generator>
 		</id>
 		
-		
 		<property name="content" column="content"></property>
+		
+		<many-to-one name="room"  class="cn.zowzy.entity.Room" column="roomid"></many-to-one>
 		
 	</class>
 

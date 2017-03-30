@@ -12,7 +12,8 @@
 			<generator class="native"></generator>
 		</id>
 		
-		
+		<many-to-one name="room"  class="cn.zowzy.entity.Room"  column="roomid"></many-to-one>
+		<many-to-one name="user"  class="cn.zowzy.entity.User"  column="usernameid"></many-to-one>
 	</class>
 
 </hibernate-mapping>

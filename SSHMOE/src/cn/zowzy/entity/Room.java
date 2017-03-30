@@ -1,5 +1,7 @@
 package cn.zowzy.entity;
 
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 
@@ -32,10 +34,72 @@ public class Room {
 	private Integer park; //房源是否有停车位
 	private Integer lift; //房源是否有电梯
 	
-	//还需要用户信息  房源类型  房源状态
+	//还需要用户信息  房源类型  房源状态  房屋守则  收藏
+	private User user=new User();
+	private RoomType roomType=new RoomType();
+	private RoomState roomState=new RoomState();
+	private Set<RoomRule>  roomRuleSet=new HashSet<RoomRule>();
+	
+	private Set<Collect>  collectSet=new HashSet<Collect>();
+	
+	public Set<Collect> getCollectSet() {
+		return collectSet;
+	}
+	
+	
+	private Set<Orders> orderSet=new HashSet<Orders>(); 
 	
 	
 	
+	
+	public Set<Orders> getOrderSet() {
+		return orderSet;
+	}
+
+
+
+
+
+	public void setOrderSet(Set<Orders> orderSet) {
+		this.orderSet = orderSet;
+	}
+
+
+
+
+
+	public void setCollectSet(Set<Collect> collectSet) {
+		this.collectSet = collectSet;
+	}
+	
+	
+	
+	
+	
+	public Set<RoomRule> getRoomRuleSet() {
+		return roomRuleSet;
+	}
+	public void setRoomRuleSet(Set<RoomRule> roomRuleSet) {
+		this.roomRuleSet = roomRuleSet;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public RoomType getRoomType() {
+		return roomType;
+	}
+	public void setRoomType(RoomType roomType) {
+		this.roomType = roomType;
+	}
+	public RoomState getRoomState() {
+		return roomState;
+	}
+	public void setRoomState(RoomState roomState) {
+		this.roomState = roomState;
+	}
 	public Integer getRid() {
 		return rid;
 	}

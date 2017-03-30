@@ -1,6 +1,7 @@
 package cn.zowzy.entity;
 
-
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * User类  用户实体类
@@ -17,10 +18,53 @@ public class User {
 	private String phone;//用户电话  
 	
 	
-	//还需要  用户状态  用户类型
+	//还需要  用户状态  用户类型  房源  收藏
+	
+	private UserState userState=new UserState();
+	private UserType userType=new UserType();
+	
+	private Set<Room> roomSet=new HashSet<Room>();
+	
+	
+	private Set<Collect>  collectSet=new HashSet<Collect>();
+	
+	private Set<Orders> orderSet=new HashSet<Orders>();
 	
 	
 	
+	
+	
+	public Set<Orders> getOrderSet() {
+		return orderSet;
+	}
+	public void setOrderSet(Set<Orders> orderSet) {
+		this.orderSet = orderSet;
+	}
+	public Set<Collect> getCollectSet() {
+		return collectSet;
+	}
+	public void setCollectSet(Set<Collect> collectSet) {
+		this.collectSet = collectSet;
+	}
+	
+	public Set<Room> getRoomSet() {
+		return roomSet;
+	}
+	public void setRoomSet(Set<Room> roomSet) {
+		this.roomSet = roomSet;
+	}
+	public UserState getUserState() {
+		return userState;
+	}
+	public void setUserState(UserState userState) {
+		this.userState = userState;
+	}
+	public UserType getUserType() {
+		return userType;
+	}
+	public void setUserType(UserType userType) {
+		this.userType = userType;
+	}
 	public String getUsername() {
 		return username;
 	}

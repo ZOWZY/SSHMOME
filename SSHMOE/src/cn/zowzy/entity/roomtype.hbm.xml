@@ -15,6 +15,10 @@
 		<property name="description"  column="description"></property>
 		
 		
+		<set name="roomSet" cascade="save-update,delete">
+			<key column="roomtypeid"></key>
+			<one-to-many  class="cn.zowzy.entity.Room"/>
+		</set>
 		
 	</class>
 

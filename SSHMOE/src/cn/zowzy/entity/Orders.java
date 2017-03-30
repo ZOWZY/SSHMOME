@@ -10,7 +10,7 @@ import java.util.Date;
 * 创建时间：2017年3月29日 下午5:57:39     
 *
  */
-public class Order {
+public class Orders {
 
 	private String oid;  //订单编号
 	private Date dateTime;//订单创建时间
@@ -29,12 +29,36 @@ public class Order {
 	
 	//还需要订单状态 房源信息  订单创建人
 	
+	private OrderState orderState =new OrderState();
+	
+	private Room  room=new Room();
+	private User  user=new User();
 	
 	
 	
 	
 	
 	
+	
+	
+	public OrderState getOrderState() {
+		return orderState;
+	}
+	public void setOrderState(OrderState orderState) {
+		this.orderState = orderState;
+	}
+	public Room getRoom() {
+		return room;
+	}
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public String getOid() {
 		return oid;
 	}
@@ -54,6 +78,7 @@ public class Order {
 	public void setDateTime(Date dateTime) {
 		this.dateTime = dateTime;
 	}
+	
 	public Date getUnDateTime() {
 		return unDateTime;
 	}

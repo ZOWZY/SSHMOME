@@ -1,6 +1,6 @@
 package cn.zowzy.service;
 
-
+import cn.zowzy.dao.UserDao;
 
 /**
  * 
@@ -12,6 +12,16 @@ package cn.zowzy.service;
 *
  */
 public class UserService {
+	private UserDao userDao=new UserDao();
+
+	public UserDao getUserDao() {
+		return userDao;
+	}
+
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+	
 	
 	
 	

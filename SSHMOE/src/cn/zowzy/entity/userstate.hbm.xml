@@ -14,7 +14,10 @@
 		
 		<property name="description"  column="description"></property>
 		
-		
+		<set   name="userSet"  cascade="save-update,delete">
+			<key  column="userstateid"></key>
+			<one-to-many  class="cn.zowzy.entity.User"/>
+		</set>
 		
 	</class>
 

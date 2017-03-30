@@ -5,8 +5,27 @@
 	 
 	 
 	 <display-name>SSHOME</display-name>
-
-
+	<!-- 配置struts2的过滤器  ☆ -->
+	
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>  <!-- 过滤所有 -->
+	</filter-mapping>
+	
+	
+	<!-- 配置spring监听器 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring.xml</param-value>
+	</context-param>
 
 	 
 </web-app>

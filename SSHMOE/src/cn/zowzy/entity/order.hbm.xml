@@ -7,14 +7,14 @@
 		
 		
 <hibernate-mapping>
-	<class  name="cn.zowzy.entity.Order"  table="order">
+	<class  name="cn.zowzy.entity.Orders"  table="orders">
 		<id  name="oid"  column="oid">
 			<generator class="cn.zowzy.util.MakeOrderNum"></generator>
 		</id>
 		
 		<property name="dateTime"  column="datetime"></property>
 		
-		<property name="unDatetime"  column="unDatetime"></property>
+		<property name="unDateTime"  column="unDateTime"></property>
 		
 		<property name="cost"  column="cost"></property>
 		
@@ -26,9 +26,12 @@
 		
 		<property name="remark"  column="remark"></property>
 		
-		<property name="comments"  column="remark"></property>
+		<property name="comments"  column="comments"></property>
 		
 		<property name="score"  column="score"></property>
+		
+		<many-to-one name="room" class="cn.zowzy.entity.Room"  column="roomid"></many-to-one>
+		<many-to-one name="user" class="cn.zowzy.entity.User"  column="usernameid"></many-to-one>
 		
 	</class>
 

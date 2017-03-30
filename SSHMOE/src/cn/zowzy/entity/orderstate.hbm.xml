@@ -7,7 +7,7 @@
 		
 		
 <hibernate-mapping>
-	<class  name="cn.zowzy.entity.OrderState"  table="coderstate">
+	<class  name="cn.zowzy.entity.OrderState"  table="oderstate">
 		<id  name="osid"  column="osid">
 			<generator class="native"></generator>
 		</id>

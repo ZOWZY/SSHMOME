@@ -90,5 +90,13 @@ public class UserService {
 		return userDao.changePasswordByActiveCode(activeCode, password);
 	}
 	
+	/**
+	 * 根据64位激活码更改支付密码
+	 * @param username
+	 * @param activeCode
+	 */
+	public void changePayPassword(String username,String activeCode,String payPassword){
+		userDao.changePayPassword(username, activeCode, payPassword);
+	}
 	
 }

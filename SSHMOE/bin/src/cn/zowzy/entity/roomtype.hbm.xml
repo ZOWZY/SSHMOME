@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://www.hibernamte.org.dtd/hibernate-mapping-3.0.dtd">
+		
+		
+<hibernate-mapping>
+	<class  name="cn.zowzy.entity.RoomType"  table="roomtype">
+		<id  name="rtid"  column="rtid">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="description"  column="description"></property>
+		
+		
+		<set name="roomSet" cascade="save-update,delete">
+			<key column="roomtypeid"></key>
+			<one-to-many  class="cn.zowzy.entity.Room"/>
+		</set>
+		
+	</class>
+
+</hibernate-mapping>

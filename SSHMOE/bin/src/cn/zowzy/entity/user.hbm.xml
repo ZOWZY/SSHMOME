@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://www.hibernamte.org.dtd/hibernate-mapping-3.0.dtd">
+		
+		
+<hibernate-mapping>
+	
+	<class  name="cn.zowzy.entity.User"   table="user">
+		<id name="username" column="username">
+			<generator class="assigned"></generator>
+		</id>
+			
+		<property name="password"  column="password"></property>
+		
+		
+		<property name="email"  column="email"></property>
+		
+		
+		<property name="activeCode"  column="activecode"></property>
+		
+		<property name="payPassword"  column="paypassword"></property>
+		
+		<property name="balance" column="balance"> </property>
+		
+		<property name="phone"  column="phone"></property>
+		
+		<many-to-one name="userState" column="userstateid"  class="cn.zowzy.entity.UserState"></many-to-one>
+		<many-to-one name="userType" column="usertypeid"  class="cn.zowzy.entity.UserType"></many-to-one>
+		
+		<set name="roomSet"  cascade="save-update,delete">
+			<key column="usernameid"></key>
+			<one-to-many class="cn.zowzy.entity.Room"/>
+		</set>
+		
+		
+		<set name="collectSet"  cascade="save-update,delete">
+			<key column="usernameid"></key>
+			<one-to-many  class="cn.zowzy.entity.Collect"/>
+		</set>
+		
+		<set  name="orderSet"  cascade="save-update,delete">
+			<key column="usernameid"></key>
+			<one-to-many class="cn.zowzy.entity.Orders"/>
+		</set>
+		
+	</class>
+
+</hibernate-mapping>

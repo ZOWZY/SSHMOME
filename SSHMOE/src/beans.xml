@@ -22,6 +22,9 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<bean  id="UserDao"  class="cn.zowzy.dao.UserDao">
 		<property name="hibernateTemplate"  ref="hibernateTemplate"></property>
 	</bean>
+	<bean  id="CollectDao"  class="cn.zowzy.dao.CollectDao">
+		<property name="hibernateTemplate"  ref="hibernateTemplate"></property>
+	</bean>
 	
 	
 	
@@ -36,6 +39,9 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<!-- ================配置service bean================= -->
 	<bean  id="UserService"  class="cn.zowzy.service.UserService">
 		<property name="userDao"  ref="UserDao"></property>
+	</bean>
+	<bean  id="CollectService"  class="cn.zowzy.service.CollectService">
+		<property name="collectDao"  ref="CollectDao"></property>
 	</bean>
 	
 	

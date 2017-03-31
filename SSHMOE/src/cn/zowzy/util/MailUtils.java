@@ -100,7 +100,6 @@ public class MailUtils {
 			//设置邮件的正文
 			
 			String mess=getMailContent("UTF-8", "", url);
-			System.out.println("激活邮件："+mess);
 			message.setContent(mess, "text/html;charset=utf-8");
 			
 			//3.发送邮件Transport

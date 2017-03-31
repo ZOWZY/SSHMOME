@@ -127,9 +127,15 @@ public class UserDao {
 			return ;
 		}
 		User user=findUserByActiveCode(activeCode);
-		user.setActiveCode("");
-		user.getUserState().setUsid(1);//设置用户状态为激活
-		hibernateTemplate.update(user);
+		if(user==null){
+			return;
+		}
+		if(user.getUserState().getUsid()==2){
+			user.setActiveCode("");
+			user.getUserState().setUsid(1);//设置用户状态为激活
+			hibernateTemplate.update(user);
+		}
+		
 	}
 	
 	
@@ -154,7 +160,7 @@ public class UserDao {
 			return false;
 		}else{
 			//3代表等待修改登陆密码的状态
-			if(user.getUserState().getUsid().equals(3)){
+			if(user.getUserState().getUsid()==3){
 				user.setPassword(password);
 				user.getUserState().setUsid(1);
 				hibernateTemplate.update(user);
@@ -182,7 +188,7 @@ public class UserDao {
 				return;
 			}else{
 				//4代表等待修改支付密码
-				if(user.getUserState().getUsid().equals(4)){
+				if(user.getUserState().getUsid()==4){
 					user.setPayPassword(payPassword);
 					user.getUserState().setUsid(1);
 					hibernateTemplate.update(user);

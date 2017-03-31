@@ -107,13 +107,6 @@ public class UserDao {
 	 * @param user
 	 */
 	public void  addUser(User user){
-		UserState us=new UserState();
-		us.setUsid(2);//2代表没有激活  1代表已经激活
-		user.setUserState(us);
-		user.setActiveCode(UUIDUtils.getUUID64WithoutLine());
-		user.setBalance(2000.00f);
-		UserType ut=new UserType();
-		ut.setUtid(1);//1代表普通用户 2代表管理员
 		hibernateTemplate.save(user);
 	}
 	

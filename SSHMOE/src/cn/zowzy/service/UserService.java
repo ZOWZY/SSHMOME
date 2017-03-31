@@ -3,8 +3,12 @@ package cn.zowzy.service;
 
 import java.util.List;
 
+import cn.zjh.uuid.UUIDUtils;
 import cn.zowzy.dao.UserDao;
 import cn.zowzy.entity.User;
+import cn.zowzy.entity.UserState;
+import cn.zowzy.entity.UserType;
+import cn.zowzy.util.MailUtils;
 
 /**
  * 
@@ -66,10 +70,27 @@ public class UserService {
 	 * @param user
 	 */
 	public void addUser(User user){
-		if(user==null)
-			return;
-		else
-			userDao.addUser(user);
+		if(user==null){
+			return;			
+		}else{
+			UserState us=new UserState();
+			us.setUsid(2);//2代表没有激活  1代表已经激活
+			String activeCode=UUIDUtils.getUUID64WithoutLine();
+			user.setActiveCode(activeCode);
+			user.setUserState(us);
+			user.setBalance(2000.00f);
+			UserType ut=new UserType();
+			ut.setUtid(1);//1代表普通用户 2代表管理员
+			//发送邮件
+			//TODO   添加参数
+			MailUtils mail=new MailUtils();
+			mail.setFilePath("");
+			mail.setId("");
+			mail.setUrl("");
+			mail.setSubject("修改登陆密码");
+			mail.sendMail(user.getEmail(), activeCode);
+			userDao.addUser(user);			
+		}
 	}
 	
 	/**

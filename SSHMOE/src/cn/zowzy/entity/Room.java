@@ -27,12 +27,12 @@ public class Room {
 	private String description;  //房源的描述
 	private Integer bad;  //房源的床的数目
 	private Integer badroom; //房源卧室的数目
-	private Integer bathroom; //房源是否有卫生间
-	private Integer kitchen; //房源是否有厨房
-	private Integer wifi; //房源是否有wifi
+	private Boolean bathroom; //房源是否有卫生间
+	private Boolean kitchen; //房源是否有厨房
+	private Boolean wifi; //房源是否有wifi
 	private Integer tv; //房源有电视的数目
-	private Integer park; //房源是否有停车位
-	private Integer lift; //房源是否有电梯
+	private Boolean park; //房源是否有停车位
+	private Boolean lift; //房源是否有电梯
 	
 	//还需要用户信息  房源类型  房源状态  房屋守则  收藏
 	private User user=new User();
@@ -167,40 +167,91 @@ public class Room {
 	public void setBadroom(Integer badroom) {
 		this.badroom = badroom;
 	}
-	public Integer getBathroom() {
-		return bathroom;
-	}
-	public void setBathroom(Integer bathroom) {
-		this.bathroom = bathroom;
-	}
-	public Integer getKitchen() {
-		return kitchen;
-	}
-	public void setKitchen(Integer kitchen) {
-		this.kitchen = kitchen;
-	}
-	public Integer getWifi() {
-		return wifi;
-	}
-	public void setWifi(Integer wifi) {
-		this.wifi = wifi;
-	}
+	
 	public Integer getTv() {
 		return tv;
 	}
 	public void setTv(Integer tv) {
 		this.tv = tv;
 	}
-	public Integer getPark() {
+
+
+
+
+
+	public Boolean getBathroom() {
+		return bathroom;
+	}
+
+
+
+
+
+	public void setBathroom(Boolean bathroom) {
+		this.bathroom = bathroom;
+	}
+
+
+
+
+
+	public Boolean getKitchen() {
+		return kitchen;
+	}
+
+
+
+
+
+	public void setKitchen(Boolean kitchen) {
+		this.kitchen = kitchen;
+	}
+
+
+
+
+
+	public Boolean getWifi() {
+		return wifi;
+	}
+
+
+
+
+
+	public void setWifi(Boolean wifi) {
+		this.wifi = wifi;
+	}
+
+
+
+
+
+	public Boolean getPark() {
 		return park;
 	}
-	public void setPark(Integer park) {
+
+
+
+
+
+	public void setPark(Boolean park) {
 		this.park = park;
 	}
-	public Integer getLift() {
+
+
+
+
+
+	public Boolean getLift() {
 		return lift;
 	}
-	public void setLift(Integer lift) {
+
+
+
+
+
+	public void setLift(Boolean lift) {
 		this.lift = lift;
 	}
 	

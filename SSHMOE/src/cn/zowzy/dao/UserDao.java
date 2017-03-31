@@ -134,14 +134,14 @@ public class UserDao {
 	
 	
 	/**
-	 * 根据32为激活码修改密码
+	 * 根据32为激活码修改登陆密码
 	 * @param activeCode  激活码
 	 * @param password  新密码
 	 * @return  修改true修改成功，false修改失败
 	 */
 	public Boolean  changePasswordByActiveCode(String activeCode,String password){
 		
-		if(activeCode==null||activeCode.length()!=32||activeCode.length()!=64){
+		if(activeCode==null||activeCode.length()!=32){
 			return false;
 		}
 		if(password==null||password.length()<=0){
@@ -149,20 +149,46 @@ public class UserDao {
 		}
 		
 		Boolean result=false;
-		
-		if(activeCode.length()!=32){//如果激活码不是32位  不允许修改
-			return false;
-		}
 		User user=findUserByActiveCode(activeCode);
 		if(user==null){//如果没有此验证码的用户
 			return false;
 		}else{
-			user.setPassword(password);
-			hibernateTemplate.update(user);
-			result=true;
+			//3代表等待修改登陆密码的状态
+			if(user.getUserState().getUsid().equals(3)){
+				user.setPassword(password);
+				user.getUserState().setUsid(1);
+				hibernateTemplate.update(user);
+				result=true;
+			}
+		
 		}
 		
 		return result;
+	}
+	
+	/**
+	 * 根据64位激活码更改支付密码
+	 * @param username
+	 * @param activeCode
+	 */
+	public void changePayPassword(String username,String activeCode,String payPassword){
+		if(username==null||username.length()<=0){
+			return;
+		}else if(activeCode==null||activeCode.length()!=64){
+			return;
+		}else{
+			User user = findUserByActiveCode(activeCode);
+			if(user==null){
+				return;
+			}else{
+				//4代表等待修改支付密码
+				if(user.getUserState().getUsid().equals(4)){
+					user.setPayPassword(payPassword);
+					user.getUserState().setUsid(1);
+					hibernateTemplate.update(user);
+				}
+			}
+		}
 	}
 	
 	

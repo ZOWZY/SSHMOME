@@ -126,4 +126,189 @@ public class RoomDao {
 	}
 	
 	
+	/**
+	 * 根据roomid修改房源的标题
+	 * @param roomid
+	 * @param title
+	 */
+	public void changeRoomTitle(String roomid,String title){
+		if(roomid==null){
+			return;
+		}else if(roomid.length()<=0){
+			return;
+		}else if(title==null){
+			return;
+		}else if(title.length()<=0){
+			return;
+		}else {
+			Room room = findRoomByRoomid(roomid);
+			if(room==null){
+				return;
+			}else{
+				room.setTitle(title);
+				hibernateTemplate.update(room);
+			}
+		}
+	}
+	
+	/**
+	 * 根据房源编号修改房源的评分
+	 * @param roomid
+	 * @param score
+	 */
+	public void changeScore(String roomid,float score){
+		if(roomid==null){
+			return;
+		}else if(roomid.length()<=0){
+			return;
+		}else if(score<=0){
+			return;
+		}else {
+			Room room = findRoomByRoomid(roomid);
+			if(room==null){
+				return;
+			}else{
+				room.setScore(score);
+				hibernateTemplate.update(room);
+			}
+		}
+	}
+	
+	/**
+	 * 根据房源编号修改房源描述
+	 * @param roomid
+	 * @param description
+	 */
+	public void changeDescription(String roomid,String description){
+		if(roomid==null){
+			return;
+		}else if(roomid.length()<=0){
+			return;
+		}else {
+			Room room = findRoomByRoomid(roomid);
+			if(room==null){
+				return;
+			}else{
+				room.setDescription(description);
+				hibernateTemplate.update(room);
+			}
+		}
+	}
+	
+	/**
+	 * 根据房源编号修改房源的床的数目
+	 * @param roomid
+	 * @param bad
+	 */
+	public void changeBad(String roomid,Integer bad){
+		if(roomid==null){
+			return;
+		}else if(roomid.length()<=0){
+			return;
+		}else if(bad<=0){
+			return;
+		}else{
+			Room room = findRoomByRoomid(roomid);
+			if(room==null){
+				return;
+			}else{
+				room.setBad(bad);
+				hibernateTemplate.update(room);
+			}
+		}
+	}
+	
+	/**
+	 * 根据房源编号修改是否有wifi
+	 * @param roomid
+	 * @param wifi
+	 */
+	public void changeWifi(String roomid ,Boolean wifi){
+		if(roomid==null){
+			return;
+		}else if(roomid.length()<=0){
+			return;
+		}else if(wifi==null){
+			wifi=false;
+		}else{
+			Room room = findRoomByRoomid(roomid);
+			if(room==null){
+				return ;
+			}else{
+				room.setWifi(wifi);
+				hibernateTemplate.update(room);
+			}
+		}
+	}
+	
+	/**
+	 * 根据房源编号修改TV的数目
+	 * @param roomid
+	 * @param tv
+	 */
+	public void changeTv(String roomid,Integer  tv){
+		if(roomid==null){
+			return;
+		}else if(roomid.length()<=0){
+			return;
+		}else if(tv<0){
+			tv=0;
+			Room room = findRoomByRoomid(roomid);
+			if(room==null){
+				return;
+			}else{
+				room.setTv(tv);
+				hibernateTemplate.update(room);
+			}
+			
+		}
+	}
+	
+	
+	/**
+	 * 根据房源编号修改是否有停车位
+	 * @param roomid
+	 * @param park
+	 */
+	public void changePark(String roomid,Boolean park){
+		if(roomid==null){
+			return;
+		}else if(roomid.length()<=0){
+			return;
+		}else if(park==null){
+			park=false;
+		}else{
+			Room room = findRoomByRoomid(roomid);
+			if(room==null){
+				return;
+			}else{
+				room.setPark(park);
+				hibernateTemplate.update(room);
+			}
+		}
+	}
+	
+	/**
+	 * 根据房源编号修改是否有电梯
+	 * @param roomid
+	 * @param lift
+	 */
+	public void changeLift(String roomid,Boolean lift){
+		if(roomid==null){
+			return;
+		}else if(roomid.length()<=0){
+			return;
+		}else if(lift==null){
+			lift=false;
+			Room room = findRoomByRoomid(roomid);
+			if(room==null){
+				return;
+			}else{
+				room.setLift(lift);
+				hibernateTemplate.update(room);
+			}
+		}
+	}
+	
+	
 }

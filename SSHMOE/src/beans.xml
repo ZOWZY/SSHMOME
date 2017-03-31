@@ -43,6 +43,12 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<bean  id="CollectService"  class="cn.zowzy.service.CollectService">
 		<property name="collectDao"  ref="CollectDao"></property>
 	</bean>
+	<bean  id="RoomRuleService"  class="cn.zowzy.service.RoomRuleService">
+		<property name="roomruleDao"  ref="RoomRuleDao"></property>
+	</bean>
+	<bean  id="RoomService"  class="cn.zowzy.service.RoomService">
+		<property name="roomDao"  ref="RoomDao"></property>
+	</bean>
 	
 	
 	

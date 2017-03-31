@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 约束 -->
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://www.hibernamte.org.dtd/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping>
+	<class  name="cn.zowzy.entity.RoomRule"  table="roomrule">
+		<id  name="rrid"   column="rrid">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="content" column="content"></property>
+		
+		<many-to-one name="room"  class="cn.zowzy.entity.Room" column="roomid"></many-to-one>
+		
+	</class>
+
+</hibernate-mapping>

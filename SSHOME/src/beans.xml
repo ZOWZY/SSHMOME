@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 全的约束 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- ================配置entity bean================= -->
+	
+
+
+	<!-- ================配置dao bean================= -->
+	<bean  id="UserDao"  class="cn.zowzy.dao.UserDao">
+		<property name="hibernateTemplate"  ref="hibernateTemplate"></property>
+	</bean>
+	<bean  id="CollectDao"  class="cn.zowzy.dao.CollectDao">
+		<property name="hibernateTemplate"  ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="RoomDao"  class="cn.zowzy.dao.RoomDao">
+		<property name="hibernateTemplate"  ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="RoomRuleDao"  class="cn.zowzy.dao.RoomRuleDao">
+		<property name="hibernateTemplate"  ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="OrdersDao"  class="cn.zowzy.dao.OrdersDao">
+		<property name="hibernateTemplate"  ref="hibernateTemplate"></property>
+	</bean>
+	
+	
+	
+	<!-- ================配置action bean================= -->
+	<bean  id="LoginAndRegisterAction"  class="cn.zowzy.action.LoginAndRegisterAction">
+		<property name="userService"  ref="UserService"></property>
+	</bean>
+	
+	
+	
+	
+	<!-- ================配置service bean================= -->
+	<bean  id="UserService"  class="cn.zowzy.service.UserService">
+		<property name="userDao"  ref="UserDao"></property>
+	</bean>
+	<bean  id="CollectService"  class="cn.zowzy.service.CollectService">
+		<property name="collectDao"  ref="CollectDao"></property>
+	</bean>
+	<bean  id="RoomRuleService"  class="cn.zowzy.service.RoomRuleService">
+		<property name="roomruleDao"  ref="RoomRuleDao"></property>
+	</bean>
+	<bean  id="RoomService"  class="cn.zowzy.service.RoomService">
+		<property name="roomDao"  ref="RoomDao"></property>
+	</bean>
+	
+	
+	
+	<!-- ================配置HibernateTemplate bean================= -->
+	<bean id="hibernateTemplate"  class="org.springframework.orm.hibernate5.HibernateTemplate">
+		<property name="sessionFactory"  ref="sessionFactory"></property>
+	</bean>
+
+</beans>

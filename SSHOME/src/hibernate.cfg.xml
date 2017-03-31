@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+
+<hibernate-configuration>
+	<session-factory>
+		<!--1 配置数据库的信息  必须要有  但是已经在spring中配置-->
+		<!--  
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/customer_contacts?useUnicode=true&amp;characterEncoding=utf8</property>
+		<property name="hibernate.connection.username">ZJH</property>
+    	<property name="hibernate.connection.password">123456</property>-->
+	<!-- 
+		<property name="hibernate.connection.useUnicode">true</property> 
+		<property name="hibernate.connection.characterEncoding">UTF-8</property> 
+	 -->
+	
+		<!--2 配置hibernate的信息  可选的 -->
+		<property name="hibernate.show_sql">true</property><!-- 输出底层的sql语句 -->
+		<property name="hibernate.format_sql">true</property><!-- 格式化输出sql语句 -->
+		<!-- hibernate会帮助创建表，但是需要配置以后才会
+			update在有表时，会更新表，没有表时会创建表
+		 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<!-- 让hibernate识别不同数据库里面的关键字 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		<!-- 在hibernate中配置session与本地线程绑定 ☆保证整个项目是一个session-->
+		<!-- <property name="hibernate.current_session_context_class">thread</property> -->
+		
+		
+		<!--3 配置映射文件，使其得到加载  必须要有 -->
+		<mapping  resource="cn/zowzy/entity/collect.hbm.xml"/>
+		
+		<mapping  resource="cn/zowzy/entity/order.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/orderstate.hbm.xml"/>
+		
+		<mapping  resource="cn/zowzy/entity/room.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/roomtype.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/roomrule.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/roomstate.hbm.xml"/>
+		
+		<mapping  resource="cn/zowzy/entity/user.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/userstate.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/usertype.hbm.xml"/>
+		
+		
+		
+		
+	</session-factory>
+</hibernate-configuration>

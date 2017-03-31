@@ -118,6 +118,7 @@ public class MailUtils {
 		try {
 			Document doc = Jsoup.parse(input, "UTF-8", baseUrl);
 			Element element=doc.getElementById(id);
+			//TODO 从新拼接url 加上激活码
 			element.attr("href", url);
 			element.append(url);
 			html=doc.toString();
@@ -130,10 +131,10 @@ public class MailUtils {
 	
 	public static void main(String[] args) {
 		MailUtils m=new MailUtils();
-		m.setFilePath("E:/DevelopmentProject/Git/SSHOME/SSHMOE/WebRoot/WEB-INF/mails/UserActive.html");
+		m.setFilePath("E:/DevelopmentProject/Git/SSHOME/SSHOME/WebRoot/WEB-INF/mails/PswChange.html");
 		m.setId("url");
 		m.setSubject("账号激活");
 		m.setUrl("www.baidu.com");
-		m.sendMail("799243917@qq.com", "789456123");
+		m.sendMail("842088077@qq.com", "789456123");
 	}
 }

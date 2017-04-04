@@ -128,7 +128,7 @@ public class MailUtils {
 		return html;
 	}
 	
-	
+	/*
 	public static void main(String[] args) {
 		MailUtils m=new MailUtils();
 		m.setFilePath("E:/DevelopmentProject/Git/SSHOME/SSHOME/WebRoot/WEB-INF/mails/PswChange.html");
@@ -136,5 +136,5 @@ public class MailUtils {
 		m.setSubject("’À∫≈º§ªÓ");
 		m.setUrl("www.baidu.com");
 		m.sendMail("842088077@qq.com", "789456123");
-	}
+	}*/
 }

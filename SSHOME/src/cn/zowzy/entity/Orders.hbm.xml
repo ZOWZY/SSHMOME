@@ -6,15 +6,18 @@
 -->
 <hibernate-mapping>
     <class name="cn.zowzy.entity.Orders" table="orders" catalog="sshome">
-        <id name="oid" type="java.lang.Integer">
-            <column name="oid" />
-            <generator class="cn.zowzy.util.MakeOrderNum" />
+        <id name="oid" type="java.lang.String">
+            <column name="oid" length="80" />
+            <generator class="native" />
         </id>
         <many-to-one name="orderstate" class="cn.zowzy.entity.Orderstate" fetch="select">
             <column name="osid" />
         </many-to-one>
         <many-to-one name="usersByUsername" class="cn.zowzy.entity.Users" fetch="select">
             <column name="username" length="50" />
+        </many-to-one>
+        <many-to-one name="room" class="cn.zowzy.entity.Room" fetch="select">
+            <column name="rid" />
         </many-to-one>
         <many-to-one name="usersByUseUsername" class="cn.zowzy.entity.Users" fetch="select">
             <column name="Use_username" length="50" />

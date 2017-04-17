@@ -25,6 +25,7 @@ public class RoomDao {
 	}
 
 	/**
+	 * 添加房源信息
 	 * 
 	 * @param room
 	 */
@@ -35,8 +36,10 @@ public class RoomDao {
 	}
 
 	/**
+	 * 根据房源编号查询房源信息
 	 * 
 	 * @param roomid
+	 *            房源编号
 	 * @return
 	 */
 	public Room findRoomByRoomid(String roomid) {
@@ -50,8 +53,10 @@ public class RoomDao {
 	}
 
 	/**
+	 * 根据用户名查询房源信息
 	 * 
 	 * @param username
+	 *            用户名
 	 * @return
 	 */
 	public List<Room> findRoomsByUsername(String username) {
@@ -65,9 +70,12 @@ public class RoomDao {
 	}
 
 	/**
+	 * 根据房源编号改变房源状态
 	 * 
 	 * @param roomid
+	 *            房源编号
 	 * @param roomStateid
+	 *            房源状态编号
 	 */
 	public void changeRoomState(String roomid, String roomStateid) {
 		if (roomid == null || roomid.length() <= 0) {
@@ -85,8 +93,10 @@ public class RoomDao {
 	}
 
 	/**
+	 * 删除房源
 	 * 
 	 * @param roomid
+	 *            房源编号
 	 */
 	public void deleteRoom(String roomid) {
 		Room room = findRoomByRoomid(roomid);
@@ -98,9 +108,12 @@ public class RoomDao {
 	}
 
 	/**
+	 * 根据房源编号修改房源的价格
 	 * 
 	 * @param roomid
+	 *            房源编号
 	 * @param price
+	 *            价格
 	 */
 	public void changeRoomPrice(String roomid, float price) {
 		if (roomid == null || roomid.length() <= 0) {
@@ -118,9 +131,12 @@ public class RoomDao {
 	}
 
 	/**
+	 * 根据房源编号修改房源的标题
 	 * 
 	 * @param roomid
+	 *            房源编号
 	 * @param title
+	 *            房源标题
 	 */
 	public void changeRoomTitle(String roomid, String title) {
 		if (roomid == null) {
@@ -143,9 +159,12 @@ public class RoomDao {
 	}
 
 	/**
+	 * 根据房源编号修改房源的评分
 	 * 
 	 * @param roomid
+	 *            房源编号
 	 * @param score
+	 *            评分
 	 */
 	public void changeScore(String roomid, float score) {
 		if (roomid == null) {
@@ -166,9 +185,12 @@ public class RoomDao {
 	}
 
 	/**
+	 * 根据房源的编号修改房源的描述
 	 * 
 	 * @param roomid
+	 *            房源编号
 	 * @param description
+	 *            描述
 	 */
 	public void changeDescription(String roomid, String description) {
 		if (roomid == null) {

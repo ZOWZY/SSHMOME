@@ -25,7 +25,7 @@ public class OrdersDao {
 	}
 
 	/**
-	 * ��ѯ���ж���
+	 * 查询所有订单
 	 * 
 	 * @return
 	 */
@@ -36,25 +36,28 @@ public class OrdersDao {
 	}
 
 	/**
-	 * ���Ҹ��û����������ж���
+	 * 根据用户名查询订单
 	 * 
 	 * @param username
+	 *            用户名
 	 * @return
 	 */
 	public List<Orders> findOrdersByUsername(String username) {
 		if (username == null || username.length() <= 0) {
 			return null;
 		}
-		String hql = " from Orders where usernameid=?";
+		String hql = " from Orders where username=?";
 		List<Orders> list = (List<Orders>) hibernateTemplate.find(hql, username);
 		return list;
 	}
 
 	/**
-	 * ��ѯ�û�����ĳ����Դ�Ĵ�����ȫ������
+	 * 根据用户名和房源编号查询订单
 	 * 
 	 * @param username
+	 *            用户名
 	 * @param roomid
+	 *            房源编号
 	 * @return
 	 */
 	public List<Orders> findOrdersByUsername(String username, String roomid) {
@@ -64,15 +67,16 @@ public class OrdersDao {
 			return null;
 		}
 
-		String hql = " from Orders where usernameid=? and roomid=?";
+		String hql = " from Orders where username=? and rid=?";
 		List<Orders> list = (List<Orders>) hibernateTemplate.find(hql, username, roomid);
 		return list;
 	}
 
 	/**
-	 * ��ѯ�û��ܵ�֧��
+	 * 根据用户名查询所有的消费
 	 * 
 	 * @param username
+	 *            用户名
 	 * @return
 	 */
 	public float queryAllCostByUsername(String username) {
@@ -82,7 +86,7 @@ public class OrdersDao {
 		List<Orders> list = findAllOrders();
 		float allCost = 0;
 		for (Orders orders : list) {
-			// 2�����Ѿ����֧���Ķ���
+			// 2代表已经完成的订单
 			if (orders.getOrderstate().getOsid() == 2) {
 				allCost += orders.getCost();
 			}
@@ -91,9 +95,10 @@ public class OrdersDao {
 	}
 
 	/**
-	 * ���ݶ�����Ų�ѯ����
+	 * 根据订单编号查询订单
 	 * 
 	 * @param orderid
+	 *            订单编号
 	 * @return
 	 */
 	public Orders findOrdersByOrderid(String orderid) {
@@ -110,10 +115,12 @@ public class OrdersDao {
 	}
 
 	/**
-	 * ���ݶ���״̬�޸Ķ������˷�ʱ��
+	 * 根据订单修改退房时间
 	 * 
 	 * @param orderid
+	 *            订单编号
 	 * @param date
+	 *            时间
 	 */
 	public void changeCheckoutTime(String orderid, Timestamp date) {
 		if (orderid == null || orderid.length() <= 0) {
@@ -132,10 +139,12 @@ public class OrdersDao {
 	}
 
 	/**
-	 * ���ݶ�������޸���סʱ��
+	 * 根据订单编号修改入住时间
 	 * 
 	 * @param orderid
+	 *            订单编号
 	 * @param date
+	 *            时间
 	 */
 	public void changeCheckinTime(String orderid, Timestamp date) {
 		if (orderid == null || orderid.length() <= 0) {
@@ -154,10 +163,14 @@ public class OrdersDao {
 	}
 
 	/**
+	 * 根据订单编号添加评论
 	 * 
 	 * @param orderid
+	 *            订单编号
 	 * @param comment
+	 *            评论
 	 * @param score
+	 *            评分
 	 */
 	public void addComments(String orderid, String comment, float score) {
 		if (orderid == null || orderid.length() <= 0) {

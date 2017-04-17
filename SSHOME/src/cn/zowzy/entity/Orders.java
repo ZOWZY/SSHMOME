@@ -10,9 +10,10 @@ public class Orders implements java.io.Serializable {
 
 	// Fields
 
-	private Integer oid;
+	private String oid;
 	private Orderstate orderstate;
 	private Users usersByUsername;
+	private Room room;
 	private Users usersByUseUsername;
 	private Timestamp undatetime;
 	private Timestamp datetime;
@@ -31,20 +32,19 @@ public class Orders implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Orders(Integer oid, Timestamp datetime, Float cost, Integer personnumber) {
-		this.oid = oid;
+	public Orders(Timestamp datetime, Float cost, Integer personnumber) {
 		this.datetime = datetime;
 		this.cost = cost;
 		this.personnumber = personnumber;
 	}
 
 	/** full constructor */
-	public Orders(Integer oid, Orderstate orderstate, Users usersByUsername, Users usersByUseUsername,
+	public Orders(Orderstate orderstate, Users usersByUsername, Room room, Users usersByUseUsername,
 			Timestamp undatetime, Timestamp datetime, Float cost, Integer personnumber, Timestamp checkintime,
 			Timestamp checkouttime, String remark, String comments, Float commentsscore) {
-		this.oid = oid;
 		this.orderstate = orderstate;
 		this.usersByUsername = usersByUsername;
+		this.room = room;
 		this.usersByUseUsername = usersByUseUsername;
 		this.undatetime = undatetime;
 		this.datetime = datetime;
@@ -59,11 +59,11 @@ public class Orders implements java.io.Serializable {
 
 	// Property accessors
 
-	public Integer getOid() {
+	public String getOid() {
 		return this.oid;
 	}
 
-	public void setOid(Integer oid) {
+	public void setOid(String oid) {
 		this.oid = oid;
 	}
 
@@ -81,6 +81,14 @@ public class Orders implements java.io.Serializable {
 
 	public void setUsersByUsername(Users usersByUsername) {
 		this.usersByUsername = usersByUsername;
+	}
+
+	public Room getRoom() {
+		return this.room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
 	}
 
 	public Users getUsersByUseUsername() {

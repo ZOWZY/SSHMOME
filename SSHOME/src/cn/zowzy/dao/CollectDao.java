@@ -1,6 +1,5 @@
 package cn.zowzy.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.orm.hibernate5.HibernateTemplate;
@@ -9,15 +8,12 @@ import cn.zowzy.entity.Collect;
 
 /**
  * 
-*  
-* �����ƣ�CollectDao   
-* ���������ղ����ݿ������   
-* �����ˣ�ZJH   
-* ����ʱ�䣺2017��3��30�� ����9:05:55     
-*
+ * 
+ * 类名称：CollectDao 类描述： 创建人：ZJH 创建时间：2017年4月17日 下午11:05:19
+ *
  */
 public class CollectDao {
-	private HibernateTemplate hibernateTemplate=new HibernateTemplate();
+	private HibernateTemplate hibernateTemplate = new HibernateTemplate();
 
 	public HibernateTemplate getHibernateTemplate() {
 		return hibernateTemplate;
@@ -26,87 +22,89 @@ public class CollectDao {
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}
-	
+
 	/**
-	 * ����ղ�
-	 * @param collect  �ղض���
+	 * 添加收藏
+	 * 
+	 * @param collect
 	 */
-	public void addCollect(Collect collect){
-		if(collect!=null){
-			hibernateTemplate.save(collect);			
+	public void addCollect(Collect collect) {
+		if (collect != null) {
+			hibernateTemplate.save(collect);
 		}
 	}
-	
-	
+
 	/**
-	 * ��ѯ�����ղ�
+	 * 查询所有收藏
+	 * 
 	 * @return
 	 */
-	public List<Collect>  findAll(){
-		String hql="from Collect";
+	public List<Collect> findAll() {
+		String hql = "from Collect";
 		List<Collect> list = (List<Collect>) hibernateTemplate.find(hql);
 		return list;
 	}
-	
-	
+
 	/**
-	 * �����û�����ѯ�ղ�
+	 * 根据用户名查询收藏
+	 * 
 	 * @param username
+	 *            用户名
 	 * @return
 	 */
-	public List<Collect> findCollectsByUsername(String username){
-		if(username==null||username.length()<=0){
+	public List<Collect> findCollectsByUsername(String username) {
+		if (username == null || username.length() <= 0) {
 			return null;
 		}
-		String hql="from Collect where usernameid=?";
+		String hql = "from Collect where usernameid=?";
 		List<Collect> list = (List<Collect>) hibernateTemplate.find(hql, username);
 		return list;
 	}
-	
+
 	/**
-	 *根据ROOMID查询收藏
+	 * 根据ROOMID查询收藏
+	 * 
 	 * @param roomid
 	 * @return
 	 */
-	public List<Collect> findCollectsByRoomId(String roomid){
-		
-		if(roomid==null||roomid.length()<=0){
-			return  null;
+	public List<Collect> findCollectsByRoomId(String roomid) {
+
+		if (roomid == null || roomid.length() <= 0) {
+			return null;
 		}
-		
-		String hql="from Collect where roomid=?";
+
+		String hql = "from Collect where roomid=?";
 		List<Collect> list = (List<Collect>) hibernateTemplate.find(hql, roomid);
-		
+
 		return list;
-	} 
-	
-	
-	
+	}
+
 	/**
-	 * �����û����ͷ�Դ���ȡ���ղ�
+	 * 根据用户名和房源编号取消收藏
+	 * 
 	 * @param username
+	 *            用户名
 	 * @param roomid
-	 * @return  trueȡ���ղسɹ� ��falseȡ���ղ�ʧ��
+	 *            房源编号
+	 * @return
 	 */
-	public boolean cancleCollect(String username,String roomid){
-		if(roomid==null||roomid.length()<=0||username==null||username.length()<=0){
-			return  false;
+	public boolean cancleCollect(String username, String roomid) {
+		if (roomid == null || roomid.length() <= 0 || username == null || username.length() <= 0) {
+			return false;
 		}
-		boolean result=true;
-		String hql="from Collect where usernameid=? and roomid=?";
-		List<Collect> list = (List<Collect>) hibernateTemplate.find(hql, username,roomid);
-		
-		if(list==null){//���û������ղ�
-			result=false;
-		}else if(list.size()>0){
-			Collect entity=list.get(0);
+		boolean result = true;
+		String hql = "from Collect where usernameid=? and roomid=?";
+		List<Collect> list = (List<Collect>) hibernateTemplate.find(hql, username, roomid);
+
+		if (list == null) {
+			result = false;
+		} else if (list.size() > 0) {
+			Collect entity = list.get(0);
 			hibernateTemplate.delete(entity);
-		}else{
-			result=false;
+		} else {
+			result = false;
 		}
 		return result;
 	}
-	
-	
-	
+
 }

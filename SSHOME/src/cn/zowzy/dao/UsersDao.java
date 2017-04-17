@@ -25,7 +25,7 @@ public class UsersDao {
 	}
 
 	/**
-	 * ���������û�
+	 * 查询所有的用户
 	 * 
 	 * @return
 	 */
@@ -36,11 +36,11 @@ public class UsersDao {
 	}
 
 	/**
-	 * �����û�����������
+	 * 根据用户名查询登陆密码
 	 * 
 	 * @param username
-	 *            �û���
-	 * @return ����
+	 *            用户名
+	 * @return
 	 */
 	public String findPasswordByUsername(String username) {
 		if (username == null || username.length() <= 0) {
@@ -56,9 +56,30 @@ public class UsersDao {
 	}
 
 	/**
-	 * ���ݼ���������û�
+	 * 根据用户名查询用户的支付密码
+	 * 
+	 * @param username
+	 *            用户名
+	 * @return
+	 */
+	public String findPayPasswordByUsername(String username) {
+		if (username == null || username.length() <= 0) {
+			return null;
+		}
+		String hql = "from User where username=?";
+		List<Users> list = (List<Users>) hibernateTemplate.find(hql, username);
+		String password = "";
+		if (list != null && list.size() > 0) {
+			password = list.get(0).getPaypassword();
+		}
+		return password;
+	}
+
+	/**
+	 * 根据激活码查询用户
 	 * 
 	 * @param activeCode
+	 *            激活码
 	 * @return
 	 */
 	public Users findUserByActiveCode(String activeCode) {
@@ -75,9 +96,10 @@ public class UsersDao {
 	}
 
 	/**
-	 * �����û��������û�
+	 * 根据用户名查询用户
 	 * 
 	 * @param username
+	 *            用户名
 	 * @return
 	 */
 	public Users findUserByUsername(String username) {
@@ -94,7 +116,7 @@ public class UsersDao {
 	}
 
 	/**
-	 * �����ͨ�û�
+	 * 添加用户
 	 * 
 	 * @param user
 	 */
@@ -103,9 +125,10 @@ public class UsersDao {
 	}
 
 	/**
-	 * ���ݼ����뼤���û�
+	 * 根据激活码激活用户
 	 * 
 	 * @param activeCode
+	 *            激活码
 	 */
 	public void activeUser(String activeCode) {
 		if (activeCode == null || activeCode.length() != 32 || activeCode.length() != 64) {
@@ -124,13 +147,13 @@ public class UsersDao {
 	}
 
 	/**
-	 * ����32Ϊ�������޸ĵ�½����
+	 * 根据修改密码的验证码修改密码
 	 * 
 	 * @param activeCode
-	 *            ������
+	 *            验证码
 	 * @param password
-	 *            ������
-	 * @return �޸�true�޸ĳɹ���false�޸�ʧ��
+	 *            新密码
+	 * @return
 	 */
 	public Boolean changePasswordByActiveCode(String activeCode, String password) {
 
@@ -160,10 +183,14 @@ public class UsersDao {
 	}
 
 	/**
-	 * ����64λ���������֧������
+	 * 根据用户名和修改支付密码的验证码修改支付密码
 	 * 
 	 * @param username
+	 *            用户名
 	 * @param activeCode
+	 *            验证码
+	 * @param payPassword
+	 *            新的支付密码
 	 */
 	public void changePayPassword(String username, String activeCode, String payPassword) {
 		if (username == null || username.length() <= 0) {

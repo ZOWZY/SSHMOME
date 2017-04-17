@@ -1,6 +1,6 @@
 package cn.zowzy.dao;
 
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.orm.hibernate5.HibernateTemplate;
@@ -9,12 +9,9 @@ import cn.zowzy.entity.Orders;
 
 /**
  * 
-*  
-* ÀàÃû³Æ£ºOrdersDao   
-* ÀàÃèÊö£º¶©µ¥²Ù×÷Êı¾İ¿âÀà   
-* ´´½¨ÈË£ºZJH   
-* ´´½¨Ê±¼ä£º2017Äê3ÔÂ31ÈÕ ÏÂÎç3:46:22     
-*
+ * 
+ * ç±»åç§°ï¼šOrdersDao ç±»æè¿°ï¼š åˆ›å»ºäººï¼šZJH åˆ›å»ºæ—¶é—´ï¼š2017å¹´4æœˆ17æ—¥ ä¸‹åˆ10:27:54
+ *
  */
 public class OrdersDao {
 	private HibernateTemplate hibernateTemplate;
@@ -26,152 +23,157 @@ public class OrdersDao {
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}
-	
+
 	/**
-	 * ²éÑ¯ËùÓĞ¶©µ¥
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½
+	 * 
 	 * @return
 	 */
-	public List<Orders> findAllOrders(){
-		String hql=" from Orders";
+	public List<Orders> findAllOrders() {
+		String hql = " from Orders";
 		List<Orders> list = (List<Orders>) hibernateTemplate.find(hql);
 		return list;
 	}
-	
+
 	/**
-	 * ²éÕÒ¸ÃÓÃ»§´´½¨µÄËùÓĞ¶©µ¥
+	 * ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½
+	 * 
 	 * @param username
 	 * @return
 	 */
-	public List<Orders> findOrdersByUsername(String username){
-		if(username==null||username.length()<=0){
+	public List<Orders> findOrdersByUsername(String username) {
+		if (username == null || username.length() <= 0) {
 			return null;
 		}
-		String hql=" from Orders where usernameid=?";
-		List<Orders> list = (List<Orders>) hibernateTemplate.find(hql,username);
+		String hql = " from Orders where usernameid=?";
+		List<Orders> list = (List<Orders>) hibernateTemplate.find(hql, username);
 		return list;
 	}
-	
+
 	/**
-	 * ²éÑ¯ÓÃ»§¹ØÓÚÄ³¸ö·¿Ô´µÄ´´½¨µÄÈ«²¿¶©µ¥
+	 * ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½Ô´ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * 
 	 * @param username
 	 * @param roomid
 	 * @return
 	 */
-	public List<Orders> findOrdersByUsername(String username,String roomid){
-		if(username==null||username.length()<=0){
+	public List<Orders> findOrdersByUsername(String username, String roomid) {
+		if (username == null || username.length() <= 0) {
 			return null;
-		}else if(roomid==null||roomid.length()<=0){
+		} else if (roomid == null || roomid.length() <= 0) {
 			return null;
 		}
-		
-		String hql=" from Orders where usernameid=? and roomid=?";
-		List<Orders> list = (List<Orders>) hibernateTemplate.find(hql,username,roomid);
+
+		String hql = " from Orders where usernameid=? and roomid=?";
+		List<Orders> list = (List<Orders>) hibernateTemplate.find(hql, username, roomid);
 		return list;
 	}
-	
+
 	/**
-	 * ²éÑ¯ÓÃ»§×ÜµÄÖ§³ö
+	 * ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½ï¿½Üµï¿½Ö§ï¿½ï¿½
+	 * 
 	 * @param username
 	 * @return
 	 */
-	public float queryAllCostByUsername(String username){
-		if(username==null||username.length()<=0){
+	public float queryAllCostByUsername(String username) {
+		if (username == null || username.length() <= 0) {
 			return 0;
 		}
 		List<Orders> list = findAllOrders();
-		float allCost=0;
+		float allCost = 0;
 		for (Orders orders : list) {
-			//2´ú±íÒÑ¾­Íê³ÉÖ§¸¶µÄ¶©µ¥
-			if(orders.getOrderState().getOsid()==2){
-				allCost+=orders.getCost();
+			// 2ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½
+			if (orders.getOrderstate().getOsid() == 2) {
+				allCost += orders.getCost();
 			}
 		}
 		return allCost;
 	}
-	
+
 	/**
-	 * ¸ù¾İ¶©µ¥±àºÅ²éÑ¯¶©µ¥
+	 * ï¿½ï¿½ï¿½İ¶ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
+	 * 
 	 * @param orderid
 	 * @return
 	 */
-	public Orders findOrdersByOrderid(String orderid){
-		if(orderid==null||orderid.length()<=0){
-			return  null;
+	public Orders findOrdersByOrderid(String orderid) {
+		if (orderid == null || orderid.length() <= 0) {
+			return null;
 		}
-		String hql=" from Orders where oid=?";
+		String hql = " from Orders where oid=?";
 		List<Orders> list = (List<Orders>) hibernateTemplate.find(hql, orderid);
-		if(list!=null&&list.size()>0){
+		if (list != null && list.size() > 0) {
 			return list.get(0);
-		}else{
+		} else {
 			return null;
 		}
 	}
-	
-	
+
 	/**
-	 * ¸ù¾İ¶©µ¥×´Ì¬ĞŞ¸Ä¶©µ¥µÄÍË·¿Ê±¼ä
+	 * ï¿½ï¿½ï¿½İ¶ï¿½ï¿½ï¿½×´Ì¬ï¿½Ş¸Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë·ï¿½Ê±ï¿½ï¿½
+	 * 
 	 * @param orderid
 	 * @param date
 	 */
-	public void changeCheckoutTime(String orderid,Date date){
-		if(orderid==null||orderid.length()<=0){
+	public void changeCheckoutTime(String orderid, Timestamp date) {
+		if (orderid == null || orderid.length() <= 0) {
 			return;
 		}
-		if(date==null){
+		if (date == null) {
 			return;
 		}
 		Orders order = findOrdersByOrderid(orderid);
-		if(order==null){
+		if (order == null) {
 			return;
-		}else{
-			order.setCheckoutTime(date);
+		} else {
+			order.setCheckouttime(date);
 			hibernateTemplate.update(order);
 		}
 	}
-	
-	
+
 	/**
-	 * ¸ù¾İ¶©µ¥±àºÅĞŞ¸ÄÈë×¡Ê±¼ä
+	 * ï¿½ï¿½ï¿½İ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş¸ï¿½ï¿½ï¿½×¡Ê±ï¿½ï¿½
+	 * 
 	 * @param orderid
 	 * @param date
 	 */
-	public void changeCheckinTime(String orderid,Date date){
-		if(orderid==null||orderid.length()<=0){
+	public void changeCheckinTime(String orderid, Timestamp date) {
+		if (orderid == null || orderid.length() <= 0) {
 			return;
 		}
-		if(date==null){
+		if (date == null) {
 			return;
 		}
 		Orders order = findOrdersByOrderid(orderid);
-		if(order==null){
+		if (order == null) {
 			return;
-		}else{
-			order.setCheckinTime(date);
+		} else {
+			order.setCheckintime(date);
 			hibernateTemplate.update(order);
 		}
 	}
-	
+
 	/**
-	 * ¸ù¾İ¶©µ¥×´Ì¬ĞŞ¸Ä¶©µ¥µÄÆÀÂÛ
-	 * @param orderid  ¶©µ¥±àºÅ
-	 * @param comment  ¶©µ¥ÆÀÂÛ
-	 * @param score  ·¿Ô´ÆÀ·Ö
+	 * 
+	 * @param orderid
+	 * @param comment
+	 * @param score
 	 */
-	public void addComments(String orderid,String comment,float score){
-		if(orderid==null||orderid.length()<=0){
+	public void addComments(String orderid, String comment, float score) {
+		if (orderid == null || orderid.length() <= 0) {
 			return;
 		}
 		Orders order = findOrdersByOrderid(orderid);
-		if(order==null){
+		if (order == null) {
 			return;
-		}else{
-			if(score<0){
-				score=5;
+		} else {
+			if (score < 0) {
+				score = 5;
 			}
 			order.setComments(comment);
-			order.setScore(score);
+			order.setCommentsscore(score);
 			hibernateTemplate.update(order);
 		}
 	}
-	
+
 }

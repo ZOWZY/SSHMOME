@@ -8,16 +8,13 @@ import cn.zowzy.entity.Room;
 
 /**
  * 
-*  
-* ÀàÃû³Æ£ºRoomDao   
-* ÀàÃèÊö£º·¿Ô´µÄÊı¾İ¿â²Ù×÷Àà   
-* ´´½¨ÈË£ºZJH   
-* ´´½¨Ê±¼ä£º2017Äê3ÔÂ31ÈÕ ÉÏÎç9:05:55     
-*
+ * 
+ * ç±»åç§°ï¼šRoomDao ç±»æè¿°ï¼š åˆ›å»ºäººï¼šZJH åˆ›å»ºæ—¶é—´ï¼š2017å¹´4æœˆ17æ—¥ ä¸‹åˆ10:33:28
+ *
  */
 public class RoomDao {
 
-	private HibernateTemplate hibernateTemplate=new HibernateTemplate();
+	private HibernateTemplate hibernateTemplate = new HibernateTemplate();
 
 	public HibernateTemplate getHibernateTemplate() {
 		return hibernateTemplate;
@@ -26,289 +23,281 @@ public class RoomDao {
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}
-	
-	
+
 	/**
-	 * Ìí¼Ó·¿Ô´ĞÅÏ¢
-	 * @param room  ·¿Ô´ĞÅÏ¢¶ÔÏó
+	 * 
+	 * @param room
 	 */
-	public void addRoom(Room room){
-		if(room!=null){
+	public void addRoom(Room room) {
+		if (room != null) {
 			hibernateTemplate.save(room);
 		}
 	}
-	
-	
+
 	/**
-	 * ¸ù¾İroomid²éÑ¯·¿Ô´ĞÅÏ¢
+	 * 
 	 * @param roomid
 	 * @return
 	 */
-	public Room findRoomByRoomid(String roomid){
-		String hql=" from  Room where rid=?";
+	public Room findRoomByRoomid(String roomid) {
+		String hql = " from  Room where rid=?";
 		List<Room> list = (List<Room>) hibernateTemplate.find(hql, roomid);
-		if(list!=null&&list.size()>0){
+		if (list != null && list.size() > 0) {
 			return list.get(0);
-		}else{
-			return null;			
+		} else {
+			return null;
 		}
 	}
-	
-	
+
 	/**
-	 * ¸ù¾İÓÃ»§Ãû²éÑ¯¸ÃÓÃ»§µÄËùÓĞµÄ·¿Ô´
-	 * @param username ÓÃ»§Ãû
-	 * @return  roomµÄlist
+	 * 
+	 * @param username
+	 * @return
 	 */
-	public List<Room> findRoomsByUsername(String username){
-		String hql=" from  Room where usernameid=?";
+	public List<Room> findRoomsByUsername(String username) {
+		String hql = " from  Room where usernameid=?";
 		List<Room> list = (List<Room>) hibernateTemplate.find(hql, username);
-		if(list!=null){
+		if (list != null) {
 			return list;
-		}else{
-			return null;			
+		} else {
+			return null;
 		}
 	}
-	
-	
+
 	/**
-	 * ¸ù¾İ·¿Ô´±àºÅºÍĞÂµÄ·¿Ô´×´Ì¬±àºÅĞŞ¸Ä·¿Ô´×´Ì¬ĞÅÏ¢
-	 * @param roomid  ·¿Ô´±àºÅ
-	 * @param roomStateid  ·¿Ô´×´Ì¬±àºÅ  
+	 * 
+	 * @param roomid
+	 * @param roomStateid
 	 */
-	public void changeRoomState(String roomid,String roomStateid){
-		if(roomid==null||roomid.length()<=0){
+	public void changeRoomState(String roomid, String roomStateid) {
+		if (roomid == null || roomid.length() <= 0) {
 			return;
-		}else if(roomStateid==null||roomStateid.length()<=0){
-			return ;
+		} else if (roomStateid == null || roomStateid.length() <= 0) {
+			return;
 		}
-		Room room =findRoomByRoomid(roomid);
-		if(room==null){
-			return ;
-		}else{
-			room.getRoomState().setRsid(Integer.valueOf(roomStateid));
+		Room room = findRoomByRoomid(roomid);
+		if (room == null) {
+			return;
+		} else {
+			room.getRoomstate().setRsid(Integer.valueOf(roomStateid));
 			hibernateTemplate.update(room);
 		}
 	}
-	
+
 	/**
-	 * ¸ù¾İroomidÉ¾³ı·¿Ô´
+	 * 
 	 * @param roomid
 	 */
-	public void deleteRoom(String roomid){
-		Room room=findRoomByRoomid(roomid);
-		if(room==null){
+	public void deleteRoom(String roomid) {
+		Room room = findRoomByRoomid(roomid);
+		if (room == null) {
 			return;
-		}else{
+		} else {
 			hibernateTemplate.delete(room);
 		}
 	}
-	
-	
+
 	/**
-	 * ¸ù¾İ·¿Ô´±àºÅĞŞ¸Ä·¿Ô´µÄ¼Û¸ñ
+	 * 
 	 * @param roomid
 	 * @param price
 	 */
-	public void changeRoomPrice(String roomid,float price){
-		if(roomid==null||roomid.length()<=0){
+	public void changeRoomPrice(String roomid, float price) {
+		if (roomid == null || roomid.length() <= 0) {
 			return;
-		}else if(price<0){
+		} else if (price < 0) {
 			return;
 		}
-		Room room=findRoomByRoomid(roomid);
-		if(room==null){
+		Room room = findRoomByRoomid(roomid);
+		if (room == null) {
 			return;
-		}else {
+		} else {
 			room.setPrice(price);
 			hibernateTemplate.update(room);
 		}
 	}
-	
-	
+
 	/**
-	 * ¸ù¾İroomidĞŞ¸Ä·¿Ô´µÄ±êÌâ
+	 * 
 	 * @param roomid
 	 * @param title
 	 */
-	public void changeRoomTitle(String roomid,String title){
-		if(roomid==null){
+	public void changeRoomTitle(String roomid, String title) {
+		if (roomid == null) {
 			return;
-		}else if(roomid.length()<=0){
+		} else if (roomid.length() <= 0) {
 			return;
-		}else if(title==null){
+		} else if (title == null) {
 			return;
-		}else if(title.length()<=0){
+		} else if (title.length() <= 0) {
 			return;
-		}else {
+		} else {
 			Room room = findRoomByRoomid(roomid);
-			if(room==null){
+			if (room == null) {
 				return;
-			}else{
+			} else {
 				room.setTitle(title);
 				hibernateTemplate.update(room);
 			}
 		}
 	}
-	
+
 	/**
-	 * ¸ù¾İ·¿Ô´±àºÅĞŞ¸Ä·¿Ô´µÄÆÀ·Ö
+	 * 
 	 * @param roomid
 	 * @param score
 	 */
-	public void changeScore(String roomid,float score){
-		if(roomid==null){
+	public void changeScore(String roomid, float score) {
+		if (roomid == null) {
 			return;
-		}else if(roomid.length()<=0){
+		} else if (roomid.length() <= 0) {
 			return;
-		}else if(score<=0){
+		} else if (score <= 0) {
 			return;
-		}else {
+		} else {
 			Room room = findRoomByRoomid(roomid);
-			if(room==null){
+			if (room == null) {
 				return;
-			}else{
+			} else {
 				room.setScore(score);
 				hibernateTemplate.update(room);
 			}
 		}
 	}
-	
+
 	/**
-	 * ¸ù¾İ·¿Ô´±àºÅĞŞ¸Ä·¿Ô´ÃèÊö
+	 * 
 	 * @param roomid
 	 * @param description
 	 */
-	public void changeDescription(String roomid,String description){
-		if(roomid==null){
+	public void changeDescription(String roomid, String description) {
+		if (roomid == null) {
 			return;
-		}else if(roomid.length()<=0){
+		} else if (roomid.length() <= 0) {
 			return;
-		}else {
+		} else {
 			Room room = findRoomByRoomid(roomid);
-			if(room==null){
+			if (room == null) {
 				return;
-			}else{
+			} else {
 				room.setDescription(description);
 				hibernateTemplate.update(room);
 			}
 		}
 	}
-	
+
 	/**
-	 * ¸ù¾İ·¿Ô´±àºÅĞŞ¸Ä·¿Ô´µÄ´²µÄÊıÄ¿
+	 * 
 	 * @param roomid
-	 * @param bad
+	 * @param bed
 	 */
-	public void changeBad(String roomid,Integer bad){
-		if(roomid==null){
+	public void changeBad(String roomid, Integer bed) {
+		if (roomid == null) {
 			return;
-		}else if(roomid.length()<=0){
+		} else if (roomid.length() <= 0) {
 			return;
-		}else if(bad<=0){
+		} else if (bed <= 0) {
 			return;
-		}else{
+		} else {
 			Room room = findRoomByRoomid(roomid);
-			if(room==null){
+			if (room == null) {
 				return;
-			}else{
-				room.setBad(bad);
+			} else {
+				room.setBed(bed);
 				hibernateTemplate.update(room);
 			}
 		}
 	}
-	
+
 	/**
-	 * ¸ù¾İ·¿Ô´±àºÅĞŞ¸ÄÊÇ·ñÓĞwifi
+	 * 
 	 * @param roomid
 	 * @param wifi
 	 */
-	public void changeWifi(String roomid ,Boolean wifi){
-		if(roomid==null){
+	public void changeWifi(String roomid, Boolean wifi) {
+		if (roomid == null) {
 			return;
-		}else if(roomid.length()<=0){
+		} else if (roomid.length() <= 0) {
 			return;
-		}else if(wifi==null){
-			wifi=false;
-		}else{
+		} else if (wifi == null) {
+			wifi = false;
+		} else {
 			Room room = findRoomByRoomid(roomid);
-			if(room==null){
-				return ;
-			}else{
+			if (room == null) {
+				return;
+			} else {
 				room.setWifi(wifi);
 				hibernateTemplate.update(room);
 			}
 		}
 	}
-	
+
 	/**
-	 * ¸ù¾İ·¿Ô´±àºÅĞŞ¸ÄTVµÄÊıÄ¿
+	 * 
 	 * @param roomid
 	 * @param tv
 	 */
-	public void changeTv(String roomid,Integer  tv){
-		if(roomid==null){
+	public void changeTv(String roomid, Integer tv) {
+		if (roomid == null) {
 			return;
-		}else if(roomid.length()<=0){
+		} else if (roomid.length() <= 0) {
 			return;
-		}else if(tv<0){
-			tv=0;
+		} else if (tv < 0) {
+			tv = 0;
 			Room room = findRoomByRoomid(roomid);
-			if(room==null){
+			if (room == null) {
 				return;
-			}else{
+			} else {
 				room.setTv(tv);
 				hibernateTemplate.update(room);
 			}
-			
+
 		}
 	}
-	
-	
+
 	/**
-	 * ¸ù¾İ·¿Ô´±àºÅĞŞ¸ÄÊÇ·ñÓĞÍ£³µÎ»
+	 * 
 	 * @param roomid
 	 * @param park
 	 */
-	public void changePark(String roomid,Boolean park){
-		if(roomid==null){
+	public void changePark(String roomid, Boolean park) {
+		if (roomid == null) {
 			return;
-		}else if(roomid.length()<=0){
+		} else if (roomid.length() <= 0) {
 			return;
-		}else if(park==null){
-			park=false;
-		}else{
+		} else if (park == null) {
+			park = false;
+		} else {
 			Room room = findRoomByRoomid(roomid);
-			if(room==null){
+			if (room == null) {
 				return;
-			}else{
+			} else {
 				room.setPark(park);
 				hibernateTemplate.update(room);
 			}
 		}
 	}
-	
+
 	/**
-	 * ¸ù¾İ·¿Ô´±àºÅĞŞ¸ÄÊÇ·ñÓĞµçÌİ
+	 * 
 	 * @param roomid
 	 * @param lift
 	 */
-	public void changeLift(String roomid,Boolean lift){
-		if(roomid==null){
+	public void changeLift(String roomid, Boolean lift) {
+		if (roomid == null) {
 			return;
-		}else if(roomid.length()<=0){
+		} else if (roomid.length() <= 0) {
 			return;
-		}else if(lift==null){
-			lift=false;
+		} else if (lift == null) {
+			lift = false;
 			Room room = findRoomByRoomid(roomid);
-			if(room==null){
+			if (room == null) {
 				return;
-			}else{
+			} else {
 				room.setLift(lift);
 				hibernateTemplate.update(room);
 			}
 		}
 	}
-	
-	
+
 }

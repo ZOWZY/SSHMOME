@@ -1,55 +1,53 @@
 package cn.zowzy.entity;
 
-
-
 /**
- * 
-* 
-* 类名称：Collect   
-* 类描述：  收藏类  
-* 创建人：ZJH   
-* 创建时间：2017年3月29日 下午9:46:45     
-*
+ * Collect entity. @author MyEclipse Persistence Tools
  */
-public class Collect {
-	
-	private Integer cid;  //收藏编号
-	
-	//还需要 房源信息 用户信息
-	private Room room=new Room();
-	private User user=new User();
-	
-	
-	
-	
+
+public class Collect implements java.io.Serializable {
+
+	// Fields
+
+	private Integer cid;
+	private Users users;
+	private Room room;
+
+	// Constructors
+
+	/** default constructor */
+	public Collect() {
+	}
+
+	/** full constructor */
+	public Collect(Users users, Room room) {
+		this.users = users;
+		this.room = room;
+	}
+
+	// Property accessors
+
+	public Integer getCid() {
+		return this.cid;
+	}
+
+	public void setCid(Integer cid) {
+		this.cid = cid;
+	}
+
+	public Users getUsers() {
+		return this.users;
+	}
+
+	public void setUsers(Users users) {
+		this.users = users;
+	}
+
 	public Room getRoom() {
-		return room;
+		return this.room;
 	}
 
 	public void setRoom(Room room) {
 		this.room = room;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public Integer getCid() {
-		return cid;
-	}
-
-	public void setCid(Integer cid) {
-		this.cid = cid;
-	}
-	
-
-	
-	
-
-	
-	
 }

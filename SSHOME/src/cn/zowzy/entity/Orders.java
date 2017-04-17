@@ -1,130 +1,166 @@
 package cn.zowzy.entity;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
- * 
-* 类名称：Order   
-* 类描述： 订单类  
-* 创建人：ZJH   
-* 创建时间：2017年3月29日 下午5:57:39     
-*
+ * Orders entity. @author MyEclipse Persistence Tools
  */
-public class Orders {
 
-	private String oid;  //订单编号
-	private Date dateTime;//订单创建时间
-	private Date unDateTime; //订单退订时间
-	private float cost;  //订单价格
-	private Integer pNumber;  //同行人数
-	private Date checkinTime;  //入住时间
-	private Date checkoutTime;  //离开时间
-	private String remark;  //备注
-	private String comments;  //评论
-	
-	private float score; //评论得分
-	
-	
-	
-	
-	//还需要订单状态 房源信息  订单创建人
-	
-	private OrderState orderState =new OrderState();
-	
-	private Room  room=new Room();
-	private User  user=new User();
-	
-	
-	
-	
-	
-	
-	
-	
-	public OrderState getOrderState() {
-		return orderState;
+public class Orders implements java.io.Serializable {
+
+	// Fields
+
+	private Integer oid;
+	private Orderstate orderstate;
+	private Users usersByUsername;
+	private Users usersByUseUsername;
+	private Timestamp undatetime;
+	private Timestamp datetime;
+	private Float cost;
+	private Integer personnumber;
+	private Timestamp checkintime;
+	private Timestamp checkouttime;
+	private String remark;
+	private String comments;
+	private Float commentsscore;
+
+	// Constructors
+
+	/** default constructor */
+	public Orders() {
 	}
-	public void setOrderState(OrderState orderState) {
-		this.orderState = orderState;
+
+	/** minimal constructor */
+	public Orders(Integer oid, Timestamp datetime, Float cost, Integer personnumber) {
+		this.oid = oid;
+		this.datetime = datetime;
+		this.cost = cost;
+		this.personnumber = personnumber;
 	}
-	public Room getRoom() {
-		return room;
+
+	/** full constructor */
+	public Orders(Integer oid, Orderstate orderstate, Users usersByUsername, Users usersByUseUsername,
+			Timestamp undatetime, Timestamp datetime, Float cost, Integer personnumber, Timestamp checkintime,
+			Timestamp checkouttime, String remark, String comments, Float commentsscore) {
+		this.oid = oid;
+		this.orderstate = orderstate;
+		this.usersByUsername = usersByUsername;
+		this.usersByUseUsername = usersByUseUsername;
+		this.undatetime = undatetime;
+		this.datetime = datetime;
+		this.cost = cost;
+		this.personnumber = personnumber;
+		this.checkintime = checkintime;
+		this.checkouttime = checkouttime;
+		this.remark = remark;
+		this.comments = comments;
+		this.commentsscore = commentsscore;
 	}
-	public void setRoom(Room room) {
-		this.room = room;
+
+	// Property accessors
+
+	public Integer getOid() {
+		return this.oid;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-	public String getOid() {
-		return oid;
-	}
-	public float getScore() {
-		return score;
-	}
-	public void setScore(float score) {
-		this.score = score;
-	}
-	public void setOid(String oid) {
+
+	public void setOid(Integer oid) {
 		this.oid = oid;
 	}
-	
-	public Date getDateTime() {
-		return dateTime;
+
+	public Orderstate getOrderstate() {
+		return this.orderstate;
 	}
-	public void setDateTime(Date dateTime) {
-		this.dateTime = dateTime;
+
+	public void setOrderstate(Orderstate orderstate) {
+		this.orderstate = orderstate;
 	}
-	
-	public Date getUnDateTime() {
-		return unDateTime;
+
+	public Users getUsersByUsername() {
+		return this.usersByUsername;
 	}
-	public void setUnDateTime(Date unDateTime) {
-		this.unDateTime = unDateTime;
+
+	public void setUsersByUsername(Users usersByUsername) {
+		this.usersByUsername = usersByUsername;
 	}
-	public float getCost() {
-		return cost;
+
+	public Users getUsersByUseUsername() {
+		return this.usersByUseUsername;
 	}
-	public void setCost(float cost) {
+
+	public void setUsersByUseUsername(Users usersByUseUsername) {
+		this.usersByUseUsername = usersByUseUsername;
+	}
+
+	public Timestamp getUndatetime() {
+		return this.undatetime;
+	}
+
+	public void setUndatetime(Timestamp undatetime) {
+		this.undatetime = undatetime;
+	}
+
+	public Timestamp getDatetime() {
+		return this.datetime;
+	}
+
+	public void setDatetime(Timestamp datetime) {
+		this.datetime = datetime;
+	}
+
+	public Float getCost() {
+		return this.cost;
+	}
+
+	public void setCost(Float cost) {
 		this.cost = cost;
 	}
-	public Integer getpNumber() {
-		return pNumber;
+
+	public Integer getPersonnumber() {
+		return this.personnumber;
 	}
-	public void setpNumber(Integer pNumber) {
-		this.pNumber = pNumber;
+
+	public void setPersonnumber(Integer personnumber) {
+		this.personnumber = personnumber;
 	}
-	public Date getCheckinTime() {
-		return checkinTime;
+
+	public Timestamp getCheckintime() {
+		return this.checkintime;
 	}
-	public void setCheckinTime(Date checkinTime) {
-		this.checkinTime = checkinTime;
+
+	public void setCheckintime(Timestamp checkintime) {
+		this.checkintime = checkintime;
 	}
-	public Date getCheckoutTime() {
-		return checkoutTime;
+
+	public Timestamp getCheckouttime() {
+		return this.checkouttime;
 	}
-	public void setCheckoutTime(Date checkoutTime) {
-		this.checkoutTime = checkoutTime;
+
+	public void setCheckouttime(Timestamp checkouttime) {
+		this.checkouttime = checkouttime;
 	}
+
 	public String getRemark() {
-		return remark;
+		return this.remark;
 	}
+
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+
 	public String getComments() {
-		return comments;
+		return this.comments;
 	}
+
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
 
-	
-	
-	
-	
-	
+	public Float getCommentsscore() {
+		return this.commentsscore;
+	}
+
+	public void setCommentsscore(Float commentsscore) {
+		this.commentsscore = commentsscore;
+	}
+
 }

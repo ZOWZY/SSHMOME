@@ -17,6 +17,7 @@
 	
 	<!-- 引入数据库的配置信息 -->	
 	<context:property-placeholder location="classpath:jdbc.properties"/>
+	
 	<!-- 配置C3P0的连接池 -->
 	<bean  id="dataSource"  class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass"  value="${driverClass}"/>

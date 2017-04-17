@@ -3,63 +3,59 @@ package cn.zowzy.action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-import cn.zowzy.entity.User;
-import cn.zowzy.service.UserService;
+import cn.zowzy.entity.Users;
+import cn.zowzy.service.UsersService;
 
 /**
+ *
  * 
-*  
-* ÀàÃû³Æ£ºLoginAndRegisterAction   
-* ÀàÃèÊö£º×¢²áºÍµÇÂ½µÄaction   
-* ´´½¨ÈË£ºZJH   
-* ´´½¨Ê±¼ä£º2017Äê3ÔÂ29ÈÕ ÏÂÎç11:12:50     
-*
+ * ç±»åç§°ï¼šLoginAndRegisterAction ç±»æè¿°ï¼š åˆ›å»ºäººï¼šZJH åˆ›å»ºæ—¶é—´ï¼š2017å¹´4æœˆ17æ—¥ ä¸‹åˆ3:04:01
+ *
  */
-public class LoginAndRegisterAction extends ActionSupport implements ModelDriven<User> {
+public class LoginAndRegisterAction extends ActionSupport implements ModelDriven<Users> {
 
-	private User user;
-	
-	private UserService userService=new UserService();
-	
-	
-	public UserService getUserService() {
+	private Users user;
+
+	private UsersService userService = new UsersService();
+
+	public UsersService getUserService() {
 		return userService;
 	}
 
-	public void setUserService(UserService userService) {
+	public void setUserService(UsersService userService) {
 		this.userService = userService;
 	}
 
 	@Override
-	public User getModel() {
+	public Users getModel() {
 		return user;
 	}
-	
+
 	/**
-	 * µÇÂ½µÄaction
+	 * ç™»é™†è¡Œä¸º
+	 * 
 	 * @return
 	 */
-	public String login(){
+	public String login() {
 		return SUCCESS;
 	}
-	
-	
+
 	/**
-	 * ×¢²áµÄaction
+	 * æ³¨å†Œè¡Œä¸º
+	 * 
 	 * @return
 	 */
-	public String register(){
+	public String register() {
 		return SUCCESS;
 	}
-	
-	
+
 	/**
-	 * ÇëÇóregisterPageÒ³Ãæ
+	 * æ³¨å†Œç•Œé¢
+	 * 
 	 * @return
 	 */
-	public String registerPage(){
+	public String registerPage() {
 		return SUCCESS;
 	}
-	
 
 }

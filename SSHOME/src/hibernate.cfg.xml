@@ -13,7 +13,8 @@
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/customer_contacts?useUnicode=true&amp;characterEncoding=utf8</property>
 		<property name="hibernate.connection.username">ZJH</property>
     	<property name="hibernate.connection.password">123456</property>-->
-	<!-- 
+	 
+	 <!--  
 		<property name="hibernate.connection.useUnicode">true</property> 
 		<property name="hibernate.connection.characterEncoding">UTF-8</property> 
 	 -->
@@ -34,19 +35,18 @@
 		
 		
 		<!--3 配置映射文件，使其得到加载  必须要有 -->
-		<mapping  resource="cn/zowzy/entity/collect.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/Collect.hbm.xml"/>
 		
-		<mapping  resource="cn/zowzy/entity/order.hbm.xml"/>
-		<mapping  resource="cn/zowzy/entity/orderstate.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/Orders.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/Orderstate.hbm.xml"/>
 		
-		<mapping  resource="cn/zowzy/entity/room.hbm.xml"/>
-		<mapping  resource="cn/zowzy/entity/roomtype.hbm.xml"/>
-		<mapping  resource="cn/zowzy/entity/roomrule.hbm.xml"/>
-		<mapping  resource="cn/zowzy/entity/roomstate.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/Room.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/Roomtype.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/Roomstate.hbm.xml"/>
 		
-		<mapping  resource="cn/zowzy/entity/user.hbm.xml"/>
-		<mapping  resource="cn/zowzy/entity/userstate.hbm.xml"/>
-		<mapping  resource="cn/zowzy/entity/usertype.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/Users.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/Userstate.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/Usertype.hbm.xml"/>
 		
 		
 		

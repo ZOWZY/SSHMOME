@@ -4,262 +4,258 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 
-*  
-* 类名称：Room   
-* 类描述：房源类   
-* 创建人：ZJH   
-* 创建时间：2017年3月29日 下午5:37:56     
-*
+ * Room entity. @author MyEclipse Persistence Tools
  */
-public class Room {
-	
-	private Integer rid;  //房源ID
-	private String title;  //房源的标题
-	private String location;  //房源的地理位置
-	private Integer maxPersonNumber;  //房源允许的最大的入住人数
-	private float price;  //房源的价格
-	private double longitude;  //房源的经度
-	private double latitude; //房源的纬度
-	private float score;  //房源的评分
 
-	
-	private String description;  //房源的描述
-	private Integer bad;  //房源的床的数目
-	private Integer badroom; //房源卧室的数目
-	private Boolean bathroom; //房源是否有卫生间
-	private Boolean kitchen; //房源是否有厨房
-	private Boolean wifi; //房源是否有wifi
-	private Integer tv; //房源有电视的数目
-	private Boolean park; //房源是否有停车位
-	private Boolean lift; //房源是否有电梯
-	
-	//还需要用户信息  房源类型  房源状态  房屋守则  收藏
-	private User user=new User();
-	private RoomType roomType=new RoomType();
-	private RoomState roomState=new RoomState();
-	private Set<RoomRule>  roomRuleSet=new HashSet<RoomRule>();
-	
-	private Set<Collect>  collectSet=new HashSet<Collect>();
-	
-	public Set<Collect> getCollectSet() {
-		return collectSet;
-	}
-	
-	
-	private Set<Orders> orderSet=new HashSet<Orders>(); 
-	
-	
-	
-	
-	public Set<Orders> getOrderSet() {
-		return orderSet;
+public class Room implements java.io.Serializable {
+
+	// Fields
+
+	private Integer rid;
+	private Roomtype roomtype;
+	private Roomstate roomstate;
+	private String title;
+	private String localtion;
+	private Integer maxpersonnumber;
+	private Float price;
+	private Double longitude;
+	private Double latitude;
+	private Float score;
+	private String description;
+	private Integer bed;
+	private Integer bedroom;
+	private Integer bathroom;
+	private Boolean kitchen;
+	private Boolean wifi;
+	private Integer tv;
+	private Boolean park;
+	private Boolean lift;
+	private String rule;
+	private Set collects = new HashSet(0);
+
+	// Constructors
+
+	/** default constructor */
+	public Room() {
 	}
 
-
-
-
-
-	public void setOrderSet(Set<Orders> orderSet) {
-		this.orderSet = orderSet;
+	/** minimal constructor */
+	public Room(String title, String localtion, Integer maxpersonnumber, Float price, Double longitude, Double latitude,
+			Float score, String description, Integer bed, Integer bedroom, Integer bathroom, Boolean kitchen,
+			Boolean wifi, Integer tv, Boolean park, Boolean lift) {
+		this.title = title;
+		this.localtion = localtion;
+		this.maxpersonnumber = maxpersonnumber;
+		this.price = price;
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.score = score;
+		this.description = description;
+		this.bed = bed;
+		this.bedroom = bedroom;
+		this.bathroom = bathroom;
+		this.kitchen = kitchen;
+		this.wifi = wifi;
+		this.tv = tv;
+		this.park = park;
+		this.lift = lift;
 	}
 
+	/** full constructor */
+	public Room(Roomtype roomtype, Roomstate roomstate, String title, String localtion, Integer maxpersonnumber,
+			Float price, Double longitude, Double latitude, Float score, String description, Integer bed,
+			Integer bedroom, Integer bathroom, Boolean kitchen, Boolean wifi, Integer tv, Boolean park, Boolean lift,
+			String rule, Set collects) {
+		this.roomtype = roomtype;
+		this.roomstate = roomstate;
+		this.title = title;
+		this.localtion = localtion;
+		this.maxpersonnumber = maxpersonnumber;
+		this.price = price;
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.score = score;
+		this.description = description;
+		this.bed = bed;
+		this.bedroom = bedroom;
+		this.bathroom = bathroom;
+		this.kitchen = kitchen;
+		this.wifi = wifi;
+		this.tv = tv;
+		this.park = park;
+		this.lift = lift;
+		this.rule = rule;
+		this.collects = collects;
+	}
 
+	// Property accessors
 
-
-
-	public void setCollectSet(Set<Collect> collectSet) {
-		this.collectSet = collectSet;
-	}
-	
-	
-	
-	
-	
-	public Set<RoomRule> getRoomRuleSet() {
-		return roomRuleSet;
-	}
-	public void setRoomRuleSet(Set<RoomRule> roomRuleSet) {
-		this.roomRuleSet = roomRuleSet;
-	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-	public RoomType getRoomType() {
-		return roomType;
-	}
-	public void setRoomType(RoomType roomType) {
-		this.roomType = roomType;
-	}
-	public RoomState getRoomState() {
-		return roomState;
-	}
-	public void setRoomState(RoomState roomState) {
-		this.roomState = roomState;
-	}
 	public Integer getRid() {
-		return rid;
+		return this.rid;
 	}
+
 	public void setRid(Integer rid) {
 		this.rid = rid;
 	}
-	public String getTitle() {
-		return title;
+
+	public Roomtype getRoomtype() {
+		return this.roomtype;
 	}
+
+	public void setRoomtype(Roomtype roomtype) {
+		this.roomtype = roomtype;
+	}
+
+	public Roomstate getRoomstate() {
+		return this.roomstate;
+	}
+
+	public void setRoomstate(Roomstate roomstate) {
+		this.roomstate = roomstate;
+	}
+
+	public String getTitle() {
+		return this.title;
+	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getLocation() {
-		return location;
-	}
-	public void setLocation(String location) {
-		this.location = location;
+
+	public String getLocaltion() {
+		return this.localtion;
 	}
 
-	public Integer getMaxPersonNumber() {
-		return maxPersonNumber;
+	public void setLocaltion(String localtion) {
+		this.localtion = localtion;
 	}
-	public void setMaxPersonNumber(Integer maxPersonNumber) {
-		this.maxPersonNumber = maxPersonNumber;
+
+	public Integer getMaxpersonnumber() {
+		return this.maxpersonnumber;
 	}
-	public float getPrice() {
-		return price;
+
+	public void setMaxpersonnumber(Integer maxpersonnumber) {
+		this.maxpersonnumber = maxpersonnumber;
 	}
-	public void setPrice(float price) {
+
+	public Float getPrice() {
+		return this.price;
+	}
+
+	public void setPrice(Float price) {
 		this.price = price;
 	}
-	public double getLongitude() {
-		return longitude;
+
+	public Double getLongitude() {
+		return this.longitude;
 	}
-	public void setLongitude(double longitude) {
+
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
-	public double getLatitude() {
-		return latitude;
+
+	public Double getLatitude() {
+		return this.latitude;
 	}
-	public void setLatitude(double latitude) {
+
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
-	public float getScore() {
-		return score;
+
+	public Float getScore() {
+		return this.score;
 	}
-	public void setScore(float score) {
+
+	public void setScore(Float score) {
 		this.score = score;
 	}
+
 	public String getDescription() {
-		return description;
+		return this.description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Integer getBad() {
-		return bad;
-	}
-	public void setBad(Integer bad) {
-		this.bad = bad;
-	}
-	public Integer getBadroom() {
-		return badroom;
-	}
-	public void setBadroom(Integer badroom) {
-		this.badroom = badroom;
-	}
-	
-	public Integer getTv() {
-		return tv;
-	}
-	public void setTv(Integer tv) {
-		this.tv = tv;
+
+	public Integer getBed() {
+		return this.bed;
 	}
 
-
-
-
-
-	public Boolean getBathroom() {
-		return bathroom;
+	public void setBed(Integer bed) {
+		this.bed = bed;
 	}
 
+	public Integer getBedroom() {
+		return this.bedroom;
+	}
 
+	public void setBedroom(Integer bedroom) {
+		this.bedroom = bedroom;
+	}
 
+	public Integer getBathroom() {
+		return this.bathroom;
+	}
 
-
-	public void setBathroom(Boolean bathroom) {
+	public void setBathroom(Integer bathroom) {
 		this.bathroom = bathroom;
 	}
 
-
-
-
-
 	public Boolean getKitchen() {
-		return kitchen;
+		return this.kitchen;
 	}
-
-
-
-
 
 	public void setKitchen(Boolean kitchen) {
 		this.kitchen = kitchen;
 	}
 
-
-
-
-
 	public Boolean getWifi() {
-		return wifi;
+		return this.wifi;
 	}
-
-
-
-
 
 	public void setWifi(Boolean wifi) {
 		this.wifi = wifi;
 	}
 
-
-
-
-
-	public Boolean getPark() {
-		return park;
+	public Integer getTv() {
+		return this.tv;
 	}
 
+	public void setTv(Integer tv) {
+		this.tv = tv;
+	}
 
-
-
+	public Boolean getPark() {
+		return this.park;
+	}
 
 	public void setPark(Boolean park) {
 		this.park = park;
 	}
 
-
-
-
-
 	public Boolean getLift() {
-		return lift;
+		return this.lift;
 	}
-
-
-
-
 
 	public void setLift(Boolean lift) {
 		this.lift = lift;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
+	public String getRule() {
+		return this.rule;
+	}
+
+	public void setRule(String rule) {
+		this.rule = rule;
+	}
+
+	public Set getCollects() {
+		return this.collects;
+	}
+
+	public void setCollects(Set collects) {
+		this.collects = collects;
+	}
+
 }

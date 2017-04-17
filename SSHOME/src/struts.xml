@@ -6,6 +6,7 @@
 	
 
 <struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" /> 
 	<include file="cn/zowzy/action/LoginAndRegisterAction.xml"></include>
 </struts>
 	

@@ -10,10 +10,10 @@ import cn.zowzy.entity.Collect;
 /**
  * 
 *  
-* ÀàÃû³Æ£ºCollectDao   
-* ÀàÃèÊö£ºÊÕ²ØÊı¾İ¿â²Ù×÷Àà   
-* ´´½¨ÈË£ºZJH   
-* ´´½¨Ê±¼ä£º2017Äê3ÔÂ30ÈÕ ÏÂÎç9:05:55     
+* ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½CollectDao   
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ²ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½   
+* ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ZJH   
+* ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º2017ï¿½ï¿½3ï¿½ï¿½30ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:05:55     
 *
  */
 public class CollectDao {
@@ -28,8 +28,8 @@ public class CollectDao {
 	}
 	
 	/**
-	 * Ìí¼ÓÊÕ²Ø
-	 * @param collect  ÊÕ²Ø¶ÔÏó
+	 * ï¿½ï¿½ï¿½ï¿½Õ²ï¿½
+	 * @param collect  ï¿½Õ²Ø¶ï¿½ï¿½ï¿½
 	 */
 	public void addCollect(Collect collect){
 		if(collect!=null){
@@ -39,7 +39,7 @@ public class CollectDao {
 	
 	
 	/**
-	 * ²éÑ¯ËùÓĞÊÕ²Ø
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Õ²ï¿½
 	 * @return
 	 */
 	public List<Collect>  findAll(){
@@ -50,7 +50,7 @@ public class CollectDao {
 	
 	
 	/**
-	 * ¸ù¾İÓÃ»§Ãû²éÑ¯ÊÕ²Ø
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½Õ²ï¿½
 	 * @param username
 	 * @return
 	 */
@@ -64,7 +64,7 @@ public class CollectDao {
 	}
 	
 	/**
-	 * ¸ù¾İ·¿Ô´±àºÅ²éÑ¯±»ÊÕ²ØµÄĞÅÏ¢
+	 *æ ¹æ®ROOMIDæŸ¥è¯¢æ”¶è—
 	 * @param roomid
 	 * @return
 	 */
@@ -83,10 +83,10 @@ public class CollectDao {
 	
 	
 	/**
-	 * ¸ù¾İÓÃ»§ÃûºÍ·¿Ô´±àºÅÈ¡ÏûÊÕ²Ø
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Í·ï¿½Ô´ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Õ²ï¿½
 	 * @param username
 	 * @param roomid
-	 * @return  trueÈ¡ÏûÊÕ²Ø³É¹¦ £¬falseÈ¡ÏûÊÕ²ØÊ§°Ü
+	 * @return  trueÈ¡ï¿½ï¿½ï¿½Õ²Ø³É¹ï¿½ ï¿½ï¿½falseÈ¡ï¿½ï¿½ï¿½Õ²ï¿½Ê§ï¿½ï¿½
 	 */
 	public boolean cancleCollect(String username,String roomid){
 		if(roomid==null||roomid.length()<=0||username==null||username.length()<=0){
@@ -96,7 +96,7 @@ public class CollectDao {
 		String hql="from Collect where usernameid=? and roomid=?";
 		List<Collect> list = (List<Collect>) hibernateTemplate.find(hql, username,roomid);
 		
-		if(list==null){//Èç¹ûÃ»ÓĞÕâ¸öÊÕ²Ø
+		if(list==null){//ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ²ï¿½
 			result=false;
 		}else if(list.size()>0){
 			Collect entity=list.get(0);

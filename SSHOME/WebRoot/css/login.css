@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+.blank
+{
+	height:100px
+}
+.inputsize
+{
+	height:40px;
+	width:290px;
+}
+input
+{
+	margin:15px 0px 0px 75px;/*上右下左*/
+	border-radius:5px;
+}
+.loginbutton
+{
+	background-color:rgba(248,142,139,1);
+	color:rgba(255,255,255,1);
+}
+.fontstyle
+{
+	text-align:center; 
+	color:rgba(248,142,139,1);	
+}
+.checkbox_relative {
+	color:rgba(255,255,255,1);
+	position: relative;
+	left: 75px;
+	top:12px;
+}
+.labelfont
+{
+	color:rgba(153,153,153,1);
+	position:relative;
+	left:75px;
+	top:10px;	
+}
+.forgetpass
+{
+	color:rgba(102,102,102,1);
+	position:relative;
+	left:125px;
+	top:10px;
+}
+.spanstyle
+{
+	color:rgba(255,0,0,1);
+	position:relative;
+	top:7px;
+	right:75px;
+	text-align:right;
+}
+

@@ -1,7 +1,5 @@
 package cn.zowzy.service;
 
-
-
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -11,15 +9,13 @@ import cn.zowzy.entity.Room;
 
 /**
  * 
- * ×÷Õß£ºyp
- * ÀàÃû£ºRoomService
- * ÀàÃèÊö£ºÒıÓÃ·¿Ô´µÄÊı¾İ¿â²Ù×÷Àà
- * Ê±¼ä£º 2017Äê3ÔÂ31ÈÕ ÏÂÎç3:06:55
+ * 
+ * ç±»åç§°ï¼šRoomService ç±»æè¿°ï¼š åˆ›å»ºäººï¼šZJH åˆ›å»ºæ—¶é—´ï¼š2017å¹´4æœˆ17æ—¥ ä¸‹åˆ11:46:44
  *
  */
 @Transactional
 public class RoomService {
-	private RoomDao roomDao=new RoomDao();
+	private RoomDao roomDao = new RoomDao();
 
 	public RoomDao getRoomDao() {
 		return roomDao;
@@ -28,57 +24,64 @@ public class RoomService {
 	public void setRoomDao(RoomDao roomDao) {
 		this.roomDao = roomDao;
 	}
-    
+
 	/**
-	 * Ìí¼Ó·¿Ô´ĞÅÏ¢
-	 * @param room  ·¿Ô´ĞÅÏ¢¶ÔÏó
+	 * ï¿½ï¿½Ó·ï¿½Ô´ï¿½ï¿½Ï¢
+	 * 
+	 * @param room
+	 *            ï¿½ï¿½Ô´ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
 	 */
-	public void addRoom(Room room){
+	public void addRoom(Room room) {
 		roomDao.addRoom(room);
 	}
-	
+
 	/**
-	 * ¸ù¾İroomid²éÑ¯·¿Ô´ĞÅÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½roomidï¿½ï¿½Ñ¯ï¿½ï¿½Ô´ï¿½ï¿½Ï¢
+	 * 
 	 * @param roomid
 	 * @return
 	 */
-	public Room findRoomByRoomid(String roomid){
-		if(roomid==null||roomid.length()<=0)
+	public Room findRoomByRoomid(String roomid) {
+		if (roomid == null || roomid.length() <= 0)
 			return null;
 		else
 			return roomDao.findRoomByRoomid(roomid);
 	}
-	
+
 	/**
-	 * ¸ù¾İÓÃ»§Ãû²éÑ¯¸ÃÓÃ»§µÄËùÓĞµÄ·¿Ô´
-	 * @param username ÓÃ»§Ãû
-	 * @return  roomµÄlist
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ĞµÄ·ï¿½Ô´
+	 * 
+	 * @param username
+	 *            ï¿½Ã»ï¿½ï¿½ï¿½
+	 * @return roomï¿½ï¿½list
 	 */
-	public List<Room> findRoomsByUsername(String username){
-		if(username==null||username.length()<=0)
+	public List<Room> findRoomsByUsername(String username) {
+		if (username == null || username.length() <= 0)
 			return null;
 		else
 			return roomDao.findRoomsByUsername(username);
 	}
-	
+
 	/**
-	 * ¸ù¾İroomidÉ¾³ı·¿Ô´
+	 * ï¿½ï¿½ï¿½ï¿½roomidÉ¾ï¿½ï¿½ï¿½ï¿½Ô´
+	 * 
 	 * @param roomid
 	 */
-	public void deleteRoom(String roomid){
-		if(roomid==null||roomid.length()<=0)
+	public void deleteRoom(String roomid) {
+		if (roomid == null || roomid.length() <= 0)
 			return;
 		else
-		    roomDao.deleteRoom(roomid);
+			roomDao.deleteRoom(roomid);
 	}
-	
+
 	/**
-	 * ¸ù¾İ·¿Ô´±àºÅĞŞ¸Ä·¿Ô´µÄ¼Û¸ñ
+	 * ï¿½ï¿½ï¿½İ·ï¿½Ô´ï¿½ï¿½ï¿½ï¿½Ş¸Ä·ï¿½Ô´ï¿½Ä¼Û¸ï¿½
+	 * 
 	 * @param roomid
 	 * @param price
 	 */
-	public void changeRoomPrice(String roomid,float price){
-	    roomDao.changeRoomPrice(roomid, price);
+	public void changeRoomPrice(String roomid, float price) {
+		roomDao.changeRoomPrice(roomid, price);
 	}
-	
+
 }

@@ -24,6 +24,11 @@
 			<result name="success">/WEB-INF/jsp/register.jsp</result>
 			<result name="failed">/index.jsp</result>
 		</action>
+		
+		<action name="loginPage" class="LoginAndRegisterAction" >
+			<result name="success">/WEB-INF/jsp/register.jsp</result>
+			<result name="failed">/index.jsp</result>
+		</action>
 	</package>
 
 </struts>

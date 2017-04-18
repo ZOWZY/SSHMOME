@@ -2,6 +2,8 @@ package cn.zowzy.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import cn.zjh.uuid.UUIDUtils;
 import cn.zowzy.dao.UsersDao;
 import cn.zowzy.entity.Users;
@@ -11,11 +13,11 @@ import cn.zowzy.util.MailUtils;
 
 /**
  * 
- * ���ߣ�yp ������UserService �������� ����user��������ݿ������ ʱ�䣺 2017��3��31��
- * ����2:43:47
  * 
+ * 类名称：UsersService 类描述： 创建人：ZJH 创建时间：2017年4月17日 下午11:45:37
+ *
  */
-
+@Transactional
 public class UsersService {
 	private UsersDao userDao = new UsersDao();
 
@@ -28,7 +30,6 @@ public class UsersService {
 	}
 
 	/**
-	 * ���������û�
 	 * 
 	 * @return
 	 */
@@ -37,18 +38,15 @@ public class UsersService {
 	}
 
 	/**
-	 * �����û�����������
 	 * 
 	 * @param username
-	 *            �û���
-	 * @return ����
+	 * @return
 	 */
 	public String findPasswordByUsername(String username) {
 		return userDao.findPasswordByUsername(username);
 	}
 
 	/**
-	 * ���ݼ���������û�
 	 * 
 	 * @param activeCode
 	 * @return
@@ -58,7 +56,6 @@ public class UsersService {
 	}
 
 	/**
-	 * �����û��������û�
 	 * 
 	 * @param username
 	 * @return
@@ -68,7 +65,6 @@ public class UsersService {
 	}
 
 	/**
-	 * �����ͨ�û�
 	 * 
 	 * @param user
 	 */
@@ -85,7 +81,7 @@ public class UsersService {
 			Usertype ut = new Usertype();
 			ut.setUtid(1);// 1������ͨ�û� 2�������Ա
 			// �����ʼ�
-			// TODO ��Ӳ���
+			// TODO 发送邮件
 			MailUtils mail = new MailUtils();
 			mail.setFilePath("");
 			mail.setId("");
@@ -97,7 +93,6 @@ public class UsersService {
 	}
 
 	/**
-	 * ���ݼ����뼤���û�
 	 * 
 	 * @param activeCode
 	 */
@@ -106,23 +101,20 @@ public class UsersService {
 	}
 
 	/**
-	 * ����32λ�������޸�����
 	 * 
 	 * @param activeCode
-	 *            ������
 	 * @param password
-	 *            ������
-	 * @return �޸�true�޸ĳɹ���false�޸�ʧ��
+	 * @return
 	 */
 	public Boolean changePasswordByActiveCode(String activeCode, String password) {
 		return userDao.changePasswordByActiveCode(activeCode, password);
 	}
 
 	/**
-	 * ����64λ���������֧������
 	 * 
 	 * @param username
 	 * @param activeCode
+	 * @param payPassword
 	 */
 	public void changePayPassword(String username, String activeCode, String payPassword) {
 		userDao.changePayPassword(username, activeCode, payPassword);

@@ -9,17 +9,14 @@ import cn.zowzy.entity.Collect;
 
 /**
  * 
- * ×÷Õß£ºyp
- * ÀàÃû£ºCollectService
- * ÀàÃèÊö£º ÒıÓÃÊÕ²ØµÄÊı¾İ¿â²Ù×÷Àà
- * Ê±¼ä£º 2017Äê3ÔÂ31ÈÕ ÏÂÎç3:53:44
+ * 
+ * ç±»åç§°ï¼šCollectService ç±»æè¿°ï¼š åˆ›å»ºäººï¼šZJH åˆ›å»ºæ—¶é—´ï¼š2017å¹´4æœˆ17æ—¥ ä¸‹åˆ11:47:09
  *
  */
-
 @Transactional
 public class CollectService {
-	
-	private CollectDao collectDao=new CollectDao();
+
+	private CollectDao collectDao = new CollectDao();
 
 	public CollectDao getCollectDao() {
 		return collectDao;
@@ -28,49 +25,49 @@ public class CollectService {
 	public void setCollectDao(CollectDao collectDao) {
 		this.collectDao = collectDao;
 	}
-	
+
 	/**
-	 * Ìí¼ÓÊÕ²Ø
-	 * @param collect  ÊÕ²Ø¶ÔÏó
+	 * 
+	 * @param collect
 	 */
-	public void addCollect(Collect collect){
+	public void addCollect(Collect collect) {
 		collectDao.addCollect(collect);
 	}
-	
+
 	/**
-	 * ²éÑ¯ËùÓĞÊÕ²Ø
+	 * 
 	 * @return
 	 */
-	public List<Collect>  findAll(){
+	public List<Collect> findAll() {
 		return collectDao.findAll();
 	}
-	
+
 	/**
-	 * ¸ù¾İÓÃ»§Ãû²éÑ¯ÊÕ²Ø
+	 * 
 	 * @param username
 	 * @return
 	 */
-	public List<Collect> findCollectsByUsername(String username){
+	public List<Collect> findCollectsByUsername(String username) {
 		return collectDao.findCollectsByUsername(username);
 	}
-	
+
 	/**
-	 * ¸ù¾İ·¿Ô´±àºÅ²éÑ¯±»ÊÕ²ØµÄĞÅÏ¢
+	 * 
 	 * @param roomid
 	 * @return
 	 */
-	public List<Collect> findCollectsByRoomId(String roomid){
+	public List<Collect> findCollectsByRoomId(String roomid) {
 		return collectDao.findCollectsByRoomId(roomid);
 	}
-	
+
 	/**
-	 * ¸ù¾İÓÃ»§ÃûºÍ·¿Ô´±àºÅÈ¡ÏûÊÕ²Ø
+	 * 
 	 * @param username
 	 * @param roomid
-	 * @return  trueÈ¡ÏûÊÕ²Ø³É¹¦ £¬falseÈ¡ÏûÊÕ²ØÊ§°Ü
+	 * @return
 	 */
-	public boolean cancleCollect(String username,String roomid){
+	public boolean cancleCollect(String username, String roomid) {
 		return collectDao.cancleCollect(username, roomid);
 	}
-	
+
 }

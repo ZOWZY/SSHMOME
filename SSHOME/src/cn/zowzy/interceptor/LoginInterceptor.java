@@ -8,28 +8,23 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.MethodFilterInterceptor;
 
-
 /**
  * 
-*  
-* ÀàÃû³Æ£ºLoginInterceptor   
-* ÀàÃèÊö£ºµÇÂ½À¹½ØÆ÷   
-* ´´½¨ÈË£ºZJH   
-* ´´½¨Ê±¼ä£º2017Äê3ÔÂ30ÈÕ ÏÂÎç9:32:56     
-*
+ * 
+ * ç±»åç§°ï¼šLoginInterceptor ç±»æè¿°ï¼š åˆ›å»ºäººï¼šZJH åˆ›å»ºæ—¶é—´ï¼š2017å¹´4æœˆ17æ—¥ ä¸‹åˆ11:58:26
+ *
  */
 public class LoginInterceptor extends MethodFilterInterceptor {
 
-
 	@Override
 	protected String doIntercept(ActionInvocation invocation) throws Exception {
-		HttpServletRequest request=ServletActionContext.getRequest();
+		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		String username = (String) session.getAttribute("username");
-		if(username==null){//Ã»ÓĞµÇÂ½  ·µ»Øµ½struts.xmlÖĞ£¬ÕÒµ½¶ÔÓ¦µÄresult±êÇ©  ½øĞĞºóĞø²Ù×÷  ²»»áÖ´ĞĞaction
+		if (username == null) {
 			return "nologin";
-		}else{
-			return invocation.invoke();//ÒÑ¾­µÇÂ¼  ·ÅĞĞ
+		} else {
+			return invocation.invoke();
 		}
 	}
 

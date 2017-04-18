@@ -40,6 +40,9 @@
 	<bean id="ChangePasswordAction"  class="cn.zowzy.action.ChangePasswordAction" scope="prototype">
 		<property name="usersService" ref="UsersService"></property>
 	</bean>
+	<bean  id="OrdersAction"  class="cn.zowzy.action.OrdersAction" scope="prototype">
+		<property name="OrdersService" ref="OrdersService"></property>
+	</bean>
 	
 	
 	

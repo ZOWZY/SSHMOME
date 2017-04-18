@@ -19,17 +19,15 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 public class MailUtils {
-	
-	private String id;//³¬Á´½ÓµÄ±êÇ©µÄID
-	
-	private String filePath;//ÓÊ¼şµÄhtml
-	
-	private String url;//³¬Á´½ÓµÄµØÖ·
-	
+
+	private String id;// æ ‡ç­¾çš„ID
+
+	private String filePath;// htmlçš„è·¯å¾„
+
+	private String url;// é“¾æ¥åœ°å€Ö·
+
 	private String subject;
-	
-	
-	
+
 	public String getSubject() {
 		return subject;
 	}
@@ -63,78 +61,73 @@ public class MailUtils {
 	}
 
 	/**
-	 * ·¢ËÍÓÊ¼ş
-	 * @param to  ÊÕ¼şÈË
-	 * @param code  ¼¤»îÂë
+	 * å‘é€é‚®ä»¶
+	 * 
+	 * @param to
+	 * @param code
 	 */
-	public void sendMail(String to,String code){
-		
-		
+	public void sendMail(String to, String code) {
+
 		Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-		final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory"; 
-		//1.»ñµÃÒ»¸öSession¶ÔÏó
-		Properties props=new Properties();
-		//ÉèÖÃ·¢ËÍÓÊ¼şµÄ»·¾³
+		final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
+		Properties props = new Properties();
 		props.setProperty("mail.host", "smtp.qq.com");
 		props.setProperty("mail.smtp.socketFactory.class", SSL_FACTORY);
 		props.setProperty("mail.smtp.port", "465");
-        props.setProperty("mail.smtp.socketFactory.port", "465");
-        props.setProperty("mail.smtp.auth", "true");
-        
-		Session session=Session.getInstance(props, new Authenticator() {
+		props.setProperty("mail.smtp.socketFactory.port", "465");
+		props.setProperty("mail.smtp.auth", "true");
+
+		Session session = Session.getInstance(props, new Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication("1727078617@qq.com", "zsronkgbnnxydbcc");
 			}
 		});
-		
-		//2.´´½¨Ò»¸ö´ú±íÓÊ¼şµÄ¶ÔÏóMessage
-		Message message=new MimeMessage(session);
+
+		// 2.ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½Message
+		Message message = new MimeMessage(session);
 		try {
-			//ÉèÖÃ·¢ËÍÕß
+			// ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½
 			message.setFrom(new InternetAddress("1727078617@qq.com"));
-			//ÉèÖÃ½ÓÊÜÕß
+			// ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½
 			message.addRecipient(RecipientType.TO, new InternetAddress(to));
-			//ÉèÖÃ±êÌâ
+			// ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½
 			message.setSubject(subject);
-			//ÉèÖÃÓÊ¼şµÄÕıÎÄ
-			
-			String mess=getMailContent("UTF-8", "", url);
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+			String mess = getMailContent("UTF-8", "", url);
 			message.setContent(mess, "text/html;charset=utf-8");
-			System.out.println("ÓÊ¼ş");
+			System.out.println("ï¿½Ê¼ï¿½");
 			System.out.println(mess);
-			//3.·¢ËÍÓÊ¼şTransport
+			// 3.ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Transport
 			Transport.send(message);
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("·¢ËÍ¼¤»îÓÊ¼şÊ§°Ü");
+			System.out.println("ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ê§ï¿½ï¿½");
 		}
 	}
-	
-	public String getMailContent(String codetype,
-			String baseUrl,String activeUrl){
-		String html="";
+
+	public String getMailContent(String codetype, String baseUrl, String activeUrl) {
+		String html = "";
 		File input = new File(filePath);
 		try {
 			Document doc = Jsoup.parse(input, "UTF-8", baseUrl);
-			Element element=doc.getElementById(id);
-			//TODO ´ÓĞÂÆ´½Óurl ¼ÓÉÏ¼¤»îÂë
+			Element element = doc.getElementById(id);
+			// TODO
 			element.attr("href", url);
 			element.append(url);
-			html=doc.toString();
+			html = doc.toString();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return html;
 	}
-	
+
 	/*
-	public static void main(String[] args) {
-		MailUtils m=new MailUtils();
-		m.setFilePath("E:/DevelopmentProject/Git/SSHOME/SSHOME/WebRoot/WEB-INF/mails/PswChange.html");
-		m.setId("url");
-		m.setSubject("ÕËºÅ¼¤»î");
-		m.setUrl("www.baidu.com");
-		m.sendMail("842088077@qq.com", "789456123");
-	}*/
+	 * public static void main(String[] args) { MailUtils m=new MailUtils();
+	 * m.setFilePath(
+	 * "E:/DevelopmentProject/Git/SSHOME/SSHOME/WebRoot/WEB-INF/mails/PswChange.html"
+	 * ); m.setId("url"); m.setSubject("ï¿½ËºÅ¼ï¿½ï¿½ï¿½"); m.setUrl("www.baidu.com");
+	 * m.sendMail("842088077@qq.com", "789456123"); }
+	 */
 }

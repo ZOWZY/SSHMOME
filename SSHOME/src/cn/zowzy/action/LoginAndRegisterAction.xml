@@ -20,6 +20,12 @@
 			<result name="input">/WEB-INF/jsp/login.jsp</result>
 		</action>
 		
+		<action name="register" class="LoginAndRegisterAction" method="login">
+			<result name="success">/index.jsp</result>
+			<result name="failed">/WEB-INF/jsp/register.jsp</result>
+			<result name="input">/WEB-INF/jsp/register.jsp</result>
+		</action>
+		
 		<action name="loginPage" class="LoginAndRegisterAction" method="loginPage">
 			<result name="success">/WEB-INF/jsp/login.jsp</result>
 			<result name="failed">/index.jsp</result>

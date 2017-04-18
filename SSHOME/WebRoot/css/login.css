@@ -23,6 +23,13 @@ input
 	height:350px;
 }
 
+.errorinfo{
+	color:rgba(255,0,0,1);
+	width:160px;
+	float: right;
+	margin-right: 55px;
+}
+
 #loginform{
 	padding-top:10px;
 	text-align:center;
@@ -42,6 +49,11 @@ input
 }
 #forgetpassword{
 	float: right;
+}
+
+#checkboxdiv{
+	text-align: left;
+	padding-bottom: 0px;
 }
 
 

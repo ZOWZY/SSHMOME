@@ -35,19 +35,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            		
             	<form action="${pageContext.request.contextPath}/login.action"  method="post" id="loginform">
            			<input id="username" name="username" value="${user.username }" type="text" class="inputsize" maxlength="20" placeholder="用户名"/><br/>
-           	 		<div class="spanstyle">
-           	 			<span><s:fielderror fieldName="username"/></span>
+           	 		<div class="errorinfo">
+           	 			<span  ><s:fielderror fieldName="username"/></span>
            	 		</div>
            	 	
            	 		<input id="password"  name="password" value="${user.password }"  type="password" class="inputsize" maxlength="20" placeholder="密码"><br/>
-            		<div class="spanstyle">
-            			<span><s:fielderror fieldName="password" /></span>
+            		<div class="errorinfo">
+            			<span ><s:fielderror  fieldName="password" /></span>
             		</div>
-           		
-           			<input type="checkbox" class="checkbox_relative"/>
-           			<label class="labelfont">
-                		remember me
-            		</label>
+            		<div id="checkboxdiv">
+           				<input type="checkbox" class="checkbox_relative" value="remember me"/>
+           				<label class="labelfont">
+                			remember me
+            			</label>
+            		</div>
             		<br/>
             		<input type="submit" class="inputsize loginbutton" value="登录" ><br>
             	</form>

@@ -46,7 +46,11 @@ public class LoginAndRegisterAction extends ActionSupport implements ModelDriven
 		if (users != null) {
 			if (users.getPassword().equals(user.getPassword())) {
 				result = SUCCESS;
+			} else {
+				this.addFieldError("password", "密码不正确");
 			}
+		} else {
+			this.addFieldError("username", "用户名不存在");
 		}
 		return result;
 

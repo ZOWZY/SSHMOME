@@ -10,15 +10,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>My JSP 'register.jsp' starting page</title>
+    <script src="/bootstrap/js/bootstrap.js"></script>
     <script src="/jquery/jquery-3.2.0.js"></script>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/buttonstyle.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/register.css">
+	<link rel="stylesheet" href="/css/buttonstyle.css">
+    <link rel="stylesheet" href="/css/register.css">
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 
   </head>
@@ -35,15 +36,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="col-md-4" id="register">
             用户名：<br />
-            <input type="text" maxlength="20" /><br /><br />
+            <input id="username" type="text" maxlength="20" value="${Users.username}"/><br />
+            <span><s:fielderror fieldName="username"></s:fielderror></span>
+            <br />
             电话号码：<br />
-            <input type="text" maxlength="11" /><br /><br />
+            <input type="text"  id="phone" maxlength="11" value="${Users.phone}" /><br />
+            <span><s:fielderror fieldName="phone"></s:fielderror></span>
+            <br />
             邮箱：<br />
-            <input type="email" /><br /><br />
+            <input  id="email" type="email" value="${Users.email}" /><br />
+            <span><s:fielderror fieldName="email"></s:fielderror></span>
+            <br />
             登录密码：<br />
-            <input type="password" maxlength="20"/><br /><br />
+            <input id="password" type="password" maxlength="20" value="${Users.password}"/><br />
+            <span><s:fielderror fieldName="password"></s:fielderror></span>
+            <br />
             确认登录密码：<br />
-            <input type="password" maxlength="20" /><br /><br /><br />
+            <input id="password" type="password" maxlength="20"  value="${Users.password}"/><br /><br />
+            <span><s:fielderror fieldName="password"></s:fielderror></span>
+            <br />
             <button class="button button-3d button-primary button-rounded" style="width:100%">注册</button>
             </div>
             <div class="col-md-4">

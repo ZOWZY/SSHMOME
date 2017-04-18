@@ -31,6 +31,7 @@ public class Room implements java.io.Serializable {
 	private Boolean park;
 	private Boolean lift;
 	private String rule;
+	private Set orderses = new HashSet(0);
 	private Set collects = new HashSet(0);
 
 	// Constructors
@@ -65,7 +66,7 @@ public class Room implements java.io.Serializable {
 	public Room(Roomtype roomtype, Roomstate roomstate, String title, String localtion, Integer maxpersonnumber,
 			Float price, Double longitude, Double latitude, Float score, String description, Integer bed,
 			Integer bedroom, Integer bathroom, Boolean kitchen, Boolean wifi, Integer tv, Boolean park, Boolean lift,
-			String rule, Set collects) {
+			String rule, Set orderses, Set collects) {
 		this.roomtype = roomtype;
 		this.roomstate = roomstate;
 		this.title = title;
@@ -85,6 +86,7 @@ public class Room implements java.io.Serializable {
 		this.park = park;
 		this.lift = lift;
 		this.rule = rule;
+		this.orderses = orderses;
 		this.collects = collects;
 	}
 
@@ -248,6 +250,14 @@ public class Room implements java.io.Serializable {
 
 	public void setRule(String rule) {
 		this.rule = rule;
+	}
+
+	public Set getOrderses() {
+		return this.orderses;
+	}
+
+	public void setOrderses(Set orderses) {
+		this.orderses = orderses;
 	}
 
 	public Set getCollects() {

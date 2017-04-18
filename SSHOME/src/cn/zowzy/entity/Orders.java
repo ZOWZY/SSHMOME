@@ -32,16 +32,18 @@ public class Orders implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Orders(Timestamp datetime, Float cost, Integer personnumber) {
+	public Orders(String oid, Timestamp datetime, Float cost, Integer personnumber) {
+		this.oid = oid;
 		this.datetime = datetime;
 		this.cost = cost;
 		this.personnumber = personnumber;
 	}
 
 	/** full constructor */
-	public Orders(Orderstate orderstate, Users usersByUsername, Room room, Users usersByUseUsername,
+	public Orders(String oid, Orderstate orderstate, Users usersByUsername, Room room, Users usersByUseUsername,
 			Timestamp undatetime, Timestamp datetime, Float cost, Integer personnumber, Timestamp checkintime,
 			Timestamp checkouttime, String remark, String comments, Float commentsscore) {
+		this.oid = oid;
 		this.orderstate = orderstate;
 		this.usersByUsername = usersByUsername;
 		this.room = room;

@@ -25,13 +25,34 @@ public class ChangePasswordAction extends ActionSupport {
 		this.usersService = usersService;
 	}
 
+	/**
+	 * 根据changePasswordCode修改登陆密码
+	 * 
+	 * @return
+	 */
 	public String changePassword() {
 		String result = "failed";
 		HttpServletRequest request = ServletActionContext.getRequest();
 		if (request.getAttribute("changePasswordCode") == null) {
 			return result;
 		}
-
+		// TODO 根据changePasswordCode查找用户 修改登陆密码
 		return result;
 	}
+
+	/**
+	 * 根据changePayPasswordCode修改支付密码
+	 * 
+	 * @return
+	 */
+	public String changePayPassword() {
+		String result = "failed";
+		HttpServletRequest request = ServletActionContext.getRequest();
+		if (request.getAttribute("changePayPasswordCode") == null) {
+			return result;
+		}
+		// TODO 根据changePayPasswordCode查找用户 修改支付密码
+		return result;
+	}
+
 }

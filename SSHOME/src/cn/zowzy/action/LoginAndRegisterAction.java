@@ -16,14 +16,14 @@ public class LoginAndRegisterAction extends ActionSupport implements ModelDriven
 
 	private Users user;
 
-	private UsersService userService = new UsersService();
+	private UsersService usersService = new UsersService();
 
-	public UsersService getUserService() {
-		return userService;
+	public UsersService getUsersService() {
+		return usersService;
 	}
 
-	public void setUserService(UsersService userService) {
-		this.userService = userService;
+	public void setUsersService(UsersService usersService) {
+		this.usersService = usersService;
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class LoginAndRegisterAction extends ActionSupport implements ModelDriven
 		System.out.println("用户名：" + user.getUsername());
 		System.out.println("密码：" + user.getPassword());
 		String result = "failed";
-		Users users = userService.findUserByUsername(user.getUsername());
+		Users users = usersService.findUserByUsername(user.getUsername());
 		if (users != null) {
 			if (users.getPassword().equals(user.getPassword())) {
 				result = SUCCESS;
@@ -58,10 +58,10 @@ public class LoginAndRegisterAction extends ActionSupport implements ModelDriven
 	public String register() {
 		System.out.println("有注册请求");
 		String result = "failed";
-		if (userService.findUserByUsername(user.getUsername()) != null) {
+		if (usersService.findUserByUsername(user.getUsername()) != null) {
 			addFieldError("username", "用户名已经存在");
 		} else {
-			userService.addUser(user);
+			usersService.addUser(user);
 			result = SUCCESS;
 		}
 		return result;

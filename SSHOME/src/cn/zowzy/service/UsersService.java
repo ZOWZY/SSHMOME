@@ -19,14 +19,14 @@ import cn.zowzy.util.MailUtils;
  */
 @Transactional
 public class UsersService {
-	private UsersDao userDao = new UsersDao();
+	private UsersDao usersDao = new UsersDao();
 
-	public UsersDao getUserDao() {
-		return userDao;
+	public UsersDao getUsersDao() {
+		return usersDao;
 	}
 
-	public void setUserDao(UsersDao userDao) {
-		this.userDao = userDao;
+	public void setUsersDao(UsersDao usersDao) {
+		this.usersDao = usersDao;
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class UsersService {
 	 * @return
 	 */
 	public List<Users> findAllUser() {
-		return userDao.findAllUser();
+		return usersDao.findAllUser();
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class UsersService {
 	 * @return
 	 */
 	public String findPasswordByUsername(String username) {
-		return userDao.findPasswordByUsername(username);
+		return usersDao.findPasswordByUsername(username);
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class UsersService {
 	 * @return
 	 */
 	public Users findUserByActiveCode(String activeCode) {
-		return userDao.findUserByActiveCode(activeCode);
+		return usersDao.findUserByActiveCode(activeCode);
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class UsersService {
 	 * @return
 	 */
 	public Users findUserByUsername(String username) {
-		return userDao.findUserByUsername(username);
+		return usersDao.findUserByUsername(username);
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class UsersService {
 			mail.setUrl("");
 			mail.setSubject("�޸ĵ�½����");
 			mail.sendMail(user.getEmail(), activeCode);
-			userDao.addUser(user);
+			usersDao.addUser(user);
 		}
 	}
 
@@ -97,7 +97,7 @@ public class UsersService {
 	 * @param activeCode
 	 */
 	public void activeUser(String activeCode) {
-		userDao.activeUser(activeCode);
+		usersDao.activeUser(activeCode);
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class UsersService {
 	 * @return
 	 */
 	public Boolean changePasswordByActiveCode(String activeCode, String password) {
-		return userDao.changePasswordByActiveCode(activeCode, password);
+		return usersDao.changePasswordByActiveCode(activeCode, password);
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class UsersService {
 	 * @param payPassword
 	 */
 	public void changePayPassword(String username, String activeCode, String payPassword) {
-		userDao.changePayPassword(username, activeCode, payPassword);
+		usersDao.changePayPassword(username, activeCode, payPassword);
 	}
 
 }

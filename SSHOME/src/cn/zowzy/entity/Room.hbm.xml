@@ -67,6 +67,12 @@
         <property name="rule" type="java.lang.String">
             <column name="rule" length="200" />
         </property>
+        <set name="orderses" inverse="true">
+            <key>
+                <column name="rid" />
+            </key>
+            <one-to-many class="cn.zowzy.entity.Orders" />
+        </set>
         <set name="collects" inverse="true">
             <key>
                 <column name="rid" />

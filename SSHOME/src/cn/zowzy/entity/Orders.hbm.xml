@@ -8,7 +8,7 @@
     <class name="cn.zowzy.entity.Orders" table="orders" catalog="sshome">
         <id name="oid" type="java.lang.String">
             <column name="oid" length="80" />
-            <generator class="native" />
+            <generator class="assigned" />
         </id>
         <many-to-one name="orderstate" class="cn.zowzy.entity.Orderstate" fetch="select">
             <column name="osid" />

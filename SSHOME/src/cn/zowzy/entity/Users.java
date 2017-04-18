@@ -33,7 +33,8 @@ public class Users implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Users(String password, String email, String paypassword, Float balance, Integer phone) {
+	public Users(String username, String password, String email, String paypassword, Float balance, Integer phone) {
+		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.paypassword = paypassword;
@@ -42,9 +43,10 @@ public class Users implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Users(Userstate userstate, Usertype usertype, String password, String email, String activecode,
-			String paypassword, Float balance, Integer phone, String changepasswordcode, String changepaypasswordcode,
-			Set ordersesForUseUsername, Set ordersesForUsername, Set collects) {
+	public Users(String username, Userstate userstate, Usertype usertype, String password, String email,
+			String activecode, String paypassword, Float balance, Integer phone, String changepasswordcode,
+			String changepaypasswordcode, Set ordersesForUseUsername, Set ordersesForUsername, Set collects) {
+		this.username = username;
 		this.userstate = userstate;
 		this.usertype = usertype;
 		this.password = password;

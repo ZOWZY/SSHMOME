@@ -9,17 +9,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'register.jsp' starting page</title>
-    <script src="/bootstrap/js/bootstrap.js"></script>
-    <script src="/jquery/jquery-3.2.0.js"></script>
+    <title>注册</title>
+    <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
+    <script src="${pageContext.request.contextPath}/jquery/jquery-3.2.0.js"></script>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" href="/css/buttonstyle.css">
-    <link rel="stylesheet" href="/css/register.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/buttonstyle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/register.css">
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 
   </head>

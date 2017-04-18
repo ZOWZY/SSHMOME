@@ -7,9 +7,9 @@
  -->
  
  <!-- 数据校验的约束 -->
-<!DOCTYPE validators PUBLIC 
-	"-//Apache Struts//XWork Validator 1.0.3//EN"
-	"http://struts.apache.org/dtds/xwork-validator-1.03.dtd">
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
 	
 <validators>
 

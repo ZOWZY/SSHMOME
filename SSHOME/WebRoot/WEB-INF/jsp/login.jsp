@@ -30,18 +30,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="col-md-4"></div> 
         <div class="col-md-4">
             <h1 class="fontstyle">SSHOME</h1>
-            <input type="text" class="inputsize" maxlength="20" placeholder="用户名"/><br/>
-            <div class="spanstyle"><span></span></div>
-            <input type="password" class="inputsize" maxlength="20" placeholder="密码"><br/>
-            <div class="spanstyle"><span></span></div>
-            <input type="checkbox" class="checkbox_relative"/>
-            <label class="labelfont">
-                remember me
-            </label>
-            <br/>
-            <input type="button" class="inputsize loginbutton" value="登录"><br>
-            <a class="labelfont" href="">还没有账号？去注册</a>
-            <a class="forgetpass" href="">forget password?</a>
+            
+            <div  id="maindiv" >
+           		
+            	<form action="${pageContext.request.contextPath}/login.action"  method="post" id="loginform">
+           			<input id="username" name="username" value="${user.username }" type="text" class="inputsize" maxlength="20" placeholder="用户名"/><br/>
+           	 		<div class="spanstyle">
+           	 			<span><s:fielderror fieldName="username"/></span>
+           	 		</div>
+           	 	
+           	 		<input id="password"  name="password" value="${user.password }"  type="password" class="inputsize" maxlength="20" placeholder="密码"><br/>
+            		<div class="spanstyle">
+            			<span><s:fielderror fieldName="password" /></span>
+            		</div>
+           		
+           			<input type="checkbox" class="checkbox_relative"/>
+           			<label class="labelfont">
+                		remember me
+            		</label>
+            		<br/>
+            		<input type="submit" class="inputsize loginbutton" value="登录" ><br>
+            	</form>
+            	<div id="adiv">
+            	 	<a id="newcount" href="${pageContext.request.contextPath}/registerPage.action">还没有账号？去注册</a>
+           		 	<a id="forgetpassword" href="">forget password?</a>
+           		 </div>
+            </div>
+ 
         </div>
         <div class="col-md-4"></div>
     </div>

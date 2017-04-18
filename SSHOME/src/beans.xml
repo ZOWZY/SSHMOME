@@ -34,10 +34,10 @@
 	
 	
 	<!-- ================配置action bean================= -->
-	<bean  id="LoginAndRegisterAction"  class="cn.zowzy.action.LoginAndRegisterAction">
+	<bean  id="LoginAndRegisterAction"  class="cn.zowzy.action.LoginAndRegisterAction" scope="prototype">
 		<property name="usersService"  ref="UsersService"></property>
 	</bean>
-	<bean id="ChangePasswordAction"  class="cn.zowzy.action.ChangePasswordAction">
+	<bean id="ChangePasswordAction"  class="cn.zowzy.action.ChangePasswordAction" scope="prototype">
 		<property name="usersService" ref="UsersService"></property>
 	</bean>
 	

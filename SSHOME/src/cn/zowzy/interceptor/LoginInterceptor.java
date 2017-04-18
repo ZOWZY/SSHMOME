@@ -20,6 +20,7 @@ public class LoginInterceptor extends MethodFilterInterceptor {
 	protected String doIntercept(ActionInvocation invocation) throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
+		System.out.println("登陆拦截");
 		String username = (String) session.getAttribute("username");
 		if (username == null) {
 			return "nologin";

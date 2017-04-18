@@ -30,7 +30,7 @@ public class UsersDao {
 	 * @return
 	 */
 	public List<Users> findAllUser() {
-		String hql = "from User";
+		String hql = "from Users";
 		List<Users> list = (List<Users>) hibernateTemplate.find(hql);
 		return list;
 	}
@@ -46,7 +46,7 @@ public class UsersDao {
 		if (username == null || username.length() <= 0) {
 			return null;
 		}
-		String hql = "from User where username=?";
+		String hql = "from Users where username=?";
 		List<Users> list = (List<Users>) hibernateTemplate.find(hql, username);
 		String password = "";
 		if (list != null && list.size() > 0) {
@@ -66,7 +66,7 @@ public class UsersDao {
 		if (username == null || username.length() <= 0) {
 			return null;
 		}
-		String hql = "from User where username=?";
+		String hql = "from Users where username=?";
 		List<Users> list = (List<Users>) hibernateTemplate.find(hql, username);
 		String password = "";
 		if (list != null && list.size() > 0) {
@@ -87,7 +87,7 @@ public class UsersDao {
 			return null;
 		}
 		Users user = null;
-		String hql = "from User where activecode=?";
+		String hql = "from Users where activecode=?";
 		List<Users> list = (List<Users>) hibernateTemplate.find(hql, activeCode);
 		if (list != null && list.size() > 0) {
 			user = list.get(0);
@@ -107,7 +107,7 @@ public class UsersDao {
 			return null;
 		}
 		Users user = null;
-		String hql = "from User where username=?";
+		String hql = "from Users where username=?";
 		List<Users> list = (List<Users>) hibernateTemplate.find(hql, username);
 		if (list != null && list.size() > 0) {
 			user = list.get(0);

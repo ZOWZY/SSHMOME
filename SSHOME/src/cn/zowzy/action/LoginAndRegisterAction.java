@@ -14,7 +14,7 @@ import cn.zowzy.service.UsersService;
  */
 public class LoginAndRegisterAction extends ActionSupport implements ModelDriven<Users> {
 
-	private Users user;
+	private Users user = new Users();
 
 	private UsersService usersService = new UsersService();
 
@@ -28,6 +28,7 @@ public class LoginAndRegisterAction extends ActionSupport implements ModelDriven
 
 	@Override
 	public Users getModel() {
+		System.out.println("获取ModelDriven");
 		return user;
 	}
 
@@ -48,6 +49,7 @@ public class LoginAndRegisterAction extends ActionSupport implements ModelDriven
 			}
 		}
 		return result;
+
 	}
 
 	/**
@@ -73,10 +75,12 @@ public class LoginAndRegisterAction extends ActionSupport implements ModelDriven
 	 * @return
 	 */
 	public String registerPage() {
+		System.out.println("请求注册页面");
 		return SUCCESS;
 	}
 
 	public String loginPage() {
+		System.out.println("请求登陆页面");
 		return SUCCESS;
 	}
 

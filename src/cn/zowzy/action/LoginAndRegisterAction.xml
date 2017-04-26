@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foudation//DTD Struts Configration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+
+<struts>
+	
+	<package name="LoginAndRegisterAction"  extends="struts-default"  namespace="/">
+		
+		
+		<!-- class属性写全路径的时候，action对象会创建，那么在spring中会创建一次，那么总共会创建两次
+			为了不创建两次，则属性值写spring的bean的id，这些步骤需要导入struts2-spring-plugin-2.3.4.1.jar
+		 -->
+		<action name="login" class="LoginAndRegisterAction" method="login">
+			<result name="success">/index.jsp</result>
+			<result name="failed">/WEB-INF/jsp/login.jsp</result>
+			<result name="input">/WEB-INF/jsp/login.jsp</result>
+		</action>
+		
+		<action name="register" class="LoginAndRegisterAction" method="register">
+			<result name="success">/index.jsp</result>
+			<result name="failed">/WEB-INF/jsp/register.jsp</result>
+			<result name="input">/WEB-INF/jsp/register.jsp</result>
+		</action>
+		
+		<action name="loginPage" class="LoginAndRegisterAction" method="loginPage">
+			<result name="success">/WEB-INF/jsp/login.jsp</result>
+			<result name="failed">/index.jsp</result>
+		</action>
+		
+		<action name="registerPage" class="LoginAndRegisterAction" method="registerPage">
+			<result name="success">/WEB-INF/jsp/register.jsp</result>
+			<result name="failed">/index.jsp</result>
+		</action>
+		
+		
+	</package>
+
+</struts>
+	

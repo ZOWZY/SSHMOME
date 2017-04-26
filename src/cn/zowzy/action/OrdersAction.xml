@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foudation//DTD Struts Configration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<!-- <struts>
+	<package name="OrdersAction"  extends="struts-default"  namespace="/">
+	
+		<action name="addOrders" class="OrdersAction" method="addOrders">
+			<result name="failed"></result>
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		
+		<action name="cancleOrders" class="OrdersAction" method="cnacleOrders">
+			<result name="failed"></result>
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		
+		<action name="updateCheckInTime" class="OrdersAction" method="updateCheckInTime">
+			<result name="failed"></result>
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		
+		<action name="updateCheckOutTime" class="OrdersAction" method="updateCheckOutTime">
+			<result name="failed"></result>
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		
+		<action name="changeOrdersState" class="OrdersAction" method="changeOrdersState">
+			<result name="failed"></result>
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		
+		<action name="findOrdersByUsername" class="OrdersAction" method="findOrdersByUsername">
+			<result name="failed"></result>
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+	
+		<action name="findOrdersByOrdersId" class="OrdersAction" method="findOrdersByOrdersId">
+			<result name="failed"></result>
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+	
+		<action name="findOrdersByRoomid" class="OrdersAction" method="findOrdersByRoomid">
+			<result name="failed"></result>
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		
+		<action name="findOrdersByRoomidAndUsername" class="OrdersAction" method="findOrdersByRoomidAndUsername">
+			<result name="failed"></result>
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+	
+	
+	</package>
+
+</struts> -->

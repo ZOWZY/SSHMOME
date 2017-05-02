@@ -209,7 +209,7 @@ public class RoomDao {
 	}
 
 	/**
-	 * 
+	 * 根据房源的编号修改房源的床位数
 	 * @param roomid
 	 * @param bed
 	 */
@@ -232,7 +232,7 @@ public class RoomDao {
 	}
 
 	/**
-	 * 
+	 * 根据房源的编号修改房源是否有WIFI
 	 * @param roomid
 	 * @param wifi
 	 */
@@ -255,7 +255,7 @@ public class RoomDao {
 	}
 
 	/**
-	 * 
+	 * 根据房源的编号修改房源的电视数量
 	 * @param roomid
 	 * @param tv
 	 */
@@ -278,7 +278,7 @@ public class RoomDao {
 	}
 
 	/**
-	 * 
+	 * 根据房源的编号修改房源是否有停车场
 	 * @param roomid
 	 * @param park
 	 */
@@ -301,7 +301,7 @@ public class RoomDao {
 	}
 
 	/**
-	 * 
+	 * 根据房源的编号修改房源是否有电梯
 	 * @param roomid
 	 * @param lift
 	 */

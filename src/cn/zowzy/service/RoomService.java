@@ -26,18 +26,15 @@ public class RoomService {
 	}
 
 	/**
-	 * ��ӷ�Դ��Ϣ
-	 * 
+	 * 添加房源信息
 	 * @param room
-	 *            ��Դ��Ϣ����
 	 */
 	public void addRoom(Room room) {
 		roomDao.addRoom(room);
 	}
 
 	/**
-	 * ����roomid��ѯ��Դ��Ϣ
-	 * 
+	 * 根据房源编号查询房源信息
 	 * @param roomid
 	 * @return
 	 */
@@ -49,11 +46,9 @@ public class RoomService {
 	}
 
 	/**
-	 * �����û�����ѯ���û������еķ�Դ
-	 * 
+	 * 根据用户名查询房源信息
 	 * @param username
-	 *            �û���
-	 * @return room��list
+	 * @return
 	 */
 	public List<Room> findRoomsByUsername(String username) {
 		if (username == null || username.length() <= 0)
@@ -63,8 +58,16 @@ public class RoomService {
 	}
 
 	/**
-	 * ����roomidɾ����Դ
-	 * 
+	 * 根据房源编号改变房源状态
+	 * @param roomid
+	 * @param roomStateid
+	 */
+	public void changeRoomState(String roomid, String roomStateid) {
+		roomDao.changeRoomState(roomid,roomStateid);
+	}
+	
+	/**
+	 * 删除房源
 	 * @param roomid
 	 */
 	public void deleteRoom(String roomid) {
@@ -75,8 +78,7 @@ public class RoomService {
 	}
 
 	/**
-	 * ���ݷ�Դ����޸ķ�Դ�ļ۸�
-	 * 
+	 * 根据房源编号修改房源的价格
 	 * @param roomid
 	 * @param price
 	 */
@@ -84,4 +86,75 @@ public class RoomService {
 		roomDao.changeRoomPrice(roomid, price);
 	}
 
+	/**
+	 * 根据房源编号修改房源的标题
+	 * @param roomid
+	 * @param title
+	 */
+	public void changeRoomTitle(String roomid, String title) {
+		roomDao.changeRoomTitle(roomid,title);
+	}
+	
+	/**
+	 * 根据房源编号修改房源的评分
+	 * @param roomid
+	 * @param score
+	 */
+	public void changeScore(String roomid, float score) {
+		roomDao.changeScore(roomid,score);
+	}
+
+	/**
+	 * 根据房源的编号修改房源的描述
+	 * @param roomid
+	 * @param description
+	 */
+	public void changeDescription(String roomid, String description) {
+		roomDao.changeDescription(roomid,description);
+	}
+	
+	/**
+	 * 根据房源的编号修改房源的床位数
+	 * @param roomid
+	 * @param bed
+	 */
+	public void changeBad(String roomid, Integer bed) {
+		roomDao.changeBad(roomid,bed);
+	}
+	
+	/**
+	 * 根据房源的编号修改房源是否有WIFI
+	 * @param roomid
+	 * @param wifi
+	 */
+	public void changeWifi(String roomid, Boolean wifi) {
+		roomDao.changeWifi(roomid,wifi);
+	}
+	
+	/**
+	 * 根据房源的编号修改房源的电视数量
+	 * @param roomid
+	 * @param tv
+	 */
+	public void changeTv(String roomid, Integer tv) {
+		roomDao.changeTv(roomid,tv);
+	}
+	
+	/**
+	 * 根据房源的编号修改房源是否有停车场
+	 * @param roomid
+	 * @param park
+	 */
+	public void changePark(String roomid, Boolean park) {
+		roomDao.changePark(roomid,park);
+	}
+	
+	/**
+	 * 根据房源的编号修改房源是否有电梯
+	 * @param roomid
+	 * @param lift
+	 */
+	public void changeLift(String roomid, Boolean lift) {
+		roomDao.changeLift(roomid,lift);
+	}
 }

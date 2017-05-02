@@ -54,9 +54,11 @@
 	<bean  id="CollectService"  class="cn.zowzy.service.CollectService">
 		<property name="collectDao"  ref="CollectDao"></property>
 	</bean>
-
 	<bean  id="RoomService"  class="cn.zowzy.service.RoomService">
 		<property name="roomDao"  ref="RoomDao"></property>
+	</bean>
+	<bean  id="OrdersService"  class="cn.zowzy.service.OrdersService">
+		<property name="ordersDao"  ref="OrdersDao"></property>
 	</bean>
 	
 	

@@ -31,7 +31,7 @@ public class UsersService {
 	}
 
 	/**
-	 * 
+	 * 查询所有的用户
 	 * @return
 	 */
 	public List<Users> findAllUser() {
@@ -39,16 +39,25 @@ public class UsersService {
 	}
 
 	/**
-	 * 
+	 * 根据用户名查询登陆密码
 	 * @param username
 	 * @return
 	 */
 	public String findPasswordByUsername(String username) {
 		return usersDao.findPasswordByUsername(username);
 	}
-
+	
 	/**
-	 * 
+	 * 根据用户名查询用户的支付密码
+	 * @param username
+	 * @return
+	 */
+	public String findPayPasswordByUsername(String username) {
+		return usersDao.findPayPasswordByUsername(username);
+	}
+	
+	/**
+	 * 根据激活码查询用户
 	 * @param activeCode
 	 * @return
 	 */
@@ -57,7 +66,25 @@ public class UsersService {
 	}
 
 	/**
-	 * 
+	 * 根据修改密码的验证码查询用户
+	 * @param changePasswordCode
+	 * @return
+	 */
+	public Users findUserByChangePasswordCode(String changePasswordCode) {
+		return usersDao.findUserByChangePasswordCode(changePasswordCode);
+	}
+	
+	/**
+	 * 根据修改支付密码的验证码查询用户
+	 * @param changePayPasswordCode
+	 * @return
+	 */
+	public Users findUserByChangePayPasswordCode(String changePayPasswordCode) {
+		return usersDao.findUserByChangePayPasswordCode(changePayPasswordCode);
+	}
+	
+	/**
+	 * 根据用户名查询用户
 	 * @param username
 	 * @return
 	 */
@@ -66,7 +93,7 @@ public class UsersService {
 	}
 
 	/**
-	 * 
+	 * 添加用户
 	 * @param user
 	 */
 	public void addUser(Users user) {
@@ -93,7 +120,7 @@ public class UsersService {
 	}
 
 	/**
-	 * 
+	 * 根据激活码激活用户
 	 * @param activeCode
 	 */
 	public void activeUser(String activeCode) {
@@ -101,7 +128,7 @@ public class UsersService {
 	}
 
 	/**
-	 * 
+	 * 根据修改密码的验证码修改密码
 	 * @param activeCode
 	 * @param password
 	 * @return
@@ -111,7 +138,7 @@ public class UsersService {
 	}
 
 	/**
-	 * 
+	 * 根据用户名和修改支付密码的验证码修改支付密码
 	 * @param username
 	 * @param activeCode
 	 * @param payPassword

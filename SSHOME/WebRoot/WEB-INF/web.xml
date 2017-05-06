@@ -8,6 +8,8 @@
   <filter-mapping>
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
+     <dispatcher>REQUEST</dispatcher> 
+  <dispatcher>FORWARD</dispatcher> 
   </filter-mapping>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -35,7 +37,9 @@
      </filter-mapping>
   
   
-  
+  <welcome-file-list>
+  	<welcome-file>indexPage.action</welcome-file>
+  </welcome-file-list>
   
   <!-- 处理出错时候，页面跳转 -->
   <!-- <error-page>

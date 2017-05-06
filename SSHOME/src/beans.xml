@@ -43,6 +43,7 @@
 	<bean  id="OrdersAction"  class="cn.zowzy.action.OrdersAction" scope="prototype">
 		<property name="ordersService" ref="OrdersService"></property>
 	</bean>
+	<bean id="IndexAction" class="cn.zowzy.action.IndexAction" scope="prototype"/>
 	
 	
 	

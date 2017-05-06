@@ -9,5 +9,6 @@
 	<constant name="struts.i18n.encoding" value="UTF-8" /> 
 	<include file="cn/zowzy/action/LoginAndRegisterAction.xml"></include>
 	<include file="cn/zowzy/action/ChangePasswordAction.xml"></include>
+	<include file="cn/zowzy/action/IndexAction.xml"></include>
 </struts>
 	

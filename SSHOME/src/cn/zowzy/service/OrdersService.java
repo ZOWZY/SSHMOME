@@ -59,6 +59,34 @@ public class OrdersService {
 	public float queryAllCostByUsername(String username) {
 		return ordersDao.queryAllCostByUsername(username);
 	}
+	
+	/**
+	 * 根据卖家名查询订单
+	 * @param useUsername
+	 * @return
+	 */
+	public List<Orders> findOrdersByUse_username(String useUsername) {
+		return ordersDao.findOrdersByUse_username(useUsername);
+	}
+
+	/**
+	 * 根据卖家名和房源编号查询订单
+	 * @param useUsername
+	 * @param roomid
+	 * @return
+	 */
+	public List<Orders> findOrdersByUse_username(String useUsername, String roomid) {
+		return ordersDao.findOrdersByUse_username(useUsername, roomid);
+	}
+
+	/**
+	 * 根据卖家名查询所有的收入
+	 * @param useUsername
+	 * @return
+	 */
+	public float queryAllCostByUse_username(String useUsername) {
+		return ordersDao.queryAllCostByUse_username(useUsername);
+	}
 
 	/**
 	 * 根据订单编号查询订单

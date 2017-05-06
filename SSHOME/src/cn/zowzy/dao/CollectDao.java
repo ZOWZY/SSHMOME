@@ -106,4 +106,28 @@ public class CollectDao {
 		return result;
 	}
 
+	/**
+	 * 根据用户名清空收藏夹
+	 * @param username
+	 * @return
+	 */
+	public boolean cancleAllCollect(String username){
+		if (username == null || username.length() <= 0) {
+			return false;
+		}
+		boolean result = true;
+		String hql = "from Collect where usernameid=?";
+		List<Collect> list = (List<Collect>) hibernateTemplate.find(hql, username);
+		if (list == null) {
+			result = false;
+		} else if (list.size() > 0) {
+			for(Collect entity:list){
+				//Collect entity = list.get(0);
+			    hibernateTemplate.delete(entity);
+			}
+		} else {
+			result = false;
+		}
+		return result;
+	}
 }

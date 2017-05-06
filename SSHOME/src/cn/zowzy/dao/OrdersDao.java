@@ -83,7 +83,7 @@ public class OrdersDao {
 		if (username == null || username.length() <= 0) {
 			return 0;
 		}
-		List<Orders> list = findAllOrders();
+		List<Orders> list = findOrdersByUsername(username);
 		float allCost = 0;
 		for (Orders orders : list) {
 			// 2代表已经完成的订单
@@ -94,6 +94,58 @@ public class OrdersDao {
 		return allCost;
 	}
 
+	/**
+	 * 根据卖家名查询订单
+	 * @param useUsername
+	 * @return
+	 */
+	public List<Orders> findOrdersByUse_username(String useUsername){
+		if (useUsername == null || useUsername.length() <= 0) {
+			return null;
+		}
+		String hql = " from Orders where Use_username=?";
+		List<Orders> list = (List<Orders>) hibernateTemplate.find(hql, useUsername);
+		return list;
+	}
+	
+	/**
+	 * 根据卖家名和房源编号查询订单
+	 * @param useUsername
+	 * @param roomid
+	 * @return
+	 */
+	public List<Orders> findOrdersByUse_username(String useUsername, String roomid) {
+		if (useUsername == null || useUsername.length() <= 0) {
+			return null;
+		} else if (roomid == null || roomid.length() <= 0) {
+			return null;
+		}
+
+		String hql = " from Orders where Use_username=? and rid=?";
+		List<Orders> list = (List<Orders>) hibernateTemplate.find(hql, useUsername, roomid);
+		return list;
+	}
+	
+	/**
+	 * 根据卖家名查询所有的收入
+	 * @param useUsername
+	 * @return
+	 */
+	public float queryAllCostByUse_username(String useUsername) {
+		if (useUsername == null || useUsername.length() <= 0) {
+			return 0;
+		}
+		List<Orders> list = findOrdersByUse_username(useUsername);
+		float allCost = 0;
+		for (Orders orders : list) {
+			// 2代表已经完成的订单
+			if (orders.getOrderstate().getOsid() == 2) {
+				allCost += orders.getCost();
+			}
+		}
+		return allCost;
+	}
+	
 	/**
 	 * 根据订单编号查询订单
 	 * 
@@ -114,6 +166,7 @@ public class OrdersDao {
 		}
 	}
 
+	
 	/**
 	 * 根据订单修改退房时间
 	 * 

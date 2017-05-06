@@ -27,7 +27,7 @@ public class CollectService {
 	}
 
 	/**
-	 * 
+	 * 添加收藏
 	 * @param collect
 	 */
 	public void addCollect(Collect collect) {
@@ -35,7 +35,7 @@ public class CollectService {
 	}
 
 	/**
-	 * 
+	 * 查询所有收藏
 	 * @return
 	 */
 	public List<Collect> findAll() {
@@ -43,7 +43,7 @@ public class CollectService {
 	}
 
 	/**
-	 * 
+	 * 根据用户名查询收藏
 	 * @param username
 	 * @return
 	 */
@@ -52,7 +52,7 @@ public class CollectService {
 	}
 
 	/**
-	 * 
+	 * 根据ROOMID查询收藏
 	 * @param roomid
 	 * @return
 	 */
@@ -61,7 +61,7 @@ public class CollectService {
 	}
 
 	/**
-	 * 
+	 * 根据用户名和房源编号取消收藏
 	 * @param username
 	 * @param roomid
 	 * @return
@@ -70,4 +70,12 @@ public class CollectService {
 		return collectDao.cancleCollect(username, roomid);
 	}
 
+	/**
+	 * 根据用户名清空收藏夹
+	 * @param username
+	 * @return
+	 */
+	public boolean cancleAllCollect(String username){
+		return collectDao.cancleAllCollect(username);
+	}
 }

@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+  #register{font-size:20px;
+  }
+  input{ width:100%;}
+  
+.errorinfo{
+  	color:rgba(255,0,0,1);
+  }

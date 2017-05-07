@@ -28,6 +28,7 @@ public class RoomDao {
 	 * 添加房源信息
 	 * 
 	 * @param room
+	 * 
 	 */
 	public void addRoom(Room room) {
 		if (room != null) {

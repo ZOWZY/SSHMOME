@@ -107,7 +107,7 @@ public class UsersDao {
 			return null;
 		}
 		Users user = null;
-		String hql = "from User where changepasswordcode=?";
+		String hql = "from Users where changepasswordcode=?";
 		List<Users> list = (List<Users>) hibernateTemplate.find(hql, changePasswordCode);
 		if (list != null && list.size() > 0) {
 			user = list.get(0);
@@ -127,7 +127,7 @@ public class UsersDao {
 			return null;
 		}
 		Users user = null;
-		String hql = "from User where changepaypasswordcode=?";
+		String hql = "from Users where changepaypasswordcode=?";
 		List<Users> list = (List<Users>) hibernateTemplate.find(hql, changePayPasswordCode);
 		if (list != null && list.size() > 0) {
 			user = list.get(0);
@@ -178,7 +178,7 @@ public class UsersDao {
 		if (user == null) {
 			return;
 		}
-		if (user.getUserstate().getUsid() == 2) {
+		if (user.getUserstate().getUsid().equals(2)) {
 			user.setActivecode("");
 			user.getUserstate().setUsid(1);// �����û�״̬Ϊ����
 			hibernateTemplate.update(user);
@@ -210,7 +210,7 @@ public class UsersDao {
 			return false;
 		} else {
 			// 3����ȴ��޸ĵ�½�����״̬
-			if (user.getUserstate().getUsid() == 3) {
+			if (user.getUserstate().getUsid().equals(3)) {
 				user.setPassword(password);
 				user.getUserstate().setUsid(1);
 				hibernateTemplate.update(user);
@@ -243,7 +243,7 @@ public class UsersDao {
 				return;
 			} else {
 				// 4����ȴ��޸�֧������
-				if (user.getUserstate().getUsid() == 4) {
+				if (user.getUserstate().getUsid().equals(4)) {
 					user.setPaypassword(payPassword);
 					user.getUserstate().setUsid(1);
 					hibernateTemplate.update(user);
@@ -251,5 +251,28 @@ public class UsersDao {
 			}
 		}
 	}
-
+	
+	/**
+	 * 根据用户名和支付密码付款
+	 * @param username
+	 * @param payPassword
+	 * @param payAmount
+	 * @return
+	 */
+	public boolean paymentByUsername(String username,String payPassword,Float payAmount){
+		String paypass=findPayPasswordByUsername(username);
+		if(paypass!=null&&paypass.endsWith(payPassword)){
+			Users user=findUserByUsername(username);
+			if(user!=null){
+				Float balance=user.getBalance();
+				if(balance>=payAmount){
+					balance-=payAmount;
+					hibernateTemplate.update(user);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 }

@@ -101,7 +101,7 @@ public class OrdersDao {
 		float allCost = 0;
 		for (Orders orders : list) {
 			// 2代表已经完成的订单
-			if (orders.getOrderstate().getOsid() == 2) {
+			if (orders.getOrderstate().getOsid().equals(2)) {
 				allCost += orders.getCost();
 			}
 		}
@@ -171,7 +171,7 @@ public class OrdersDao {
 		float allCost = 0;
 		for (Orders orders : list) {
 			// 2代表已经完成的订单
-			if (orders.getOrderstate().getOsid() == 2) {
+			if (orders.getOrderstate().getOsid().equals(2)) {
 				allCost += orders.getCost();
 			}
 		}
@@ -194,7 +194,7 @@ public class OrdersDao {
 		List<Orders> list = findOrdersByUse_username(useUsername,datetime);
 		float allCost = 0;
 		for (Orders orders : list) {
-			if (orders.getOrderstate().getOsid() == 2) {
+			if (orders.getOrderstate().getOsid().equals(2)) {
 				allCost += orders.getCost();
 			}
 		}
@@ -320,10 +320,11 @@ public class OrdersDao {
 	 * @param osid
 	 */
 	public void changeOrderstate(String orderid,Integer orderstateid){
-		if(orderstateid==1||orderstateid==2||orderstateid==3){
+		if(orderstateid.equals(1)||orderstateid.equals(2)||orderstateid.equals(3)){
 			Orders order=findOrdersByOrderid(orderid);
 			if (order != null) {
 				order.getOrderstate().setOsid(orderstateid);
+				hibernateTemplate.update(order);
 			}
 		}
 	}

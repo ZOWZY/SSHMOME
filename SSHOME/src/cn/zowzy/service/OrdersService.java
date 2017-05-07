@@ -65,8 +65,8 @@ public class OrdersService {
 	 * @param useUsername
 	 * @return
 	 */
-	public List<Orders> findOrdersByUse_username(String useUsername) {
-		return ordersDao.findOrdersByUse_username(useUsername);
+	public List<Orders> findAllOrdersByUse_username(String useUsername) {
+		return ordersDao.findAllOrdersByUse_username(useUsername);
 	}
 
 	/**
@@ -80,14 +80,34 @@ public class OrdersService {
 	}
 
 	/**
+	 * 根据卖家名和日期查询订单
+	 * @param useUsername
+	 * @param datetime
+	 * @return
+	 */
+	public List<Orders> findOrdersByUse_username(String useUsername,Timestamp datetime) {
+		return ordersDao.findOrdersByUse_username(useUsername, datetime);
+	}
+	
+	/**
 	 * 根据卖家名查询所有的收入
 	 * @param useUsername
 	 * @return
 	 */
-	public float queryAllCostByUse_username(String useUsername) {
-		return ordersDao.queryAllCostByUse_username(useUsername);
+	public float queryAllIncomeByUse_username(String useUsername) {
+		return ordersDao.queryAllIncomeByUse_username(useUsername);
 	}
 
+	/**
+	 * 根据卖家名和日期查询收入
+	 * @param useUsername
+	 * @param datetime
+	 * @return
+	 */
+	public float queryIncomeByUse_username(String useUsername,Timestamp datetime) {
+		return ordersDao.queryIncomeByUse_username(useUsername,datetime);
+	}
+	
 	/**
 	 * 根据订单编号查询订单
 	 * @param orderid
@@ -97,6 +117,15 @@ public class OrdersService {
 		return ordersDao.findOrdersByOrderid(orderid);
 	}
 
+	/**
+	 * 根据订单状态查询订单
+	 * @param orderstateid
+	 * @return
+	 */
+	public List<Orders> findOrdersByOrderstate(Integer orderstateid){
+		return ordersDao.findOrdersByOrderstate(orderstateid);
+	}
+	
 	/**
 	 * 根据订单修改退房时间
 	 * @param orderid
@@ -125,4 +154,12 @@ public class OrdersService {
 		ordersDao.addComments(orderid, comment, score);
 	}
 
+	/**
+	 * 根据订单编号修改订单状态
+	 * @param orderid
+	 * @param orderstateid
+	 */
+	public void changeOrderstate(String orderid,Integer orderstateid){
+		ordersDao.changeOrderstate(orderid,orderstateid);
+	}
 }

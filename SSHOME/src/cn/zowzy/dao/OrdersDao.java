@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import cn.zowzy.entity.Orders;
+import cn.zowzy.entity.Orderstate;
 
 /**
  * 
@@ -24,6 +25,19 @@ public class OrdersDao {
 		this.hibernateTemplate = hibernateTemplate;
 	}
 
+	/**
+	 * 添加订单
+	 * @param orders
+	 */
+	public void addOrders(Orders orders){
+		if(orders!=null){
+			Orderstate orderstate=new Orderstate();
+			orderstate.setOsid(2);
+			orders.setOrderstate(orderstate);
+			hibernateTemplate.save(orders);
+		}
+	}
+	
 	/**
 	 * 查询所有订单
 	 * 
@@ -99,7 +113,7 @@ public class OrdersDao {
 	 * @param useUsername
 	 * @return
 	 */
-	public List<Orders> findOrdersByUse_username(String useUsername){
+	public List<Orders> findAllOrdersByUse_username(String useUsername){
 		if (useUsername == null || useUsername.length() <= 0) {
 			return null;
 		}
@@ -127,18 +141,59 @@ public class OrdersDao {
 	}
 	
 	/**
+	 * 根据卖家名和日期查询订单
+	 * @param useUsername
+	 * @param datetime
+	 * @return
+	 */
+	public List<Orders> findOrdersByUse_username(String useUsername,Timestamp datetime) {
+		if (useUsername == null || useUsername.length() <= 0) {
+			return null;
+		} else if (datetime == null ) {
+			return null;
+		}
+
+		String hql = " from Orders where Use_username=? and datetime=?";
+		List<Orders> list = (List<Orders>) hibernateTemplate.find(hql, useUsername, datetime);
+		return list;
+	}
+	
+	/**
 	 * 根据卖家名查询所有的收入
 	 * @param useUsername
 	 * @return
 	 */
-	public float queryAllCostByUse_username(String useUsername) {
+	public float queryAllIncomeByUse_username(String useUsername) {
 		if (useUsername == null || useUsername.length() <= 0) {
 			return 0;
 		}
-		List<Orders> list = findOrdersByUse_username(useUsername);
+		List<Orders> list = findAllOrdersByUse_username(useUsername);
 		float allCost = 0;
 		for (Orders orders : list) {
 			// 2代表已经完成的订单
+			if (orders.getOrderstate().getOsid() == 2) {
+				allCost += orders.getCost();
+			}
+		}
+		return allCost;
+	}
+	
+	/**
+	 * 根据卖家名和日期查询收入
+	 * @param useUsername
+	 * @param datetime
+	 * @return
+	 */
+	public float queryIncomeByUse_username(String useUsername,Timestamp datetime) {
+		if (useUsername == null || useUsername.length() <= 0) {
+			return 0;
+		}
+		if (datetime == null ) {
+			return 0;
+		}
+		List<Orders> list = findOrdersByUse_username(useUsername,datetime);
+		float allCost = 0;
+		for (Orders orders : list) {
 			if (orders.getOrderstate().getOsid() == 2) {
 				allCost += orders.getCost();
 			}
@@ -165,7 +220,24 @@ public class OrdersDao {
 			return null;
 		}
 	}
-
+	
+	/**
+	 * 根据订单状态查询订单
+	 * @param orderstateid
+	 * @return
+	 */
+	public List<Orders> findOrdersByOrderstate(Integer orderstateid){
+		if(orderstateid !=1||orderstateid !=2||orderstateid !=3){
+			return null;
+		}
+		String hql = " from Orders where osid=?";
+		List<Orders> list = (List<Orders>) hibernateTemplate.find(hql,orderstateid);
+		if (list != null && list.size() > 0) {
+			return list;
+		} else {
+			return null;
+		}
+	}
 	
 	/**
 	 * 根据订单修改退房时间
@@ -241,5 +313,22 @@ public class OrdersDao {
 			hibernateTemplate.update(order);
 		}
 	}
+	
+	/**
+	 * 根据订单编号修改订单状态
+	 * @param orderid
+	 * @param osid
+	 */
+	public void changeOrderstate(String orderid,Integer orderstateid){
+		if(orderstateid==1||orderstateid==2||orderstateid==3){
+			Orders order=findOrdersByOrderid(orderid);
+			if (order != null) {
+				order.getOrderstate().setOsid(orderstateid);
+			}
+		}
+	}
+	
+	
+	
 
 }

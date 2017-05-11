@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import cn.zowzy.entity.Room;
+import cn.zowzy.entity.Roomstate;
 
 /**
  * 
@@ -24,6 +25,9 @@ public class RoomDao {
 		this.hibernateTemplate = hibernateTemplate;
 	}
 
+	
+	// ----------------------增
+	
 	/**
 	 * 添加房源信息
 	 * 
@@ -35,40 +39,25 @@ public class RoomDao {
 			hibernateTemplate.save(room);
 		}
 	}
+	
+	// ----------------------删
 
 	/**
-	 * 根据房源编号查询房源信息
+	 * 删除房源
 	 * 
 	 * @param roomid
 	 *            房源编号
-	 * @return
 	 */
-	public Room findRoomByRoomid(String roomid) {
-		String hql = " from  Room where rid=?";
-		List<Room> list = (List<Room>) hibernateTemplate.find(hql, roomid);
-		if (list != null && list.size() > 0) {
-			return list.get(0);
+	public void deleteRoom(String roomid) {
+		Room room = findRoomByRoomid(roomid);
+		if (room == null) {
+			return;
 		} else {
-			return null;
+			hibernateTemplate.delete(room);
 		}
 	}
-
-	/**
-	 * 根据用户名查询房源信息
-	 * 
-	 * @param username
-	 *            用户名
-	 * @return
-	 */
-	public List<Room> findRoomsByUsername(String username) {
-		String hql = " from  Room where usernameid=?";
-		List<Room> list = (List<Room>) hibernateTemplate.find(hql, username);
-		if (list != null) {
-			return list;
-		} else {
-			return null;
-		}
-	}
+	
+	// ----------------------改
 
 	/**
 	 * 根据房源编号改变房源状态
@@ -92,22 +81,7 @@ public class RoomDao {
 			hibernateTemplate.update(room);
 		}
 	}
-
-	/**
-	 * 删除房源
-	 * 
-	 * @param roomid
-	 *            房源编号
-	 */
-	public void deleteRoom(String roomid) {
-		Room room = findRoomByRoomid(roomid);
-		if (room == null) {
-			return;
-		} else {
-			hibernateTemplate.delete(room);
-		}
-	}
-
+	
 	/**
 	 * 根据房源编号修改房源的价格
 	 * 
@@ -323,4 +297,84 @@ public class RoomDao {
 		}
 	}
 
+	//----------------------查
+	
+	/**
+	 * 根据房源编号查询房源信息
+	 * 
+	 * @param roomid
+	 *            房源编号
+	 * @return
+	 */
+	public Room findRoomByRoomid(String roomid) {
+		String hql = " from  Room where rid=?";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql, roomid);
+		if (list != null && list.size() > 0) {
+			return list.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * 根据用户名查询房源信息
+	 * 
+	 * @param username
+	 *            用户名
+	 * @return
+	 */
+	public List<Room> findRoomsByUsername(String username) {
+		String hql = " from  Room where usernameid=?";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql, username);
+		if (list != null) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * 根据房间状态查询房源信息
+	 * @param rsid
+	 * @return
+	 */
+	public List<Room> findRoomsByRoomstate(String rsid) {
+		String hql = " from  Room where rsid=?";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql, rsid);
+		if (list != null) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * 根据房间类型查询房源信息
+	 * @param rtid
+	 * @return
+	 */
+	public List<Room> findRoomsByRoomtype(String rtid) {
+		String hql = " from  Room where rtid=?";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql, rtid);
+		if (list != null) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * 根据标题模糊查询房源信息
+	 * @param title
+	 * @return
+	 */
+	public List<Room> findRoomsByTitle(String title) {
+		String hql = " from  Room where title=?";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql, title);
+		if (list != null) {
+			return list;
+		} else {
+			return null;
+		}
+	}
 }

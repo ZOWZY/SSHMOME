@@ -4,7 +4,7 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 	
 <struts>
-	<package name="FileAction"  extends="struts-default" namespace="/">
+	<package name="FileAction"  extends="struts-default,json-default" namespace="/">
 		<action name="photoUpload" class="FileAction"  method="photoUpload">
 			<result name="success">/WEB-INF/jsp/photoUpload.jsp</result>
 			<result name="failed">/WEB-INF/jsp/failed.jsp</result>
@@ -12,6 +12,15 @@
 		<action name="photoUploadPage" class="FileAction"  method="photoUploadPage">
 			<result name="success">/WEB-INF/jsp/photoUpload.jsp</result>
 			<result name="failed">/WEB-INF/jsp/failed.jsp</result>
+		</action>
+		<action name="getPhotosPage" class="FileAction"  method="getPhotosPage">
+			<result name="success">/WEB-INF/jsp/getPhotos.jsp</result>
+			<result name="failed">/WEB-INF/jsp/failed.jsp</result>
+		</action>
+		
+		
+		<action name="getPhotoNames" class="FileAction"  method="getPhotoNames">
+			
 		</action>
 	</package>
 </struts> 

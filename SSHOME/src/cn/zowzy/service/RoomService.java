@@ -24,7 +24,9 @@ public class RoomService {
 	public void setRoomDao(RoomDao roomDao) {
 		this.roomDao = roomDao;
 	}
-
+	
+	// ----------------------增
+	
 	/**
 	 * 添加房源信息
 	 * @param room
@@ -33,38 +35,7 @@ public class RoomService {
 		roomDao.addRoom(room);
 	}
 
-	/**
-	 * 根据房源编号查询房源信息
-	 * @param roomid
-	 * @return
-	 */
-	public Room findRoomByRoomid(String roomid) {
-		if (roomid == null || roomid.length() <= 0)
-			return null;
-		else
-			return roomDao.findRoomByRoomid(roomid);
-	}
-
-	/**
-	 * 根据用户名查询房源信息
-	 * @param username
-	 * @return
-	 */
-	public List<Room> findRoomsByUsername(String username) {
-		if (username == null || username.length() <= 0)
-			return null;
-		else
-			return roomDao.findRoomsByUsername(username);
-	}
-
-	/**
-	 * 根据房源编号改变房源状态
-	 * @param roomid
-	 * @param roomStateid
-	 */
-	public void changeRoomState(String roomid, String roomStateid) {
-		roomDao.changeRoomState(roomid,roomStateid);
-	}
+	// ----------------------删
 	
 	/**
 	 * 删除房源
@@ -75,6 +46,17 @@ public class RoomService {
 			return;
 		else
 			roomDao.deleteRoom(roomid);
+	}
+
+	// ----------------------改
+
+	/**
+	 * 根据房源编号改变房源状态
+	 * @param roomid
+	 * @param roomStateid
+	 */
+	public void changeRoomState(String roomid, String roomStateid) {
+		roomDao.changeRoomState(roomid,roomStateid);
 	}
 
 	/**
@@ -157,4 +139,56 @@ public class RoomService {
 	public void changeLift(String roomid, Boolean lift) {
 		roomDao.changeLift(roomid,lift);
 	}
+	
+	//----------------------查
+	
+	/**
+	 * 根据房源编号查询房源信息
+	 * @param roomid
+	 * @return
+	 */
+	public Room findRoomByRoomid(String roomid) {
+		if (roomid == null || roomid.length() <= 0)
+			return null;
+		else
+			return roomDao.findRoomByRoomid(roomid);
+	}
+
+	/**
+	 * 根据用户名查询房源信息
+	 * @param username
+	 * @return
+	 */
+	public List<Room> findRoomsByUsername(String username) {
+		if (username == null || username.length() <= 0)
+			return null;
+		else
+			return roomDao.findRoomsByUsername(username);
+	}
+
+	/**
+	 * 根据房间状态查询房源信息
+	 * @param rsid
+	 * @return
+	 */
+	public List<Room> findRoomsByRoomstate(String rsid) {
+		if (rsid == null || rsid.length() <= 0)
+			return null;
+		else
+			return roomDao.findRoomsByRoomstate(rsid);
+	}
+	
+	/**
+	 * 根据房间类型查询房源信息
+	 * @param rtid
+	 * @return
+	 */
+	public List<Room> findRoomsByRoomtype(String rtid) {
+		if (rtid == null || rtid.length() <= 0)
+			return null;
+		else
+			return roomDao.findRoomsByRoomtype(rtid);
+	}
+	
+	//TODO:查询房源信息
 }

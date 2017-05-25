@@ -300,6 +300,21 @@ public class RoomDao {
 	//----------------------查
 	
 	/**
+	 * 根据价格查询房源信息
+	 * @return
+	 */
+	public List<Room> findRoomsOrderByPrice(){
+		String hql = " from  Room order by price desc";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
+		if (list != null) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+	
+	
+	/**
 	 * 根据房源编号查询房源信息
 	 * 
 	 * @param roomid
@@ -362,19 +377,14 @@ public class RoomDao {
 			return null;
 		}
 	}
-	
+	//TODO:查询房源信息
 	/**
-	 * 根据标题模糊查询房源信息
+	 * 查询房源信息
 	 * @param title
 	 * @return
 	 */
-	public List<Room> findRoomsByTitle(String title) {
-		String hql = " from  Room where title=?";
-		List<Room> list = (List<Room>) hibernateTemplate.find(hql, title);
-		if (list != null) {
-			return list;
-		} else {
-			return null;
-		}
+	public List<Room> findRooms() {
+		return null;
+		
 	}
 }

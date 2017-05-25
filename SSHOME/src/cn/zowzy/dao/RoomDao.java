@@ -300,11 +300,75 @@ public class RoomDao {
 	//----------------------查
 	
 	/**
-	 * 根据价格查询房源信息
+	 * 查询所有房源信息
 	 * @return
 	 */
-	public List<Room> findRoomsOrderByPrice(){
+	public List<Room> findAllRoom(){
+		String hql = " from  Room";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
+		if (list != null) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * TODO:默认排序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomDefault(){
+		return null;
+	}
+	
+	/**
+	 * 根据价格降序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomsOrderByPriceDesc(){
 		String hql = " from  Room order by price desc";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
+		if (list != null) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * 根据价格升序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomsOrderByPriceAsc(){
+		String hql = " from  Room order by price asc";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
+		if (list != null) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * 根据评分降序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomsOrderByScoreDesc(){
+		String hql = " from  Room order by score desc";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
+		if (list != null) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * 根据评分升序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomsOrderByScoreAsc(){
+		String hql = " from  Room order by score asc";
 		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
 		if (list != null) {
 			return list;
@@ -377,9 +441,9 @@ public class RoomDao {
 			return null;
 		}
 	}
-	//TODO:查询房源信息
+	
 	/**
-	 * 查询房源信息
+	 * TODO:查询房源信息
 	 * @param title
 	 * @return
 	 */

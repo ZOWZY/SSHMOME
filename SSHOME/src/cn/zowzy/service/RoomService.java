@@ -143,6 +143,54 @@ public class RoomService {
 	//----------------------查
 	
 	/**
+	 * 查询所有房源信息
+	 * @return
+	 */
+	public List<Room> findAllRoom(){
+		return roomDao.findAllRoom();
+	}
+	
+	/**
+	 * TODO:默认排序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomDefault(){
+		return roomDao.findRoomDefault();
+	}
+	
+	/**
+	 * 根据价格降序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomsOrderByPriceDesc(){
+		return roomDao.findRoomsOrderByPriceDesc();
+	}
+	
+	/**
+	 * 根据价格升序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomsOrderByPriceAsc(){
+		return roomDao.findRoomsOrderByPriceAsc();
+	}
+	
+	/**
+	 * 根据评分降序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomsOrderByScoreDesc(){
+		return roomDao.findRoomsOrderByScoreDesc();
+	}
+	
+	/**
+	 * 根据评分升序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomsOrderByScoreAsc(){
+		return roomDao.findRoomsOrderByScoreAsc();
+	}
+	
+	/**
 	 * 根据房源编号查询房源信息
 	 * @param roomid
 	 * @return

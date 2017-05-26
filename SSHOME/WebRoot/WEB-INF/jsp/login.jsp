@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
+
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
@@ -24,43 +25,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-<body>
-    <div class="row blank"></div>
-    <div class="row">
-        <div class="col-md-4"></div> 
-        <div class="col-md-4">
-            <h1 class="fontstyle">SSHOME</h1>
+<body style="background-image:url(picture/homebg/tree.jpg);height:100%;">
+    <div class="blank"></div>
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4">
+    	<s:form action="%{pageContext.request.contextPath}/login.action"  method="post" id="loginform">
+    
+        	<div class="divstyle">
+            	<h1 class="fontstyle">SSHOME</h1>
             
-            <div  id="maindiv" >
-           		
-            	<form action="${pageContext.request.contextPath}/login.action"  method="post" id="loginform">
-           			<input id="username" name="username" value="${user.username }" type="text" class="inputsize" maxlength="20" placeholder="用户名"/><br/>
-           	 		<div class="errorinfo">
-           	 			<span  ><s:fielderror fieldName="username"/></span>
-           	 		</div>
-           	 	
-           	 		<input id="password"  name="password" value="${user.password }"  type="password" class="inputsize" maxlength="20" placeholder="密码"><br/>
-            		<div class="errorinfo">
-            			<span ><s:fielderror  fieldName="password" /></span>
-            		</div>
-            		<div id="checkboxdiv">
-           				<input type="checkbox" class="checkbox_relative" value="remember me"/>
-           				<label class="labelfont">
-                			remember me
-            			</label>
-            		</div>
-            		<br/>
-            		<input type="submit" class="inputsize loginbutton" value="登录" ><br>
-            	</form>
-            	<div id="adiv">
-            	 	<a id="newcount" href="${pageContext.request.contextPath}/registerPage.action">还没有账号？去注册</a>
-           		 	<a id="forgetpassword" href="">forget password?</a>
-           		 </div>
-            </div>
- 
-        </div>
-        <div class="col-md-4"></div>
+            	<div class="inputdiv">
+                  	<s:textfield id="username" name="username" placeholder="用户名" cssClass="inputsize">
+                  	</s:textfield>
+                  	<div class="spanstyle">
+                    	
+                  	</div>
+                  	<s:password id="password" name="password" placeholder="密码" cssClass="inputsize">
+                 	</s:password>
+                 	<div class="spanstyle">
+                  	  	
+                  	</div>
+                
+                  	<s:checkbox cssClass="checkbox"></s:checkbox>
+                  	<label class="labelfont">
+                        	remember me
+                  	</label>
+
+                  	<s:submit cssClass="inputsize loginbutton" value="登录" ></s:submit>
+                
+                  	<div>
+                    	<a id="newcount" class="sublabelfont" href="${pageContext.request.contextPath}/registerPage.action">还没有账号？去注册</a>
+                    	<a id="forgetpassword" class="forgetpass" href="">forget password?</a>
+                  	</div>
+                
+                  	<div class="subblank"></div>
+            	</div>
+        	</div>
+    	</s:form>
     </div>
-    <div class="row"></div>
+    
+    <div class="col-md-4"></div>
 </body>
 </html>
+

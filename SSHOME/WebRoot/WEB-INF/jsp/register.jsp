@@ -26,50 +26,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body>
-  <div class="container-fuild">
-  <div class="row">
-			<div class="col-md-12">
-            <br /><br /><br /><br /><br /><br />
+<body style="background-image:url(picture/homebg/tree.jpg); height:100%;">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        
+        <div class="col-md-4" id="register">
+            <br /><br /><br /><br />
+            <s:form  action="%{pageContext.request.contextPath}/register.action"  method="get">
+            
+            <div class="thumbnail" >
+                <h1 class="fontstyle">SSHOME</h1><br />
+                
+                <center>
+                    <s:textfield id="username" name="username"  maxlength="20" class="inputsize input" placeholder="用户名">
+                    </s:textfield>
+                </center>
+                <span class="spanstyle"><s:fielderror fieldName="username"/></span> <br />
+                
+                <center>
+                    <s:textfield id="phone" name="phone"  maxlength="11" class="inputsize input" placeholder="电话号码">
+                    </s:textfield>
+                </center>
+                <span class="spanstyle"><s:fielderror fieldName="phone"/></span> <br />
+                
+                <center>
+                    <input type="email" id="email" name="email"  class="inputsize input" placeholder="邮箱"/>
+                </center> 
+                <span class="spanstyle"><s:fielderror fieldName="email"/></span> <br />
+                
+                <center>
+                    <s:password id="password" name="password"  maxlength="20" class="inputsize input" placeholder="登录密码">
+                    </s:password>
+                </center>
+                <span class="spanstyle"><s:fielderror fieldName="password"/></span> <br />
+                
+                <center>
+                    <s:password id="password2" maxlength="20"  class="inputsize input" placeholder="确认登录密码">
+                    </s:password>
+                </center>
+                <span class="spanstyle"><s:fielderror fieldName="password2"/></span><br />
+                
+                <center>
+                    <s:submit value="注册" class="loginbutton input"></s:submit>
+                </center> 
+                <br />
             </div>
-            </div>
-		<div class="row">
-			<div class="col-md-4">
-            </div>
-           
-            <div class="col-md-4" id="register">
-            <form  action="${pageContext.request.contextPath}/register.action"  method="get">
-            用户名：<br />
-            <input id="username" type="text" name="username" maxlength="20" value="${Users.username}"/><br />
-            <span class="errorinfo"><s:fielderror fieldName="username"/></span>
-            <br />
-            电话号码：<br />
-            <input type="text"  name="phone" id="phone" maxlength="11" value="${Users.phone}" /><br />
-            <span  class="errorinfo"><s:fielderror fieldName="phone"/></span>
-            <br />
-            邮箱：<br />
-            <input  id="email" name="email" type="email" value="${Users.email}" /><br />
-            <span  class="errorinfo"><s:fielderror fieldName="email"/></span>
-            <br />
-            登录密码：<br />
-            <input id="password" name="password" type="password" maxlength="20" value="${Users.password}"/><br />
-            <span  class="errorinfo"><s:fielderror fieldName="password"/></span>
-            <br />
-            确认登录密码：<br />
-            <input id="password2" type="password" maxlength="20"  value="${Users.password}"/><br /><br />
-            <span  class="errorinfo"><s:fielderror fieldName="password2"/></span>
-            <br />
-            <input type="submit" value="注册" class="button button-3d button-primary button-rounded" style="width:100%"/>
-            </form>
-            </div>
-            <div class="col-md-4">
-            </div>
-            </div>
-            <div class="row">
-			<div class="col-md-12">
-            <br /><br /><br /><br /><br /><br />
-            </div>
-            </div>
-            </div>
-  </body>
+            </s:form>
+        </div>
+     
+        <div class="col-md-4"></div>
+    </div>
+</div>
+</body>
 </html>
+  

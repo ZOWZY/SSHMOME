@@ -30,39 +30,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="col-md-4"></div>
     
     <div class="col-md-4">
+    	
     	<s:form action="%{pageContext.request.contextPath}/login.action"  method="post" id="loginform">
-    
         	<div class="divstyle">
             	<h1 class="fontstyle">SSHOME</h1>
             
+            
             	<div class="inputdiv">
-                  	<s:textfield id="username" name="username" placeholder="用户名" cssClass="inputsize">
+                  	<s:textfield  id="username" name="username" placeholder="用户名" cssClass="inputsize">
                   	</s:textfield>
                   	<div class="spanstyle">
-                    	
+                  	  	<s:fielderror fieldName="username"></s:fielderror>
                   	</div>
+                  
+                  	
                   	<s:password id="password" name="password" placeholder="密码" cssClass="inputsize">
                  	</s:password>
                  	<div class="spanstyle">
-                  	  	
+                  	  	<s:fielderror fieldName="password"></s:fielderror>
                   	</div>
                 
-                  	<s:checkbox cssClass="checkbox"></s:checkbox>
-                  	<label class="labelfont">
-                        	remember me
-                  	</label>
-
+                  
                   	<s:submit cssClass="inputsize loginbutton" value="登录" ></s:submit>
                 
                   	<div>
                     	<a id="newcount" class="sublabelfont" href="${pageContext.request.contextPath}/registerPage.action">还没有账号？去注册</a>
-                    	<a id="forgetpassword" class="forgetpass" href="">forget password?</a>
+                    	<a id="forgetpassword" class="forgetpass" href="${pageContext.request.contextPath}/registerPage.action">forget password?</a>
                   	</div>
                 
                   	<div class="subblank"></div>
-            	</div>
-        	</div>
-    	</s:form>
+                 </div>
+             </s:form>
+    	</div>
     </div>
     
     <div class="col-md-4"></div>

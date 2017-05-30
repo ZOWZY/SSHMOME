@@ -1,4 +1,3 @@
-
 @charset "utf-8";
 /* CSS Document */
 .blank
@@ -17,19 +16,7 @@
 	font-family:"Arial Black", Gadget, sans-serif;
 	text-emphasis:dot;
 }
-.checkbox 
-{
-	color:rgba(255,255,255,1);
-	position:relative;
-	top:17px;
-}
 .labelfont
-{
-	color:rgba(153,153,153,1);
-	position:relative;	
-	left:15px;
-}
-.sublabelfont
 {
 	color:rgba(153,153,153,1);
 	position:relative;
@@ -71,7 +58,7 @@
 	border-radius:5px;
 	background-color:rgba(248,142,139,1);
 	color:rgba(255,255,255,1);
-	margin:10px 0px 0px 0px;
+	margin:20px 0px 0px 0px;
 	outline:none;
 }
 .spanstyle

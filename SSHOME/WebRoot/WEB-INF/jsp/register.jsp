@@ -33,20 +33,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <div class="col-md-4" id="register">
             <br /><br /><br /><br />
-            <s:form  action="%{pageContext.request.contextPath}/register.action"  method="get">
+            <form  action="${pageContext.request.contextPath}/register.action"  method="get">
             
             <div class="thumbnail" >
                 <h1 class="fontstyle">SSHOME</h1><br />
                 
                 <center>
-                    <s:textfield id="username" name="username"  maxlength="20" class="inputsize input" placeholder="用户名">
-                    </s:textfield>
+                    <input type="text" id="username" name="username"  maxlength="20" class="inputsize input" placeholder="用户名"/>
                 </center>
                 <span class="spanstyle"><s:fielderror fieldName="username"/></span> <br />
                 
                 <center>
-                    <s:textfield id="phone" name="phone"  maxlength="11" class="inputsize input" placeholder="电话号码">
-                    </s:textfield>
+                    <input type="text" id="phone" name="phone"  maxlength="11" class="inputsize input" placeholder="电话号码"/>
                 </center>
                 <span class="spanstyle"><s:fielderror fieldName="phone"/></span> <br />
                 
@@ -56,23 +54,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="spanstyle"><s:fielderror fieldName="email"/></span> <br />
                 
                 <center>
-                    <s:password id="password" name="password"  maxlength="20" class="inputsize input" placeholder="登录密码">
-                    </s:password>
+                    <input type="password" id="password" name="password"  maxlength="20" class="inputsize input" placeholder="登录密码"/>
                 </center>
                 <span class="spanstyle"><s:fielderror fieldName="password"/></span> <br />
                 
                 <center>
-                    <s:password id="password2" maxlength="20"  class="inputsize input" placeholder="确认登录密码">
-                    </s:password>
+                    <input type="password" id="password2" maxlength="20"  class="inputsize input" placeholder="确认登录密码"/>
                 </center>
                 <span class="spanstyle"><s:fielderror fieldName="password2"/></span><br />
                 
                 <center>
-                    <s:submit value="注册" class="loginbutton input"></s:submit>
+                    <input type="submit" value="注册" class="loginbutton input"/>
                 </center> 
                 <br />
             </div>
-            </s:form>
+            </form>
         </div>
      
         <div class="col-md-4"></div>

@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+.circlebutton{
+	width:30px;
+	height:30px;
+	border:#3CF 1px solid;
+	border-bottom-left-radius:50px;
+	border-bottom-right-radius:50px;
+	border-top-left-radius:50px;
+	border-top-right-radius:50px;
+	color:#3CF;
+	background-color:#FFF;
+	}
+.content{
+		margin-top:50px;
+	    text-align:center;
+		font-size:20px;
+		font-family:"MS Serif", "New York", serif;
+	}
+.row{
+	margin:20px 20px 20px 20px;
+	}
+label{
+	text-align:center;
+	font-size:20px;
+	margin-left:10px;
+	margin-right:10px;
+	font-family:"MS Serif", "New York", serif;
+	}
+#panel,span.flip,span.flip2
+{
+text-align:left;
+}
+#panel,#panel2,#panel3,#panel4,#panel5
+{
+display:none;
+}
+.check{
+	border:1px solid #999;
+	background:#FFF;
+	color:#FFF;
+	background-color:#F00;
+	width:15px;
+	height:15px;
+	}
+a{
+	color:#3CF;
+	}
+
+

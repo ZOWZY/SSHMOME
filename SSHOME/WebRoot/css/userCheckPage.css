@@ -1,0 +1,162 @@
+@charset "utf-8";
+/* CSS Document */
+.blank
+{
+	height:20px;
+}
+.background
+{
+	background-color:rgb(245,245,245);
+}
+
+/***********************************/
+
+.rowdiv
+{
+	background-color:rgb(255,255,255);
+}
+.icondiv
+{
+	border-right:solid 1px #CCCCCC;
+}
+img
+{
+	width:60px;
+	height:60px;	
+}
+.navdiv
+{
+	border-left:solid 1px #CCCCCC;
+}
+.iframediv
+{
+	border-top:solid 1px #CCCCCC;
+    background-color:rgb(255,255,255);
+}
+.textstyle
+{
+	text-align:center;
+}
+li 
+{
+	list-style:none;
+	float:right;
+}
+a
+{
+	display:block; 
+    width:120px; 
+    height:60px; 
+    line-height:60px; /* 设置行高,可以让单行文本垂直居中 */
+    text-align:center; 
+    background:rgba(255,255,255,1); 
+    color:rgba(153,153,153,1);
+	text-decoration:none; /* 去掉下划线 */
+}
+a:hover/*鼠标在上面悬停时样式*/
+{
+	background:rgba(248,142,139,1); 
+    color:#fff;
+	text-decoration:none; 
+}
+.inputstyle
+{
+	height:60px;
+	width:500px;
+	border-style:none;
+	outline: none;/*去掉点击时的蓝色边框*/
+}
+
+/***********************************/
+
+.alldiv
+{
+	background-color:rgb(255,255,255);
+}
+.firstdiv
+{
+	border-bottom:solid 1px #CCCCCC;
+	margin:0px 30px 0px 30px;
+}
+.firstindiv
+{
+	border:solid 1px rgb(248,142,139);
+}
+.margin
+{
+	margin:0px 60px 0px 60px;
+	border-bottom:solid 1px #CCCCCC;
+	color:rgb(0,132,137);
+}
+.secondmargin
+{
+	margin:0px -15px 0px 0px;
+}
+.buttonstyle
+{
+	color:rgb(153,153,153);
+	margin:10px 0px 0px 89%;
+	border:none;
+	background-color:rgb(255,255,255);
+	outline: none;
+}
+.subdiv
+{
+	width:100%;
+	height:60px;
+	line-height:60px;
+}
+.inputdiv
+{
+	width:15%;
+	height:45px;
+	border-style:none;
+}
+.selectdiv
+{
+	width:15%;
+	height:45px;
+	border-style:none;
+	border-right:solid 1px #CCCCCC;
+}
+.datediv
+{
+	width:15%;
+	height:45px;
+	border-style:none;
+}
+.numberdiv
+{
+	width:15%;
+	height:45px;
+	border-style:none;
+	border-right:solid 1px #CCCCCC;
+	border-left:solid 1px #CCCCCC;
+}
+.button
+{
+	width:100%;
+	height:45px;
+	background-color:rgb(248,142,139);
+	color:rgb(255,255,255);
+	margin:0px 0px 0px 0px;
+	border:none;
+}
+.searchbutton
+{
+	border:none;
+	line-height:50px;
+	height:50px;
+	width:70px;
+	color:rgb(0,132,137);
+	background-color:rgb(255,255,255);
+}
+.thirdmargin
+{
+	margin:0px 0px 0px 0px;
+}
+.frame
+{
+display:none;
+}
+

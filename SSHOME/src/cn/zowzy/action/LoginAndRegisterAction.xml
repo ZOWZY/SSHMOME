@@ -28,12 +28,12 @@
 		
 		<action name="loginPage" class="LoginAndRegisterAction" method="loginPage">
 			<result name="success">/WEB-INF/jsp/login.jsp</result>
-			<result name="failed">/index.jsp</result>
+			<result name="failed">/WEB-INF/index.jsp</result>
 		</action>
 		
 		<action name="registerPage" class="LoginAndRegisterAction" method="registerPage">
 			<result name="success">/WEB-INF/jsp/register.jsp</result>
-			<result name="failed">/index.jsp</result>
+			<result name="failed">/WEB-INF/index.jsp</result>
 		</action>
 		
 		

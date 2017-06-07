@@ -443,12 +443,88 @@ public class RoomDao {
 	}
 	
 	/**
-	 * TODO:查询房源信息
+	 * 根据目的地查询房源信息
+	 * @param localtion
+	 * @return
+	 */
+	public List<Room> findRoomsByLocaltion(String localtion){
+		String hql = " from  Room where localtion=?";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql, localtion);
+		if (list != null) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * 根据入住人数查询房源信息
+	 * @param personnumber
+	 * @return
+	 */
+	public List<Room> findRoomsByPersonnumber(Integer personnumber){
+		String hql = " from  Room where maxpersonnumber>=?";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql, personnumber);
+		if (list != null) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * TODO:根据入住时期和退房时期查询房源信息
+	 * @param checkintime
+	 * @param checkouttime
+	 * @return
+	 */
+	public List<Room> findRoomsByTime(String checkintime,String checkouttime){
+		String hql = " from Orders,Room where ...";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
+		if (list != null) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * TODO:取两个集合的交集
+	 * @param A
+	 * @param B
+	 * @return
+	 */
+	public List<Room> findCommon(List<Room> A,List<Room> B){
+		if(A != null){
+			if(B == null){
+				return A;
+			}else{
+				A.retainAll(B);
+				if (A != null) {
+					return A;
+				} else {
+					return null;
+				}
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * 简单查询房源信息
 	 * @param title
 	 * @return
 	 */
-	public List<Room> findRooms() {
-		return null;
+	public List<Room> EasyfindRooms(String localtion,Integer personnumber,String checkintime,String checkouttime,String rtid,String title) {
+		String hql = " from  Room where localtion=? and rtid=? and maxpersonnumber>=? and title like ?";
+		List<Room> listA = (List<Room>) hibernateTemplate.find(hql, localtion,rtid,personnumber,title);
+		List<Room> listB = findRoomsByTime(checkintime,checkouttime);
+		List<Room> listC = findCommon(listA,listB);
+		if (listC != null) {
+			return listC;
+		} else {
+			return null;
+		}
 		
 	}
 }

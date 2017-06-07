@@ -238,5 +238,64 @@ public class RoomService {
 			return roomDao.findRoomsByRoomtype(rtid);
 	}
 	
-	//TODO:查询房源信息
+	/**
+	 * 根据目的地查询房源信息
+	 * @param localtion
+	 * @return
+	 */
+	public List<Room> findRoomsByLocaltion(String localtion){
+		if (localtion == null || localtion.length() <= 0)
+			return null;
+		else
+			return roomDao.findRoomsByLocaltion(localtion);
+	}
+	
+	/**
+	 * 根据入住人数查询房源信息
+	 * @param personnumber
+	 * @return
+	 */
+	public List<Room> findRoomsByPersonnumber(Integer personnumber){
+		if (personnumber <= 0)
+			return null;
+		else
+			return roomDao.findRoomsByPersonnumber(personnumber);
+	}
+	
+	public List<Room> findRoomsByTime(String checkintime,String checkouttime){
+		if (checkintime == null || checkintime.length() <= 0)
+			return null;
+		if (checkouttime == null || checkouttime.length() <= 0)
+			return null;
+		else
+			return roomDao.findRoomsByTime(checkintime,checkouttime);
+	
+	}
+	
+	/**
+	 * 取两个集合的交集
+	 * @param A
+	 * @param B
+	 * @return
+	 */
+	public List<Room> findCommon(List<Room> A,List<Room> B){
+		return roomDao.findCommon(A,B);
+	}
+	
+	public List<Room> EasyfindRooms(String localtion,Integer personnumber,String checkintime,String checkouttime,String rtid,String title) {
+		if (localtion == null || localtion.length() <= 0)
+			return null;
+		if (personnumber <= 0)
+			return null;
+		if (checkintime == null || checkintime.length() <= 0)
+			return null;
+		if (checkouttime == null || checkouttime.length() <= 0)
+			return null;
+		if (rtid == null || rtid.length() <= 0)
+			return null;
+		if (title == null || title.length() <= 0)
+			return null;
+		else
+			return roomDao.EasyfindRooms(localtion,personnumber,checkintime,checkouttime,rtid,title);
+	}
 }

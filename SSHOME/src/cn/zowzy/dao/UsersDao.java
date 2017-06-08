@@ -206,10 +206,9 @@ public class UsersDao {
 
 		Boolean result = false;
 		Users user = findUserByActiveCode(activeCode);
-		if (user == null) {// ���û�д���֤����û�
+		if (user == null) {
 			return false;
 		} else {
-			// 3����ȴ��޸ĵ�½�����״̬
 			if (user.getUserstate().getUsid().equals(3)) {
 				user.setPassword(password);
 				user.getUserstate().setUsid(1);
@@ -254,20 +253,25 @@ public class UsersDao {
 	
 	/**
 	 * 根据用户名和支付密码付款
-	 * @param username
+	 * @param payer
+	 * @param receiver
 	 * @param payPassword
 	 * @param payAmount
 	 * @return
 	 */
-	public boolean paymentByUsername(String username,String payPassword,Float payAmount){
-		String paypass=findPayPasswordByUsername(username);
+	public boolean paymentByUsername(String payer,String receiver,String payPassword,Float payAmount){
+		String paypass=findPayPasswordByUsername(payer);
 		if(paypass!=null&&paypass.endsWith(payPassword)){
-			Users user=findUserByUsername(username);
-			if(user!=null){
-				Float balance=user.getBalance();
-				if(balance>=payAmount){
-					balance-=payAmount;
-					hibernateTemplate.update(user);
+			Users payuser=findUserByUsername(payer);
+			Users receivuser=findUserByUsername(receiver);
+			if(payuser!=null&&receivuser!=null){
+				Float paybalance=payuser.getBalance();
+				Float receivbalance=receivuser.getBalance();
+				if(paybalance>=payAmount){
+					paybalance-=payAmount;
+					receivbalance+=payAmount;
+					hibernateTemplate.update(payuser);
+					hibernateTemplate.update(receivuser);
 					return true;
 				}
 			}

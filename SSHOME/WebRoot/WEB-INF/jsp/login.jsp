@@ -22,10 +22,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="登录界面">
 	<meta http-equiv="content-type"  content="text/html;charset=utf-8">
 
-
   </head>
   
-<body style="background-image:url(picture/homebg/tree.jpg);height:100%;">
+<body style="background-image:url(picture/homebg/tree.jpg);height:100%; width:100%;">
 <div class="blank"></div>
 <div class="col-md-4"></div>
 <div class="col-md-4">

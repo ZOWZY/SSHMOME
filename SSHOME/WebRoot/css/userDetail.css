@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+.blank
+{
+	height:20px;
+}
+.rowdiv
+{
+	background-color:rgb(255,255,255);
+}
+.icondiv
+{
+	border-right:solid 1px #CCCCCC;
+}
+img
+{
+	width:60px;
+	height:60px;	
+}
+.navdiv
+{
+	border-left:solid 1px #CCCCCC;
+}
+.iframediv
+{
+	border-top:solid 1px #CCCCCC;
+}
+.textstyle
+{
+	text-align:center;
+}
+.li 
+{
+	list-style:none;
+	float:right;
+}
+.a
+{
+	display:block; 
+    width:120px; 
+    height:60px; 
+    line-height:60px; /* 设置行高,可以让单行文本垂直居中 */
+    text-align:center; 
+    background:rgba(255,255,255,1); 
+    color:rgba(153,153,153,1);
+	text-decoration:none; /* 去掉下划线 */
+}
+.a:hover/*鼠标在上面悬停时样式*/
+{
+	background:rgba(248,142,139,1); 
+    color:#fff;
+	text-decoration:none; 
+}
+.inputstyle
+{
+	height:60px;
+	width:500px;
+	border-style:none;
+	outline: none;/*去掉点击时的蓝色边框*/
+}
+
+/****************************************/
+
+.imgheight
+{
+	height:100%;
+	width:100%;
+}

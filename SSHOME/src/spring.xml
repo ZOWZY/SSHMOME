@@ -14,6 +14,9 @@
         xmlns:tx="http://www.springframework.org/schema/tx">
 
 
+
+
+
 	
 	<!-- 引入数据库的配置信息 -->	
 	<context:property-placeholder location="classpath:jdbc.properties"/>

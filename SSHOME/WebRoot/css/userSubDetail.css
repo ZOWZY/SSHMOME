@@ -1,0 +1,91 @@
+@charset "utf-8";
+/* CSS Document */
+html
+{
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+.blank
+{
+	height:20px;
+}
+
+.secondwholediv
+{
+	border:solid 1px #CCCCCC;
+	margin:100px 20px 0px 20px;
+}
+.seconddiv
+{
+	width:100%;
+	height:40px;
+	border:solid 1px rgb(204,204,204);
+}
+.buttonstyle
+{
+	width:100%;
+	border:none;
+	background-color:rgb(255,90,95);
+	color:rgb(255,255,255);
+	height:40px;
+	outline:none;
+}
+.telbutton
+{
+	width:100px;
+	height:40px;
+	border:none;
+	background-color:rgb(255,90,95);
+	text-align:center;
+	color:rgb(255,255,255);
+	outline:none;
+}
+.wholerow
+{
+	border:solid 1px #CCCCCC;
+	background-color:rgb(255,255,255);
+	position:fixed;
+	width:100%;
+	top:0px;
+	z-index:50;
+}
+.singlenav
+{
+	display:block;
+	width:100px;
+	line-height:60px;
+	color:rgb(33,125,106);
+    text-decoration:none;
+	text-align:left;
+}
+.singlenav:hover
+{
+	text-decoration:none; 
+}
+.navbutton
+{
+	width:100px;
+	height:60px;
+	border:none;
+	background-color:rgb(255,255,255);
+}
+.sumfirst
+{
+	border-bottom:solid 1px #CCCCCC;
+}
+.sumright
+{
+	border-bottom:solid 1px #CCCCCC;
+}
+.coldiv
+{
+	position:fixed;
+	right:0px;
+    top:0px;
+}
+.imgsize
+{
+	height:90px;
+	width:90px;
+}
+

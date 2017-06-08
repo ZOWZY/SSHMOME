@@ -54,6 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 				<input type="submit" class="loginbutton" value="登录"/>
 			    
+			    
 				<a id="newcount" class="labelfont" href="${pageContext.request.contextPath}/registerPage.action">还没有账号？去注册</a>
            	 	<a id="forgetpassword" class="forgetpass" href="${pageContext.request.contextPath}/registerPage.action">forget password?</a>
 

@@ -78,33 +78,40 @@ public class AccountAction extends ActionSupport {
 		String result = SUCCESS;
 		HttpServletRequest request = ServletActionContext.getRequest();
 		if (request.getAttribute("payer") == null) {
+			addFieldError("payErrorInfo", "支付失败:支付人用户名不合法");
 			System.out.println("支付失败:支付人用户名不合法");
 			result = "failed";
 		} else {
 			String payer = (String) request.getAttribute("payer");
 			if (payer.length() <= 0) {
+				addFieldError("payErrorInfo", "支付失败:支付人用户名不合法");
 				System.out.println("支付失败:支付人用户名不合法");
 				result = "failed";
 			} else {
 				if (request.getAttribute("payPassword") == null) {
+					addFieldError("payErrorInfo", "支付失败:支付人支付密码不合法");
 					System.out.println("支付失败:支付人支付密码不合法");
 					result = "failed";
 				} else {
 					String payPassword = (String) request.getAttribute("payPassword");
 					if (payPassword.length() <= 0) {
-						System.out.println("支付失败:支付人用户名不合法");
+						addFieldError("payErrorInfo", "支付失败:支付人支付密码不合法");
+						System.out.println("支付失败:支付人支付密码不合法");
 						result = "failed";
 					} else {
 						if (request.getAttribute("receiver") == null) {
+							addFieldError("payErrorInfo", "支付失败:接收方用户名不合法");
 							System.out.println("支付失败:接收方用户名不合法");
 							result = "failed";
 						} else {
 							String receiver = (String) request.getAttribute("receiver");
 							if (receiver.length() <= 0) {
+								addFieldError("payErrorInfo", "支付失败:接收方用户名不合法");
 								System.out.println("支付失败:接收方用户名不合法");
 								result = "failed";
 							} else {
 								if (request.getAttribute("number") == null) {
+									addFieldError("payErrorInfo", "支付失败:支付金额不合法");
 									System.out.println("支付失败:支付金额不合法");
 									result = "failed";
 								} else {
@@ -112,6 +119,7 @@ public class AccountAction extends ActionSupport {
 										float money = (Float) request.getAttribute("number");
 										// TODO 调用service
 									} catch (Exception E) {
+										addFieldError("payErrorInfo", "支付失败:支付金额不合法");
 										System.out.println("支付失败:支付金额不合法");
 										result = "failed";
 									}

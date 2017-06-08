@@ -69,6 +69,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry kind="lib" path="E:/myeclipse newproject/SSHOME/SSHOME/WebRoot/WEB-INF/lib/freemarker-2.3.24-incubating.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

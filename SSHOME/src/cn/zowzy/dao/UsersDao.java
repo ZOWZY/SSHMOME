@@ -24,6 +24,19 @@ public class UsersDao {
 		this.hibernateTemplate = hibernateTemplate;
 	}
 
+	// ----------------------增
+
+	/**
+	 * 添加用户
+	 * 
+	 * @param user
+	 */
+	public void addUser(Users user) {
+		hibernateTemplate.save(user);
+	}
+
+	// ----------------------查
+
 	/**
 	 * 查询所有的用户
 	 * 
@@ -155,15 +168,8 @@ public class UsersDao {
 		return user;
 	}
 
-	/**
-	 * 添加用户
-	 * 
-	 * @param user
-	 */
-	public void addUser(Users user) {
-		hibernateTemplate.save(user);
-	}
-
+	// ----------------------改
+	
 	/**
 	 * 根据激活码激活用户
 	 * 
@@ -189,7 +195,7 @@ public class UsersDao {
 	/**
 	 * 根据修改密码的验证码修改密码
 	 * 
-	 * @param activeCode
+	 * @param activeC ode
 	 *            验证码
 	 * @param password
 	 *            新密码
@@ -241,7 +247,6 @@ public class UsersDao {
 			if (user == null) {
 				return;
 			} else {
-				// 4����ȴ��޸�֧������
 				if (user.getUserstate().getUsid().equals(4)) {
 					user.setPaypassword(payPassword);
 					user.getUserstate().setUsid(1);

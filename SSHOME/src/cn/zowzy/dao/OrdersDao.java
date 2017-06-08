@@ -24,7 +24,9 @@ public class OrdersDao {
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}
-
+	
+	// ----------------------增
+	
 	/**
 	 * 添加订单
 	 * @param orders
@@ -37,6 +39,8 @@ public class OrdersDao {
 			hibernateTemplate.save(orders);
 		}
 	}
+
+	// ----------------------查
 	
 	/**
 	 * 查询所有订单
@@ -238,6 +242,8 @@ public class OrdersDao {
 			return null;
 		}
 	}
+
+	// ----------------------改
 	
 	/**
 	 * 根据订单修改退房时间
@@ -288,7 +294,7 @@ public class OrdersDao {
 	}
 
 	/**
-	 * 根据订单编号添加评论
+	 * 根据订单编号修改评论
 	 * 
 	 * @param orderid
 	 *            订单编号

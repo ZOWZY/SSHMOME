@@ -262,6 +262,12 @@ public class RoomService {
 			return roomDao.findRoomsByPersonnumber(personnumber);
 	}
 	
+	/**
+	 * 根据时间查询房源信息
+	 * @param checkintime
+	 * @param checkouttime
+	 * @return
+	 */
 	public List<Room> findRoomsByTime(String checkintime,String checkouttime){
 		if (checkintime == null || checkintime.length() <= 0)
 			return null;

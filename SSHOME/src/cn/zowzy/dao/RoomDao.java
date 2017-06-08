@@ -1,9 +1,11 @@
 package cn.zowzy.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
+import cn.zowzy.entity.Orders;
 import cn.zowzy.entity.Room;
 import cn.zowzy.entity.Roomstate;
 
@@ -473,14 +475,21 @@ public class RoomDao {
 	}
 
 	/**
-	 * TODO:根据入住时期和退房时期查询房源信息
+	 * 根据入住时期和退房时期查询房源信息
 	 * @param checkintime
 	 * @param checkouttime
 	 * @return
 	 */
 	public List<Room> findRoomsByTime(String checkintime,String checkouttime){
-		String hql = " from Orders,Room where ...";
-		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
+		String hql = " from Orders where checkintime between ? and ? or checkouttime between ? and ?";
+		List<Orders> l = (List<Orders>) hibernateTemplate.find(hql,checkintime,checkouttime,checkintime,checkouttime);
+		List<Room> listA=new ArrayList<Room>();
+		for(Orders a:l){
+			listA.add(a.getRoom());
+		}
+		hql = " from Room";
+		List<Room> listB = (List<Room>) hibernateTemplate.find(hql);
+		List<Room> list = findCommon(listA,listB);
 		if (list != null) {
 			return list;
 		} else {

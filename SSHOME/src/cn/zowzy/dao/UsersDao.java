@@ -275,4 +275,34 @@ public class UsersDao {
 		return false;
 	}
 	
+	/**
+	 * 根据用户名充值
+	 * @param admin
+	 * @param username
+	 * @param number
+	 * @return
+	 */
+	public boolean rechargeByUsername(String admin,String username,Float number){
+		if (admin == null || admin.length() <= 0) {
+			return false;
+		} 
+		if (username == null || username.length() <= 0) {
+			return false;
+		}
+		if (number <= 0) {
+			return false;
+		}
+		Users ad = findUserByUsername(admin);
+		Users user = findUserByUsername(username);
+		if(ad!=null||user!=null){
+			return false;
+		}
+		if(ad.getUsertype().getUtid()!=2){
+			return false;
+		}
+		user.setBalance(user.getBalance()+ number);
+		hibernateTemplate.update(user);
+		return true;
+	}
+	
 }

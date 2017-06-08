@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="divblank"></div>
             <div class="blank">
-            	<h5>这里放星星评分</h5>
+            	<iframe src="stars.jsp" width="100%" height="100px" scrolling="no" frameborder="0"></iframe>
             </div>
             <div class="blank"></div>
         </div>
@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="divblank"></div>
             <div class="blank">
-            	<h5>这里放星星评分</h5>
+            	<iframe src="stars.jsp" width="100%" height="100px" scrolling="no" frameborder="0"></iframe>
             </div>
             <div class="blank"></div>
         </div>
@@ -119,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="divblank"></div>
             <div class="blank">
-            	<h5>这里放星星评分</h5>
+            	<iframe src="stars.jsp" width="100%" height="100px" scrolling="no" frameborder="0"></iframe>
             </div>
             <div class="blank"></div>
         </div>
@@ -147,7 +147,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="divblank"></div>
             <div class="blank">
-            	<h5>这里放星星评分</h5>
+            	<iframe src="stars.jsp" width="100%" height="100px" scrolling="no" frameborder="0"></iframe>
             </div>
             <div class="blank"></div>
         </div>
@@ -184,7 +184,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="divblank"></div>
             <div class="blank">
-            	<h5>这里放星星评分</h5>
+            	<iframe src="stars.jsp" width="100%" height="100px" scrolling="no" frameborder="0"></iframe>
             </div>
             <div class="blank"></div>
         </div>
@@ -212,7 +212,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="divblank"></div>
             <div class="blank">
-            	<h5>这里放星星评分</h5>
+            	<iframe src="stars.jsp" width="100%" height="100px" scrolling="no" frameborder="0"></iframe>
             </div>
             <div class="blank"></div>
         </div>
@@ -249,7 +249,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="divblank"></div>
             <div class="blank">
-            	<h5>这里放星星评分</h5>
+            	<iframe src="stars.jsp" width="100%" height="100px" scrolling="no" frameborder="0"></iframe>
             </div>
             <div class="blank"></div>
         </div>
@@ -277,7 +277,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="divblank"></div>
             <div class="blank">
-            	<h5>这里放星星评分</h5>
+            	<iframe src="stars.jsp" width="100%" height="100px" scrolling="no" frameborder="0"></iframe>
             </div>
             <div class="blank"></div>
         </div>

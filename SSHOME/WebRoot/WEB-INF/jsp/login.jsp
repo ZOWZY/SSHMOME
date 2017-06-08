@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
+<<<<<<< HEAD
 <body style="background-image:url(picture/homebg/tree.jpg);height:100%; width:100%;">
 <div class="blank"></div>
 <div class="col-md-4"></div>
@@ -46,13 +47,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    
 				<a id="newcount" class="labelfont" href="${pageContext.request.contextPath}/registerPage.action">还没有账号？去注册</a>
            	 	<a id="forgetpassword" class="forgetpass" href="${pageContext.request.contextPath}/registerPage.action">forget password?</a>
-            
+<body style="background-image:url(picture/homebg/tree.jpg);height:100%;">
+    <div class="blank"></div>
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4">
+    	
+    	<s:form action="%{pageContext.request.contextPath}/login.action"  method="post" id="loginform">
+        	<div class="divstyle">
+            	<h1 class="fontstyle">SSHOME</h1>
+
             	<div class="subblank"></div>
             </div>
 		</div>
 	</form>
 </div>
 <div class="col-md-4"></div>
+            	<div class="inputdiv">
+                  	<s:textfield  id="username" name="username" placeholder="用户名" cssClass="inputsize">
+                  	</s:textfield>
+                  	<div class="spanstyle">
+                  	  	<s:fielderror fieldName="username"></s:fielderror>
+                  	</div>
+                  
+                  	
+                  	<s:password id="password" name="password" placeholder="密码" cssClass="inputsize">
+                 	</s:password>
+                 	<div class="spanstyle">
+                  	  	<s:fielderror fieldName="password"></s:fielderror>
+                  	</div>
+                
+                  
+                  	<s:submit cssClass="inputsize loginbutton" value="登录" ></s:submit>
+                
+                  	<div>
+                    	<a id="newcount" class="sublabelfont" href="${pageContext.request.contextPath}/registerPage.action">还没有账号？去注册</a>
+                    	<a id="forgetpassword" class="forgetpass" href="${pageContext.request.contextPath}/registerPage.action">forget password?</a>
+                  	</div>
+                
+                  	<div class="subblank"></div>
+                 </div>
+             </s:form>
+    	</div>
+    </div>
+    
+    <div class="col-md-4"></div>
 </body>
 </html>
 

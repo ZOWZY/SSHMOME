@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div style=" width:100%; height:590px;">
 	<div id="container">
 		<div>
-			<iframe src="imgcarousel.jsp" frameborder="0" style="width:100%; height:620px;"></iframe>
+			<iframe src="/SSHOME/imgCarouselPageAction.action" frameborder="0" style="width:100%; height:620px;"></iframe>
 		</div>
 
    		<div id="search">

@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
+
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
@@ -21,46 +22,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="登录界面">
 	<meta http-equiv="content-type"  content="text/html;charset=utf-8">
 
-
   </head>
   
-<body>
-    <div class="row blank"></div>
-    <div class="row">
-        <div class="col-md-4"></div> 
-        <div class="col-md-4">
-            <h1 class="fontstyle">SSHOME</h1>
+<body style="background-image:url(picture/homebg/tree.jpg);height:100%; width:100%;">
+<div class="blank"></div>
+<div class="col-md-4"></div>
+<div class="col-md-4">
+	<form action="${pageContext.request.contextPath}/login.action"  method="post" id="loginform">
+		<div class="divstyle">
+			<h1 class="fontstyle">SSHOME</h1>
+			<div class="inputdiv">
+				<input type="text" id="username" name="username" value="${user.username}" placeholder="用户名" class="inputsize"/>
+				<span class="spanstyle">
+					<s:fielderror fieldName="username"/>
+				</span>
+			
+				<input type="password" id="password" name="password" value="${user.password }" placeholder="密码" class="inputsize"/>
+				<span class="spanstyle">
+					<s:fielderror fieldName="password"/>
+				</span>
+			
+				<input type="submit" class="loginbutton" value="登录"/>
+			    
+				<a id="newcount" class="labelfont" href="${pageContext.request.contextPath}/registerPage.action">还没有账号？去注册</a>
+           	 	<a id="forgetpassword" class="forgetpass" href="${pageContext.request.contextPath}/registerPage.action">forget password?</a>
             
-            <div  id="maindiv" >
-           		
-            	<form action="${pageContext.request.contextPath}/login.action"  method="post" id="loginform">
-           			<input id="username" name="username" value="${user.username }" type="text" class="inputsize" maxlength="20" placeholder="用户名"/><br/>
-           	 		<div class="errorinfo">
-           	 			<span  ><s:fielderror fieldName="username"/></span>
-           	 		</div>
-           	 	
-           	 		<input id="password"  name="password" value="${user.password }"  type="password" class="inputsize" maxlength="20" placeholder="密码"><br/>
-            		<div class="errorinfo">
-            			<span ><s:fielderror  fieldName="password" /></span>
-            		</div>
-            		<div id="checkboxdiv">
-           				<input type="checkbox" class="checkbox_relative" value="remember me"/>
-           				<label class="labelfont">
-                			remember me
-            			</label>
-            		</div>
-            		<br/>
-            		<input type="submit" class="inputsize loginbutton" value="登录" ><br>
-            	</form>
-            	<div id="adiv">
-            	 	<a id="newcount" href="${pageContext.request.contextPath}/registerPage.action">还没有账号？去注册</a>
-           		 	<a id="forgetpassword" href="">forget password?</a>
-           		 </div>
+            	<div class="subblank"></div>
             </div>
- 
-        </div>
-        <div class="col-md-4"></div>
-    </div>
-    <div class="row"></div>
+		</div>
+	</form>
+</div>
+<div class="col-md-4"></div>
 </body>
 </html>
+

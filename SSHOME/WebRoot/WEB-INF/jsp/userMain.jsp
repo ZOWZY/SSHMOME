@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div style=" width:100%; height:590px;">
 	<div id="container">
 		<div>
-			<iframe src="imgcarousel.jsp" frameborder="0" style="width:100%; height:620px;"></iframe>
+			<iframe src="/SSHOME/imgCarouselPageAction.action" frameborder="0" style="width:100%; height:620px;"></iframe>
 		</div>
 
    		<div id="search">
@@ -88,25 +88,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             <div class="row">
                     <div class="col-md-4">
-                        <button class="imgbutton">
+                        <a href="">
                         	<img src="picture/houseresource/home1/home101.png" class="imglevel"/>
-                        </button>
+                        </a>
                         <h5 class="smallfont">
                             <strong>¥642</strong> &nbsp;&nbsp;上海-整套房子
                         </h5>
                     </div>             
                     <div class="col-md-4">
-                    	<button class="imgbutton">
+                    	<a href="">
                         	<img src="picture/houseresource/home2/home201.png" class="imglevel"/>
-                        </button>
+                        </a>
                         <h5 class="smallfont">
                             <strong>¥168</strong> &nbsp;&nbsp;成都-独立房间
                         </h5>
                     </div>
                     <div class="col-md-4">
-                    	<button class="imgbutton">
+                    	<a href="">
                         	<img src="picture/houseresource/home3/home301.png" class="imglevel"/>
-                        </button>
+                        </a>
                         <h5 class="smallfont">
                             <strong>¥85</strong> &nbsp;&nbsp;杭州-合住房间
                         </h5>

@@ -16,4 +16,8 @@ public class IndexAction extends ActionSupport {
 	public String indexPage() {
 		return SUCCESS;
 	}
+	
+	public String imgCarouselPageAction(){
+		return SUCCESS;
+	}
 }

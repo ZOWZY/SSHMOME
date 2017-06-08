@@ -6,7 +6,10 @@
 <struts>
 	<package name="IndexAction"  extends="struts-default" namespace="/">
 		<action name="indexPage" class="IndexAction"  method="indexPage">
-			<result name="success">/WEB-INF/jsp/index.jsp</result>
+			<result name="success">/WEB-INF/jsp/userMain.jsp</result>
+		</action>
+		<action name="imgCarouselPageAction" class="IndexAction"  method="imgCarouselPageAction">
+			<result name="success">/WEB-INF/jsp/imgcarousel.jsp</result>
 		</action>
 	</package>
 </struts> 

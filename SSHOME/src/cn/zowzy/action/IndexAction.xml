@@ -11,5 +11,8 @@
 		<action name="imgCarouselPageAction" class="IndexAction"  method="imgCarouselPageAction">
 			<result name="success">/WEB-INF/jsp/imgcarousel.jsp</result>
 		</action>
+		<action name="userMyPageAction" class="IndexAction"  method="userMyPageAction">
+			<result name="success">/WEB-INF/jsp/userMy.jsp</result>
+		</action>
 	</package>
 </struts> 

@@ -9,12 +9,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'userOrder.jsp' starting page</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userOrder.css" type="text/css"/>
+    <title>My JSP 'userInfor.jsp' starting page</title>
+     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userMyinfor.css" type="text/css"/>
 	<script src="${pageContext.request.contextPath}/jquery/jquery-3.2.0.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" type="text/css"/>
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userCheckPage.css" type="text/css"/>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -47,86 +46,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-    	<div>
-      		<input type="text" readonly value="身份信息" class="inputtable"/>
-        </div>
-    	<div class="infor">
-        	<div class="col-md-4">
-            	<label>姓名：</label><h5>王梦迪</h5>
-            </div>
-            <div class="col-md-4">
-            	<label>手机号：</label><h5>15002300023</h5>
-            </div>
-            <div class="col-md-4">
-            	<label>身份证号：</label><h5>150404199610201145</h5>
-            </div>
-        </div>
-        
-        
-        <input type="text" readonly value="房源信息" class="inputtable"/>
-        <div class="imgborder">
-        	<div class="col-md-5 divcolor">
-            	<div class="blank"></div>
-            	<img src="picture/houseresource/home1/home103.png" class="imgheight"/>
-            	<div class="blank"></div>
-        	</div>
-        	<div class="col-md-7 divcolor">
-            	<div class="subblank">
-            		<div class="col-md-9">
-                		<h2>瑶庄精品民宿</h2>
-                	</div>
-                	<div class="col-md-3">
-                		<h2>265起</h2>
-                	</div>
-            	</div>
-            	<div class="divblank"></div>
-            	<div class="blank">
-            		<p><h4>这是一个位置图标 春熙路 太古里</h4></p>
-            	</div>
-            	<div class="divblank"></div>
-            	<div class="blank">
-            	</div>
-            	<div class="blank"></div>
-        	</div>
-        </div>
-        
-        
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
         <div class="divstyle">
             <div class="SSHOMEdiv">
-                <h4 class="fontstyle"><strong>确认订单</strong></h4>
+                <h3 class="fontstyle">编辑个人信息</h3>
             </div>
-            <div class="tablediv">
-            	<table class="tablestyle">
-	            	<tr>
-	                	<th>预订者</th>
-                        <th>入住日期</th>
-                        <th>退房日期</th>
-                        <th>入住人数</th>
-                        <th>房间类型</th>
-                        <th>价格</th>
-                        <th>支付状态</th>
-	              	</tr>
-                  	<tr>		
-                    	<td>wang</td>
-                        <td>2017-1-1</td>
-                  		<td>2017-1-3</td>
-                        <td>2</td>
-                  		<td>独立房间</td>
-                        <td>275</td>
-                        <td>已支付</td>
-                    </tr>
-             	</table>
-            </div>	
+            <div class="inputdiv">
+                <input type="text" id="" name="" value="" placeholder="用户名" class="inputsize">
+                <div class="spanstyle"><span></span></div>
+                <input type="text" id="" name="" value="" placeholder="姓名" class="inputsize">
+                <div class="spanstyle"><span></span></div>
+                <input type="text" id="" name="" value="" placeholder="性别" class="inputsize">
+                <div class="spanstyle"><span></span></div>
+                <input type="email" id="" name="" value="" placeholder="邮箱" class="inputsize">
+                <div class="spanstyle"><span></span></div>
+                <input type="text" id="" name="" value="" placeholder="手机号" class="inputsize">
+                <div class="spanstyle"><span></span></div>
+                <input type="text" id="" name="" value="" placeholder="身份证号" class="inputsize">
+                <div class="spanstyle"><span></span></div>
+                <input type="button" value="保存" class="addbutton">
+            </div>
         </div>
-        
-        <div>
-    		<input type="submit" value="退订" class="paybtn"/>
-        	<input type="submit" value="去评价" class="cancelbtn"/>
-    	</div>
-    </div>
-    <div class="col-md-1"></div>
+	</div>
+	<div class="col-md-4"></div>
 </div>
 
 

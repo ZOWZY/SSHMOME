@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    
 			    <div>
 					<a id="newcount" class="labelfont" href="${pageContext.request.contextPath}/registerPage.action">还没有账号？去注册</a>
-           	 		<a id="forgetpassword" class="forgetpass" href="${pageContext.request.contextPath}/changePassword.action">forget password?</a>
+           	 		<a id="forgetpassword" class="forgetpass" href="${pageContext.request.contextPath}/changePasswordPage.action">forget password?</a>
            	 	</div>
            	 	<div class="subblank"></div>
             </div>

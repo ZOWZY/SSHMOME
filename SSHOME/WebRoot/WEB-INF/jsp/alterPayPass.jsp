@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="spanstyle">
 					<s:fielderror fieldName=""/>
 				</span>
-                <input type="button" value="重置密码" class="alterbutton">
+                <input type="submit" value="重置密码" class="alterbutton">
             </div>
         </div>
     </form>

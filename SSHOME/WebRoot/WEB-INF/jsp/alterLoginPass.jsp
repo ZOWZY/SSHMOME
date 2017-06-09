@@ -26,15 +26,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   	<div class="col-md-4"></div>
     <div class="col-md-4">
-    <form action=""  method="post" id="">
+    <form action="${pageContext.request.contextPath}/changePassword.action"  method="post" id="">
         <div class="divstyle">
             <div class="SSHOMEdiv">
                 <h3 class="fontstyle">修改登录密码</h3>
             </div>
             <div class="inputdiv">
-                <input type="text" id="" name="" value="" placeholder="新密码" class="inputsize">
+                <input type="text" id="changePasswordCode" name="changePasswordCode" value="" placeholder="新密码" class="inputsize">
                 <span class="spanstyle">
-					<s:fielderror fieldName=""/>
+					<s:fielderror fieldName="changePasswordCode"/>
 				</span>
                 <input type="text" id="" name="" value="" placeholder="确认密码" class="inputsize">
                 <span class="spanstyle">

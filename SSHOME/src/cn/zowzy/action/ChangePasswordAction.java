@@ -34,9 +34,11 @@ public class ChangePasswordAction extends ActionSupport {
 		String result = "failed";
 		HttpServletRequest request = ServletActionContext.getRequest();
 		if (request.getAttribute("changePasswordCode") == null
-				|| request.getAttribute("changePasswordCode").toString().length() <= 0) {
+				|| request.getAttribute("changePasswordCode").toString().length() <= 0){
 			return result;
-		}
+		}else{
+			result=SUCCESS;
+			}
 		// TODO 根据changePasswordCode查找用户 修改登陆密码
 		return result;
 	}

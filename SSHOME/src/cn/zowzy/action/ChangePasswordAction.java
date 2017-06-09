@@ -35,6 +35,7 @@ public class ChangePasswordAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		if (request.getAttribute("changePasswordCode") == null
 				|| request.getAttribute("changePasswordCode").toString().length() <= 0){
+			System.out.println("未取得参数");
 			return result;
 		}else{
 			result=SUCCESS;
@@ -58,5 +59,9 @@ public class ChangePasswordAction extends ActionSupport {
 		// TODO 根据changePayPasswordCode查找用户 修改支付密码
 		return result;
 	}
-
+	
+	public String changePasswordPage(){
+		System.out.println("请求跳转修改登录密码页面");
+		return SUCCESS;
+	}
 }

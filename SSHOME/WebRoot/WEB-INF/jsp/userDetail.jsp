@@ -36,10 +36,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div>
          <div class="col-md-6">
              <ul>
-                 <li class="li"><a class="a" href=""><strong>登录</strong></a></li>
-                 <li class="li"><a class="a" href=""><strong>注册</strong></a></li>
-                 <li class="li"><a class="a" href=""><strong>帮助</strong></a></li>
-                 <li class="li"><a class="a" href=""><strong>成为房东</strong></a></li>
+                 <li class="li">
+                 	<a class="a" href="/SSHOME/loginPage.action">
+                 		<strong>登录</strong>
+                 	</a>
+                 </li>
+                 <li class="li">
+                 	<a class="a" href="/SSHOME/registerPage.action">
+                 		<strong>注册</strong>
+                 	</a>
+                 </li>
+                 <li class="li">
+                 	<a class="a" href="">
+                 		<strong>帮助</strong>
+                 	</a>
+                 </li>
+                 <li class="li">
+                 	<a class="a" href="">
+                 		<strong>成为房东</strong>
+                 	</a>
+                 </li>
              </ul>
          </div>
 </div>

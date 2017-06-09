@@ -32,15 +32,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <h3 class="fontstyle">修改登录密码</h3>
             </div>
             <div class="inputdiv">
-                <input type="text" id="changePasswordCode" name="changePasswordCode" value="" placeholder="新密码" class="inputsize">
+                <input type="password" id="changePasswordCode" name="changePasswordCode" value="" placeholder="新密码" class="inputsize">
                 <span class="spanstyle">
 					<s:fielderror fieldName="changePasswordCode"/>
 				</span>
-                <input type="text" id="" name="" value="" placeholder="确认密码" class="inputsize">
+                <input type="password" id="" name="" value="" placeholder="确认密码" class="inputsize">
                 <span class="spanstyle">
 					<s:fielderror fieldName=""/>
 				</span>
-                <input type="button" value="重置密码" class="alterbutton">
+                <input type="submit" value="重置密码" class="alterbutton">
             </div>
         </div>
     </form>

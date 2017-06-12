@@ -28,6 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 
 <div class="rowdiv row">
+		 <form action="" method="">
          <div class="col-md-6">
              <span class="glyphicon glyphicon-search"></span>
              <input type="text" id="" name="" value="" placeholder="搜索" maxlength="20" class="inputstyle">
@@ -56,6 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  </li>
              </ul>
          </div>
+         </form>
 </div>
     
 
@@ -64,14 +66,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div>
 			<iframe src="/SSHOME/imgCarouselPageAction.action" frameborder="0" style="width:100%; height:620px;"></iframe>
 		</div>
-
+		
+		<form action="" method="">
    		<div id="search">
         	<input type="text" id="input" name="" value="请输入名称"/>
     	</div>
-    
     	<div>
     		<button id="look" onclick=" "> 搜索</button>
     	</div>
+    	</form>
+    	
     </div>
 </div>
  

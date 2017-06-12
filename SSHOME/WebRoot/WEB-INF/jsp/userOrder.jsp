@@ -46,6 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
+    	<form action="${pageContext.request.contextPath}/addOrders.action" method="post">
     	<div>
       		<input type="text" readonly value="身份信息" class="inputtable"/>
         </div>
@@ -105,22 +106,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <th>房间类型</th>
                         <th>价格</th>
 	              	</tr>
+	                <c:forEach var=" " items=" ">
                   	<tr>		
-                    	<td>wang</td>
-                        <td>2017-1-1</td>
-                  		<td>2017-1-3</td>
-                        <td>2</td>
-                  		<td>独立房间</td>
-                        <td>275</td>
+                    	<td></td>
+                        <td></td>
+                  		<td></td>
+                        <td></td>
+                  		<td></td>
+                        <td></td>
                     </tr>
+                    </c:forEach>
              	</table>
             </div>	
         </div>
-        
-        <div>
-    		<input type="submit" value="提交订单" class="paybtn"/>
-        	<input type="submit" value="联系房东" class="cancelbtn"/>
-    	</div>
+        <input type="submit" value="提交订单" class="paybtn"/>
+    	</form>
+    	
+    	<form action="http://www.zjhfyq.cn/CustomService/login" method="post">
+    			<input type="hidden" name="username" value="QQQ"/>
+    			<input type="hidden" name="password" value="******"/>
+    			<input type="hidden" name="type" value="user"/>
+    			<input type="submit" value="联系房东" class="cancelbtn"/>
+    	</form>
+
     </div>
     <div class="col-md-1"></div>
 </div>

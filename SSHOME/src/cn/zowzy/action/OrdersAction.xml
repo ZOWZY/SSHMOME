@@ -8,57 +8,57 @@
 	<package name="OrdersAction"  extends="struts-default"  namespace="/">
 	
 		<action name="addOrders" class="OrdersAction" method="addOrders">
-			<result name="failed">/index.jsp</result>
-			<result name="input">/index.jsp</result>
-			<result name="success">/index.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="input">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="success">/WEB-INF/jsp/userPay.jsp</result>
 		</action>
 		
-		<action name="cancleOrders" class="OrdersAction" method="cnacleOrders">
-			<result name="failed">/index.jsp</result>
-			<result name="input">/index.jsp</result>
-			<result name="success">/index.jsp</result>
+		<action name="cancleOrders" class="OrdersAction" method="cancleOrders">
+			<result name="failed">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="input">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="success">/WEB-INF/jsp/userOrder.jsp</result>
 		</action>
 		
 		<action name="updateCheckInTime" class="OrdersAction" method="updateCheckInTime">
-			<result name="failed">/index.jsp</result>
-			<result name="input">/index.jsp</result>
-			<result name="success">/index.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="input">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="success">/WEB-INF/jsp/userOrder.jsp</result>
 		</action>
 		
 		<action name="updateCheckOutTime" class="OrdersAction" method="updateCheckOutTime">
-			<result name="failed">/index.jsp</result>
-			<result name="input">/index.jsp</result>
-			<result name="success">/index.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="input">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="success">/WEB-INF/jsp/userOrder.jsp</result>
 		</action>
 		
 		<action name="changeOrdersState" class="OrdersAction" method="changeOrdersState">
-			<result name="failed">/index.jsp</result>
-			<result name="input">/index.jsp</result>
-			<result name="success">/index.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="input">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="success">/WEB-INF/jsp/userOrder.jsp</result>
 		</action>
 		
 		<action name="findOrdersByUsername" class="OrdersAction" method="findOrdersByUsername">
-			<result name="failed">/index.jsp</result>
-			<result name="input">/index.jsp</result>
-			<result name="success">/index.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="input">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="success">/WEB-INF/jsp/userOrder.jsp</result>
 		</action>
 	
 		<action name="findOrdersByOrdersId" class="OrdersAction" method="findOrdersByOrdersId">
-			<result name="failed">/index.jsp</result>
-			<result name="input">/index.jsp</result>
-			<result name="success">/index.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="input">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="success">/WEB-INF/jsp/userOrder.jsp</result>
 		</action>
 	
 		<action name="findOrdersByRoomid" class="OrdersAction" method="findOrdersByRoomid">
-			<result name="failed">/index.jsp</result>
-			<result name="input">/index.jsp</result>
-			<result name="success">/index.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="input">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="success">/WEB-INF/jsp/userOrder.jsp</result>
 		</action>
 		
 		<action name="findOrdersByRoomidAndUsername" class="OrdersAction" method="findOrdersByRoomidAndUsername">
-			<result name="failed">/index.jsp</result>
-			<result name="input">/index.jsp</result>
-			<result name="success">/index.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="input">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="success">/WEB-INF/jsp/userOrder.jsp</result>
 		</action>
 	
 	

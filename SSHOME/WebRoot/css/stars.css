@@ -30,7 +30,7 @@ ul{
  	width:24px;
  	cursor:pointer;
  	text-indent:-9999px;
- 	background:url(file:///D|/sshome/sshome/picture/stars.png) no-repeat;
+ 	background:url(picture/stars.png) no-repeat;
  	}
 #star strong{
  	color:#f60;
@@ -45,7 +45,7 @@ ul{
  	width:159px;
  	height:60px;
  	display:none;
- 	background:url(../picture/icon.gif) no-repeat;
+ 	background:url(picture/icon.gif) no-repeat;
  	padding:7px 10px 0;
  	}
 #star p em{

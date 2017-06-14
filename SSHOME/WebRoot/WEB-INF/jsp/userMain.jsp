@@ -28,10 +28,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 
 <div class="rowdiv row">
-		 <form action="" method="">
+		 <form action="${pageContext.request.contextPath}/searchRoom.action" method="post">
          <div class="col-md-6">
              <span class="glyphicon glyphicon-search"></span>
-             <input type="text" id="" name="" value="" placeholder="搜索" maxlength="20" class="inputstyle">
+             <input type="text" name="" value="" placeholder="搜索" maxlength="20" class="inputstyle">
          </div>
          <div class="col-md-6">
              <ul>
@@ -67,12 +67,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<iframe src="/SSHOME/imgCarouselPageAction.action" frameborder="0" style="width:100%; height:620px;"></iframe>
 		</div>
 		
-		<form action="" method="">
+		<form action="${pageContext.request.contextPath}/searchRoom.action" method="post">
    		<div id="search">
         	<input type="text" id="input" name="" value="请输入名称"/>
     	</div>
     	<div>
-    		<button id="look" onclick=" "> 搜索</button>
+    		<input type="submit" id="look" value="搜索"/>
     	</div>
     	</form>
     	
@@ -92,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             <div class="row">
                     <div class="col-md-4">
-                        <a href="">
+                        <a href="/SSHOME/roomDetail.action">
                         	<img src="picture/houseresource/home1/home101.png" class="imglevel"/>
                         </a>
                         <h5 class="smallfont">
@@ -100,7 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </h5>
                     </div>             
                     <div class="col-md-4">
-                    	<a href="">
+                    	<a href="/SSHOME/roomDetail.action">
                         	<img src="picture/houseresource/home2/home201.png" class="imglevel"/>
                         </a>
                         <h5 class="smallfont">
@@ -108,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </h5>
                     </div>
                     <div class="col-md-4">
-                    	<a href="">
+                    	<a href="/SSHOME/roomDetail.action">
                         	<img src="picture/houseresource/home3/home301.png" class="imglevel"/>
                         </a>
                         <h5 class="smallfont">

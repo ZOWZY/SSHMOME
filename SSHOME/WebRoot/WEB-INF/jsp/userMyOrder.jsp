@@ -20,9 +20,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
 
   </head>
   
@@ -32,14 +29,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              <img src="picture/mainicon.png"/>
          </div>
          
-         <div class="col-md-5">
-             <span class="glyphicon glyphicon-search"></span>
-             <input type="text" placeholder="搜索" maxlength="20" class="inputstyle">
-         </div>
+         <div class="col-md-5"></div>
          <div class="col-md-6">
              <ul>
-                 <li><a href="" id="signin"><strong>登录</strong></a></li>
-                 <li><a href="" id="register"><strong>注册</strong></a></li>
+                 <li>
+                 	<a href="/SSHOME/loginPage.action" id="signin">
+                 		<strong>登录</strong>
+                 	</a>
+                 </li>
+                 <li>
+                 	<a href="/SSHOME/registerPage.action" id="register">
+                 		<strong>注册</strong>
+                 	</a>
+                 </li>
                  <li><a href=""><strong>帮助</strong></a></li>
                  <li><a href=""><strong>成为房东</strong></a></li>
              </ul>

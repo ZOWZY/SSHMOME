@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
         <div class="divstyle">
-        <form action="${pageContext.request.contextPath}/.action" method="post">
+        <form action="${pageContext.request.contextPath}/payPageAction.action" method="post">
             <div class="SSHOMEdiv">
                 <h3 class="fontstyle">订单支付</h3>
             </div>
@@ -36,8 +36,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <input type="text" name="" value="" placeholder="价格" readonly class="inputsize">
                 <input type="password" name="" placeholder="密码" class="inputsize">
                 <div class="spanstyle"><span></span></div>
-                <input type="button" value="确认支付" class="paybutton">
-                <input type="button" value="取消支付" class="backbutton">
+                <input type="submit" value="确认支付" class="paybutton">
+                <input type="submit" value="取消支付" class="backbutton">
             </div>
         </form>
         </div>

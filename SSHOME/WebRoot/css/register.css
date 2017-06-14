@@ -43,6 +43,8 @@ body
 	color:rgba(255,0,0,1);
 	position:relative;
 	top:7px;
-	right:75px;
+	right:40px;
 	text-align:right;
+	float:right;
+	font-size:14px;
 }

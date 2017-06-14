@@ -13,6 +13,12 @@
 			<result name="success">/WEB-INF/jsp/userPay.jsp</result>
 		</action>
 		
+		<action name="newOrders" class="OrdersAction" method="newOrders">
+			<result name="failed">/WEB-INF/jsp/userDetail.jsp</result>
+			<result name="input">/WEB-INF/jsp/userDetail.jsp</result>
+			<result name="success">/WEB-INF/jsp/userOrder.jsp</result>
+		</action>
+		
 		<action name="cancleOrders" class="OrdersAction" method="cancleOrders">
 			<result name="failed">/WEB-INF/jsp/userOrder.jsp</result>
 			<result name="input">/WEB-INF/jsp/userOrder.jsp</result>

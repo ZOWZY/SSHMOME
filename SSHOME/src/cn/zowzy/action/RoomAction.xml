@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foudation//DTD Struts Configration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="RoomAction"  extends="struts-default"  namespace="/">	
+		<action name="searchRoom" class="RoomAction" method="searchRoom">
+			<result name="failed">/WEB-INF/jsp/userMain.jsp</result>
+			<result name="input">/WEB-INF/jsp/userMain.jsp</result>
+			<result name="success">/WEB-INF/jsp/userSearchSource.jsp</result>
+		</action>
+		
+		<action name="roomDetail" class="RoomAction" method="roomDetail">
+			<result name="failed">/WEB-INF/jsp/userSearchSource.jsp</result>
+			<result name="input">/WEB-INF/jsp/userSearchSource.jsp</result>
+			<result name="success">/WEB-INF/jsp/userDetail.jsp</result>
+		</action>
+		
+		<action name="searchAction" class="RoomAction" method="searchAction">
+			<result name="success">/WEB-INF/jsp/search.jsp</result>
+		</action>
+		
+		<action name="stars" class="RoomAction" method="stars">
+			<result name="success">/WEB-INF/jsp/stars.jsp</result>
+		</action>	
+		
+		<action name="sourceAction" class="RoomAction" method="sourceAction">
+			<result name="success">/WEB-INF/jsp/userSource.jsp</result>
+		</action>
+	</package>
+
+</struts>

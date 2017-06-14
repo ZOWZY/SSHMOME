@@ -37,5 +37,26 @@ public class RoomAction extends ActionSupport implements ModelDriven<Room> {
 	public Room getModel() {
 		return room;
 	}
+	
+	public String searchRoom(){
+		System.out.println("请求跳转查找房源页面");
+		return SUCCESS;
+	}
+	
+	public String searchAction(){
+		return SUCCESS;
+	}
+	
+	public String stars(){
+		return SUCCESS;
+	}
+	
+	public String sourceAction(){
+		return SUCCESS;
+	}
+	
+	public String roomDetail(){
+		return SUCCESS;
+	}
 
 }

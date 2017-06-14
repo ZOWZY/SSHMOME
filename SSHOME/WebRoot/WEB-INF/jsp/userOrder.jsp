@@ -29,16 +29,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <div class="col-md-1 icondiv" align="center">
              <img src="picture/mainicon.png"/>
          </div>
-         <div class="col-md-5">
-             <span class="glyphicon glyphicon-search"></span>
-             <input type="text" placeholder="搜索" maxlength="20" class="inputstyle">
-         </div>
+         <div class="col-md-5"></div>
          <div class="col-md-6">
              <ul>
-                 <li class="li"><a class="a" href=""><strong>登录</strong></a></li>
-                 <li class="li"><a class="a" href=""><strong>注册</strong></a></li>
-                 <li class="li"><a class="a" href=""><strong>帮助</strong></a></li>
-                 <li class="li"><a class="a" href=""><strong>成为房东</strong></a></li>
+                 <li class="li">
+                 	<a class="a" href="/SSHOME/loginPage.action">
+                 		<strong>登录</strong>
+                 	</a>
+                 </li>
+                 <li class="li">
+                 	<a class="a" href="/SSHOME/registerPage.action">
+                 		<strong>注册</strong>
+                 	</a>
+                 </li>
+                 <li class="li">
+                 	<a class="a" href="">
+                 		<strong>帮助</strong>
+                 	</a>
+                 </li>
+                 <li class="li">
+                 	<a class="a" href="">
+                 		<strong>成为房东</strong>
+                 	</a>
+                 </li>
              </ul>
          </div>
 </div>

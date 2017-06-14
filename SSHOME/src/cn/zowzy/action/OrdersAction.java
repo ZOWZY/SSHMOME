@@ -23,10 +23,16 @@ public class OrdersAction extends ActionSupport implements ModelDriven<Orders> {
 		return orders;
 	}
 
-	// TODO 添加订单
+	// TODO 提交订单
 	public String addOrders() {
-		String result = "failed";
+		String result = SUCCESS;
 		return result;
+	}
+	
+	// TODO 预订
+	public String newOrders() {
+			String result = SUCCESS;
+			return result;
 	}
 
 	// TODO 取消订单

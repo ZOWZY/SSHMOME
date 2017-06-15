@@ -44,6 +44,7 @@ public class RoomAction extends ActionSupport implements ModelDriven<Room> {
 	}
 	
 	public String searchAction(){
+		System.out.println("请求跳转查找房源子页面");
 		return SUCCESS;
 	}
 	

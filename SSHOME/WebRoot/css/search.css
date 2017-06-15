@@ -47,5 +47,16 @@ display:none;
 	span{
 		color:#3CF;
 		}
+		
+.button
+{
+	height:40px;
+	width:200px;
+	margin:0px 0px 20px 20px;
+	border-radius:5px;
+	background-color:rgba(248,142,139,1);
+	color:rgba(255,255,255,1);
+	outline:none;
+}
 
 

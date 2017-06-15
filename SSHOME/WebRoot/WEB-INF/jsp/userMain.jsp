@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<form action="${pageContext.request.contextPath}/searchRoom.action" method="post">
    		<div id="search">
-        	<input type="text" id="input" name="" value="请输入名称"/>
+        	<input type="text" id="input" name="input" placeholder="请输入目的地"/>
     	</div>
     	<div>
     		<input type="submit" id="look" value="搜索"/>

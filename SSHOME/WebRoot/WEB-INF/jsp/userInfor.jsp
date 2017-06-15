@@ -1,27 +1,27 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
+
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'userInfor.jsp' starting page</title>
+    <title>我的信息</title>
      <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userMyinfor.css" type="text/css"/>
 	<script src="${pageContext.request.contextPath}/jquery/jquery-3.2.0.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" type="text/css"/>
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	<meta http-equiv="description" content="我的信息界面">
+	<meta http-equiv="content-type"  content="text/html;charset=utf-8">
+
 
   </head>
   
@@ -37,10 +37,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div>
          <div class="col-md-6">
              <ul>
-                 <li><a href="" id="signin"><strong>登录</strong></a></li>
-                 <li><a href="" id="register"><strong>注册</strong></a></li>
-                 <li><a href=""><strong>帮助</strong></a></li>
-                 <li><a href=""><strong>成为房东</strong></a></li>
+                 <li>
+                 	<a href="/SSHOME/loginPage.action" id="signin">
+                 		<strong>登录</strong>
+                 	</a>
+                 </li>
+                 <li>
+                 	<a href="/SSHOME/registerPage.action" id="register">
+                 		<strong>注册</strong>
+                 	</a>
+                 </li>
+                 <li>
+                 	<a href="">
+                 		<strong>帮助</strong>
+                 	</a>
+                 </li>
+                 <li>
+                 	<a href="">
+                 		<strong>成为房东</strong>
+                 	</a>
+                 </li>
              </ul>
          </div>
 </div>
@@ -53,18 +69,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <h3 class="fontstyle">编辑个人信息</h3>
             </div>
             <div class="inputdiv">
-                <input type="text" id="" name="" value="" placeholder="用户名" class="inputsize">
-                <div class="spanstyle"><span></span></div>
-                <input type="text" id="" name="" value="" placeholder="姓名" class="inputsize">
-                <div class="spanstyle"><span></span></div>
-                <input type="text" id="" name="" value="" placeholder="性别" class="inputsize">
-                <div class="spanstyle"><span></span></div>
-                <input type="email" id="" name="" value="" placeholder="邮箱" class="inputsize">
-                <div class="spanstyle"><span></span></div>
-                <input type="text" id="" name="" value="" placeholder="手机号" class="inputsize">
-                <div class="spanstyle"><span></span></div>
-                <input type="text" id="" name="" value="" placeholder="身份证号" class="inputsize">
-                <div class="spanstyle"><span></span></div>
+                <input type="text" name="username" value="" placeholder="用户名" class="inputsize">
+                <span class="spanstyle">
+					<s:fielderror fieldName="username"/>
+				</span>
+                <input type="text" name="name" value="" placeholder="姓名" class="inputsize">
+                <span class="spanstyle">
+					<s:fielderror fieldName="username"/>
+				</span>
+                <input type="text" name="sex" value="" placeholder="性别" class="inputsize">
+                <span class="spanstyle">
+					<s:fielderror fieldName="username"/>
+				</span>
+                <input type="email" name="email" value="" placeholder="邮箱" class="inputsize">
+                <span class="spanstyle">
+					<s:fielderror fieldName="username"/>
+				</span>
+                <input type="text" name="phone" value="" placeholder="手机号" class="inputsize">
+                <span class="spanstyle">
+					<s:fielderror fieldName="username"/>
+				</span>
+                <input type="text" name="idnum" value="" placeholder="身份证号" class="inputsize">
+                <span class="spanstyle">
+					<s:fielderror fieldName="username"/>
+				</span>
                 <input type="button" value="保存" class="addbutton">
             </div>
         </div>

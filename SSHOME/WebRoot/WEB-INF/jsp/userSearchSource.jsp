@@ -33,22 +33,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <div class="col-md-5"></div>
          <div class="col-md-6">
              <ul>
-                 <li>
+                 <li class="li">
                  	<a class="a" href="/SSHOME/loginPage.action">
                  		<strong>登录</strong>
                  	</a>
                  </li>
-                 <li>
+                 <li class="li">
                  	<a class="a" href="/SSHOME/registerPage.action">
                  		<strong>注册</strong>
                  	</a>
                  </li>
-                 <li>
+                 <li class="li">
                  	<a class="a" href="">
                  		<strong>帮助</strong>
                  	</a>
                  </li>
-                 <li>
+                 <li class="li">
                  	<a class="a" href="">
                  		<strong>成为房东</strong>
                  	</a>
@@ -64,25 +64,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="row alldiv">
         
         <div class="firstdiv">
-        	<form action="${pageContext.request.contextPath}/.action" method="post">
+        	<form action="${pageContext.request.contextPath}/searchRoom.action" method="post">
             <div class="blank"></div>
             <div class="row secondmargin">
                 <div class="firstindiv col-md-10">
-                	<select class="selectdiv">
-                    	<option>目的地</option>
+                	<select class="selectdiv" name="select">
+                    	<option value="-1">选择目的地</option>
                 	</select>
-                	<input type="date" class="datediv" placeholder="入住日期">
+                	<input type="date" name="datetime" class="datediv" placeholder="入住日期">
                 	<label>-</label>
-	                <input type="date" class="datediv" placeholder="退房日期">
-	                <input type="text" class="numberdiv" placeholder="入住人数">
+	                <input type="date" name="undatetime" class="datediv" placeholder="退房日期">
+	                <input type="text" name="" class="numberdiv" placeholder="入住人数">
                 
-	                <select class="selectdiv">
-	                    <option>整套房源</option>
-	                    <option>独立房间</option>
-	                    <option>合住房间</option>
+	                <select class="selectdiv" name="select2">
+	                    <option value="-1">选择房源类型</option>
 	                </select>
 	                
-	                <input type="text" class="inputdiv" placeholder="民宿名称">
+	                <input type="text" name="title" class="inputdiv" placeholder="民宿名称">
                 </div>
                 <div class="col-md-2">
                     <input type="submit" class="button" value="搜索">

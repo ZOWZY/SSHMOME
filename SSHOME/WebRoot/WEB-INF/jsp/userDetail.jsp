@@ -319,20 +319,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          			<div class="blank"></div>
           			<div class="col-md-6">
           				<label>入住</label>
-          				<input type="date" class="seconddiv">
+          				<input type="date" name="datetime" class="seconddiv">
           			</div>
           			<div class="col-md-6">
             			<label>退房</label>
-            			<input type="date" class="seconddiv">
+            			<input type="date" name="undatetime" class="seconddiv">
           			</div>
           			<div class="col-md-12">
             			<div class="blank"></div>
             			<label>房客</label>
-            			<select class="seconddiv">
-			            	<option>1位房客</option>
-			              	<option>2位房客</option>
-			              	<option>3位房客</option>
-			              	<option>4位房客</option>
+            			<select class="seconddiv" name="select">
+			            	<option value="-1">选择房客位数</option>
             			</select>
             			<div class="blank"></div>
             			<div class="blank"></div>

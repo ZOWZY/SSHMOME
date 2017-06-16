@@ -43,12 +43,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  	</a>
                  </li>
                  <li class="li">
-                 	<a class="a" href="">
+                 	<a class="a" href="/SSHOME/helpPageAction.action">
                  		<strong>帮助</strong>
                  	</a>
                  </li>
                  <li class="li">
-                 	<a class="a" href="">
+                 	<a class="a" href="/SSHOME/houseHolderPage.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>
@@ -86,19 +86,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	<div class="col-md-7 divcolor">
             	<div class="subblank">
             		<div class="col-md-9">
-                		<h2>瑶庄精品民宿</h2>
+                		<h2> ${room.title}</h2>
                 	</div>
                 	<div class="col-md-3">
-                		<h2>265起</h2>
+                		<h2> ${room.price}</h2>
                 	</div>
             	</div>
             	<div class="divblank"></div>
             	<div class="blank">
-            		<p><h4>这是一个位置图标 春熙路 太古里</h4></p>
+            		<p><h4> ${room.localtion}</h4></p>
             	</div>
             	<div class="divblank"></div>
             	<div class="blank">
-            		<p><h5>这里放星星评分</h5></p>
+            	<iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+            		scrolling="no" frameborder="0">
+            	</iframe>
             	</div>
             	<div class="blank"></div>
         	</div>

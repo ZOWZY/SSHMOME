@@ -30,14 +30,14 @@ ul{
  	width:24px;
  	cursor:pointer;
  	text-indent:-9999px;
- 	background:url(picture/stars.png) no-repeat;
+ 	background:url(/SSHOME/picture/stars.png) no-repeat;
  	}
 #star strong{
  	color:#f60;
  	padding-left:10px;
  	}
 #star li.on{
- 	background-position:0 -28px;
+ 	background-position:0 -29px;
  	}
 #star p{
  	position:absolute;
@@ -45,7 +45,6 @@ ul{
  	width:159px;
  	height:60px;
  	display:none;
- 	background:url(picture/icon.gif) no-repeat;
  	padding:7px 10px 0;
  	}
 #star p em{

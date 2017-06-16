@@ -44,12 +44,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  	</a>
                  </li>
                  <li class="li">
-                 	<a class="a" href="">
+                 	<a class="a" href="/SSHOME/helpPageAction.action">
                  		<strong>帮助</strong>
                  	</a>
                  </li>
                  <li class="li">
-                 	<a class="a" href="">
+                 	<a class="a" href="/SSHOME/houseHolderPage.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>
@@ -91,7 +91,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="row">
 	<div class="col-md-1"></div>
     <div class="col-md-10">
-    	<div class="wholerow row">
+    
+    
+    	<!--<div class="wholerow row">
         	<div class="col-md-3"> 
         		<a class="singlenav" href="#summarize"><strong>综述</strong></a> 
         	</div>
@@ -104,14 +106,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        <div class="col-md-3"> 
 	        	<a class="singlenav" href="#position"><strong>位置</strong></a> 
 	        </div>
-      	</div>
+      	</div>-->
+      	
+      	
+      	
       	<div class="row">
       	<div class="col-md-8">
       		<div id="summarize">
             	<div class="sumfirst">
             		<br /><br />
-              		<h1>1 AiNi【嗨,惬意成都】春熙路/太古里/iFS/香槟美食广场/成都味道复式套二洋楼</h1>
-              		<h3>中国 四川 成都</h3>
+              		<h1> ${room.title}</h1>
+              		<h3>${room.localtion}</h3>
             	</div>
             	
             	<div class="sumfirst">
@@ -128,7 +133,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	</div>
             	
             	<div class="sumfirst">
-              		<h2><strong>关于此房源</strong></h2>
+              		<h3><strong>关于此房源</strong></h3>
               		<div class="row">
                 		<div class="col-md-4">
                   			<div class="blank"></div>
@@ -137,16 +142,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 		<div class="col-md-8 sumright">
                   			<div class="blank"></div>
                   			<div class="col-md-6">
-                    			<h5>可住:</h5><br>
-                    			<h5>卫生间:</h5><br>
-                    			<h5>卧室:</h5><br>
-                    			<h5>床铺:</h5><br>
+                    			<h5>卫生间: ${room.bathroom}</h5><br>
+                    			<h5>卧室: ${rom.bedroom}</h5><br>
+                    			<h5>床铺: ${room.bed}</h5><br>
                   			</div>
                   			<div class="col-md-6">
-                    			<h5>入住时间:</h5><br>
-                    			<h5>退房时间:</h5><br>
-                    			<h5>房源类型:</h5><br>
-                    			<h5>房间类型:</h5><br>
+                    			<h5>入住时间: ${orders.checkintime}</h5><br>
+                    			<h5>退房时间: ${orders.checkouttime}</h5><br>
+                    			<h5>房源类型: ${room.roomtype}</h5><br>
                   			</div>
                   			<div class="blank"></div>
                 		</div>
@@ -161,12 +164,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 		<div class="col-md-8 sumright">
                   			<div class="blank"></div>
                   			<div class="col-md-6">
-                    			<h5>允许携带宠物</h5><br>
-                    			<h5>免费停车位</h5><br>
+                    			<h5>是否有厨房: ${room.kitchen}</h5><br>
+                    			<h5>是否有停车位: ${room.park}</h5><br>
                   			</div>
                   			<div class="col-md-6">
-                    			<h5>厨房</h5><br>
-                    			<h5>早餐</h5><br>
+                    			<h5>是否有电梯: ${room.lift}</h5><br>
+                    			<h5>是否有电视机: ${room.tv}</h5><br>
                   			</div>
                   			<div class="blank"></div>
                 		</div>
@@ -181,12 +184,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 		<div class="col-md-8 sumright">
                   			<div class="blank"></div>
                   			<div class="col-md-6">
-                    			<h5>卧室1</h5><br>
+                    			<h5>卧室1:</h5><br>
                     			<h5>1张大床</h5><br>
                   			</div>
                   			<div class="col-md-6">
-                    			<h5>卧室2</h5><br>
-                    			<h5>1张大床</h5><br>
+                    			<h5>卧室2:</h5><br>
+                    			<h5>2张小床</h5><br>
                   			</div>
                   			<div class="blank"></div>
                 		</div>
@@ -256,21 +259,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           	<div id="evaluate">
                 <div class="sumfirst">
               		<div class="blank"></div>
-              		<h1>42条评价</h1>
+              		<h2><strong>综合评价</strong></h2>
               		<div class="blank"></div>
             	</div>
             	<div class="sumfirst">
               		<div class="row">
                 		<div class="blank"></div>
                 		<div class="col-md-6">
-                  			<h5>如实描述</h5><br>
-                  			<h5>沟通交流</h5><br>
-                  			<h5>干净指数</h5><br>
+                  			<h5>如实描述</h5>
+                  			<iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+            						scrolling="no" frameborder="0">
+            				</iframe>
+                  			<h5>沟通交流</h5>
+                  			<iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+            						scrolling="no" frameborder="0">
+            				</iframe>
+                  			<h5>干净指数</h5>
+                  			<iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+            						scrolling="no" frameborder="0">
+            				</iframe>
                 		</div>
                 		<div class="col-md-6">
-			                <h5>位置便利指数</h5><br>
-			                <h5>办理入住</h5><br>
-			                <h5>性价比</h5><br>
+			                <h5>位置便利指数</h5>
+			                <iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+            						scrolling="no" frameborder="0">
+            				</iframe>
+			                <h5>办理入住</h5>
+			                <iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+            						scrolling="no" frameborder="0">
+            				</iframe>
+			                <h5>性价比</h5>
+			                <iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+            						scrolling="no" frameborder="0">
+            				</iframe>
                 		</div>
                 		<div class="blank"></div>
                 	</div>
@@ -315,7 +336,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      
      	<div class="col-md-4 coldiv">
      	<form action="${pageContext.request.contextPath}/newOrders.action" method="post">
-        		<div class=" row secondwholediv">
+     		<div class="divstyle">
+     			<div class="SSHOMEdiv">
+                	<h3 class="fontstyle">价格 ¥${room.price}</h3>
+            	</div>
+        		<div class="secondwholediv">
          			<div class="blank"></div>
           			<div class="col-md-6">
           				<label>入住</label>
@@ -329,7 +354,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             			<div class="blank"></div>
             			<label>房客</label>
             			<select class="seconddiv" name="select">
-			            	<option value="-1">选择房客位数</option>
+            				<c:forEach var="i" step="1" begin="0"  end="3">
+            					<option value=${i }>选择房客位数</option>
+            				</c:forEach>
             			</select>
             			<div class="blank"></div>
             			<div class="blank"></div>
@@ -337,6 +364,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             			<div class="blank"></div>
           			</div>
         		</div>
+        	</div>
         </form>
       	</div>
   	</div>

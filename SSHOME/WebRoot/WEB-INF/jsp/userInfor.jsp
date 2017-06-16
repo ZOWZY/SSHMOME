@@ -31,10 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              <img src="picture/mainicon.png"/>
          </div>
          
-         <div class="col-md-5">
-             <span class="glyphicon glyphicon-search"></span>
-             <input type="text" placeholder="搜索" maxlength="20" class="inputstyle">
-         </div>
+         <div class="col-md-5"></div>
          <div class="col-md-6">
              <ul>
                  <li>
@@ -48,12 +45,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  	</a>
                  </li>
                  <li>
-                 	<a href="">
+                 	<a href="/SSHOME/helpPageAction.action">
                  		<strong>帮助</strong>
                  	</a>
                  </li>
                  <li>
-                 	<a href="">
+                 	<a href="/SSHOME/houseHolderPage.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>
@@ -64,6 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="row">
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
+	<form action="${pageContext.request.contextPath}/.action" method="post">
         <div class="divstyle">
             <div class="SSHOMEdiv">
                 <h3 class="fontstyle">编辑个人信息</h3>
@@ -73,29 +71,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="spanstyle">
 					<s:fielderror fieldName="username"/>
 				</span>
-                <input type="text" name="name" value="" placeholder="姓名" class="inputsize">
+                <input type="text" name="" value="" placeholder="姓名" class="inputsize">
                 <span class="spanstyle">
-					<s:fielderror fieldName="username"/>
+					<s:fielderror fieldName=""/>
 				</span>
-                <input type="text" name="sex" value="" placeholder="性别" class="inputsize">
+                <input type="text" name="" value="" placeholder="性别" class="inputsize">
                 <span class="spanstyle">
-					<s:fielderror fieldName="username"/>
+					<s:fielderror fieldName=""/>
 				</span>
                 <input type="email" name="email" value="" placeholder="邮箱" class="inputsize">
                 <span class="spanstyle">
-					<s:fielderror fieldName="username"/>
+					<s:fielderror fieldName="email"/>
 				</span>
                 <input type="text" name="phone" value="" placeholder="手机号" class="inputsize">
                 <span class="spanstyle">
-					<s:fielderror fieldName="username"/>
+					<s:fielderror fieldName="phone"/>
 				</span>
-                <input type="text" name="idnum" value="" placeholder="身份证号" class="inputsize">
+                <input type="text" name="" value="" placeholder="身份证号" class="inputsize">
                 <span class="spanstyle">
-					<s:fielderror fieldName="username"/>
+					<s:fielderror fieldName=""/>
 				</span>
-                <input type="button" value="保存" class="addbutton">
+                <input type="submit" value="保存" class="addbutton">
             </div>
         </div>
+    </form>
 	</div>
 	<div class="col-md-4"></div>
 </div>

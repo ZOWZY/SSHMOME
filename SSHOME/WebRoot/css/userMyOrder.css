@@ -140,6 +140,10 @@ td
 	border-style:hidden;
 	border:solid 1px rgb(0,166,153);
 }
+.cancela
+{
+	color:rgb(0,166,153);
+}
 .infor
 {
 	border:solid 1px #CCCCCC;

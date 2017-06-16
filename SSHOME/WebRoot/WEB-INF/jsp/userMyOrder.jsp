@@ -46,12 +46,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  	</a>
                  </li>
                  <li>
-                 	<a href="">
+                 	<a href="/SSHOME/helpPageAction.action">
                  		<strong>帮助</strong>
                  	</a>
                  </li>
                  <li>
-                 	<a href="">
+                 	<a href="/SSHOME/houseHolderPage.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>
@@ -62,6 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
+    <form action="${pageContext.request.contextPath}/myOrders.action" method="post">
     	<div>
       		<input type="text" readonly value="身份信息" class="inputtable"/>
         </div>
@@ -88,15 +89,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	<div class="col-md-7 divcolor">
             	<div class="subblank">
             		<div class="col-md-9">
-                		<h2>瑶庄精品民宿</h2>
+                		<h2> ${room.title}</h2>
                 	</div>
                 	<div class="col-md-3">
-                		<h2>265起</h2>
+                		<h2> ¥${room.price}</h2>
                 	</div>
             	</div>
             	<div class="divblank"></div>
             	<div class="blank">
-            		<p><h4>这是一个位置图标 春熙路 太古里</h4></p>
+            		<p><h4> ${room.localtion}</h4></p>
             	</div>
             	<div class="divblank"></div>
             	<div class="blank">
@@ -121,23 +122,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <th>价格</th>
                         <th>支付状态</th>
 	              	</tr>
+	              	<c:forEach var=" " items=" ">
                   	<tr>		
-                    	<td>wang</td>
-                        <td>2017-1-1</td>
-                  		<td>2017-1-3</td>
-                        <td>2</td>
-                  		<td>独立房间</td>
-                        <td>275</td>
-                        <td>已支付</td>
+                    	<td></td>
+                        <td></td>
+                  		<td></td>
+                        <td></td>
+                  		<td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
+                    </c:forEach>
              	</table>
             </div>	
         </div>
         
         <div>
     		<input type="submit" value="退订" class="paybtn"/>
-        	<input type="submit" value="去评价" class="cancelbtn"/>
+        	<!-- <input type="submit" value="去评价" class="cancelbtn"/>-->
+        	<button class="cancelbtn">
+        		<a href=" " class="cancela">去评价</a>
+        	</button>
     	</div>
+    </form>
     </div>
     <div class="col-md-1"></div>
 </div>

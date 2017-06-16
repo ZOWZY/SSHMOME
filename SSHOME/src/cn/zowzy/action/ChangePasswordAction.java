@@ -59,12 +59,20 @@ public class ChangePasswordAction extends ActionSupport{
 			addFieldError("changePayPasswordCode", "密码错误");
 			return result;
 		}
+		else{
+			result=SUCCESS;
+		}
 		// TODO 根据changePayPasswordCode查找用户 修改支付密码
 		return result;
 	}
 	
 	public String changePasswordPage(){
 		System.out.println("请求跳转修改登录密码页面");
+		return SUCCESS;
+	}
+	
+	public String changePayPasswordPage(){
+		System.out.println("请求跳转修改支付密码页面");
 		return SUCCESS;
 	}
 }

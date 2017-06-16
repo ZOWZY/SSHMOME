@@ -19,6 +19,11 @@
 			<result name="success">/WEB-INF/jsp/userOrder.jsp</result>
 		</action>
 		
+		<action name="myOrders" class="OrdersAction" method="myOrders">
+			<result name="success">/WEB-INF/jsp/userMyOrder.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userMyOrder.jsp</result>
+		</action>
+		
 		<action name="cancleOrders" class="OrdersAction" method="cancleOrders">
 			<result name="failed">/WEB-INF/jsp/userOrder.jsp</result>
 			<result name="input">/WEB-INF/jsp/userOrder.jsp</result>

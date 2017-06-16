@@ -54,6 +54,11 @@
 	border-style:hidden;
 	border:solid 1px rgb(0,166,153);
 }
+.cancela
+{
+	color:rgb(0,166,153);
+	text-decoration: none;
+}
 .fontstyle 
 {
 	text-align:center; 	
@@ -66,4 +71,7 @@
 	top:8px;
 	text-align:right;
 }
+.alter{
+	color:#999;
+	}
 

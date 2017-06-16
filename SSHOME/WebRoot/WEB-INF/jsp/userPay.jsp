@@ -28,16 +28,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
         <div class="divstyle">
-        <form action="${pageContext.request.contextPath}/payPageAction.action" method="post">
+        <form action="${pageContext.request.contextPath}/payAction.action" method="post">
             <div class="SSHOMEdiv">
                 <h3 class="fontstyle">订单支付</h3>
             </div>
             <div class="inputdiv">
-                <input type="text" name="" value="" placeholder="价格" readonly class="inputsize">
-                <input type="password" name="" placeholder="密码" class="inputsize">
-                <div class="spanstyle"><span></span></div>
+                <input type="text" name="number" value="" placeholder="价格" readonly class="inputsize">
+                <input type="password" name="payPassword" placeholder="密码" class="inputsize">
+                <span class="spanstyle">
+					<s:fielderror fieldName="username"/>
+				</span>
                 <input type="submit" value="确认支付" class="paybutton">
-                <input type="submit" value="取消支付" class="backbutton">
+                <button class="backbutton">
+                	<a href="/SSHOME/newOrders.action" class="cancela">取消支付</a>
+                </button>
+                <a href="/SSHOME/rechargePageAction.action" class="alter">余额不足？去充值</a>
             </div>
         </form>
         </div>

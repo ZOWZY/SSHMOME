@@ -1,5 +1,7 @@
 package cn.zowzy.action;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -14,6 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class IndexAction extends ActionSupport {
 
 	public String indexPage() {
+		System.out.println(ServletActionContext.getRequest().getRealPath("/"));
 		return SUCCESS;
 	}
 
@@ -22,6 +25,14 @@ public class IndexAction extends ActionSupport {
 	}
 
 	public String userMyPageAction() {
+		return SUCCESS;
+	}
+	
+	public String helpPageAction() {
+		return SUCCESS;
+	}
+	
+	public String houseHolderPage() {
 		return SUCCESS;
 	}
 }

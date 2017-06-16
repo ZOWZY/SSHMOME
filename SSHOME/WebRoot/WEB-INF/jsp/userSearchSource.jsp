@@ -44,12 +44,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  	</a>
                  </li>
                  <li class="li">
-                 	<a class="a" href="">
+                 	<a class="a" href="/SSHOME/helpPageAction.action">
                  		<strong>帮助</strong>
                  	</a>
                  </li>
                  <li class="li">
-                 	<a class="a" href="">
+                 	<a class="a" href="/SSHOME/houseHolderPage.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>
@@ -69,15 +69,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="row secondmargin">
                 <div class="firstindiv col-md-10">
                 	<select class="selectdiv" name="select">
-                    	<option value="-1">选择目的地</option>
+                		<c:forEach var="i" step="1" begin="0"  end="9">
+                    		<option value=${i }>选择目的地</option>
+                    	</c:forEach>
                 	</select>
                 	<input type="date" name="datetime" class="datediv" placeholder="入住日期">
                 	<label>-</label>
 	                <input type="date" name="undatetime" class="datediv" placeholder="退房日期">
-	                <input type="text" name="" class="numberdiv" placeholder="入住人数">
+	                <input type="text" name=" " class="numberdiv" placeholder="入住人数">
                 
 	                <select class="selectdiv" name="select2">
-	                    <option value="-1">选择房源类型</option>
+	                	<c:forEach var="i" step="1" begin="0"  end="3">
+	                    	<option value=${i }>选择房源类型</option>
+	                    </c:forEach>
 	                </select>
 	                
 	                <input type="text" name="title" class="inputdiv" placeholder="民宿名称">
@@ -101,15 +105,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="subdiv">
             <label>价格</label>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="checkbox"><label>0-200</label>
+            <label><input type="radio" name="radio" value=""/>0-200</label>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="checkbox"><label>200-500</label>
+            <label><input type="radio" name="radio" value=""/>200-500</label>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="checkbox"><label>500-1000</label>
+            <label><input type="radio" name="radio" value=""/>500-1000</label>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="checkbox"><label>1000-2000</label>
+            <label><input type="radio" name="radio" value=""/>1000-2000</label>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="checkbox"><label>2000-5000</label>
+            <label><input type="radio" name="radio" value=""/>2000-5000</label>
             </div>
         </div>
     </div>
@@ -136,7 +140,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="col-md-1"></div>
     <div class="col-md-10">
 
-    <div class="blank"></div>
+	<c:forEach var="i"  end="4" step="1" begin="0">
+	<div class="blank"></div>
     <div class="blank"></div>
     <div class="row">
         <div class="col-md-1"></div>
@@ -150,17 +155,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="col-md-6 divcolor">
         	<div class="subblank">
             	<div class="col-md-9">
-                	<h2>瑶庄精品民宿</h2>
+                	<h2>${room.title}</h2>
                 </div>
                 <div class="col-md-3">
-                	<h2>265起</h2>
+                	<h2>¥${room.price}</h2>
                 </div>
             </div>
             <div class="divblank"></div>
             <div class="blank">
-            	<h4>这是一个位置图标 春熙路 太古里</h4>
+            	<h4> ${room.localtion}</h4>
             </div>
-            <div class="subblank"></div>
+            <div class="divblank"></div>
             <iframe src="/SSHOME/stars.action" width="100%" height="100px" 
             		scrolling="no" frameborder="0">
             </iframe>
@@ -168,24 +173,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="col-md-1"></div>
     </div>
     
-    <div class="blank"></div>
+    
+	<div class="blank"></div>
     <div class="blank"></div>
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-6 divcolor">
         	<div class="subblank">
             	<div class="col-md-9">
-                	<h2>瑶庄精品民宿</h2>
+                	<h2> ${room.title}</h2>
                 </div>
                 <div class="col-md-3">
-                	<h2>265起</h2>
+                	<h2>¥${room.price}</h2>
                 </div>
             </div>
             <div class="divblank"></div>
             <div class="blank">
-            	<h4>这是一个位置图标 春熙路 太古里</h4>
+            	<h4>${room.localtion}</h4>
             </div>
-            <div class="subblank"></div>
+            <div class="divblank"></div>
             <iframe src="/SSHOME/stars.action" width="100%" height="100px" 
             		scrolling="no" frameborder="0">
             </iframe>
@@ -199,6 +205,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div class="col-md-1"></div>
     </div>
+	</c:forEach>
     
     
     <div class="row">

@@ -31,10 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <div class="col-md-1 icondiv" align="center">
              <img src="picture/mainicon.png"/>
          </div> 
-         <div class="col-md-5">
-             <span class="glyphicon glyphicon-search"></span>
-             <input type="text" placeholder="搜索" maxlength="20" class="inputstyle">
-         </div>
+         <div class="col-md-5"></div>
          <div class="col-md-6">
              <ul>
                  <li>
@@ -48,12 +45,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  	</a>
                  </li>
                  <li>
-                 	<a href="">
+                 	<a href="/SSHOME/helpPageAction.action">
                  		<strong>帮助</strong>
                  	</a>
                  </li>
                  <li>
-                 	<a href="">
+                 	<a href="/SSHOME/houseHolderPage.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>
@@ -79,16 +76,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="col-md-7 divcolor">
       <div class="subblank">
         <div class="col-md-9">
-          <h2>瑶庄精品民宿</h2>
+          <h2> ${room.title}</h2>
         </div>
         <div class="col-md-3">
-          <h2>265起</h2>
+          <h2>¥${room.price}起</h2>
         </div>
       </div>
       <div class="divblank"></div>
       <div class="blank">
         <p>
-        <h4>这是一个位置图标 春熙路 太古里</h4>
+        <h4> ${room.localtion}</h4>
         </p>
       </div>
       <div class="divblank"></div>

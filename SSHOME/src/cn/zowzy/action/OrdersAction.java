@@ -34,6 +34,12 @@ public class OrdersAction extends ActionSupport implements ModelDriven<Orders> {
 			String result = SUCCESS;
 			return result;
 	}
+	
+	// TODO 我的订单
+		public String myOrders() {
+				String result = SUCCESS;
+				return result;
+		}
 
 	// TODO 取消订单
 	public String cancleOrders() {

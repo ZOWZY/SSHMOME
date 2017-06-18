@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foudation//DTD Struts Configration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="RoomAction"  extends="struts-default"  namespace="/">
+	
+		<action name="addRoom" class="RoomAction" method="addRoomAction">
+			<result name="failed">/index.jsp</result>
+			<result name="success">/index.jsp</result>
+		</action>
+		
+		<action name="deleteRoom" class="RoomAction" method="deleteRoomAction">
+			<result name="failed">/index.jsp</result>
+			<result name="success">/index.jsp</result>
+		</action>
+		
+		<action name="findRoomsByUsername" class="RoomAction" method="findRoomsByUsernameAction">
+			<result name="failed">/failed.jsp</result>
+			<result name="success">/houseStep2.jsp</result>
+		</action>
+		
+	
+	
+	</package>
+
+</struts>

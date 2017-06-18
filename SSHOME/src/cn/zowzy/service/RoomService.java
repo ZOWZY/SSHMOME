@@ -151,12 +151,15 @@ public class RoomService {
 	}
 	
 	/**
-	 * TODO:默认排序返回房源信息
+	 * 根据价格区间返回房源信息
+	 * @param lprice
+	 * @param hprice
 	 * @return
 	 */
-	public List<Room> findRoomDefault(){
-		return roomDao.findRoomDefault();
+	public List<Room> findRoomByPrice(Float lprice,Float hprice){
+		return roomDao.findRoomByPrice(lprice,hprice);
 	}
+		
 	
 	/**
 	 * 根据价格降序返回房源信息

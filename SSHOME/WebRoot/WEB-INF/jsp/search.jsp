@@ -17,6 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="${pageContext.request.contextPath}/jquery/jquery-3.2.0.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" type="text/css"/>
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
+     <script src="${pageContext.request.contextPath}/js/searchbutton.js"></script>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="description" content="提交订单界面">
@@ -42,23 +43,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
             
 			<div class="col-md-3">
-				<button class="circlebutton" type="button" aria-label="减" 
-						aria-controls="StepIncrementerRow-value-SizeFilter-via-MoreFiltersPanel-min_bedrooms" disabled="">
+            <label></label>
+				<button class="circlebutton" type="button" aria-label="减" aria-controls=					                        "StepIncrementerRow-value-SizeFilter-via-MoreFiltersPanel-min_bedrooms" id="sub1" onclick="su(1)">
 					<span class="icon_16b32nl-o_O-icon_1wy8x1d-o_O-icon_small_abrv9k">
-						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" 
-								style="display:block;fill: currentcolor; height: 1em; width: 1em;">
+						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:                             block;fill: currentcolor; height: 1em; width: 1em;">
 							<rect width="12" height="2" x="6" y="11" rx="1"></rect>
 						</svg>
 					</span>
 				</button>
                 
-				<label>0+</label>
-                
-				<button class="circlebutton" type="button" aria-label="加" 
-						aria-controls="StepIncrementerRow-value-SizeFilter-via-MoreFiltersPanel-min_bedrooms">
+				<label id="number1">0</label>
+                <label>+</label>
+				<button class="circlebutton" type="button" aria-label="加" aria-controls=                        "StepIncrementerRow-value-SizeFilter-via-MoreFiltersPanel-min_bedrooms" onclick="add(1)" id="add1">
 					<span class="icon_16b32nl-o_O-icon_11jdm7g-o_O-icon_small_abrv9k">
-						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" 
-								style="display:block; fill: currentcolor; height: 1em; width: 1em;">
+						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:                             block; fill: currentcolor; height: 1em; width: 1em;">
 							<rect width="12" height="2" x="6" y="11" rx="1"></rect>
 							<rect width="2" height="12" x="11" y="6" rx="1"></rect>
 						</svg>
@@ -71,23 +69,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 
 			<div class="col-md-3">
-				<button class="circlebutton" type="button" aria-label="减" 
-						aria-controls="StepIncrementerRow-value-SizeFilter-via-MoreFiltersPanel-min_bedrooms" disabled="">
+				<button class="circlebutton" type="button" aria-label="减" aria-controls=                        "StepIncrementerRow-value-SizeFilter-via-MoreFiltersPanel-min_bedrooms" onclick="su(2)" id="sub2" >
 					<span class="icon_16b32nl-o_O-icon_1wy8x1d-o_O-icon_small_abrv9k">
-						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" 
-							style="display:block; fill: currentcolor; height: 1em; width: 1em;">
-							<rect width="12" height="2" x="6" y="11" rx="1"></rect>
+						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:                             block; fill: currentcolor; height: 1em; width: 1em;"><rect width="12"                             height="2" x="6" y="11" rx="1"></rect>
 						</svg>
 					</span>
 				</button>
 
-				<label>0+</label>
+				<label id="number2">0</label>
+                <label>+</label>
 
-				<button class="circlebutton" type="button" aria-label="加" 
-						aria-controls="StepIncrementerRow-value-SizeFilter-via-MoreFiltersPanel-min_bedrooms">
+				<button class="circlebutton" type="button" aria-label="加" aria-controls=                        "StepIncrementerRow-value-SizeFilter-via-MoreFiltersPanel-min_bedrooms" onclick="add(2)" id="add2">
 					<span class="icon_16b32nl-o_O-icon_11jdm7g-o_O-icon_small_abrv9k">
-						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" 
-								style="display:block; fill: currentcolor; height: 1em; width: 1em;">
+						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:                             block; fill: currentcolor; height: 1em; width: 1em;">
 							<rect width="12" height="2" x="6" y="11" rx="1"></rect>
 							<rect width="2" height="12" x="11" y="6" rx="1"></rect>
 						</svg>
@@ -100,23 +94,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 
 			<div class="col-md-3">
-				<button class="circlebutton" type="button" aria-label="减" 
-						aria-controls="StepIncrementerRow-value-SizeFilter-via-MoreFiltersPanel-min_bedrooms" disabled="">
+				<button class="circlebutton" type="button" aria-label="减" aria-controls=                        "StepIncrementerRow-value-SizeFilter-via-MoreFiltersPanel-min_bedrooms" id="sub3" onclick="su(3)">
 					<span class="icon_16b32nl-o_O-icon_1wy8x1d-o_O-icon_small_abrv9k">
-						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" 
-							style="display:block; fill: currentcolor; height: 1em; width: 1em;">
-							<rect width="12" height="2" x="6" y="11" rx="1"></rect>
+						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:
+					         block; fill: currentcolor; height: 1em; width: 1em;"><rect width="12" 
+						     height="2" x="6" y="11" rx="1"></rect>
 						</svg>
 					</span>
 				</button>
 
-				<label>0+</label>
+				<label id="number3">0</label>
+                <label>+</label>
                 
-                <button class="circlebutton" type="button" aria-label="加" 
-                		aria-controls="StepIncrementerRow-value-SizeFilter-via-MoreFiltersPanel-min_bedrooms">
+                <button class="circlebutton" type="button" aria-label="加" aria-controls=                        "StepIncrementerRow-value-SizeFilter-via-MoreFiltersPanel-min_bedrooms" onclick="add(3)" id="add3">
 					<span class="icon_16b32nl-o_O-icon_11jdm7g-o_O-icon_small_abrv9k">
-						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" 
-								style="display:block; fill: currentcolor; height: 1em; width: 1em;">
+						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:                             block; fill: currentcolor; height: 1em; width: 1em;">
 							<rect width="12" height="2" x="6" y="11" rx="1"></rect>
 							<rect width="2" height="12" x="11" y="6" rx="1"></rect>
 						</svg>
@@ -328,7 +320,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </div>
 </div>
-<center><input type="submit" value="保存" class="button"/></center>
 </form>
 
 <script type="text/javascript"> 

@@ -55,6 +55,7 @@ public class LoginAndRegisterAction extends ActionSupport implements ModelDriven
 		} else {
 			this.addFieldError("username", "用户名不存在");
 		}
+		ServletActionContext.getRequest().getSession().setAttribute("username", user.getUsername());
 		return result;
 
 	}

@@ -32,16 +32,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <div class="col-md-5"></div>
          <div class="col-md-6">
              <ul>
-                 <li class="li">
-                 	<a class="a" href="/SSHOME/loginPage.action">
-                 		<strong>登录</strong>
-                 	</a>
-                 </li>
-                 <li class="li">
-                 	<a class="a" href="/SSHOME/registerPage.action">
-                 		<strong>注册</strong>
-                 	</a>
-                 </li>
+                  <li role="presentation" class="dropdown li">
+                    <a class="dropdown-toggle a" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
+                   		<strong> ${username} 的个人中心</strong> 
+                   		<span class="caret"></span> 
+                    </a>
+        <ul class="dropdown-menu">
+          <li><a href="/SSHOME/.action">我的信息</a></li>
+          <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
+          <li><a href="/SSHOME/.action">我的收藏</a></li>
+        </ul>
+      </li>            
                  <li class="li">
                  	<a class="a" href="/SSHOME/helpPageAction.action">
                  		<strong>帮助</strong>
@@ -98,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	</div>
             	<div class="divblank"></div>
             	<div class="blank">
-            	<iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+            	<iframe src="/SSHOME/stars.action" width="100%" height="50px" 
             		scrolling="no" frameborder="0">
             	</iframe>
             	</div>

@@ -33,6 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <div class="col-md-5"></div>
          <div class="col-md-6">
              <ul>
+                 <c:if test="${username==null }">
                  <li class="li">
                  	<a class="a" href="/SSHOME/loginPage.action">
                  		<strong>登录</strong>
@@ -43,6 +44,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  		<strong>注册</strong>
                  	</a>
                  </li>
+                 </c:if>
+                 
+                 <c:if test="${username!=null }">
+                  <li role="presentation" class="dropdown li">
+                    <a class="dropdown-toggle a" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
+                   		<strong> ${username} 的个人中心</strong> 
+                   		<span class="caret"></span> 
+                    </a>
+        <ul class="dropdown-menu">
+          <li><a href="/SSHOME/.action">我的信息</a></li>
+          <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
+          <li><a href="/SSHOME/.action">我的收藏</a></li>
+        </ul>
+      </li>          
+                 </c:if> 
                  <li class="li">
                  	<a class="a" href="/SSHOME/helpPageAction.action">
                  		<strong>帮助</strong>
@@ -267,29 +283,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 		<div class="blank"></div>
                 		<div class="col-md-6">
                   			<h5>如实描述</h5>
-                  			<iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+                  			<iframe src="/SSHOME/stars.action" width="100%" height="50px" 
             						scrolling="no" frameborder="0">
             				</iframe>
                   			<h5>沟通交流</h5>
-                  			<iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+                  			<iframe src="/SSHOME/stars.action" width="100%" height="50px" 
             						scrolling="no" frameborder="0">
             				</iframe>
                   			<h5>干净指数</h5>
-                  			<iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+                  			<iframe src="/SSHOME/stars.action" width="100%" height="50px" 
             						scrolling="no" frameborder="0">
             				</iframe>
                 		</div>
                 		<div class="col-md-6">
 			                <h5>位置便利指数</h5>
-			                <iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+			                <iframe src="/SSHOME/stars.action" width="100%" height="50px" 
             						scrolling="no" frameborder="0">
             				</iframe>
 			                <h5>办理入住</h5>
-			                <iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+			                <iframe src="/SSHOME/stars.action" width="100%" height="50px" 
             						scrolling="no" frameborder="0">
             				</iframe>
 			                <h5>性价比</h5>
-			                <iframe src="/SSHOME/stars.action" width="100%" height="100px" 
+			                <iframe src="/SSHOME/stars.action" width="100%" height="50px" 
             						scrolling="no" frameborder="0">
             				</iframe>
                 		</div>
@@ -344,7 +360,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          			<div class="blank"></div>
           			<div class="col-md-6">
           				<label>入住</label>
-          				<input type="date" name="datetime" class="seconddiv">
+          				<input type="date" name="datetime" class="seconddiv" id="selectin" onchange="selectCheckin()">
           			</div>
           			<div class="col-md-6">
             			<label>退房</label>
@@ -406,6 +422,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div>
          <div class="col-md-2 textstyle"></div>
 </div>
+<script type="text/javascript">
+	function selectCheckin(){
+	var date=new Date();
+    var time=new Date($("#selectin").val());
+	if(time.getTime()<date.getTime()){
+			var tt=date.getFullYear()+"-"+((date.getMonth()+1)<10?"0"+(date.getMonth()+1):date.getMonth()+1)+"-"+date.getDate();
+			$("#selectin").val(tt);
+		}
+	}
+</script>
 </body>
 </html>
 

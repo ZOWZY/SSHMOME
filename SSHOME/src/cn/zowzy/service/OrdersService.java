@@ -34,6 +34,17 @@ public class OrdersService {
 		ordersDao.addOrders(orders);
 	}
 
+	/**
+	 * 预定房间
+	 * @param rid
+	 * @param personnumber
+	 * @param checkintime
+	 * @param checkouttime
+	 */
+	public void bookRoom(Integer rid,Integer personnumber,Timestamp checkintime,Timestamp checkouttime){
+		ordersDao.bookRoom(rid,personnumber,checkintime,checkouttime);
+	}
+	
 	// ----------------------查
 		
 	/**
@@ -59,7 +70,7 @@ public class OrdersService {
 	 * @param roomid
 	 * @return
 	 */
-	public List<Orders> findOrdersByUsername(String username, String roomid) {
+	public List<Orders> findOrdersByUsername(String username, Integer roomid) {
 		return ordersDao.findOrdersByUsername(username, roomid);
 	}
 
@@ -87,7 +98,7 @@ public class OrdersService {
 	 * @param roomid
 	 * @return
 	 */
-	public List<Orders> findOrdersByUse_username(String useUsername, String roomid) {
+	public List<Orders> findOrdersByUse_username(String useUsername, Integer roomid) {
 		return ordersDao.findOrdersByUse_username(useUsername, roomid);
 	}
 

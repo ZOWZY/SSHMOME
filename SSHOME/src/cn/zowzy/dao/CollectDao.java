@@ -67,9 +67,9 @@ public class CollectDao {
 	 * @param roomid
 	 * @return
 	 */
-	public List<Collect> findCollectsByRoomId(String roomid) {
+	public List<Collect> findCollectsByRoomId(Integer roomid) {
 
-		if (roomid == null || roomid.length() <= 0) {
+		if (roomid < 0) {
 			return null;
 		}
 
@@ -88,8 +88,8 @@ public class CollectDao {
 	 *            房源编号
 	 * @return
 	 */
-	public boolean cancleCollect(String username, String roomid) {
-		if (roomid == null || roomid.length() <= 0 || username == null || username.length() <= 0) {
+	public boolean cancleCollect(String username, Integer roomid) {
+		if (roomid < 0 || username == null || username.length() <= 0) {
 			return false;
 		}
 		boolean result = true;

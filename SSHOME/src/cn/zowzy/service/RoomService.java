@@ -33,8 +33,9 @@ public class RoomService {
 	 * 
 	 * @param room
 	 */
-	public void addRoom(Room room) {
+	public String addRoom(Room room) {
 		roomDao.addRoom(room);
+		return "OK";
 	}
 
 	// ----------------------删
@@ -44,11 +45,13 @@ public class RoomService {
 	 * 
 	 * @param roomid
 	 */
-	public void deleteRoom(Integer roomid) {
+	public String deleteRoom(Integer roomid) {
 		if (roomid < 0)
-			return;
-		else
+			return null;
+		else{
 			roomDao.deleteRoom(roomid);
+			return "OK";
+		}
 	}
 
 	// ----------------------改
@@ -356,7 +359,6 @@ public class RoomService {
 	 * @param rtid
 	 * @param title
 	 * @param bedroom
-	 *            选中为1，没选为0,下同
 	 * @param bed
 	 * @param bathroom
 	 * @param kitchen

@@ -11,5 +11,6 @@
 	<include file="cn/zowzy/action/ChangePasswordAction.xml"></include>
 	<include file="cn/zowzy/action/IndexAction.xml"></include>
 	<include file="cn/zowzy/action/FileAction.xml"></include>
+	<include file="cn/zowzy/action/RoomAction.xml"></include>
 </struts>
 	

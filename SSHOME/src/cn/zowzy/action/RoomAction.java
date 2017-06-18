@@ -35,7 +35,38 @@ public class RoomAction extends ActionSupport implements ModelDriven<Room> {
 
 	@Override
 	public Room getModel() {
+		
 		return room;
 	}
+	
+	/**
+	 * 增加房源行为
+	 * @return
+	 */
+	public String addRoomAction(){
+		String result=SUCCESS;
+		if(roomService.addRoom(room)==null){
+			addFieldError("addroomerror", "添加房源失败");
+			return "failed";
+		}
+		return result;
+	}
+	
+	/**
+	 * 删除房源行为
+	 * @return
+	 */
+	public String deleteRoomAction(){
+		String result=SUCCESS;
+		if(roomService.deleteRoom(room.getRid())==null){
+			addFieldError("deleteroomerror", "添加房源失败");
+			return "failed";
+		}
+		return result;
+	}
+	
+	
+	
+	
 
 }

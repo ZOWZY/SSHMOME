@@ -574,10 +574,10 @@ public class RoomDao {
 	 * @param checkouttime
 	 * @param rtid
 	 * @param title
-	 * @param bedroom    选中为1，没选为0,下同
+	 * @param bedroom
 	 * @param bed
 	 * @param bathroom
-	 * @param kitchen
+	 * @param kitchen    选中为1，没选为0,下同
 	 * @param wifi
 	 * @param tv
 	 * @param park
@@ -588,7 +588,7 @@ public class RoomDao {
 	public List<Room> ComplexfindRooms(String localtion, Integer personnumber, String checkintime, String checkouttime,
 			String rtid, String title, int bedroom, int bed, int bathroom, int kitchen, int wifi, int tv, int park,
 			int lift, String rule) {
-		String hql = " from  Room where localtion=? and rtid=? and maxpersonnumber>=? and title like ? and bedroom>=? and bed>=? and bathroom>=? and kitchen>=? and wifi>=? and tv>=? and rule=?";
+		String hql = " from  Room where localtion=? and rtid=? and maxpersonnumber>=? and title like ? and bedroom=? and bed=? and bathroom=? and kitchen>=? and wifi>=? and tv>=? and rule=?";
 		List<Room> listA = (List<Room>) hibernateTemplate.find(hql, localtion, rtid, personnumber, title,bedroom,bed,bathroom,kitchen,wifi,tv,park,lift,rule);
 		List<Room> listB = findRoomsByTime(checkintime, checkouttime);
 		List<Room> listC = findCommon(listA, listB);

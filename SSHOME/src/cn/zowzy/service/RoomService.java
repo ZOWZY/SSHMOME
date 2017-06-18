@@ -291,6 +291,16 @@ public class RoomService {
 		return roomDao.findCommon(A,B);
 	}
 	
+	/**
+	 * 简单查询房源信息
+	 * @param localtion
+	 * @param personnumber
+	 * @param checkintime
+	 * @param checkouttime
+	 * @param rtid
+	 * @param title
+	 * @return
+	 */
 	public List<Room> EasyfindRooms(String localtion,Integer personnumber,String checkintime,String checkouttime,String rtid,String title) {
 		if (localtion == null || localtion.length() <= 0)
 			return null;
@@ -306,5 +316,59 @@ public class RoomService {
 			return null;
 		else
 			return roomDao.EasyfindRooms(localtion,personnumber,checkintime,checkouttime,rtid,title);
+	}
+	
+	/**
+	 * 复杂查询房源信息
+	 * @param localtion
+	 * @param personnumber
+	 * @param checkintime
+	 * @param checkouttime
+	 * @param rtid
+	 * @param title
+	 * @param bedroom    选中为1，没选为0,下同
+	 * @param bed
+	 * @param bathroom
+	 * @param kitchen
+	 * @param wifi
+	 * @param tv
+	 * @param park
+	 * @param lift
+	 * @param rule
+	 * @return
+	 */
+	public List<Room> ComplexfindRooms(String localtion, Integer personnumber, String checkintime, String checkouttime,
+			String rtid, String title, int bedroom, int bed, int bathroom, int kitchen, int wifi, int tv, int park,
+			int lift, String rule) {
+		if (localtion == null || localtion.length() <= 0)
+			return null;
+		if (personnumber <= 0)
+			return null;
+		if (checkintime == null || checkintime.length() <= 0)
+			return null;
+		if (checkouttime == null || checkouttime.length() <= 0)
+			return null;
+		if (rtid == null || rtid.length() <= 0)
+			return null;
+		if (title == null || title.length() <= 0)
+			return null;
+		if (bedroom <0)
+			return null;
+		if (bed <0)
+			return null;
+		if (bathroom <0)
+			return null;
+		if (kitchen !=0 || kitchen !=1)
+			return null;
+		if (wifi !=0 || wifi !=1)
+			return null;
+		if (tv !=0 || tv !=1)
+			return null;
+		if (rule == null || rule.length() <= 0)
+			return null;
+		else
+			return roomDao.ComplexfindRooms(localtion,personnumber,checkintime,checkouttime,rtid,title,bedroom,bed,bathroom,kitchen,wifi,tv,park,lift,rule);
+	
+		
 	}
 }

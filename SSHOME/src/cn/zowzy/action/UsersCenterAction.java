@@ -1,5 +1,7 @@
 package cn.zowzy.action;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import cn.zowzy.entity.Room;
@@ -23,6 +25,16 @@ public class UsersCenterAction extends ActionSupport {
 	
 	private String Username(){
 		String result = SUCCESS;
+		Object username=ServletActionContext.getRequest().getAttribute("username");
+		if(username==null){
+			return "failed";
+		}
+		Users users=userService.findUserByUsername(String.valueOf(username));
+		if(users==null){
+			return "failed";
+		}else{
+			ServletActionContext.getRequest().getSession().setAttribute("users", users);
+		}
 		return result;
 		
 	}

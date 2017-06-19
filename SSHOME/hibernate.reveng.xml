@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="collect" catalog="SSHOME" class="Collect"></table>
+	<table name="user" catalog="SSHOME" class="User"></table>
+	<table name="room" catalog="SSHOME" class="Room"></table>
+	<table name="usertype" catalog="SSHOME" class="UserType"></table>
+	<table name="userstate" catalog="SSHOME" class="UserState"></table>
+	<table name="orders" catalog="SSHOME" class="Orders"></table>
+	<table name="roomstate" catalog="SSHOME" class="RoomState"></table>
+	<table name="roomtype" catalog="SSHOME" class="RoomType"></table>
+	<table name="roomrule" catalog="SSHOME" class="RoomRule"></table>
+	<table name="oderstate" catalog="SSHOME" class="OrderState"></table>
+	<table name="orderstate" catalog="SSHOME" class="OrderState"></table>
+	<table name="users" catalog="SSHOME" class="Users"></table>
+</hibernate-reverse-engineering>

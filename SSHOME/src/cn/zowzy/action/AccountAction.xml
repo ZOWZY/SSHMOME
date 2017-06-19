@@ -10,6 +10,14 @@
 			<result name="failed">/WEB-INF/jsp/index.jsp</result>
 		</action>
 		<action name="payAction" class="AccountAction"  method="payAction">
+			<result name="success">/WEB-INF/jsp/userOrder.jsp</result>
+			<result name="failed">/WEB-INF/jsp/index.jsp</result>
+		</action>
+		<action name="payPageAction" class="AccountAction"  method="payPageAction">
+			<result name="success">/WEB-INF/jsp/userPay.jsp</result>
+			<result name="failed">/WEB-INF/jsp/index.jsp</result>
+		</action>
+		<action name="rechargePageAction" class="AccountAction"  method="rechargePageAction">
 			<result name="success">/WEB-INF/jsp/index.jsp</result>
 			<result name="failed">/WEB-INF/jsp/index.jsp</result>
 		</action>

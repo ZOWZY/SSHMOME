@@ -125,4 +125,12 @@ public class AccountAction extends ActionSupport {
 		return result;
 	}
 
+	public String payPageAction() {
+		return SUCCESS;
+	}
+
+	public String rechargePageAction() {
+		return SUCCESS;
+	}
+
 }

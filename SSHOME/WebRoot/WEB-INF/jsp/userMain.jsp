@@ -107,6 +107,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     	<button class="imgbutton">
                         	<img src="picture/houseresource/home3/home301.png" class="imglevel"/>
                         </button>
+			<iframe src="/SSHOME/imgCarouselPageAction.action" frameborder="0" style="width:100%; height:620px;"></iframe>
+		</div>
+
+   		<div id="search">
+        	<input type="text" id="input" name="" value="请输入名称"/>
+    	</div>
+    
+    	<div>
+    		<button id="look" onclick=" "> 搜索</button>
+    	</div>
+    </div>
+</div>
+ 
+
+<div class="blank"></div>
+<div class="blank"></div>
+<div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+        	
+        	<div class="blank"></div>
+            <h1 class="fontstyle"><strong>热门房源</strong></h1>
+            <div class="blank"></div>
+            
+            <div class="row">
+                    <div class="col-md-4">
+                        <a href="">
+                        	<img src="picture/houseresource/home1/home101.png" class="imglevel"/>
+                        </a>
+                        <h5 class="smallfont">
+                            <strong>¥642</strong> &nbsp;&nbsp;上海-整套房子
+                        </h5>
+                    </div>             
+                    <div class="col-md-4">
+                    	<a href="">
+                        	<img src="picture/houseresource/home2/home201.png" class="imglevel"/>
+                        </a>
+                        <h5 class="smallfont">
+                            <strong>¥168</strong> &nbsp;&nbsp;成都-独立房间
+                        </h5>
+                    </div>
+                    <div class="col-md-4">
+                    	<a href="">
+                        	<img src="picture/houseresource/home3/home301.png" class="imglevel"/>
+                        </a>
                         <h5 class="smallfont">
                             <strong>¥85</strong> &nbsp;&nbsp;杭州-合住房间
                         </h5>

@@ -10,12 +10,12 @@
             <column name="rtid" />
             <generator class="native" />
         </id>
-        <property name="rtdescription" type="java.lang.String">
-            <column name="rtdescription" length="50" not-null="true" />
+        <property name="description" type="java.lang.String">
+            <column name="description" />
         </property>
         <set name="rooms" inverse="true">
             <key>
-                <column name="rtid" />
+                <column name="roomtypeid" />
             </key>
             <one-to-many class="cn.zowzy.entity.Room" />
         </set>

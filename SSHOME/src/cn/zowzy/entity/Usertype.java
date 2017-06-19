@@ -12,8 +12,8 @@ public class Usertype implements java.io.Serializable {
 	// Fields
 
 	private Integer utid;
-	private String utdescription;
-	private Set userses = new HashSet(0);
+	private String description;
+	private Set users = new HashSet(0);
 
 	// Constructors
 
@@ -21,15 +21,10 @@ public class Usertype implements java.io.Serializable {
 	public Usertype() {
 	}
 
-	/** minimal constructor */
-	public Usertype(String utdescription) {
-		this.utdescription = utdescription;
-	}
-
 	/** full constructor */
-	public Usertype(String utdescription, Set userses) {
-		this.utdescription = utdescription;
-		this.userses = userses;
+	public Usertype(String description, Set users) {
+		this.description = description;
+		this.users = users;
 	}
 
 	// Property accessors
@@ -42,20 +37,20 @@ public class Usertype implements java.io.Serializable {
 		this.utid = utid;
 	}
 
-	public String getUtdescription() {
-		return this.utdescription;
+	public String getDescription() {
+		return this.description;
 	}
 
-	public void setUtdescription(String utdescription) {
-		this.utdescription = utdescription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public Set getUserses() {
-		return this.userses;
+	public Set getUsers() {
+		return this.users;
 	}
 
-	public void setUserses(Set userses) {
-		this.userses = userses;
+	public void setUsers(Set users) {
+		this.users = users;
 	}
 
 }

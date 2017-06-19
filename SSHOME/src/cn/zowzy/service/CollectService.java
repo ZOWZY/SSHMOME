@@ -56,7 +56,7 @@ public class CollectService {
 	 * @param roomid
 	 * @return
 	 */
-	public List<Collect> findCollectsByRoomId(String roomid) {
+	public List<Collect> findCollectsByRoomId(Integer roomid) {
 		return collectDao.findCollectsByRoomId(roomid);
 	}
 
@@ -66,7 +66,7 @@ public class CollectService {
 	 * @param roomid
 	 * @return
 	 */
-	public boolean cancleCollect(String username, String roomid) {
+	public boolean cancleCollect(String username, Integer roomid) {
 		return collectDao.cancleCollect(username, roomid);
 	}
 

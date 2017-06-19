@@ -1,9 +1,12 @@
 package cn.zowzy.dao;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
+import cn.zowzy.entity.Orders;
 import cn.zowzy.entity.Room;
 import cn.zowzy.entity.Roomstate;
 
@@ -25,9 +28,8 @@ public class RoomDao {
 		this.hibernateTemplate = hibernateTemplate;
 	}
 
-	
 	// ----------------------增
-	
+
 	/**
 	 * 添加房源信息
 	 * 
@@ -39,7 +41,7 @@ public class RoomDao {
 			hibernateTemplate.save(room);
 		}
 	}
-	
+
 	// ----------------------删
 
 	/**
@@ -48,7 +50,7 @@ public class RoomDao {
 	 * @param roomid
 	 *            房源编号
 	 */
-	public void deleteRoom(String roomid) {
+	public void deleteRoom(Integer roomid) {
 		Room room = findRoomByRoomid(roomid);
 		if (room == null) {
 			return;
@@ -56,7 +58,7 @@ public class RoomDao {
 			hibernateTemplate.delete(room);
 		}
 	}
-	
+
 	// ----------------------改
 
 	/**
@@ -67,10 +69,10 @@ public class RoomDao {
 	 * @param roomStateid
 	 *            房源状态编号
 	 */
-	public void changeRoomState(String roomid, String roomStateid) {
-		if (roomid == null || roomid.length() <= 0) {
+	public void changeRoomState(Integer roomid, Integer roomStateid) {
+		if (roomid < 0) {
 			return;
-		} else if (roomStateid == null || roomStateid.length() <= 0) {
+		} else if (roomStateid < 0) {
 			return;
 		}
 		Room room = findRoomByRoomid(roomid);
@@ -81,7 +83,7 @@ public class RoomDao {
 			hibernateTemplate.update(room);
 		}
 	}
-	
+
 	/**
 	 * 根据房源编号修改房源的价格
 	 * 
@@ -90,8 +92,8 @@ public class RoomDao {
 	 * @param price
 	 *            价格
 	 */
-	public void changeRoomPrice(String roomid, float price) {
-		if (roomid == null || roomid.length() <= 0) {
+	public void changeRoomPrice(Integer roomid, float price) {
+		if (roomid < 0) {
 			return;
 		} else if (price < 0) {
 			return;
@@ -113,10 +115,10 @@ public class RoomDao {
 	 * @param title
 	 *            房源标题
 	 */
-	public void changeRoomTitle(String roomid, String title) {
+	public void changeRoomTitle(Integer roomid, String title) {
 		if (roomid == null) {
 			return;
-		} else if (roomid.length() <= 0) {
+		} else if (roomid < 0) {
 			return;
 		} else if (title == null) {
 			return;
@@ -141,10 +143,10 @@ public class RoomDao {
 	 * @param score
 	 *            评分
 	 */
-	public void changeScore(String roomid, float score) {
+	public void changeScore(Integer roomid, float score) {
 		if (roomid == null) {
 			return;
-		} else if (roomid.length() <= 0) {
+		} else if (roomid < 0) {
 			return;
 		} else if (score <= 0) {
 			return;
@@ -167,10 +169,10 @@ public class RoomDao {
 	 * @param description
 	 *            描述
 	 */
-	public void changeDescription(String roomid, String description) {
+	public void changeDescription(Integer roomid, String description) {
 		if (roomid == null) {
 			return;
-		} else if (roomid.length() <= 0) {
+		} else if (roomid < 0) {
 			return;
 		} else {
 			Room room = findRoomByRoomid(roomid);
@@ -185,13 +187,14 @@ public class RoomDao {
 
 	/**
 	 * 根据房源的编号修改房源的床位数
+	 * 
 	 * @param roomid
 	 * @param bed
 	 */
-	public void changeBad(String roomid, Integer bed) {
+	public void changeBad(Integer roomid, Integer bed) {
 		if (roomid == null) {
 			return;
-		} else if (roomid.length() <= 0) {
+		} else if (roomid < 0) {
 			return;
 		} else if (bed <= 0) {
 			return;
@@ -208,13 +211,14 @@ public class RoomDao {
 
 	/**
 	 * 根据房源的编号修改房源是否有WIFI
+	 * 
 	 * @param roomid
 	 * @param wifi
 	 */
-	public void changeWifi(String roomid, Boolean wifi) {
+	public void changeWifi(Integer roomid, Boolean wifi) {
 		if (roomid == null) {
 			return;
-		} else if (roomid.length() <= 0) {
+		} else if (roomid < 0) {
 			return;
 		} else if (wifi == null) {
 			wifi = false;
@@ -231,13 +235,14 @@ public class RoomDao {
 
 	/**
 	 * 根据房源的编号修改房源的电视数量
+	 * 
 	 * @param roomid
 	 * @param tv
 	 */
-	public void changeTv(String roomid, Integer tv) {
+	public void changeTv(Integer roomid, Integer tv) {
 		if (roomid == null) {
 			return;
-		} else if (roomid.length() <= 0) {
+		} else if (roomid < 0) {
 			return;
 		} else if (tv < 0) {
 			tv = 0;
@@ -254,13 +259,14 @@ public class RoomDao {
 
 	/**
 	 * 根据房源的编号修改房源是否有停车场
+	 * 
 	 * @param roomid
 	 * @param park
 	 */
-	public void changePark(String roomid, Boolean park) {
+	public void changePark(Integer roomid, Boolean park) {
 		if (roomid == null) {
 			return;
-		} else if (roomid.length() <= 0) {
+		} else if (roomid < 0) {
 			return;
 		} else if (park == null) {
 			park = false;
@@ -277,13 +283,14 @@ public class RoomDao {
 
 	/**
 	 * 根据房源的编号修改房源是否有电梯
+	 * 
 	 * @param roomid
 	 * @param lift
 	 */
-	public void changeLift(String roomid, Boolean lift) {
+	public void changeLift(Integer roomid, Boolean lift) {
 		if (roomid == null) {
 			return;
-		} else if (roomid.length() <= 0) {
+		} else if (roomid < 0) {
 			return;
 		} else if (lift == null) {
 			lift = false;
@@ -297,13 +304,14 @@ public class RoomDao {
 		}
 	}
 
-	//----------------------查
-	
+	// ----------------------查
+
 	/**
 	 * 查询所有房源信息
+	 * 
 	 * @return
 	 */
-	public List<Room> findAllRoom(){
+	public List<Room> findAllRoom() {
 		String hql = " from  Room";
 		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
 		if (list != null) {
@@ -312,20 +320,30 @@ public class RoomDao {
 			return null;
 		}
 	}
-	
+
 	/**
-	 * TODO:默认排序返回房源信息
+	 * 根据价格区间返回房源信息
+	 * 
+	 * @param lprice
+	 * @param hprice
 	 * @return
 	 */
-	public List<Room> findRoomDefault(){
-		return null;
+	public List<Room> findRoomByPrice(Float lprice, Float hprice) {
+		String hql = " from  Room where price between lprice and hprice";
+		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
+		if (list != null) {
+			return list;
+		} else {
+			return null;
+		}
 	}
-	
+
 	/**
 	 * 根据价格降序返回房源信息
+	 * 
 	 * @return
 	 */
-	public List<Room> findRoomsOrderByPriceDesc(){
+	public List<Room> findRoomsOrderByPriceDesc() {
 		String hql = " from  Room order by price desc";
 		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
 		if (list != null) {
@@ -334,12 +352,13 @@ public class RoomDao {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * 根据价格升序返回房源信息
+	 * 
 	 * @return
 	 */
-	public List<Room> findRoomsOrderByPriceAsc(){
+	public List<Room> findRoomsOrderByPriceAsc() {
 		String hql = " from  Room order by price asc";
 		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
 		if (list != null) {
@@ -348,12 +367,13 @@ public class RoomDao {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * 根据评分降序返回房源信息
+	 * 
 	 * @return
 	 */
-	public List<Room> findRoomsOrderByScoreDesc(){
+	public List<Room> findRoomsOrderByScoreDesc() {
 		String hql = " from  Room order by score desc";
 		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
 		if (list != null) {
@@ -362,12 +382,13 @@ public class RoomDao {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * 根据评分升序返回房源信息
+	 * 
 	 * @return
 	 */
-	public List<Room> findRoomsOrderByScoreAsc(){
+	public List<Room> findRoomsOrderByScoreAsc() {
 		String hql = " from  Room order by score asc";
 		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
 		if (list != null) {
@@ -376,8 +397,7 @@ public class RoomDao {
 			return null;
 		}
 	}
-	
-	
+
 	/**
 	 * 根据房源编号查询房源信息
 	 * 
@@ -385,7 +405,7 @@ public class RoomDao {
 	 *            房源编号
 	 * @return
 	 */
-	public Room findRoomByRoomid(String roomid) {
+	public Room findRoomByRoomid(Integer roomid) {
 		String hql = " from  Room where rid=?";
 		List<Room> list = (List<Room>) hibernateTemplate.find(hql, roomid);
 		if (list != null && list.size() > 0) {
@@ -411,13 +431,14 @@ public class RoomDao {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * 根据房间状态查询房源信息
+	 * 
 	 * @param rsid
 	 * @return
 	 */
-	public List<Room> findRoomsByRoomstate(String rsid) {
+	public List<Room> findRoomsByRoomstate(Integer rsid) {
 		String hql = " from  Room where rsid=?";
 		List<Room> list = (List<Room>) hibernateTemplate.find(hql, rsid);
 		if (list != null) {
@@ -426,13 +447,14 @@ public class RoomDao {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * 根据房间类型查询房源信息
+	 * 
 	 * @param rtid
 	 * @return
 	 */
-	public List<Room> findRoomsByRoomtype(String rtid) {
+	public List<Room> findRoomsByRoomtype(Integer rtid) {
 		String hql = " from  Room where rtid=?";
 		List<Room> list = (List<Room>) hibernateTemplate.find(hql, rtid);
 		if (list != null) {
@@ -441,13 +463,14 @@ public class RoomDao {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * 根据目的地查询房源信息
+	 * 
 	 * @param localtion
 	 * @return
 	 */
-	public List<Room> findRoomsByLocaltion(String localtion){
+	public List<Room> findRoomsByLocaltion(String localtion) {
 		String hql = " from  Room where localtion=?";
 		List<Room> list = (List<Room>) hibernateTemplate.find(hql, localtion);
 		if (list != null) {
@@ -459,10 +482,11 @@ public class RoomDao {
 
 	/**
 	 * 根据入住人数查询房源信息
+	 * 
 	 * @param personnumber
 	 * @return
 	 */
-	public List<Room> findRoomsByPersonnumber(Integer personnumber){
+	public List<Room> findRoomsByPersonnumber(Integer personnumber) {
 		String hql = " from  Room where maxpersonnumber>=?";
 		List<Room> list = (List<Room>) hibernateTemplate.find(hql, personnumber);
 		if (list != null) {
@@ -473,14 +497,23 @@ public class RoomDao {
 	}
 
 	/**
-	 * TODO:根据入住时期和退房时期查询房源信息
+	 * 根据入住时期和退房时期查询房源信息
+	 * 
 	 * @param checkintime
 	 * @param checkouttime
 	 * @return
 	 */
-	public List<Room> findRoomsByTime(String checkintime,String checkouttime){
-		String hql = " from Orders,Room where ...";
-		List<Room> list = (List<Room>) hibernateTemplate.find(hql);
+	public List<Room> findRoomsByTime(Timestamp checkintime, Timestamp checkouttime) {
+		String hql = " from Orders where checkintime between ? and ? or checkouttime between ? and ?";
+		List<Orders> l = (List<Orders>) hibernateTemplate.find(hql, checkintime, checkouttime, checkintime,
+				checkouttime);
+		List<Room> listA = new ArrayList<Room>();
+		for (Orders a : l) {
+			listA.add(a.getRoom());
+		}
+		hql = " from Room";
+		List<Room> listB = (List<Room>) hibernateTemplate.find(hql);
+		List<Room> list = findCommon(listA, listB);
 		if (list != null) {
 			return list;
 		} else {
@@ -490,15 +523,16 @@ public class RoomDao {
 
 	/**
 	 * TODO:取两个集合的交集
+	 * 
 	 * @param A
 	 * @param B
 	 * @return
 	 */
-	public List<Room> findCommon(List<Room> A,List<Room> B){
-		if(A != null){
-			if(B == null){
+	public List<Room> findCommon(List<Room> A, List<Room> B) {
+		if (A != null) {
+			if (B == null) {
 				return A;
-			}else{
+			} else {
 				A.retainAll(B);
 				if (A != null) {
 					return A;
@@ -509,22 +543,60 @@ public class RoomDao {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * 简单查询房源信息
+	 * @param localtion
+	 * @param personnumber
+	 * @param checkintime
+	 * @param checkouttime
+	 * @param rtid
 	 * @param title
 	 * @return
 	 */
-	public List<Room> EasyfindRooms(String localtion,Integer personnumber,String checkintime,String checkouttime,String rtid,String title) {
+	public List<Room> EasyfindRooms(String localtion, Integer personnumber, Timestamp checkintime, Timestamp checkouttime,
+			Integer rtid, String title) {
 		String hql = " from  Room where localtion=? and rtid=? and maxpersonnumber>=? and title like ?";
-		List<Room> listA = (List<Room>) hibernateTemplate.find(hql, localtion,rtid,personnumber,title);
-		List<Room> listB = findRoomsByTime(checkintime,checkouttime);
-		List<Room> listC = findCommon(listA,listB);
+		List<Room> listA = (List<Room>) hibernateTemplate.find(hql, localtion, rtid, personnumber, title);
+		List<Room> listB = findRoomsByTime(checkintime, checkouttime);
+		List<Room> listC = findCommon(listA, listB);
 		if (listC != null) {
 			return listC;
 		} else {
 			return null;
 		}
-		
+	}
+
+	/**
+	 * 复杂查询房源信息
+	 * @param localtion
+	 * @param personnumber
+	 * @param checkintime
+	 * @param checkouttime
+	 * @param rtid
+	 * @param title
+	 * @param bedroom
+	 * @param bed
+	 * @param bathroom
+	 * @param kitchen    
+	 * @param wifi
+	 * @param tv
+	 * @param park
+	 * @param lift
+	 * @param rule
+	 * @return
+	 */
+	public List<Room> ComplexfindRooms(String localtion, Integer personnumber, Timestamp checkintime, Timestamp checkouttime,
+			Integer rtid, String title, Integer bedroom, Integer bed, Integer bathroom, Boolean kitchen, Boolean wifi, Boolean tv, Boolean park,
+			Boolean lift, String rule) {
+		String hql = " from  Room where localtion=? and rtid=? and maxpersonnumber>=? and title like ? and bedroom=? and bed=? and bathroom=? and kitchen>=? and wifi>=? and tv>=? and rule=?";
+		List<Room> listA = (List<Room>) hibernateTemplate.find(hql, localtion, rtid, personnumber, title,bedroom,bed,bathroom,kitchen,wifi,tv,park,lift,rule);
+		List<Room> listB = findRoomsByTime(checkintime, checkouttime);
+		List<Room> listC = findCommon(listA, listB);
+		if (listC != null) {
+			return listC;
+		} else {
+			return null;
+		}
 	}
 }

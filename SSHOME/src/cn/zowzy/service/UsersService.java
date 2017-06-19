@@ -154,8 +154,8 @@ public class UsersService {
 	 * @param payAmount
 	 * @return
 	 */
-	public boolean paymentByUsername(String username,String payPassword,Float payAmount){
-		return usersDao.paymentByUsername(username,payPassword,payAmount);
+	public boolean paymentByUsername(String payer,String receiver,String payPassword,Float payAmount){
+		return usersDao.paymentByUsername(payer,receiver,payPassword,payAmount);
 	}
 
 }

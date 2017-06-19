@@ -38,14 +38,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<span class="glyphicon glyphicon-search"></span>
         <input type="text" placeholder="搜索" maxlength="20" class="inputstyle">
     </div>
-    <div class="col-md-6">
-    <ul>
-    	<li><a href=""><strong>房源信息中心</strong></a></li>
-        <li><a href=""><strong>注册</strong></a></li>
-        <li><a href=""><strong>帮助</strong></a></li>
-        <li><a href=""><strong>成为房东</strong></a></li>
-    </ul>
-    </div>
+     <div class="col-md-6">
+             <ul>
+                 <li>
+                 	<a class="a" href="/SSHOME/loginPage.action">
+                 		<strong>登录</strong>
+                 	</a>
+                 </li>
+                 <li>
+                 	<a class="a" href="/SSHOME/registerPage.action">
+                 		<strong>注册</strong>
+                 	</a>
+                 </li>
+                 <li>
+                 	<a class="a" href="">
+                 		<strong>帮助</strong>
+                 	</a>
+                 </li>
+                 <li>
+                 	<a class="a" href="">
+                 		<strong>成为房东</strong>
+                 	</a>
+                 </li>
+             </ul>
+         </div>
 </div>
 <div class="container">
 	<div class="row">
@@ -59,8 +75,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<div class="col-md-10">
         	
         	<c:forEach var="room"  items="${roomList }" >
-	        	<div class="row checkborder">
-	            	<div class="col-md-3 checkborder"></div>
+	        	<div class="row">
+	            	<div class="col-md-3 checkborder">
+	            		<img src="picture/hostpic.jpg" style="height:auto; width:198px;"/>
+	            	</div>
 	                <div class="col-md-9 checkborder text-center">
 	                	<p>${room.title}</p>
 	                    <p>审核状态:${room.roomState.description}</p>

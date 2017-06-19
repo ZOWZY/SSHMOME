@@ -12,8 +12,8 @@ public class Userstate implements java.io.Serializable {
 	// Fields
 
 	private Integer usid;
-	private String usdescription;
-	private Set userses = new HashSet(0);
+	private String description;
+	private Set users = new HashSet(0);
 
 	// Constructors
 
@@ -21,15 +21,10 @@ public class Userstate implements java.io.Serializable {
 	public Userstate() {
 	}
 
-	/** minimal constructor */
-	public Userstate(String usdescription) {
-		this.usdescription = usdescription;
-	}
-
 	/** full constructor */
-	public Userstate(String usdescription, Set userses) {
-		this.usdescription = usdescription;
-		this.userses = userses;
+	public Userstate(String description, Set users) {
+		this.description = description;
+		this.users = users;
 	}
 
 	// Property accessors
@@ -42,20 +37,20 @@ public class Userstate implements java.io.Serializable {
 		this.usid = usid;
 	}
 
-	public String getUsdescription() {
-		return this.usdescription;
+	public String getDescription() {
+		return this.description;
 	}
 
-	public void setUsdescription(String usdescription) {
-		this.usdescription = usdescription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public Set getUserses() {
-		return this.userses;
+	public Set getUsers() {
+		return this.users;
 	}
 
-	public void setUserses(Set userses) {
-		this.userses = userses;
+	public void setUsers(Set users) {
+		this.users = users;
 	}
 
 }

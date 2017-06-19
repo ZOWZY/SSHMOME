@@ -24,6 +24,29 @@ public class OrdersService {
 		this.ordersDao = ordersDao;
 	}
 
+	// ----------------------增
+	
+	/**
+	 * 添加订单
+	 * @param orders
+	 */
+	public void addOrders(Orders orders){
+		ordersDao.addOrders(orders);
+	}
+
+	/**
+	 * 预定房间
+	 * @param rid
+	 * @param personnumber
+	 * @param checkintime
+	 * @param checkouttime
+	 */
+	public void bookRoom(Integer rid,Integer personnumber,Timestamp checkintime,Timestamp checkouttime){
+		ordersDao.bookRoom(rid,personnumber,checkintime,checkouttime);
+	}
+	
+	// ----------------------查
+		
 	/**
 	 * 查询所有订单
 	 * @return
@@ -47,7 +70,7 @@ public class OrdersService {
 	 * @param roomid
 	 * @return
 	 */
-	public List<Orders> findOrdersByUsername(String username, String roomid) {
+	public List<Orders> findOrdersByUsername(String username, Integer roomid) {
 		return ordersDao.findOrdersByUsername(username, roomid);
 	}
 
@@ -75,7 +98,7 @@ public class OrdersService {
 	 * @param roomid
 	 * @return
 	 */
-	public List<Orders> findOrdersByUse_username(String useUsername, String roomid) {
+	public List<Orders> findOrdersByUse_username(String useUsername, Integer roomid) {
 		return ordersDao.findOrdersByUse_username(useUsername, roomid);
 	}
 
@@ -125,6 +148,8 @@ public class OrdersService {
 	public List<Orders> findOrdersByOrderstate(Integer orderstateid){
 		return ordersDao.findOrdersByOrderstate(orderstateid);
 	}
+
+	// ----------------------改
 	
 	/**
 	 * 根据订单修改退房时间
@@ -145,7 +170,7 @@ public class OrdersService {
 	}
 
 	/**
-	 * 根据订单编号添加评论
+	 * 根据订单编号修改评论
 	 * @param orderid
 	 * @param comment
 	 * @param score

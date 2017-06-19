@@ -6,7 +6,7 @@
 <struts>
 <package name="HouseResourceAction"  extends="struts-default" namespace="/">
 		<action name="BasicAction" class="HouseResourceAction"  method="BasicAction">
-			<result name="success">/WEB-INF/jsp/houseresource/basicchomecenter.jsp</result>
+			<result name="success">/WEB-INF/jsp/houseresource/basichomecenter.jsp</result>
 		</action>
 		<action name="HouseMainAction" class="HouseResourceAction"  method="HouseMainAction">
 			<result name="success">/WEB-INF/jsp/houseresource/houseMain.jsp</result>

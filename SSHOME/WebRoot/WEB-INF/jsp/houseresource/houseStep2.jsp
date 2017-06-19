@@ -43,31 +43,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <div class="rowdiv row">
+     <div class="rowdiv row">
 	<div class="col-md-6">         
     	<span class="glyphicon glyphicon-search"></span>
         <input type="text" placeholder="搜索" maxlength="20" class="inputstyle">
     </div>
-    <div class="col-md-6">
-	    <ul>
-			<li>
-				<a class="a" href="/SSHOME/indexPage.action">
-					<strong>回到主页</strong>
-				</a>
-			</li>
-			<li>
-				<a class="a" href="/SSHOME/.">
-					<strong>房源信息中心</strong>
-				</a>
-			</li>
-			<li>
-				<a class="a" href="">
-					<strong>成为房东</strong>
-				</a>
-			</li>
-		</ul>
-    </div>
-</div>              	</a>
+     <div class="col-md-6">
+             <ul>
+                 <li>
+                 	<a class="a" href="/SSHOME/indexPage.action">
+                 		<strong>回到主页</strong>
+                 	</a>
+                 </li>
+                 <li>
+                 	<a class="a" href="/SSHOME/BasicAction.action">
+                 		<strong>房源信息中心</strong>
+                 	</a>
+                 </li>
+                 <li>
+                 	<a class="a" href="HouseMainAction.action">
+                 		<strong>成为房东</strong>
+                 	</a>
                  </li>
              </ul>
          </div>

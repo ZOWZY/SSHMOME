@@ -25,8 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 	 <div id="Layer1" style="position:absolute; width:100%; height:auto; z-index:-1;">
 		<img src="/picture/errorPage/page401.jpg" height="100%" width="100%"/> 
-		<a href="WEB-INF/jsp/userMain.jsp"><input type="button" value="Go Back" id="buttonposition"/></a> 
-		<button id="buttonposition" >Go Back</button>
+		<a href="/SSHOME/indexPage.action"><input type="button" value="Go Back" id="buttonposition"/></a> 
 	</div>
   </body>
 </html>

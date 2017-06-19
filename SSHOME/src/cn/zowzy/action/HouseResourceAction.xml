@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foudation//DTD Struts Configration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>
+<package name="HouseResourceAction"  extends="struts-default" namespace="/">
+		<action name="BasicAction" class="HouseResourceAction"  method="BasicAction">
+			<result name="success">/WEB-INF/jsp/houseresource/basicchomecenter.jsp</result>
+		</action>
+		<action name="HouseMainAction" class="HouseResourceAction"  method="HouseMainAction">
+			<result name="success">/WEB-INF/jsp/houseresource/houseMain.jsp</result>
+		</action>
+		<action name="House1Action" class="HouseResourceAction"  method="House1Action">
+			<result name="success">/WEB-INF/jsp/houseresource/houseStep1.jsp</result>
+		</action>
+		<action name="House2Action" class="HouseResourceAction"  method="House2Action">
+			<result name="success">/WEB-INF/jsp/houseresource/houseStep2.jsp</result>
+		</action>
+	</package>
+</struts> 

@@ -24,6 +24,18 @@ public class OrdersService {
 		this.ordersDao = ordersDao;
 	}
 
+	// ----------------------增
+	
+	/**
+	 * 添加订单
+	 * @param orders
+	 */
+	public void addOrders(Orders orders){
+		ordersDao.addOrders(orders);
+	}
+
+	// ----------------------查
+		
 	/**
 	 * 查询所有订单
 	 * @return
@@ -125,6 +137,8 @@ public class OrdersService {
 	public List<Orders> findOrdersByOrderstate(Integer orderstateid){
 		return ordersDao.findOrdersByOrderstate(orderstateid);
 	}
+
+	// ----------------------改
 	
 	/**
 	 * 根据订单修改退房时间
@@ -145,7 +159,7 @@ public class OrdersService {
 	}
 
 	/**
-	 * 根据订单编号添加评论
+	 * 根据订单编号修改评论
 	 * @param orderid
 	 * @param comment
 	 * @param score

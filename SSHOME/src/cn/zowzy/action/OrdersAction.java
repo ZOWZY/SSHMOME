@@ -26,6 +26,7 @@ public class OrdersAction extends ActionSupport implements ModelDriven<Orders> {
 	// TODO 添加订单
 	public String addOrders() {
 		
+		ordersService.addOrders(orders);
 		String result = "failed";
 		return result;
 	}

@@ -1,5 +1,5 @@
 #MyEclipse Hibernate Properties
-#Wed Apr 19 00:12:26 CST 2017
+#Mon Jun 19 20:40:22 CST 2017
 genBasicCompId=true
 sessionFactoryName=cn.zowzy.sessionfactory.HibernateSessionFactory
 profile=
@@ -10,11 +10,11 @@ reStrategyClass=
 detectO2O=true
 springDaoFile=
 useJavaTypes=true
-keyGenerator=assigned
+keyGenerator=native
 genVersionTag=false
 sessionFactoryId=
 basePersistenceClass=
 genAnnotations=false
-reSettingsFile=
+reSettingsFile=/SSHOME/hibernate.reveng.xml
 configFile=/SSHOME/src/cn/zowzy/entity/hibernate.cfg.xml
 createConfigFile=true

@@ -5,16 +5,16 @@
 	
 <struts>
 <package name="HouseResourceAction"  extends="struts-default" namespace="/">
-		<action name="BasicActio" class="HouseResourceAction"  method="BasicActio">
+		<action name="BasicAction" class="HouseResourceAction"  method="BasicAction">
 			<result name="success">/WEB-INF/jsp/houseresource/basicchomecenter.jsp</result>
 		</action>
-		<action name="HouseMainActio" class="HouseResourceAction"  method="HouseMainActio">
+		<action name="HouseMainAction" class="HouseResourceAction"  method="HouseMainAction">
 			<result name="success">/WEB-INF/jsp/houseresource/houseMain.jsp</result>
 		</action>
-		<action name="House1Actio" class="HouseResourceAction"  method="House1Actio">
+		<action name="House1Action" class="HouseResourceAction"  method="House1Action">
 			<result name="success">/WEB-INF/jsp/houseresource/houseStep1.jsp</result>
 		</action>
-		<action name="House2Actio" class="HouseResourceAction"  method="House2Actio">
+		<action name="House2Action" class="HouseResourceAction"  method="House2Action">
 			<result name="success">/WEB-INF/jsp/houseresource/houseStep2.jsp</result>
 		</action>
 	</package>

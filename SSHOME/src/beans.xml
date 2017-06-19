@@ -51,6 +51,9 @@
 	</bean>
 	<bean id="RoomAction" class="cn.zowzy.action.RoomAction"  scope="prototype">
 	</bean>
+	<bean id="HouseResourceAction" class="cn.zowzy.action.HouseResourceAction"  scope="prototype">
+		<property name="roomService" ref="RoomService"></property>
+	</bean>
 	
 	
 	

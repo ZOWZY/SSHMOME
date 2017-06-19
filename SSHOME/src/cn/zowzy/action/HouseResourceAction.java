@@ -27,20 +27,20 @@ private RoomService roomService;
 		return room;
 	}
 	
-	public String BasicActio(){
+	public String BasicAction(){
 		String result=SUCCESS;
 		return result;
 	}
 
-	public String HouseMainActio(){
+	public String HouseMainAction(){
 		String result=SUCCESS;
 		return result;
 	}
-	public String House1Actio(){
+	public String House1Action(){
 		String result=SUCCESS;
 		return result;
 	}
-	public String House2Actio(){
+	public String House2Action(){
 		String result=SUCCESS;
 		return result;
 	}

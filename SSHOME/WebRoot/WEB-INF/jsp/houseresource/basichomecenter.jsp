@@ -41,22 +41,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <div class="col-md-6">
              <ul>
                  <li>
-                 	<a class="a" href="/SSHOME/loginPage.action">
-                 		<strong>登录</strong>
+                 	<a class="a" href="/SSHOME/indexPage.action">
+                 		<strong>回到主页</strong>
                  	</a>
                  </li>
                  <li>
-                 	<a class="a" href="/SSHOME/registerPage.action">
-                 		<strong>注册</strong>
+                 	<a class="a" href="/SSHOME/BasicAction.action">
+                 		<strong>房源信息中心</strong>
                  	</a>
                  </li>
                  <li>
-                 	<a class="a" href="">
-                 		<strong>帮助</strong>
-                 	</a>
-                 </li>
-                 <li>
-                 	<a class="a" href="">
+                 	<a class="a" href="HouseMainAction.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>
@@ -68,8 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<div class="col-md-2" style=" border-right:rgba(0,0,0,1.00) dashed; height:600px;">
         	<div class=" text-center">
             	<img src="picture/hostpic.jpg" style="height:160px; width:160px;"/>
-                <p>姓名：</p>
-                <p>所在地：</p>
+                <p>用户名：${username}</p>
             </div>
         </div>
     	<div class="col-md-10">

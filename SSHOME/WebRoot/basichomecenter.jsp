@@ -68,8 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<div class="col-md-2" style=" border-right:rgba(0,0,0,1.00) dashed; height:600px;">
         	<div class=" text-center">
             	<img src="picture/hostpic.jpg" style="height:160px; width:160px;"/>
-                <p>姓名：</p>
-                <p>所在地：</p>
+                <p>用户名：${username}</p>
             </div>
         </div>
     	<div class="col-md-10">

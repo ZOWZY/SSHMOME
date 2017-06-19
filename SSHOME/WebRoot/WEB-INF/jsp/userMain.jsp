@@ -49,17 +49,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  </c:if>
                  
                  <c:if test="${username!=null }">
-                  <li role="presentation" class="dropdown li">
+                 <li role="presentation" class="dropdown li">
                     <a class="dropdown-toggle a" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
                    		<strong> ${username} 的个人中心</strong> 
                    		<span class="caret"></span> 
                     </a>
-        <ul class="dropdown-menu">
-          <li><a href="/SSHOME/.action">我的信息</a></li>
-          <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
-          <li><a href="/SSHOME/.action">我的收藏</a></li>
-        </ul>
-      </li>          
+			        <ul class="dropdown-menu">
+			          <li><a href="/SSHOME/.action">我的信息</a></li>
+			          <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
+			          <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
+					  <li><a href="/SSHOME/.action">我的房源</a></li>
+			        </ul>
+      			 </li>          
                  </c:if>  
                  <li>
                  	<a class="a" href="/SSHOME/helpPageAction.action">
@@ -67,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  	</a>
                  </li>
                  <li>
-                 	<a class="a" href="/SSHOME/houseHolderPage.action">
+                 	<a class="a" href="/SSHOME/BasicAction.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>

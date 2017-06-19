@@ -9,7 +9,7 @@ public class Collect implements java.io.Serializable {
 	// Fields
 
 	private Integer cid;
-	private User user;
+	private Users users;
 	private Room room;
 
 	// Constructors
@@ -19,8 +19,8 @@ public class Collect implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Collect(User user, Room room) {
-		this.user = user;
+	public Collect(Users users, Room room) {
+		this.users = users;
 		this.room = room;
 	}
 
@@ -34,12 +34,12 @@ public class Collect implements java.io.Serializable {
 		this.cid = cid;
 	}
 
-	public User getUser() {
-		return this.user;
+	public Users getUsers() {
+		return this.users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsers(Users users) {
+		this.users = users;
 	}
 
 	public Room getRoom() {

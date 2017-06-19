@@ -13,11 +13,11 @@
         <property name="description" type="java.lang.String">
             <column name="description" />
         </property>
-        <set name="users" inverse="true">
+        <set name="userses" inverse="true">
             <key>
                 <column name="usertypeid" />
             </key>
-            <one-to-many class="cn.zowzy.entity.User" />
+            <one-to-many class="cn.zowzy.entity.Users" />
         </set>
     </class>
 </hibernate-mapping>

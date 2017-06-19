@@ -12,7 +12,7 @@ public class Room implements java.io.Serializable {
 	// Fields
 
 	private Integer rid;
-	private User user;
+	private Users users;
 	private Roomtype roomtype;
 	private Roomstate roomstate;
 	private String title;
@@ -42,11 +42,11 @@ public class Room implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Room(User user, Roomtype roomtype, Roomstate roomstate, String title, String location,
+	public Room(Users users, Roomtype roomtype, Roomstate roomstate, String title, String location,
 			Integer maxpersonnumber, Float price, Double longitude, Double latitude, Float score, String description,
 			Integer bad, Integer badroom, Integer bathroom, Integer kitchen, Integer wifi, Integer tv, Integer park,
 			Integer lift, Set orderses, Set roomrules, Set collects) {
-		this.user = user;
+		this.users = users;
 		this.roomtype = roomtype;
 		this.roomstate = roomstate;
 		this.title = title;
@@ -80,12 +80,12 @@ public class Room implements java.io.Serializable {
 		this.rid = rid;
 	}
 
-	public User getUser() {
-		return this.user;
+	public Users getUsers() {
+		return this.users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsers(Users users) {
+		this.users = users;
 	}
 
 	public Roomtype getRoomtype() {

@@ -13,7 +13,7 @@ public class Userstate implements java.io.Serializable {
 
 	private Integer usid;
 	private String description;
-	private Set users = new HashSet(0);
+	private Set userses = new HashSet(0);
 
 	// Constructors
 
@@ -22,9 +22,9 @@ public class Userstate implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Userstate(String description, Set users) {
+	public Userstate(String description, Set userses) {
 		this.description = description;
-		this.users = users;
+		this.userses = userses;
 	}
 
 	// Property accessors
@@ -45,12 +45,12 @@ public class Userstate implements java.io.Serializable {
 		this.description = description;
 	}
 
-	public Set getUsers() {
-		return this.users;
+	public Set getUserses() {
+		return this.userses;
 	}
 
-	public void setUsers(Set users) {
-		this.users = users;
+	public void setUserses(Set userses) {
+		this.userses = userses;
 	}
 
 }

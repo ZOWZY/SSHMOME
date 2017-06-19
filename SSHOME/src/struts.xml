@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE struts PUBLIC 
 	"-//Apache Software Foudation//DTD Struts Configration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
@@ -11,5 +10,6 @@
 	<include file="cn/zowzy/action/ChangePasswordAction.xml"></include>
 	<include file="cn/zowzy/action/IndexAction.xml"></include>
 	<include file="cn/zowzy/action/FileAction.xml"></include>
+	<include file="cn/zowzy/action/RoomAction.xml"></include>
 </struts>
 	

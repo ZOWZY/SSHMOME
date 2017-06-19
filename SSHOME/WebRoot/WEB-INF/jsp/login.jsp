@@ -22,7 +22,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="登录界面">
 	<meta http-equiv="content-type"  content="text/html;charset=utf-8">
 
+<<<<<<< HEAD
   </head>
+=======
+
+</head>
+
+>>>>>>> refs/remotes/origin/YP-DEV
 <body style="background-image:url(picture/homebg/tree.jpg);height:100%; width:100%;">
 <div class="blank"></div>
 <div class="col-md-4"></div>
@@ -46,6 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    <div>
 					<a id="newcount" class="labelfont" href="${pageContext.request.contextPath}/registerPage.action">还没有账号？去注册</a>
            	 		<a id="forgetpassword" class="forgetpass" href="${pageContext.request.contextPath}/registerPage.action">forget password?</a>
+<<<<<<< HEAD
            	 	</div>
            	 	<div class="subblank"></div>
   
@@ -73,12 +80,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            	 	<a id="forgetpassword" class="forgetpass" href="${pageContext.request.contextPath}/registerPage.action">forget password?</a>
             
             	<div class="subblank"></div>
+=======
+           	 	</div>
+           	 	<div class="subblank"></div>
+>>>>>>> refs/remotes/origin/YP-DEV
             </div>
 		</div>
 	</form>
 </div>
 <div class="col-md-4"></div>
+<<<<<<< HEAD
 <div class="col-md-4"></di>
+=======
+>>>>>>> refs/remotes/origin/YP-DEV
 </body>
 </html>
 

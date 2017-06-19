@@ -19,14 +19,14 @@ import cn.zowzy.service.UsersService;
  */
 public class AccountAction extends ActionSupport {
 
-	private UsersService usersService;
+	private UsersService userService;
 
 	public UsersService getUsersService() {
-		return usersService;
+		return userService;
 	}
 
-	public void setUsersService(UsersService usersService) {
-		this.usersService = usersService;
+	public void setUsersService(UsersService userService) {
+		this.userService = userService;
 	}
 
 	/**

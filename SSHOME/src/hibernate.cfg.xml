@@ -43,6 +43,7 @@
 		<mapping  resource="cn/zowzy/entity/Room.hbm.xml"/>
 		<mapping  resource="cn/zowzy/entity/Roomtype.hbm.xml"/>
 		<mapping  resource="cn/zowzy/entity/Roomstate.hbm.xml"/>
+		<mapping  resource="cn/zowzy/entity/Roomrule.hbm.xml"/>
 		
 		<mapping  resource="cn/zowzy/entity/Users.hbm.xml"/>
 		<mapping  resource="cn/zowzy/entity/Userstate.hbm.xml"/>

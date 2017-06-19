@@ -107,6 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     	<a href="">
                         	<img src="picture/houseresource/home3/home301.png" class="imglevel"/>
                         </a>
+<<<<<<< HEAD
 			<iframe src="/SSHOME/imgCarouselPageActions.action" frameborder="0" style="width:100%; height:620px;"></iframe>
 		</div>
 
@@ -152,6 +153,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     	<button class="imgbutton">
                         	<img src="picture/houseresource/home3/home301.png" class="imglevel"/>
                         </button>
+=======
+>>>>>>> refs/remotes/origin/YP-DEV
                         <h5 class="smallfont">
                             <strong>¥85</strong> &nbsp;&nbsp;杭州-合住房间
                         </h5>

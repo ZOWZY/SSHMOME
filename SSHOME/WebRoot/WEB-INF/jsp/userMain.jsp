@@ -107,30 +107,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="blank"></div>
             
             <div class="row">
-                    <div class="col-md-4">
+             <c:forEach var="i" items="${roomlist}" begin="0" end="2" step="1">
+                  	<div class="col-md-4">
                         <a href="/SSHOME/roomDetail.action">
-                        	<img src="picture/houseresource/home1/home101.png" class="imglevel"/>
+                        	<img src="" class="imglevel" id="img"+i/>
                         </a>
-                        <h5 class="smallfont">
-                            <strong>¥${room.price}</strong> &nbsp;&nbsp; ${room.localtion}
-                        </h5>
-                    </div>             
-                    <div class="col-md-4">
-                    	<a href="/SSHOME/roomDetail.action">
-                        	<img src="picture/houseresource/home2/home201.png" class="imglevel"/>
-                        </a>
+                        <input type="hidden" value="${roomlist.roomid}" name="roomid"/>
                         <h5 class="smallfont">
                             <strong>¥${room.price}</strong> &nbsp;&nbsp; ${room.localtion}
                         </h5>
                     </div>
-                    <div class="col-md-4">
-                    	<a href="/SSHOME/roomDetail.action">
-                        	<img src="picture/houseresource/home3/home301.png" class="imglevel"/>
-                        </a>
-                        <h5 class="smallfont">
-                            <strong>¥${room.price}</strong> &nbsp;&nbsp; ${room.localtion}
-                        </h5>
-                    </div>            
+                    </c:forEach>       
             </div>
             
             <div class="blank"></div>
@@ -219,7 +206,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 <script type="text/javascript">
+var roomid=document.getElementsByName("roomid");
+var i=roomid.length;
+for(var j=0;j<i;j++){
+$.ajax({
+             type: "GET", //POST
+             url: ".action",
+             data: {
+             	roomid:$("#roomid").val()
+             }, //组装参数
+             success: function(data){
+                         alert('成功');
+                      },
+             error:function(){
+                      alert('请求失败！！！');
+                      }
+         });
+}
+//从后台获取图片的src
+for(var j=0;j<i;j++){
+$.ajax({
+             type: "GET", //POST
+             url:"",//默认当前页面
+             dataType:"json"
+             data: {
+             	roomid:$("#roomid").val()
+             }, //组装参数
+             success: function(data){
+                         ${'"#img"+j'}.attr("src","json");
+                      },
+              error:function(){
+              alert("请求失败！！！！");
+              }
+         });
+}
 </script>
-
 </body>
 </html>

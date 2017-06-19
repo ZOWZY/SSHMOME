@@ -40,10 +40,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    		<span class="caret"></span> 
                     </a>
         <ul class="dropdown-menu">
-          <li><a href="/SSHOME/.action">我的信息</a></li>
+          <li><a href="/SSHOME/userInfor.action">我的信息</a></li>
           <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
           <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
-		  <li><a href="/SSHOME/.action">我的房源</a></li>
         </ul>
       </li>          
                  <li>
@@ -52,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  	</a>
                  </li>
                  <li>
-                 	<a href="/SSHOME/BasicAction.action">
+                 	<a href="/SSHOME/HouseMainAction.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>
@@ -63,29 +62,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="row">
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
-	<form action="${pageContext.request.contextPath}/.action" method="post">
+	<form action="${pageContext.request.contextPath}/userInfor.action" method="post">
         <div class="divstyle">
             <div class="SSHOMEdiv">
                 <h3 class="fontstyle">编辑个人信息</h3>
             </div>
             <div class="inputdiv">
-                <input type="text" name="username" value="" placeholder="用户名" class="inputsize">
+                <input type="text" name="username" value="${username}" placeholder="用户名" class="inputsize">
                 <span class="spanstyle">
 					<s:fielderror fieldName="username"/>
 				</span>
-                <input type="text" name="" value="" placeholder="姓名" class="inputsize">
-                <span class="spanstyle">
-					<s:fielderror fieldName=""/>
-				</span>
-                <input type="text" name="" value="" placeholder="性别" class="inputsize">
-                <span class="spanstyle">
-					<s:fielderror fieldName=""/>
-				</span>
-                <input type="email" name="email" value="" placeholder="邮箱" class="inputsize">
+                <input type="email" name="email" value="${email}" placeholder="邮箱" class="inputsize">
                 <span class="spanstyle">
 					<s:fielderror fieldName="email"/>
 				</span>
-                <input type="text" name="phone" value="" placeholder="手机号" class="inputsize">
+                <input type="text" name="phone" value="${phone}" placeholder="手机号" class="inputsize">
                 <span class="spanstyle">
 					<s:fielderror fieldName="phone"/>
 				</span>

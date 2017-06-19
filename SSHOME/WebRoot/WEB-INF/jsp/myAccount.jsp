@@ -37,10 +37,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    		<span class="caret"></span> 
                     </a>
         <ul class="dropdown-menu">
-          <li><a chref="/SSHOME/.action">我的信息</a></li>
+          <li><a chref="/SSHOME/userInfor.action">我的信息</a></li>
           <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
           <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
-		  <li><a href="/SSHOME/.action">我的房源</a></li>
         </ul>
       </li>          
       <li>
@@ -49,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	</a>
       </li>
       <li>
-      	<a href="/SSHOME/BasicAction.action" class="a">
+      	<a href="/SSHOME/HouseMainAction.action" class="a">
       		<strong>成为房东</strong>
       	</a>
       </li>
@@ -67,9 +66,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="inputdiv">
                 <p class="pstyle">账户余额:</p>
-                <input type="text" name="" value="" class="inputsize" readonly="readonly" />
+                <input type="text" name="balance" value="${users.balance}" class="inputsize" readonly="readonly" />
                 <p class="pstyle">充值金额:</p>
-                <input type="text" name="number" value="" class="inputsize"/>
+                <input type="text" name="number" class="inputsize"/>
                 <span class="spanstyle">
 					<s:fielderror fieldName="changePasswordCode"/>
 				</span>

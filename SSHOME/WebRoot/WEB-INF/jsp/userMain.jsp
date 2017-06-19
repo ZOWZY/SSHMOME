@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		 <form action="${pageContext.request.contextPath}/searchRoom.action" method="post">
          <div class="col-md-6">
              <span class="glyphicon glyphicon-search"></span>
-             <input type="text" name=" " value="" placeholder="搜索" maxlength="20" class="inputstyle">
+             <input type="text" name="location" value="${location}" placeholder="搜索" maxlength="20" class="inputstyle">
          </div>
          <div class="col-md-6">
              <ul>
@@ -55,10 +55,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    		<span class="caret"></span> 
                     </a>
 			        <ul class="dropdown-menu">
-			          <li><a href="/SSHOME/.action">我的信息</a></li>
+			          <li><a href="/SSHOME/userInfor.action">我的信息</a></li>
 			          <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
 			          <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
-					  <li><a href="/SSHOME/.action">我的房源</a></li>
 			        </ul>
       			 </li>          
                  </c:if>  
@@ -68,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  	</a>
                  </li>
                  <li>
-                 	<a class="a" href="/SSHOME/BasicAction.action">
+                 	<a class="a" href="/SSHOME/HouseMainAction.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>
@@ -86,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<form action="${pageContext.request.contextPath}/searchRoom.action" method="post">
    		<div id="search">
-        	<input type="text" id="input" name=" " placeholder="请输入目的地"/>
+        	<input type="text" id="input" name="location" placeholder="请输入目的地"/>
     	</div>
     	<div>
     		<input type="submit" id="look" value="搜索"/>
@@ -115,10 +114,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </a>
                         <input type="hidden" value="${roomlist.roomid}" name="roomid"/>
                         <h5 class="smallfont">
-                            <strong>¥${room.price}</strong> &nbsp;&nbsp; ${room.localtion}
+                            <strong>¥${roomlist.price}</strong> &nbsp;&nbsp; ${roomlist.location}
                         </h5>
                     </div>
-                    </c:forEach>       
+             </c:forEach>       
             </div>
             
             <div class="blank"></div>

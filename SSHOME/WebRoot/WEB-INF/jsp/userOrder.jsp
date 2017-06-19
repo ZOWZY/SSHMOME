@@ -38,10 +38,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    		<span class="caret"></span> 
                     </a>
         <ul class="dropdown-menu">
-          <li><a href="/SSHOME/.action">我的信息</a></li>
+          <li><a href="/SSHOME/userInfor.action">我的信息</a></li>
           <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
           <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
-		  <li><a href="/SSHOME/.action">我的房源</a></li>
         </ul>
       </li>            
                  <li class="li">
@@ -50,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  	</a>
                  </li>
                  <li class="li">
-                 	<a class="a" href="/SSHOME/BasicAction.action">
+                 	<a class="a" href="/SSHOME/HouseMainAction.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>
@@ -67,13 +66,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     	<div class="infor">
         	<div class="col-md-4">
-            	<label>姓名：</label><h5>王梦迪</h5>
+            	<label>用户名：</label><h5> ${username}</h5>
             </div>
             <div class="col-md-4">
-            	<label>手机号：</label><h5>15002300023</h5>
+            	<label>手机号：</label><h5> ${phone}</h5>
             </div>
             <div class="col-md-4">
-            	<label>身份证号：</label><h5>150404199610201145</h5>
+            	<label>身份证号：</label><h5></h5>
             </div>
         </div>
         
@@ -96,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	</div>
             	<div class="divblank"></div>
             	<div class="blank">
-            		<p><h4> ${room.localtion}</h4></p>
+            		<p><h4> ${room.location}</h4></p>
             	</div>
             	<div class="divblank"></div>
             	<div class="blank">

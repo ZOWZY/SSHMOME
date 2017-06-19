@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <h3 class="fontstyle">订单支付</h3>
             </div>
             <div class="inputdiv">
-                <input type="text" name="number" value="" placeholder="价格" readonly class="inputsize">
+                <input type="text" name="number" value=" ${room.price}" placeholder="价格" readonly class="inputsize">
                 <input type="password" name="payPassword" placeholder="密码" class="inputsize">
                 <span class="spanstyle">
 					<s:fielderror fieldName="username"/>

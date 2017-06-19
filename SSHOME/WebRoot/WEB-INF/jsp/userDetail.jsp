@@ -52,13 +52,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    		<strong> ${username} 的个人中心</strong> 
                    		<span class="caret"></span> 
                     </a>
-        <ul class="dropdown-menu">
-          <li><a href="/SSHOME/.action">我的信息</a></li>
-          <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
-          <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
-		  <li><a href="/SSHOME/.action">我的房源</a></li>
-        </ul>
-      </li>          
+			        <ul class="dropdown-menu">
+			          <li><a href="/SSHOME/userInfor.action">我的信息</a></li>
+			          <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
+			          <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
+			        </ul>
+			      </li>          
                  </c:if> 
                  <li class="li">
                  	<a class="a" href="/SSHOME/helpPageAction.action">
@@ -66,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  	</a>
                  </li>
                  <li class="li">
-                 	<a class="a" href="/SSHOME/BasicAction.action">
+                 	<a class="a" href="/SSHOME/HouseMainAction.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>
@@ -133,14 +132,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	<div class="sumfirst">
             		<br /><br />
               		<h1> ${room.title}</h1>
-              		<h3>${room.localtion}</h3>
+              		<h3>${room.location}</h3>
             	</div>
             	
-            	<div class="sumfirst">
+            	
+            	<!-- <div class="sumfirst">
               		<div class="blank"></div>
               		<h1>这里放图标</h1>
               		<div class="blank"></div>
-            	</div>	
+            	</div>	-->
+            	
             	
             	<div class="sumfirst">
               		<div class="blank"></div>
@@ -193,7 +194,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               		</div>
               		
               		
-              		<div class="row">
+              		<!-- <div class="row">
                 		<div class="col-md-4">
                  			<div class="blank"></div>
                   			<h5>床位安排</h5>
@@ -210,7 +211,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   			</div>
                   			<div class="blank"></div>
                 		</div>
-              		</div>
+              		</div>-->
               		
               		
               		<div class="row">
@@ -238,7 +239,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   		</div>
                 		<div class="col-md-8 sumright">
 			                  <div class="blank"></div>
-			                  <p>1.入住时间是15:00以后.退房时间是12:00之前</p>
+			                  <p>1.入住时间是13:00以后.退房时间是12:00之前</p>
 			                  <p>2.不适合携带宠物</p>
 			                  <p>3.不允许举办大型聚会和活动</p>
 			                  <p>4.进出房子,请复核房门是否关闭</p>
@@ -321,7 +322,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	<div class="sumfirst">
               		<div class="row">
                 		<div class="col-md-9">
-                  			<h2><strong>房东:</strong></h2>
+                  			<h2><strong>房东: ${usernameid}</strong></h2>
                   			<h4>中国 注册时间 2017年4月</h4>
                   			<div class="blank"></div>
                 		</div>

@@ -205,6 +205,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
             <div class="divblank"></div>
+            
             <div class="blank">
             	<h4>${room.localtion}</h4>
             </div>

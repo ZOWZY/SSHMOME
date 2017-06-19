@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	</a>
       </li>
       <li>
-      	<a href="/SSHOME/houseHolderPage.action" class="a">
+      	<a href="/SSHOME/BasicAction.action" class="a">
       		<strong>成为房东</strong>
       	</a>
       </li>

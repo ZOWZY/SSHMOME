@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  	</a>
                  </li>
                  <li class="li">
-                 	<a class="a" href="/SSHOME/houseHolderPage.action">
+                 	<a class="a" href="/SSHOME/BasicAction.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>

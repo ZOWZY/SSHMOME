@@ -19,7 +19,7 @@
 		
 		<action name="findRoomsByUsername" class="RoomAction" method="findRoomsByUsernameAction">
 			<result name="failed">/failed.jsp</result>
-			<result name="success">/houseStep2.jsp</result>
+			<result name="success">/basichomecenter.jsp</result>
 		</action>
 		
 	

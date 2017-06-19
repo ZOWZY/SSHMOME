@@ -21,20 +21,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>   
-<link href="${pageContext.request.contextPath}/webuploader/webuploader.css" type="text/css" rel="stylesheet"/>  
-<script type="text/javascript" src="${pageContext.request.contextPath}/jquery/jquery-3.2.0.min.js"></script>  
-<script type="text/javascript" src="${pageContext.request.contextPath}/webuploader/webuploader.min.js"></script>  
-<script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
-
-
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/houseStep2.css" type="text/css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/houseMain.css" type="text/css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userMain.css" type="text/css"/>
-<script src="${pageContext.request.contextPath}/jquery/jquery-3.2.0.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" type="text/css"/>
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>   
+<link href="${pageContext.request.contextPath}/webuploader/webuploader.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/jquery/jquery-3.2.0.min.js"></script>  
+<script type="text/javascript" src="${pageContext.request.contextPath}/webuploader/webuploader.min.js"></script>  
+<script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/jquery/jquery-3.2.0.js"></script>
 <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
-   
+
   <style>
 .demo{min-width:360px;margin:30px auto;padding:10px 20px}
 .demo h3{line-height:40px; font-weight: bold;}

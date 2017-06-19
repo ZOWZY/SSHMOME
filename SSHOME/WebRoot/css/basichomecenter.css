@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+.checkborder{
+	margin-top:20px;
+	border: rgba(213,213,213,1.00) ridge 1px;
+	height:200px;
+	font-size:18px}
+.departhost{
+	padding:20px;
+	border-right: rgba(195,194,194,1.00) dashed;
+	 height:600px;}
+.blank{
+	height:50px;}

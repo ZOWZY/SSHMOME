@@ -1,5 +1,7 @@
 package cn.zowzy.action;
 
+import java.util.List;
+
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -72,9 +74,15 @@ public class RoomAction extends ActionSupport implements ModelDriven<Room> {
 	 */
 	public String findRoomsByUsernameAction(){
 		String result=SUCCESS;
-		if(roomService.findRoomsByUsername((String)ServletActionContext.getRequest().getAttribute("username"))==null){
-			addFieldError("deleteroomerror", "查询房源失败");
+		Object username=ServletActionContext.getRequest().getAttribute("username");
+		if(username==null){
 			return "failed";
+		}
+		List<Room> list = roomService.findRoomsByUsername(String.valueOf(username));
+		if(list==null){
+			return "failed";
+		}else{
+			ServletActionContext.getRequest().getSession().setAttribute("roomList", list);
 		}
 		return result;
 	}

@@ -1,5 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
+.buttonrad{
+	border-radius:5px;
+}
 .selectnumber{
 	margin-bottom:8px;}
 .borderstyle{

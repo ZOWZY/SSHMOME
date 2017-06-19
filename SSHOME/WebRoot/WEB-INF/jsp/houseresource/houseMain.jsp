@@ -59,7 +59,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div style=" width:100%; height:auto;">
 	<img src="picture/homebg/housemain.jpg"  class="Basicphoto"/>
 <div class="buttonlocation">
-    <button  class="buttonstyle" id="startrent"> 出租房源</button>
+	<a href="/SSHOME/House1Action.action"><input type="button" class="buttonstyle" value="出租房源"></a>
+    
 </div> 
 </div>
 

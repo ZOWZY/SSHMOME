@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="row">
         <div class="col-md-7 allposition">
         	<div class="row">
-                <div class="rentalLv1"><span class="">姓名</span> ，您好！我们来为您做好当房东的准备吧。</div>
+                <div class="rentalLv1"><span>${username}</span> ，您好！我们来为您做好当房东的准备吧。</div>
                 <div class="rentalLv3">步骤1 </div>
                 <div class="rentalLv2">您拥有什么样的空间？</div>
             </div>
@@ -92,14 +92,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
             <div class="row">
             	<div class="nonmargin">
-                	<input class="btn btn-info goonbutton" type="button" value="继续" >
+            		<a href="/SSHOME/House2Action.action"><input type="button" class="btn btn-info goonbutton" value="继续"></a>
                 </div>
             </div>
         </div>
         
         
          <div class="col-md-5">
-        	<div><img src="picture/1.jpg" /></div>
+        	<div><img src="picture/housestep1.jpg" /></div>
        	 	<div class="blank"></div>
     	</div>
     </div>

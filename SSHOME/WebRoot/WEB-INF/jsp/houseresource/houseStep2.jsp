@@ -68,6 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              </ul>
          </div>
 </div>
+<form action="${pageContext.request.contextPath}/BasicAction.action" method="post">
 <div class="container">
 	<div class="articleLv1">填写您发布的房源的基本信息</div>
     
@@ -117,10 +118,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="borderstyle">
             	<div class="row main">
 					<div class="demo">
-						<div id="uploader-demo" style>
+						<div id="uploader-demo">
     						<!--用来存放item-->
    			 				<div id="fileList" class="uploader-list"></div>
-   			 				<div id="filePicker" class="btn btn-primary" >选择图片</div>
+   			 				<div id="filePicker" class="btn buttonrad" >选择图片</div>
    			 				<div class="btn btn-primary" id="ctlBtn">开始上传</div>
 						</div>
 					</div>
@@ -217,13 +218,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			</script>	
             <div class="borderstyle">
-            	<input type="text" value="">省
-                <input type="text" value="">市
-                <input type="text" value="">街道
+            	<input type="text" value="" class="selectnumber">省
+                <input type="text" value="" class="selectnumber">市
+                <input type="text" value="" class="selectnumber">街道
             </div>
             <div class="borderstyle text-center">
-            	<input type="submit" value="提交">
-                <input type="submit" value="修改">
+            	<input type="submit" value="保存" onclick="ale()">
+            	<script language="javascript">
+            	function ale()
+				{ 
+				   alert("保存成功！");
+				}
+				</script>
             </div>
 
             
@@ -231,5 +237,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<div class="col-md-3"></div>
     </div>
 </div>
-  </body>
+</form>
+</body>
 </html>

@@ -1,12 +1,14 @@
 package cn.zowzy.dao;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import cn.zowzy.entity.Orders;
 import cn.zowzy.entity.Orderstate;
+import cn.zowzy.entity.Room;
 
 /**
  * 
@@ -16,7 +18,6 @@ import cn.zowzy.entity.Orderstate;
  */
 public class OrdersDao {
 	private HibernateTemplate hibernateTemplate;
-
 	public HibernateTemplate getHibernateTemplate() {
 		return hibernateTemplate;
 	}
@@ -24,7 +25,9 @@ public class OrdersDao {
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}
-
+	
+	// ----------------------增
+	
 	/**
 	 * 添加订单
 	 * @param orders
@@ -37,6 +40,31 @@ public class OrdersDao {
 			hibernateTemplate.save(orders);
 		}
 	}
+	
+	/**
+	 * 预定房间
+	 * @param rid
+	 * @param personnumber
+	 * @param checkintime
+	 * @param checkouttime
+	 */
+	public void bookRoom(Integer rid,Integer personnumber,Timestamp checkintime,Timestamp checkouttime){
+		String hql = " from Orders where rid=? and checkintime between ? and ? or checkouttime between ? and ?";
+		List<Orders> list = (List<Orders>) hibernateTemplate.find(hql);
+		if(list==null){
+			Orders orders=new Orders();
+			Room room=new RoomDao().findRoomByRoomid(rid);
+			orders.setRoom(room);
+			orders.setDatetime( new Timestamp(System.currentTimeMillis()));
+			orders.setCost(room.getPrice());
+			orders.setPnumber(personnumber);
+			orders.setCheckintime(checkintime);
+			orders.setCheckouttime(checkouttime);
+			addOrders(orders);
+		}
+	}
+
+	// ----------------------查
 	
 	/**
 	 * 查询所有订单
@@ -74,10 +102,10 @@ public class OrdersDao {
 	 *            房源编号
 	 * @return
 	 */
-	public List<Orders> findOrdersByUsername(String username, String roomid) {
+	public List<Orders> findOrdersByUsername(String username, Integer roomid) {
 		if (username == null || username.length() <= 0) {
 			return null;
-		} else if (roomid == null || roomid.length() <= 0) {
+		} else if (roomid < 0) {
 			return null;
 		}
 
@@ -128,10 +156,10 @@ public class OrdersDao {
 	 * @param roomid
 	 * @return
 	 */
-	public List<Orders> findOrdersByUse_username(String useUsername, String roomid) {
+	public List<Orders> findOrdersByUse_username(String useUsername, Integer roomid) {
 		if (useUsername == null || useUsername.length() <= 0) {
 			return null;
-		} else if (roomid == null || roomid.length() <= 0) {
+		} else if (roomid  < 0) {
 			return null;
 		}
 
@@ -238,6 +266,8 @@ public class OrdersDao {
 			return null;
 		}
 	}
+
+	// ----------------------改
 	
 	/**
 	 * 根据订单修改退房时间
@@ -288,7 +318,7 @@ public class OrdersDao {
 	}
 
 	/**
-	 * 根据订单编号添加评论
+	 * 根据订单编号修改评论
 	 * 
 	 * @param orderid
 	 *            订单编号
@@ -297,7 +327,7 @@ public class OrdersDao {
 	 * @param score
 	 *            评分
 	 */
-	public void addComments(String orderid, String comment, float score) {
+	public void addComments(String orderid, String comment, Float score) {
 		if (orderid == null || orderid.length() <= 0) {
 			return;
 		}
@@ -305,11 +335,11 @@ public class OrdersDao {
 		if (order == null) {
 			return;
 		} else {
-			if (score < 0) {
-				score = 5;
+			if (score < 0 || score > 5) {
+				score = (float) 5;
 			}
 			order.setComments(comment);
-			order.setCommentsscore(score);
+			order.setScore(score);
 			hibernateTemplate.update(order);
 		}
 	}

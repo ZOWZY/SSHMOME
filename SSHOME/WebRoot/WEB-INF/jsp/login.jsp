@@ -44,15 +44,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 				<input type="submit" class="loginbutton" value="登录"/>
 			    
+				<a id="newcount" class="labelfont" href="${pageContext.request.contextPath}/registerPage.action">还没有账号？去注册</a>
+           	 	<a id="forgetpassword" class="forgetpass" href="${pageContext.request.contextPath}/registerPage.action">forget password?</a>
+            
+            	<div class="subblank"></div>
+
+  
+<body style="background-image:url(picture/homebg/tree.jpg);height:100%; width:100%;">
+<div class="blank"></div>
+<div class="col-md-4"></div>
+<div class="col-md-4">
+	<form action="${pageContext.request.contextPath}/login.action"  method="post" id="loginform">
+		<div class="divstyle">
+			<h1 class="fontstyle">SSHOME</h1>
+			<div class="inputdiv">
+				<input type="text" id="username" name="username" value="${user.username}" placeholder="用户名" class="inputsize"/>
+				<span class="spanstyle">
+					<s:fielderror fieldName="username"/>
+				</span>
+			
+				<input type="password" id="password" name="password" value="${user.password }" placeholder="密码" class="inputsize"/>
+				<span class="spanstyle">
+					<s:fielderror fieldName="password"/>
+				</span>
+			
+				<input type="submit" class="loginbutton" value="登录"/>
+			    
 			    <div>
 					<a id="newcount" class="labelfont" href="${pageContext.request.contextPath}/registerPage.action">还没有账号？去注册</a>
            	 		<a id="forgetpassword" class="forgetpass" href="${pageContext.request.contextPath}/changePasswordPage.action">forget password?</a>
            	 	</div>
            	 	<div class="subblank"></div>
+
             </div>
 		</div>
 	</form>
 </div>
+
+<div class="col-md-4"></div>
+
 <div class="col-md-4"></div>
 </body>
 </html>

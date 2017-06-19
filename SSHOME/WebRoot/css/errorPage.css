@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+#buttonposition{
+	cursor:pointer;
+	float:left;
+	position:relative;
+	width:100px;
+	height:40px;
+	margin-top:-32%;
+	left:47%;
+	z-index:2;
+	border-color:rgba(251,245,246,1.00);
+	border-width:2px;
+	background:transparent;
+	color:rgba(255,255,255,1.00);
+	}

@@ -29,6 +29,27 @@
 		<action name="sourceAction" class="RoomAction" method="sourceAction">
 			<result name="success">/WEB-INF/jsp/userSource.jsp</result>
 		</action>
+
+
+	
+		<action name="addRoom" class="RoomAction" method="addRoomAction">
+			<result name="failed">/index.jsp</result>
+			<result name="success">/index.jsp</result>
+		</action>
+		
+		<action name="deleteRoom" class="RoomAction" method="deleteRoomAction">
+			<result name="failed">/index.jsp</result>
+			<result name="success">/index.jsp</result>
+		</action>
+		
+		<action name="findRoomsByUsername" class="RoomAction" method="findRoomsByUsernameAction">
+			<result name="failed">/failed.jsp</result>
+			<result name="success">/houseStep2.jsp</result>
+		</action>
+		
+	
+	
+
 	</package>
 
 </struts>

@@ -62,6 +62,7 @@ public class FileAction extends ActionSupport {
 		// 创建目标文件夹
 		String photoPath = ServletActionContext.getRequest().getRealPath("/") + "roomImages" + File.separator + roomid
 				+ File.separator;
+		System.out.println("路径地址："+photoPath);
 		File f = new File(photoPath);
 		System.out.println("________________________");
 		System.out.println(f.getAbsolutePath());

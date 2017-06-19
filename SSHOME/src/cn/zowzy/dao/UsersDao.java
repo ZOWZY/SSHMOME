@@ -24,6 +24,19 @@ public class UsersDao {
 		this.hibernateTemplate = hibernateTemplate;
 	}
 
+	// ----------------------增
+
+	/**
+	 * 添加用户
+	 * 
+	 * @param user
+	 */
+	public void addUser(Users user) {
+		hibernateTemplate.save(user);
+	}
+
+	// ----------------------查
+
 	/**
 	 * 查询所有的用户
 	 * 
@@ -155,15 +168,8 @@ public class UsersDao {
 		return user;
 	}
 
-	/**
-	 * 添加用户
-	 * 
-	 * @param user
-	 */
-	public void addUser(Users user) {
-		hibernateTemplate.save(user);
-	}
-
+	// ----------------------改
+	
 	/**
 	 * 根据激活码激活用户
 	 * 
@@ -189,7 +195,7 @@ public class UsersDao {
 	/**
 	 * 根据修改密码的验证码修改密码
 	 * 
-	 * @param activeCode
+	 * @param activeC ode
 	 *            验证码
 	 * @param password
 	 *            新密码
@@ -206,10 +212,9 @@ public class UsersDao {
 
 		Boolean result = false;
 		Users user = findUserByActiveCode(activeCode);
-		if (user == null) {// ���û�д���֤����û�
+		if (user == null) {
 			return false;
 		} else {
-			// 3����ȴ��޸ĵ�½�����״̬
 			if (user.getUserstate().getUsid().equals(3)) {
 				user.setPassword(password);
 				user.getUserstate().setUsid(1);
@@ -242,7 +247,6 @@ public class UsersDao {
 			if (user == null) {
 				return;
 			} else {
-				// 4����ȴ��޸�֧������
 				if (user.getUserstate().getUsid().equals(4)) {
 					user.setPaypassword(payPassword);
 					user.getUserstate().setUsid(1);
@@ -254,25 +258,60 @@ public class UsersDao {
 	
 	/**
 	 * 根据用户名和支付密码付款
-	 * @param username
+	 * @param payer
+	 * @param receiver
 	 * @param payPassword
 	 * @param payAmount
 	 * @return
 	 */
-	public boolean paymentByUsername(String username,String payPassword,Float payAmount){
-		String paypass=findPayPasswordByUsername(username);
+	public boolean paymentByUsername(String payer,String receiver,String payPassword,Float payAmount){
+		String paypass=findPayPasswordByUsername(payer);
 		if(paypass!=null&&paypass.endsWith(payPassword)){
-			Users user=findUserByUsername(username);
-			if(user!=null){
-				Float balance=user.getBalance();
-				if(balance>=payAmount){
-					balance-=payAmount;
-					hibernateTemplate.update(user);
+			Users payuser=findUserByUsername(payer);
+			Users receivuser=findUserByUsername(receiver);
+			if(payuser!=null&&receivuser!=null){
+				Float paybalance=payuser.getBalance();
+				Float receivbalance=receivuser.getBalance();
+				if(paybalance>=payAmount){
+					paybalance-=payAmount;
+					receivbalance+=payAmount;
+					hibernateTemplate.update(payuser);
+					hibernateTemplate.update(receivuser);
 					return true;
 				}
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * 根据用户名充值
+	 * @param admin
+	 * @param username
+	 * @param number
+	 * @return
+	 */
+	public boolean rechargeByUsername(String admin,String username,Float number){
+		if (admin == null || admin.length() <= 0) {
+			return false;
+		} 
+		if (username == null || username.length() <= 0) {
+			return false;
+		}
+		if (number <= 0) {
+			return false;
+		}
+		Users ad = findUserByUsername(admin);
+		Users user = findUserByUsername(username);
+		if(ad!=null||user!=null){
+			return false;
+		}
+		if(ad.getUsertype().getUtid()!=2){
+			return false;
+		}
+		user.setBalance(user.getBalance()+ number);
+		hibernateTemplate.update(user);
+		return true;
 	}
 	
 }

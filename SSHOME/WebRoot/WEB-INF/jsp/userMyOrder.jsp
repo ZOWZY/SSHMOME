@@ -11,24 +11,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-       
-    <title>提交订单</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userOrder.css" type="text/css"/>
+    
+    <title>我的订单</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userMyOrder.css" type="text/css"/>
 	<script src="${pageContext.request.contextPath}/jquery/jquery-3.2.0.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" type="text/css"/>
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userCheckPage.css" type="text/css"/>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="description" content="提交订单界面">
+	<meta http-equiv="description" content="我的订单界面">
 	<meta http-equiv="content-type"  content="text/html;charset=utf-8">
+
 
   </head>
   
-<body>
-<div class="rowdiv row">
+  <body>
+    <div class="rowdiv row">
          <div class="col-md-1 icondiv" align="center">
              <img src="picture/mainicon.png"/>
          </div>
+         
          <div class="col-md-5"></div>
          <div class="col-md-6">
              <ul>
@@ -37,19 +40,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    		<strong> ${username} 的个人中心</strong> 
                    		<span class="caret"></span> 
                     </a>
-        <ul class="dropdown-menu">
-          <li><a href="/SSHOME/.action">我的信息</a></li>
-          <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
-          <li><a href="/SSHOME/.action">我的收藏</a></li>
-        </ul>
-      </li>            
+			        <ul class="dropdown-menu">
+			          <li><a href="/SSHOME/.action">我的信息</a></li>
+			          <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
+			          <li><a href="/SSHOME/.action">我的收藏</a></li>
+			        </ul>
+      			 </li>          
                  <li class="li">
-                 	<a class="a" href="/SSHOME/helpPageAction.action">
+                 	<a href="/SSHOME/helpPageAction.action" class="a">
                  		<strong>帮助</strong>
                  	</a>
                  </li>
                  <li class="li">
-                 	<a class="a" href="/SSHOME/houseHolderPage.action">
+                 	<a href="/SSHOME/houseHolderPage.action" class="a">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>
@@ -60,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-    	<form action="${pageContext.request.contextPath}/addOrders.action" method="post">
+    <form action="${pageContext.request.contextPath}/myOrders.action" method="post">
     	<div>
       		<input type="text" readonly value="身份信息" class="inputtable"/>
         </div>
@@ -90,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 		<h2> ${room.title}</h2>
                 	</div>
                 	<div class="col-md-3">
-                		<h2> ${room.price}</h2>
+                		<h2> ¥${room.price}</h2>
                 	</div>
             	</div>
             	<div class="divblank"></div>
@@ -99,9 +102,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	</div>
             	<div class="divblank"></div>
             	<div class="blank">
-            	<iframe src="/SSHOME/stars.action" width="100%" height="50px" 
-            		scrolling="no" frameborder="0">
-            	</iframe>
             	</div>
             	<div class="blank"></div>
         	</div>
@@ -121,8 +121,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <th>入住人数</th>
                         <th>房间类型</th>
                         <th>价格</th>
+                        <th>支付状态</th>
 	              	</tr>
-	                <c:forEach var=" " items=" ">
+	              	<c:forEach var=" " items=" ">
                   	<tr>		
                     	<td></td>
                         <td></td>
@@ -130,25 +131,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <td></td>
                   		<td></td>
                         <td></td>
+                        <td></td>
                     </tr>
                     </c:forEach>
              	</table>
             </div>	
         </div>
-        <input type="submit" value="提交订单" class="paybtn"/>
-    	</form>
-    	
-    	<form action="http://www.zjhfyq.cn/CustomService/login" method="post">
-    			<input type="hidden" name="username" value="QQQ"/>
-    			<input type="hidden" name="password" value="******"/>
-    			<input type="hidden" name="type" value="user"/>
-    			<input type="submit" value="联系房东" class="cancelbtn"/>
-    	</form>
-
+        
+        <div>
+    		<input type="submit" value="退订" class="paybtn"/>
+        	<!-- <input type="submit" value="去评价" class="cancelbtn"/>-->
+        	<button class="cancelbtn">
+        		<a href=" " class="cancela">去评价</a>
+        	</button>
+    	</div>
+    </form>
     </div>
     <div class="col-md-1"></div>
 </div>
-    
+
+
 <div class="blank"></div>
 <div class="row iframediv">
          <div class="blank"></div>
@@ -183,5 +185,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div>
          <div class="col-md-2 textstyle"></div>
 </div>
-</body>
+  </body>
 </html>

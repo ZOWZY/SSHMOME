@@ -15,25 +15,25 @@
 			为了不创建两次，则属性值写spring的bean的id，这些步骤需要导入struts2-spring-plugin-2.3.4.1.jar
 		 -->
 		<action name="login" class="LoginAndRegisterAction" method="login">
-			<result name="success">/WEB-INF/jsp/index.jsp</result>
+			<result name="success">/WEB-INF/jsp/userMain.jsp</result>
 			<result name="failed">/WEB-INF/jsp/login.jsp</result>
 			<result name="input">/WEB-INF/jsp/login.jsp</result>
 		</action>
 		
 		<action name="register" class="LoginAndRegisterAction" method="register">
-			<result name="success">/WEB-INF/jsp/index.jsp</result>
+			<result name="success">/WEB-INF/jsp/userMain.jsp</result>
 			<result name="failed">/WEB-INF/jsp/register.jsp</result>
 			<result name="input">/WEB-INF/jsp/register.jsp</result>
 		</action>
 		
 		<action name="loginPage" class="LoginAndRegisterAction" method="loginPage">
 			<result name="success">/WEB-INF/jsp/login.jsp</result>
-			<result name="failed">/WEB-INF/jsp/index.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userMain.jsp</result>
 		</action>
 		
 		<action name="registerPage" class="LoginAndRegisterAction" method="registerPage">
 			<result name="success">/WEB-INF/jsp/register.jsp</result>
-			<result name="failed">/WEB-INF/jsp/index.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userMain.jsp</result>
 		</action>
 		
 		

@@ -28,12 +28,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 
 <div class="rowdiv row">
+		 <form action="${pageContext.request.contextPath}/searchRoom.action" method="post">
          <div class="col-md-6">
              <span class="glyphicon glyphicon-search"></span>
-             <input type="text" id="" name="" value="" placeholder="搜索" maxlength="20" class="inputstyle">
+             <input type="text" name=" " value="" placeholder="搜索" maxlength="20" class="inputstyle">
          </div>
          <div class="col-md-6">
              <ul>
+             	<c:if test="${username==null }">
                  <li>
                  	<a class="a" href="/SSHOME/loginPage.action">
                  		<strong>登录</strong>
@@ -44,34 +46,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  		<strong>注册</strong>
                  	</a>
                  </li>
+                 </c:if>
+                 
+                 <c:if test="${username!=null }">
+                  <li role="presentation" class="dropdown li">
+                    <a class="dropdown-toggle a" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
+                   		<strong> ${username} 的个人中心</strong> 
+                   		<span class="caret"></span> 
+                    </a>
+        <ul class="dropdown-menu">
+          <li><a href="/SSHOME/.action">我的信息</a></li>
+          <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
+          <li><a href="/SSHOME/.action">我的收藏</a></li>
+        </ul>
+      </li>          
+                 </c:if>  
                  <li>
-                 	<a class="a" href="">
+                 	<a class="a" href="/SSHOME/helpPageAction.action">
                  		<strong>帮助</strong>
                  	</a>
                  </li>
                  <li>
-                 	<a class="a" href="">
+                 	<a class="a" href="/SSHOME/houseHolderPage.action">
                  		<strong>成为房东</strong>
                  	</a>
                  </li>
              </ul>
          </div>
+         </form>
 </div>
     
 
 <div style=" width:100%; height:590px;">
 	<div id="container">
 		<div>
-			<iframe src="imgcarousel.jsp" frameborder="0" style="width:100%; height:620px;"></iframe>
+			<iframe src="/SSHOME/imgCarouselPageAction.action" frameborder="0" style="width:100%; height:620px;"></iframe>
 		</div>
-
+		
+		<form action="${pageContext.request.contextPath}/searchRoom.action" method="post">
    		<div id="search">
-        	<input type="text" id="input" name="" value="请输入名称"/>
+        	<input type="text" id="input" name=" " placeholder="请输入目的地"/>
     	</div>
-    
     	<div>
-    		<button id="look" onclick=" "> 搜索</button>
+    		<input type="submit" id="look" value="搜索"/>
     	</div>
+    	</form>
+    	
     </div>
 </div>
  
@@ -88,27 +108,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             <div class="row">
                     <div class="col-md-4">
-                        <button class="imgbutton">
+                        <a href="/SSHOME/roomDetail.action">
                         	<img src="picture/houseresource/home1/home101.png" class="imglevel"/>
-                        </button>
+                        </a>
                         <h5 class="smallfont">
-                            <strong>¥642</strong> &nbsp;&nbsp;上海-整套房子
+                            <strong>¥${room.price}</strong> &nbsp;&nbsp; ${room.localtion}
                         </h5>
                     </div>             
                     <div class="col-md-4">
-                    	<button class="imgbutton">
+                    	<a href="/SSHOME/roomDetail.action">
                         	<img src="picture/houseresource/home2/home201.png" class="imglevel"/>
-                        </button>
+                        </a>
                         <h5 class="smallfont">
-                            <strong>¥168</strong> &nbsp;&nbsp;成都-独立房间
+                            <strong>¥${room.price}</strong> &nbsp;&nbsp; ${room.localtion}
                         </h5>
                     </div>
                     <div class="col-md-4">
-                    	<button class="imgbutton">
+                    	<a href="/SSHOME/roomDetail.action">
                         	<img src="picture/houseresource/home3/home301.png" class="imglevel"/>
-                        </button>
+                        </a>
                         <h5 class="smallfont">
-                            <strong>¥85</strong> &nbsp;&nbsp;杭州-合住房间
+                            <strong>¥${room.price}</strong> &nbsp;&nbsp; ${room.localtion}
                         </h5>
                     </div>            
             </div>
@@ -197,6 +217,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div>
          <div class="col-md-2 textstyle"></div>
 </div>
+
+<script type="text/javascript">
+</script>
 
 </body>
 </html>

@@ -37,15 +37,15 @@ img
 {
 	text-align:center;
 }
-li 
+.li 
 {
 	list-style:none;
 	float:right;
+	margin-right:50px;
 }
-a
+.a
 {
 	display:block; 
-    width:120px; 
     height:60px; 
     line-height:60px; /* 设置行高,可以让单行文本垂直居中 */
     text-align:center; 
@@ -53,7 +53,7 @@ a
     color:rgba(153,153,153,1);
 	text-decoration:none; /* 去掉下划线 */
 }
-a:hover/*鼠标在上面悬停时样式*/
+.a:hover/*鼠标在上面悬停时样式*/
 {
 	background:rgba(248,142,139,1); 
     color:#fff;
@@ -98,7 +98,7 @@ a:hover/*鼠标在上面悬停时样式*/
 	margin:10px 0px 0px 89%;
 	border:none;
 	background-color:rgb(255,255,255);
-	outline: none;
+	outline:none;
 }
 .subdiv
 {
@@ -150,13 +150,16 @@ a:hover/*鼠标在上面悬停时样式*/
 	width:70px;
 	color:rgb(0,132,137);
 	background-color:rgb(255,255,255);
+	outline: none;
 }
 .thirdmargin
 {
 	margin:0px 0px 0px 0px;
 }
-.frame
-{
-display:none;
-}
+#dropdown-menu{
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:rgba(153,153,153,1);
+	}
 

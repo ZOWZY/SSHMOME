@@ -1,9 +1,12 @@
 package cn.zowzy.action;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import cn.zowzy.entity.Room;
+import cn.zowzy.service.RoomService;
 
 /**
  * 
@@ -15,12 +18,46 @@ import cn.zowzy.entity.Room;
 *
  */
 public class RoomAction extends ActionSupport implements ModelDriven<Room> {
+	
+	
+	private RoomService roomService;
+	
+
+	public RoomService getRoomService() {
+		return roomService;
+	}
+
+	public void setRoomService(RoomService roomService) {
+		this.roomService = roomService;
+	}
 
 	private Room room = new Room();
 
 	@Override
 	public Room getModel() {
 		return room;
+	}
+	
+	public String searchRoom(){
+		System.out.println("请求跳转查找房源页面");
+		return SUCCESS;
+	}
+	
+	public String searchAction(){
+		System.out.println("请求跳转查找房源子页面");
+		return SUCCESS;
+	}
+	
+	public String stars(){
+		return SUCCESS;
+	}
+	
+	public String sourceAction(){
+		return SUCCESS;
+	}
+	
+	public String roomDetail(){
+		return SUCCESS;
 	}
 
 }

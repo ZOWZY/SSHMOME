@@ -8,5 +8,17 @@
 		<action name="indexPage" class="IndexAction"  method="indexPage">
 			<result name="success">/WEB-INF/jsp/userMain.jsp</result>
 		</action>
+		<action name="imgCarouselPageAction" class="IndexAction"  method="imgCarouselPageAction">
+			<result name="success">/WEB-INF/jsp/imgcarousel.jsp</result>
+		</action>
+		<action name="userMyPageAction" class="IndexAction"  method="userMyPageAction">
+			<result name="success">/WEB-INF/jsp/userMy.jsp</result>
+		</action>
+		<action name="helpPageAction" class="IndexAction"  method="helpPageAction">
+			<result name="success">/WEB-INF/jsp/helpPage.jsp</result>
+		</action>
+		<action name="houseHolderPage" class="IndexAction"  method="houseHolderPage">
+			<result name="success">/WEB-INF/jsp/houseHolderPage.jsp</result>
+		</action>
 	</package>
 </struts> 

@@ -8,13 +8,14 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import cn.zowzy.service.UsersService;
 
+
 /**
  * 
  * 
  * 类名称：ChangePasswordAction 类描述： 修改登陆密码或者支付密码 创建人：ZJH 创建时间：2017年4月18日 上午10:08:43
  *
  */
-public class ChangePasswordAction extends ActionSupport {
+public class ChangePasswordAction extends ActionSupport{
 	private UsersService usersService;
 
 	public UsersService getUsersService() {
@@ -34,9 +35,13 @@ public class ChangePasswordAction extends ActionSupport {
 		String result = "failed";
 		HttpServletRequest request = ServletActionContext.getRequest();
 		if (request.getAttribute("changePasswordCode") == null
-				|| request.getAttribute("changePasswordCode").toString().length() <= 0) {
+				|| request.getAttribute("changePasswordCode").toString().length() <= 0){
+			System.out.println("未取得参数");
+			addFieldError("changePasswordCode", "密码错误");
 			return result;
-		}
+		}else{
+			result=SUCCESS;
+			}
 		// TODO 根据changePasswordCode查找用户 修改登陆密码
 		return result;
 	}
@@ -51,10 +56,23 @@ public class ChangePasswordAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		if (request.getAttribute("changePayPasswordCode") == null
 				|| request.getAttribute("changePayPasswordCode").toString().length() <= 0) {
+			addFieldError("changePayPasswordCode", "密码错误");
 			return result;
+		}
+		else{
+			result=SUCCESS;
 		}
 		// TODO 根据changePayPasswordCode查找用户 修改支付密码
 		return result;
 	}
-
+	
+	public String changePasswordPage(){
+		System.out.println("请求跳转修改登录密码页面");
+		return SUCCESS;
+	}
+	
+	public String changePayPasswordPage(){
+		System.out.println("请求跳转修改支付密码页面");
+		return SUCCESS;
+	}
 }

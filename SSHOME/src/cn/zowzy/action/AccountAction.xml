@@ -6,12 +6,20 @@
 <struts>
 	<package name="AccountAction"  extends="struts-default" namespace="/">
 		<action name="rechargeAction" class="AccountAction"  method="rechargeAction">
-			<result name="success">/WEB-INF/jsp/index.jsp</result>
-			<result name="failed">/WEB-INF/jsp/index.jsp</result>
+			<result name="success">/WEB-INF/jsp/userMain.jsp</result>
+			<result name="failed">/WEB-INF/jsp/myAccount.jsp</result>
 		</action>
 		<action name="payAction" class="AccountAction"  method="payAction">
-			<result name="success">/WEB-INF/jsp/index.jsp</result>
-			<result name="failed">/WEB-INF/jsp/index.jsp</result>
+			<result name="success">/WEB-INF/jsp/userMyOrder.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userPay.jsp</result>
+		</action>
+		<action name="payPageAction" class="AccountAction"  method="payPageAction">
+			<result name="success">/WEB-INF/jsp/userPay.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userOrder.jsp</result>
+		</action>
+		<action name="rechargePageAction" class="AccountAction"  method="rechargePageAction">
+			<result name="success">/WEB-INF/jsp/myAccount.jsp</result>
+			<result name="failed">/WEB-INF/jsp/userPay.jsp</result>
 		</action>
 	</package>
 </struts> 

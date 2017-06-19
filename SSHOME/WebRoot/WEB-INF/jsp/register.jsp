@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="spanstyle"><s:fielderror fieldName="password"/></span> <br />
                 
                 <center>
-                    <input type="password" id="password2" maxlength="20"  class="inputsize input" placeholder="确认登录密码"/>
+                    <input type="password" id="password2" name="password2" maxlength="20"  class="inputsize input" placeholder="确认登录密码"/>
                 </center>
                 <span class="spanstyle"><s:fielderror fieldName="password2"/></span><br />
                 

@@ -71,11 +71,11 @@ li
 {
 	list-style:none;
 	float:right;
+	margin-right:50px;
 }
 .a
 {
-	display:block; 
-    width:120px; 
+	display:block;  
     height:60px; 
     line-height:60px; /* 设置行高,可以让单行文本垂直居中 */
     text-align:center; 
@@ -186,3 +186,9 @@ li
 	}
 	
 /************************************/
+#dropdown-menu{
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:rgba(153,153,153,1);
+	}

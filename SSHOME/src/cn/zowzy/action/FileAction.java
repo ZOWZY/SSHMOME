@@ -63,6 +63,8 @@ public class FileAction extends ActionSupport {
 		String photoPath = ServletActionContext.getRequest().getRealPath("/") + "roomImages" + File.separator + roomid
 				+ File.separator;
 		File f = new File(photoPath);
+		System.out.println("________________________");
+		System.out.println(f.getAbsolutePath());
 		if (!f.exists()) {
 			f.mkdirs();
 		}

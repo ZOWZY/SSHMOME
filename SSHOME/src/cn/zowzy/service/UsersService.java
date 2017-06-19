@@ -146,5 +146,16 @@ public class UsersService {
 	public void changePayPassword(String username, String activeCode, String payPassword) {
 		usersDao.changePayPassword(username, activeCode, payPassword);
 	}
+	
+	/**
+	 * 根据用户名和支付密码付款
+	 * @param username
+	 * @param payPassword
+	 * @param payAmount
+	 * @return
+	 */
+	public boolean paymentByUsername(String username,String payPassword,Float payAmount){
+		return usersDao.paymentByUsername(username,payPassword,payAmount);
+	}
 
 }

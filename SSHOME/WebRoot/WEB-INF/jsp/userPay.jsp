@@ -11,36 +11,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>修改登录密码</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/alterLoginPass.css" type="text/css"/>
+    <title>支付</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userPay.css" type="text/css"/>
 	<script src="${pageContext.request.contextPath}/jquery/jquery-3.2.0.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" type="text/css"/>
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="description" content="修改登录密码界面">
+	<meta http-equiv="description" content="支付界面">
 	<meta http-equiv="content-type"  content="text/html;charset=utf-8">
 
   </head>
   
   <body>
-  	<div class="col-md-4"></div>
-    <div class="col-md-4">
-    <form action="${pageContext.request.contextPath}/changePassword.action"  method="post">
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
         <div class="divstyle">
+        <form action="${pageContext.request.contextPath}/payAction.action" method="post">
             <div class="SSHOMEdiv">
-                <h3 class="fontstyle">修改登录密码</h3>
+                <h3 class="fontstyle">订单支付</h3>
             </div>
             <div class="inputdiv">
-                <input type="password" name="changePasswordCode" placeholder="新密码" class="inputsize">
+                <input type="text" name="number" value="" placeholder="价格" readonly class="inputsize">
+                <input type="password" name="payPassword" placeholder="密码" class="inputsize">
                 <span class="spanstyle">
-					<s:fielderror fieldName="changePasswordCode"/>
+					<s:fielderror fieldName="username"/>
 				</span>
-                <input type="submit" value="重置密码" class="alterbutton">
+                <input type="submit" value="确认支付" class="paybutton">
+                <button class="backbutton">
+                	<a href="/SSHOME/newOrders.action" class="cancela">取消支付</a>
+                </button>
+                <a href="/SSHOME/rechargePageAction.action" class="alter">余额不足？去充值</a>
             </div>
+        </form>
         </div>
-    </form>
-    </div>
-    <div class="col-md-4"></div>
+	</div>
+	<div class="col-md-4"></div>
+</div>
 </body>
 </html>

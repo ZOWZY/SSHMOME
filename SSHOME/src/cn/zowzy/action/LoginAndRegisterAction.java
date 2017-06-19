@@ -1,5 +1,7 @@
 package cn.zowzy.action;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -41,6 +43,7 @@ public class LoginAndRegisterAction extends ActionSupport implements ModelDriven
 		System.out.println("有用户请求登陆");
 		System.out.println("用户名：" + user.getUsername());
 		System.out.println("密码：" + user.getPassword());
+
 		String result = "failed";
 		Users users = usersService.findUserByUsername(user.getUsername());
 		if (users != null) {
@@ -52,6 +55,7 @@ public class LoginAndRegisterAction extends ActionSupport implements ModelDriven
 		} else {
 			this.addFieldError("username", "用户名不存在");
 		}
+		ServletActionContext.getRequest().getSession().setAttribute("username", user.getUsername());
 		return result;
 
 	}
@@ -64,8 +68,19 @@ public class LoginAndRegisterAction extends ActionSupport implements ModelDriven
 	public String register() {
 		System.out.println("有注册请求");
 		String result = "failed";
+		if (ServletActionContext.getRequest().getAttribute("password2") == null) {
+			addFieldError("password2", "确认密码不能为空");
+			return result;
+		} else {
+			String psw2 = (String) ServletActionContext.getRequest().getAttribute("password2");
+			if (!psw2.equals(user.getPassword())) {
+				addFieldError("password", "两次密码不一致");
+				return result;
+			}
+		}
 		if (usersService.findUserByUsername(user.getUsername()) != null) {
 			addFieldError("username", "用户名已经存在");
+			return result;
 		} else {
 			user.setPaypassword(user.getPassword());
 			usersService.addUser(user);

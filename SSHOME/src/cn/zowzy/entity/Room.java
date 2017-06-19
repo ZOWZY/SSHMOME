@@ -18,8 +18,8 @@ public class Room implements java.io.Serializable {
 	private String localtion;
 	private Integer maxpersonnumber;
 	private Float price;
-	private Double longitude;
-	private Double latitude;
+	private Double longitude;   //经度
+	private Double latitude;    //纬度
 	private Float score;
 	private String description;
 	private Integer bed;

@@ -24,7 +24,9 @@ public class RoomService {
 	public void setRoomDao(RoomDao roomDao) {
 		this.roomDao = roomDao;
 	}
-
+	
+	// ----------------------增
+	
 	/**
 	 * 添加房源信息
 	 * @param room
@@ -33,38 +35,7 @@ public class RoomService {
 		roomDao.addRoom(room);
 	}
 
-	/**
-	 * 根据房源编号查询房源信息
-	 * @param roomid
-	 * @return
-	 */
-	public Room findRoomByRoomid(String roomid) {
-		if (roomid == null || roomid.length() <= 0)
-			return null;
-		else
-			return roomDao.findRoomByRoomid(roomid);
-	}
-
-	/**
-	 * 根据用户名查询房源信息
-	 * @param username
-	 * @return
-	 */
-	public List<Room> findRoomsByUsername(String username) {
-		if (username == null || username.length() <= 0)
-			return null;
-		else
-			return roomDao.findRoomsByUsername(username);
-	}
-
-	/**
-	 * 根据房源编号改变房源状态
-	 * @param roomid
-	 * @param roomStateid
-	 */
-	public void changeRoomState(String roomid, String roomStateid) {
-		roomDao.changeRoomState(roomid,roomStateid);
-	}
+	// ----------------------删
 	
 	/**
 	 * 删除房源
@@ -75,6 +46,17 @@ public class RoomService {
 			return;
 		else
 			roomDao.deleteRoom(roomid);
+	}
+
+	// ----------------------改
+
+	/**
+	 * 根据房源编号改变房源状态
+	 * @param roomid
+	 * @param roomStateid
+	 */
+	public void changeRoomState(String roomid, String roomStateid) {
+		roomDao.changeRoomState(roomid,roomStateid);
 	}
 
 	/**
@@ -156,5 +138,164 @@ public class RoomService {
 	 */
 	public void changeLift(String roomid, Boolean lift) {
 		roomDao.changeLift(roomid,lift);
+	}
+	
+	//----------------------查
+	
+	/**
+	 * 查询所有房源信息
+	 * @return
+	 */
+	public List<Room> findAllRoom(){
+		return roomDao.findAllRoom();
+	}
+	
+	/**
+	 * TODO:默认排序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomDefault(){
+		return roomDao.findRoomDefault();
+	}
+	
+	/**
+	 * 根据价格降序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomsOrderByPriceDesc(){
+		return roomDao.findRoomsOrderByPriceDesc();
+	}
+	
+	/**
+	 * 根据价格升序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomsOrderByPriceAsc(){
+		return roomDao.findRoomsOrderByPriceAsc();
+	}
+	
+	/**
+	 * 根据评分降序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomsOrderByScoreDesc(){
+		return roomDao.findRoomsOrderByScoreDesc();
+	}
+	
+	/**
+	 * 根据评分升序返回房源信息
+	 * @return
+	 */
+	public List<Room> findRoomsOrderByScoreAsc(){
+		return roomDao.findRoomsOrderByScoreAsc();
+	}
+	
+	/**
+	 * 根据房源编号查询房源信息
+	 * @param roomid
+	 * @return
+	 */
+	public Room findRoomByRoomid(String roomid) {
+		if (roomid == null || roomid.length() <= 0)
+			return null;
+		else
+			return roomDao.findRoomByRoomid(roomid);
+	}
+
+	/**
+	 * 根据用户名查询房源信息
+	 * @param username
+	 * @return
+	 */
+	public List<Room> findRoomsByUsername(String username) {
+		if (username == null || username.length() <= 0)
+			return null;
+		else
+			return roomDao.findRoomsByUsername(username);
+	}
+
+	/**
+	 * 根据房间状态查询房源信息
+	 * @param rsid
+	 * @return
+	 */
+	public List<Room> findRoomsByRoomstate(String rsid) {
+		if (rsid == null || rsid.length() <= 0)
+			return null;
+		else
+			return roomDao.findRoomsByRoomstate(rsid);
+	}
+	
+	/**
+	 * 根据房间类型查询房源信息
+	 * @param rtid
+	 * @return
+	 */
+	public List<Room> findRoomsByRoomtype(String rtid) {
+		if (rtid == null || rtid.length() <= 0)
+			return null;
+		else
+			return roomDao.findRoomsByRoomtype(rtid);
+	}
+	
+	/**
+	 * 根据目的地查询房源信息
+	 * @param localtion
+	 * @return
+	 */
+	public List<Room> findRoomsByLocaltion(String localtion){
+		if (localtion == null || localtion.length() <= 0)
+			return null;
+		else
+			return roomDao.findRoomsByLocaltion(localtion);
+	}
+	
+	/**
+	 * 根据入住人数查询房源信息
+	 * @param personnumber
+	 * @return
+	 */
+	public List<Room> findRoomsByPersonnumber(Integer personnumber){
+		if (personnumber <= 0)
+			return null;
+		else
+			return roomDao.findRoomsByPersonnumber(personnumber);
+	}
+	
+	public List<Room> findRoomsByTime(String checkintime,String checkouttime){
+		if (checkintime == null || checkintime.length() <= 0)
+			return null;
+		if (checkouttime == null || checkouttime.length() <= 0)
+			return null;
+		else
+			return roomDao.findRoomsByTime(checkintime,checkouttime);
+	
+	}
+	
+	/**
+	 * 取两个集合的交集
+	 * @param A
+	 * @param B
+	 * @return
+	 */
+	public List<Room> findCommon(List<Room> A,List<Room> B){
+		return roomDao.findCommon(A,B);
+	}
+	
+	public List<Room> EasyfindRooms(String localtion,Integer personnumber,String checkintime,String checkouttime,String rtid,String title) {
+		if (localtion == null || localtion.length() <= 0)
+			return null;
+		if (personnumber <= 0)
+			return null;
+		if (checkintime == null || checkintime.length() <= 0)
+			return null;
+		if (checkouttime == null || checkouttime.length() <= 0)
+			return null;
+		if (rtid == null || rtid.length() <= 0)
+			return null;
+		if (title == null || title.length() <= 0)
+			return null;
+		else
+			return roomDao.EasyfindRooms(localtion,personnumber,checkintime,checkouttime,rtid,title);
 	}
 }

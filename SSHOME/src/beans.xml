@@ -49,7 +49,8 @@
 	</bean>
 	<bean id="FileAction" class="cn.zowzy.action.FileAction" scope="prototype">
 	</bean>
-	<bean id="RoomAction"  class="cn.zowzy.action.RoomAction"  scope="prototype"></bean>
+	<bean id="RoomAction" class="cn.zowzy.action.RoomAction"  scope="prototype">
+	</bean>
 	
 	
 	

@@ -117,12 +117,12 @@ public class RoomService {
 	}
 
 	/**
-	 * 根据房源的编号修改房源是否有WIFI
+	 * 根据房源的编号修改房源的WIFI数量
 	 * 
 	 * @param roomid
 	 * @param wifi
 	 */
-	public void changeWifi(Integer roomid, Boolean wifi) {
+	public void changeWifi(Integer roomid, Integer wifi) {
 		roomDao.changeWifi(roomid, wifi);
 	}
 
@@ -137,22 +137,22 @@ public class RoomService {
 	}
 
 	/**
-	 * 根据房源的编号修改房源是否有停车场
+	 * 根据房源的编号修改房源的停车场数量
 	 * 
 	 * @param roomid
 	 * @param park
 	 */
-	public void changePark(Integer roomid, Boolean park) {
+	public void changePark(Integer roomid, Integer park) {
 		roomDao.changePark(roomid, park);
 	}
 
 	/**
-	 * 根据房源的编号修改房源是否有电梯
+	 * 根据房源的编号修改房源的电梯数量
 	 * 
 	 * @param roomid
 	 * @param lift
 	 */
-	public void changeLift(Integer roomid, Boolean lift) {
+	public void changeLift(Integer roomid, Integer lift) {
 		roomDao.changeLift(roomid, lift);
 	}
 
@@ -371,7 +371,7 @@ public class RoomService {
 	 */
 	public List<Room> ComplexfindRooms(String localtion, Integer personnumber, Timestamp checkintime,
 			Timestamp checkouttime, Integer rtid, String title, Integer bedroom, Integer bed, Integer bathroom,
-			Boolean kitchen, Boolean wifi, Boolean tv, Boolean park, Boolean lift, String rule) {
+			Integer kitchen, Integer wifi, Integer tv, Integer park, Integer lift, String rule) {
 		if (localtion == null || localtion.length() <= 0)
 			return null;
 		if (personnumber <= 0)
@@ -390,11 +390,11 @@ public class RoomService {
 			return null;
 		if (bathroom < 0)
 			return null;
-		if (kitchen != null)
+		if (kitchen < 0)
 			return null;
-		if (wifi != null)
+		if (wifi < 0)
 			return null;
-		if (tv != null)
+		if (tv < 0)
 			return null;
 		if (rule == null || rule.length() <= 0)
 			return null;

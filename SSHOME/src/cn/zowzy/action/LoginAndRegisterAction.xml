@@ -20,10 +20,9 @@
 			<result name="input">/WEB-INF/jsp/login.jsp</result>
 		</action>
 		
+
 		<action name="register" class="LoginAndRegisterAction" method="register">
-
 			<result name="success">/WEB-INF/jsp/userMain.jsp</result>
-
 			<result name="failed">/WEB-INF/jsp/register.jsp</result>
 			<result name="input">/WEB-INF/jsp/register.jsp</result>
 		</action>

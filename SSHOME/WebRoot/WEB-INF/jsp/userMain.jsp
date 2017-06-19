@@ -57,8 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul class="dropdown-menu">
           <li><a href="/SSHOME/.action">我的信息</a></li>
           <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
-          <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
-		  <li><a href="/SSHOME/.action">我的房源</a></li>
+          <li><a href="/SSHOME/.action">我的收藏</a></li>
         </ul>
       </li>          
                  </c:if>  
@@ -81,51 +80,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div style=" width:100%; height:590px;">
 	<div id="container">
 		<div>
-			<iframe src="/SSHOME/imgCarouselPageActions.action" frameborder="0" style="width:100%; height:620px;"></iframe>
-		</div>
-
-   		<div id="search">
-        	<input type="text" id="input" name="" value="请输入名称"/>
-    	</div>
-    
-    	<div>
-    		<button id="look" onclick=" "> 搜索</button>
-    	</div>
-    </div>
-</div>
- 
-
-<div class="blank"></div>
-<div class="blank"></div>
-<div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-        	
-        	<div class="blank"></div>
-            <h1 class="fontstyle"><strong>热门房源</strong></h1>
-            <div class="blank"></div>
-            
-            <div class="row">
-                    <div class="col-md-4">
-                        <button class="imgbutton">
-                        	<img src="picture/houseresource/home1/home101.png" class="imglevel"/>
-                        </button>
-                        <h5 class="smallfont">
-                            <strong>¥642</strong> &nbsp;&nbsp;上海-整套房子
-                        </h5>
-                    </div>             
-                    <div class="col-md-4">
-                    	<button class="imgbutton">
-                        	<img src="picture/houseresource/home2/home201.png" class="imglevel"/>
-                        </button>
-                        <h5 class="smallfont">
-                            <strong>¥168</strong> &nbsp;&nbsp;成都-独立房间
-                        </h5>
-                    </div>
-                    <div class="col-md-4">
-                    	<button class="imgbutton">
-                        	<img src="picture/houseresource/home3/home301.png" class="imglevel"/>
-                        </button>
 			<iframe src="/SSHOME/imgCarouselPageAction.action" frameborder="0" style="width:100%; height:620px;"></iframe>
 		</div>
 		
@@ -153,30 +107,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="blank"></div>
             
             <div class="row">
-                    <div class="col-md-4">
+             <c:forEach var="i" items="${roomlist}" begin="0" end="2" step="1">
+                  	<div class="col-md-4">
                         <a href="/SSHOME/roomDetail.action">
-                        	<img src="picture/houseresource/home1/home101.png" class="imglevel"/>
+                        	<img src="" class="imglevel" id="img"+i/>
                         </a>
-                        <h5 class="smallfont">
-                            <strong>¥${room.price}</strong> &nbsp;&nbsp; ${room.localtion}
-                        </h5>
-                    </div>             
-                    <div class="col-md-4">
-                    	<a href="/SSHOME/roomDetail.action">
-                        	<img src="picture/houseresource/home2/home201.png" class="imglevel"/>
-                        </a>
+                        <input type="hidden" value="${roomlist.roomid}" name="roomid"/>
                         <h5 class="smallfont">
                             <strong>¥${room.price}</strong> &nbsp;&nbsp; ${room.localtion}
                         </h5>
                     </div>
-                    <div class="col-md-4">
-                    	<a href="/SSHOME/roomDetail.action">
-                        	<img src="picture/houseresource/home3/home301.png" class="imglevel"/>
-                        </a>
-                        <h5 class="smallfont">
-                            <strong>¥${room.price}</strong> &nbsp;&nbsp; ${room.localtion}
-                        </h5>
-                    </div>            
+                    </c:forEach>       
             </div>
             
             <div class="blank"></div>
@@ -265,7 +206,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 <script type="text/javascript">
+var roomid=document.getElementsByName("roomid");
+var i=roomid.length;
+for(var j=0;j<i;j++){
+$.ajax({
+             type: "GET", //POST
+             url: ".action",
+             data: {
+             	roomid:$("#roomid").val()
+             }, //组装参数
+             success: function(data){
+                         alert('成功');
+                      },
+             error:function(){
+                      alert('请求失败！！！');
+                      }
+         });
+}
+//从后台获取图片的src
+for(var j=0;j<i;j++){
+$.ajax({
+             type: "GET", //POST
+             url:"",//默认当前页面
+             dataType:"json"
+             data: {
+             	roomid:$("#roomid").val()
+             }, //组装参数
+             success: function(data){
+                         ${'"#img"+j'}.attr("src","json");
+                      },
+              error:function(){
+              alert("请求失败！！！！");
+              }
+         });
+}
 </script>
-
 </body>
 </html>

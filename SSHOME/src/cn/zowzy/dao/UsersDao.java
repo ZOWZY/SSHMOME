@@ -9,7 +9,7 @@ import cn.zowzy.entity.Users;
 /**
  * 
  * 
- * 类名称：UserDao 类描述： 创建人：ZJH 创建时间：2017年4月17日 下午10:33:57
+ * 类名称：UsersDao 类描述： 创建人：ZJH 创建时间：2017年4月17日 下午10:33:57
  *
  */
 public class UsersDao {

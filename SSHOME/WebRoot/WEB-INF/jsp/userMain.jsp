@@ -57,7 +57,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul class="dropdown-menu">
           <li><a href="/SSHOME/.action">我的信息</a></li>
           <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
-          <li><a href="/SSHOME/.action">我的收藏</a></li>
+          <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
+		  <li><a href="/SSHOME/.action">我的房源</a></li>
         </ul>
       </li>          
                  </c:if>  

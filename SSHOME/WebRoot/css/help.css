@@ -13,13 +13,13 @@
 	width:60px;
 	height:60px;	
 }
-li 
+.li 
 {
 	list-style:none;
 	float:right;
 	margin-right:50px;
 }
-a
+.a
 {
 	display:block; 
     height:60px; 
@@ -29,7 +29,7 @@ a
     color:rgba(153,153,153,1);
 	text-decoration:none; /* 去掉下划线 */
 }
-a:hover/*鼠标在上面悬停时样式*/
+.a:hover/*鼠标在上面悬停时样式*/
 {
 	background:rgba(248,142,139,1); 
     color:#fff;

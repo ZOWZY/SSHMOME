@@ -320,6 +320,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </div>
 </div>
+<center><input type="submit" value="保存" class="button"/></center>
 </form>
 
 <script type="text/javascript"> 

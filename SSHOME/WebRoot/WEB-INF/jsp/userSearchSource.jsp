@@ -55,7 +55,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			        <ul class="dropdown-menu">
 			          <li><a href="/SSHOME/.action">我的信息</a></li>
 			          <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
-			          <li><a href="/SSHOME/.action">我的收藏</a></li>
+			          <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
+		  			  <li><a href="/SSHOME/.action">我的房源</a></li>
 			        </ul>
 		      	</li>                
                  </c:if> 
@@ -90,9 +91,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     		<option value=${i }>选择目的地</option>
                     	</c:forEach>
                 	</select>
-                	<input type="date" name="datetime" class="datediv" placeholder="入住日期">
+                	<input type="date" name="checkintime" class="datediv" placeholder="入住日期">
                 	<label>-</label>
-	                <input type="date" name="undatetime" class="datediv" placeholder="退房日期">
+	                <input type="date" name="checkouttime" class="datediv" placeholder="退房日期">
 	                <input type="text" name=" " class="numberdiv" placeholder="入住人数">
                 
 	                <select class="selectdiv" name="select2">
@@ -111,7 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div>
             	<button class="buttonstyle"><strong>更多筛选条件>></strong></button>
                 <iframe frameborder="0" src="/SSHOME/searchAction.action" width="100%"
-                        height="800px" scrolling="yes" class="frame">
+                        height="1200px" scrolling="no" class="frame">
             	</iframe>
             </div>
             <div class="blank"></div>  
@@ -146,7 +147,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="col-md-10 rowdiv">
         <input type="button" value="综合排序" class="searchbutton">
         <input type="button" value="价格" class="searchbutton">
-        <input type="button" value="销量" class="searchbutton">
         <input type="button" value="好评" class="searchbutton">
     </div>
     <div class="col-md-1"></div>

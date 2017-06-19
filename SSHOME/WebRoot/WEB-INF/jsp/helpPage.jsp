@@ -32,12 +32,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="col-md-6">
     <ul>
                    	<c:if test="${username==null }">
-                 <li>
+                 <li class="li">
                  	<a class="a" href="/SSHOME/loginPage.action">
                  		<strong>登录</strong>
                  	</a>
                  </li>
-                 <li>
+                 <li class="li">
                  	<a class="a" href="/SSHOME/registerPage.action">
                  		<strong>注册</strong>
                  	</a>
@@ -50,20 +50,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    		<strong> ${username} 的个人中心</strong> 
                    		<span class="caret"></span> 
                     </a>
-        <ul class="dropdown-menu">
-          <li><a href="/SSHOME/.action">我的信息</a></li>
-          <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
-          <li><a href="/SSHOME/.action">我的收藏</a></li>
-        </ul>
-      </li>          
+			        <ul class="dropdown-menu">
+			          <li><a href="/SSHOME/.action">我的信息</a></li>
+			          <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
+			          <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
+					  <li><a href="/SSHOME/.action">我的房源</a></li>
+			        </ul>
+      			 </li>          
                  </c:if> 
-      <li>
-      	<a href="/SSHOME/helpPageAction.action">
+      <li class="li" >
+      	<a class="a" href="/SSHOME/helpPageAction.action">
       		<strong>帮助</strong>
       	</a>
       </li>
-      <li>
-      	<a href="/SSHOME/houseHolderPage.action">
+      <li class="li">
+      	<a class="a" href="/SSHOME/houseHolderPage.action">
       		<strong>成为房东</strong>
       	</a>
       </li>
@@ -73,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="jumbotron jum"> <br />
   <br />
   <br />
-  <h1>我们能帮上什么忙吗？</h1>
+  <h2>我们能帮上什么忙吗？</h2>
   <p>欢迎使用SSHOME，请阅读下面的帮助文档</p>
   <br />
   <br />
@@ -83,14 +84,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="col-md-2"> </div>
   <div class="col-md-2">
   <div class="daohang">
-  <a href="#use"><strong>如何使用SSHOME</strong></a>
-  <a href="#tour"><strong>如何旅行</strong></a>
-  <a href="#pay"><strong>付款方式</strong></a>
-  <a href="#remark"><strong>评价</strong></a>
-  <a href="#retire"><strong>更改和取消</strong></a>
-  <a href="#safe"><strong>安全</strong></a>
-  <a href="#perfrom"><strong>提供反馈</strong></a>
-  <a href="#contact"><strong>联系我们</strong></a>
+  <a class="a" href="#use"><strong>如何使用SSHOME</strong></a>
+  <a class="a" href="#tour"><strong>如何旅行</strong></a>
+  <a class="a" href="#pay"><strong>付款方式</strong></a>
+  <a class="a" href="#remark"><strong>评价</strong></a>
+  <a class="a" href="#retire"><strong>更改和取消</strong></a>
+  <a class="a" href="#safe"><strong>安全</strong></a>
+  <a class="a" href="#perfrom"><strong>提供反馈</strong></a>
+  <a class="a" href="#contact"><strong>联系我们</strong></a>
   </div>
   
   </div>

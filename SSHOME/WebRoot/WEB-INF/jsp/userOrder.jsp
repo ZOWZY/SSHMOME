@@ -40,7 +40,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul class="dropdown-menu">
           <li><a href="/SSHOME/.action">我的信息</a></li>
           <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
-          <li><a href="/SSHOME/.action">我的收藏</a></li>
+          <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
+		  <li><a href="/SSHOME/.action">我的房源</a></li>
         </ul>
       </li>            
                  <li class="li">
@@ -118,18 +119,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                	<th>预订者</th>
                         <th>入住日期</th>
                         <th>退房日期</th>
-                        <th>入住人数</th>
                         <th>房间类型</th>
                         <th>价格</th>
 	              	</tr>
-	                <c:forEach var=" " items=" ">
+	                <c:forEach var="room" items="roomlist">
                   	<tr>		
-                    	<td></td>
-                        <td></td>
-                  		<td></td>
-                        <td></td>
-                  		<td></td>
-                        <td></td>
+                    	<td>${roomlist.username}</td>
+                        <td>${roomlist.checkintime}</td>
+                  		<td>${roomlist.checkouttime}</td>
+                  		<td>${roomlist.roomtype}</td>
+                        <td>${roomlist.price}</td>
                     </tr>
                     </c:forEach>
              	</table>

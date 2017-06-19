@@ -55,7 +55,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul class="dropdown-menu">
           <li><a href="/SSHOME/.action">我的信息</a></li>
           <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
-          <li><a href="/SSHOME/.action">我的收藏</a></li>
+          <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
+		  <li><a href="/SSHOME/.action">我的房源</a></li>
         </ul>
       </li>          
                  </c:if> 
@@ -322,30 +323,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 		<div class="col-md-9">
                   			<h2><strong>房东:</strong></h2>
                   			<h4>中国 注册时间 2017年4月</h4>
-                  			<form action="http://www.zjhfyq.cn/CustomService/login" method="post">
+                  			<div class="blank"></div>
+                		</div>
+                		<div class="col-md-3">
+                			<form action="http://www.zjhfyq.cn/CustomService/login" method="post">
 				    			<input type="hidden" name="username" value="QQQ"/>
 				    			<input type="hidden" name="password" value="******"/>
 				    			<input type="hidden" name="type" value="user"/>
 				    			<input type="submit" value="联系房东" class="telbutton"/>
     						</form>
-                  			<div class="blank"></div>
-                		</div>
-                		<div class="col-md-3">
-                  			<div class="blank"></div>
-                  			<img src="picture/mainicon.png" class="imgsize"/>
-                  			<div class="blank"></div>
+    						<div class="blank"></div>
                 		</div>
               		</div>
            		 </div>
           	</div>
           	
-          	
-          	
-          	<div id="position">
-            	<div>
-              		<h1>这里导入地图</h1>
-            	</div>
-            </div>
         </div>
      
      
@@ -360,11 +352,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          			<div class="blank"></div>
           			<div class="col-md-6">
           				<label>入住</label>
-          				<input type="date" name="datetime" class="seconddiv" id="selectin" onchange="selectCheckin()">
+          				<input type="date" name="checkintime" class="seconddiv" id="selectin" onchange="selectCheckin()">
           			</div>
           			<div class="col-md-6">
             			<label>退房</label>
-            			<input type="date" name="undatetime" class="seconddiv">
+            			<input type="date" name="checkouttime" class="seconddiv">
           			</div>
           			<div class="col-md-12">
             			<div class="blank"></div>

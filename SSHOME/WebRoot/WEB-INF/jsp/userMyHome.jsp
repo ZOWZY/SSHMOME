@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>我的收藏</title>
+    <title>我的房源</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userOrder.css" type="text/css"/>
 	<script src="${pageContext.request.contextPath}/jquery/jquery-3.2.0.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" type="text/css"/>
@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userCheckPage.css" type="text/css"/>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="description" content="我的收藏界面">
+	<meta http-equiv="description" content="我的房源界面">
 	<meta http-equiv="content-type"  content="text/html;charset=utf-8">
 
   </head>
@@ -42,7 +42,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul class="dropdown-menu">
           <li><a href="/SSHOME/.action">我的信息</a></li>
           <li><a href="/SSHOME/myOrders.action">我的订单</a></li>
-          <li><a href="/SSHOME/.action">我的收藏</a></li>
+          <li><a href="/SSHOME/rechargePageAction.action">我的账户</a></li>
+		  <li><a href="/SSHOME/.action">我的房源</a></li>
         </ul>
       </li>          
                  <li>
@@ -67,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div  style="height:500px;">
 
-  <input type="text" readonly value="房源信息" class="inputtable"/>
+  <input type="text" readonly value="我的房源" class="inputtable"/>
   <div class="imgborder">
     <div class="col-md-5 divcolor">
       <div class="blank"></div>
@@ -80,19 +81,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <h2> ${room.title}</h2>
         </div>
         <div class="col-md-3">
-          <h2>¥${room.price}起</h2>
+          <h2>¥${room.price}</h2>
         </div>
       </div>
       <div class="divblank"></div>
       <div class="blank">
-        <p>
-        <h4> ${room.localtion}</h4>
-        </p>
+        <p><h4> ${room.localtion}</h4></p>
       </div>
       <div class="divblank"></div>
-      <div class="blank">
-      </div>
-      <div class="blank"></div>
+      <iframe src="/SSHOME/stars.action" width="100%" height="50px" 
+            		scrolling="no" frameborder="0">
+      </iframe>
     </div>
   </div>
   <div class="col-md-1"></div>

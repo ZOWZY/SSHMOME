@@ -72,6 +72,20 @@ img
 	border-color:rgb(0,166,153);
 	border-radius:5px;
 }
+.subdivstyle
+{
+	width:100%;
+	margin:30px 0px 10px 0px;
+	border-style:solid;
+	border-width:1px;
+	border-color:rgb(0,166,153);
+	border-radius:5px;
+}
+.subSSHOMEdiv
+{
+	border:solid 1px rgb(0,166,153);
+	background-color:rgb(0,166,153);	
+}
 .SSHOMEdiv
 {
 	border:solid 1px rgb(0,166,153);
@@ -192,6 +206,24 @@ td
 	font-size:14px;
 	color:rgba(153,153,153,1);
 	}
+.blackinput
+{
+	border-style:none;
+	border:solid 1px rgb(98,98,98);
+	background-color:rgb(98,98,98);
+	width:100%;
+	height:50px;
+	margin:40px 0px 0px 0px;
+	border-radius:5px;
+	font-family:verdana,arial,sans-serif;
+	font-size:16px;
+	font-weight:bolder;	
+}
+.marginstyle
+{
+	margin:0px 0px 85px 0px;
+}
+
 
 
 

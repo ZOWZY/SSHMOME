@@ -12,7 +12,7 @@ public class Roomtype implements java.io.Serializable {
 	// Fields
 
 	private Integer rtid;
-	private String rtdescription;
+	private String description;
 	private Set rooms = new HashSet(0);
 
 	// Constructors
@@ -21,14 +21,9 @@ public class Roomtype implements java.io.Serializable {
 	public Roomtype() {
 	}
 
-	/** minimal constructor */
-	public Roomtype(String rtdescription) {
-		this.rtdescription = rtdescription;
-	}
-
 	/** full constructor */
-	public Roomtype(String rtdescription, Set rooms) {
-		this.rtdescription = rtdescription;
+	public Roomtype(String description, Set rooms) {
+		this.description = description;
 		this.rooms = rooms;
 	}
 
@@ -42,12 +37,12 @@ public class Roomtype implements java.io.Serializable {
 		this.rtid = rtid;
 	}
 
-	public String getRtdescription() {
-		return this.rtdescription;
+	public String getDescription() {
+		return this.description;
 	}
 
-	public void setRtdescription(String rtdescription) {
-		this.rtdescription = rtdescription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Set getRooms() {

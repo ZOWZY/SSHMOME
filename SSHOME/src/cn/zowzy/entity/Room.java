@@ -12,26 +12,27 @@ public class Room implements java.io.Serializable {
 	// Fields
 
 	private Integer rid;
+	private User user;
 	private Roomtype roomtype;
 	private Roomstate roomstate;
 	private String title;
-	private String localtion;
+	private String location;
 	private Integer maxpersonnumber;
 	private Float price;
-	private Double longitude;   //经度
-	private Double latitude;    //纬度
+	private Double longitude;
+	private Double latitude;
 	private Float score;
 	private String description;
-	private Integer bed;
-	private Integer bedroom;
+	private Integer bad;
+	private Integer badroom;
 	private Integer bathroom;
-	private Boolean kitchen;
-	private Boolean wifi;
+	private Integer kitchen;
+	private Integer wifi;
 	private Integer tv;
-	private Boolean park;
-	private Boolean lift;
-	private String rule;
+	private Integer park;
+	private Integer lift;
 	private Set orderses = new HashSet(0);
+	private Set roomrules = new HashSet(0);
 	private Set collects = new HashSet(0);
 
 	// Constructors
@@ -40,53 +41,32 @@ public class Room implements java.io.Serializable {
 	public Room() {
 	}
 
-	/** minimal constructor */
-	public Room(String title, String localtion, Integer maxpersonnumber, Float price, Double longitude, Double latitude,
-			Float score, String description, Integer bed, Integer bedroom, Integer bathroom, Boolean kitchen,
-			Boolean wifi, Integer tv, Boolean park, Boolean lift) {
-		this.title = title;
-		this.localtion = localtion;
-		this.maxpersonnumber = maxpersonnumber;
-		this.price = price;
-		this.longitude = longitude;
-		this.latitude = latitude;
-		this.score = score;
-		this.description = description;
-		this.bed = bed;
-		this.bedroom = bedroom;
-		this.bathroom = bathroom;
-		this.kitchen = kitchen;
-		this.wifi = wifi;
-		this.tv = tv;
-		this.park = park;
-		this.lift = lift;
-	}
-
 	/** full constructor */
-	public Room(Roomtype roomtype, Roomstate roomstate, String title, String localtion, Integer maxpersonnumber,
-			Float price, Double longitude, Double latitude, Float score, String description, Integer bed,
-			Integer bedroom, Integer bathroom, Boolean kitchen, Boolean wifi, Integer tv, Boolean park, Boolean lift,
-			String rule, Set orderses, Set collects) {
+	public Room(User user, Roomtype roomtype, Roomstate roomstate, String title, String location,
+			Integer maxpersonnumber, Float price, Double longitude, Double latitude, Float score, String description,
+			Integer bad, Integer badroom, Integer bathroom, Integer kitchen, Integer wifi, Integer tv, Integer park,
+			Integer lift, Set orderses, Set roomrules, Set collects) {
+		this.user = user;
 		this.roomtype = roomtype;
 		this.roomstate = roomstate;
 		this.title = title;
-		this.localtion = localtion;
+		this.location = location;
 		this.maxpersonnumber = maxpersonnumber;
 		this.price = price;
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.score = score;
 		this.description = description;
-		this.bed = bed;
-		this.bedroom = bedroom;
+		this.bad = bad;
+		this.badroom = badroom;
 		this.bathroom = bathroom;
 		this.kitchen = kitchen;
 		this.wifi = wifi;
 		this.tv = tv;
 		this.park = park;
 		this.lift = lift;
-		this.rule = rule;
 		this.orderses = orderses;
+		this.roomrules = roomrules;
 		this.collects = collects;
 	}
 
@@ -98,6 +78,14 @@ public class Room implements java.io.Serializable {
 
 	public void setRid(Integer rid) {
 		this.rid = rid;
+	}
+
+	public User getUser() {
+		return this.user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Roomtype getRoomtype() {
@@ -124,12 +112,12 @@ public class Room implements java.io.Serializable {
 		this.title = title;
 	}
 
-	public String getLocaltion() {
-		return this.localtion;
+	public String getLocation() {
+		return this.location;
 	}
 
-	public void setLocaltion(String localtion) {
-		this.localtion = localtion;
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	public Integer getMaxpersonnumber() {
@@ -180,20 +168,20 @@ public class Room implements java.io.Serializable {
 		this.description = description;
 	}
 
-	public Integer getBed() {
-		return this.bed;
+	public Integer getBad() {
+		return this.bad;
 	}
 
-	public void setBed(Integer bed) {
-		this.bed = bed;
+	public void setBad(Integer bad) {
+		this.bad = bad;
 	}
 
-	public Integer getBedroom() {
-		return this.bedroom;
+	public Integer getBadroom() {
+		return this.badroom;
 	}
 
-	public void setBedroom(Integer bedroom) {
-		this.bedroom = bedroom;
+	public void setBadroom(Integer badroom) {
+		this.badroom = badroom;
 	}
 
 	public Integer getBathroom() {
@@ -204,19 +192,19 @@ public class Room implements java.io.Serializable {
 		this.bathroom = bathroom;
 	}
 
-	public Boolean getKitchen() {
+	public Integer getKitchen() {
 		return this.kitchen;
 	}
 
-	public void setKitchen(Boolean kitchen) {
+	public void setKitchen(Integer kitchen) {
 		this.kitchen = kitchen;
 	}
 
-	public Boolean getWifi() {
+	public Integer getWifi() {
 		return this.wifi;
 	}
 
-	public void setWifi(Boolean wifi) {
+	public void setWifi(Integer wifi) {
 		this.wifi = wifi;
 	}
 
@@ -228,28 +216,20 @@ public class Room implements java.io.Serializable {
 		this.tv = tv;
 	}
 
-	public Boolean getPark() {
+	public Integer getPark() {
 		return this.park;
 	}
 
-	public void setPark(Boolean park) {
+	public void setPark(Integer park) {
 		this.park = park;
 	}
 
-	public Boolean getLift() {
+	public Integer getLift() {
 		return this.lift;
 	}
 
-	public void setLift(Boolean lift) {
+	public void setLift(Integer lift) {
 		this.lift = lift;
-	}
-
-	public String getRule() {
-		return this.rule;
-	}
-
-	public void setRule(String rule) {
-		this.rule = rule;
 	}
 
 	public Set getOrderses() {
@@ -258,6 +238,14 @@ public class Room implements java.io.Serializable {
 
 	public void setOrderses(Set orderses) {
 		this.orderses = orderses;
+	}
+
+	public Set getRoomrules() {
+		return this.roomrules;
+	}
+
+	public void setRoomrules(Set roomrules) {
+		this.roomrules = roomrules;
 	}
 
 	public Set getCollects() {

@@ -57,7 +57,7 @@ public class OrdersDao {
 			orders.setRoom(room);
 			orders.setDatetime( new Timestamp(System.currentTimeMillis()));
 			orders.setCost(room.getPrice());
-			orders.setPersonnumber(personnumber);
+			orders.setPnumber(personnumber);
 			orders.setCheckintime(checkintime);
 			orders.setCheckouttime(checkouttime);
 			addOrders(orders);
@@ -327,7 +327,7 @@ public class OrdersDao {
 	 * @param score
 	 *            评分
 	 */
-	public void addComments(String orderid, String comment, float score) {
+	public void addComments(String orderid, String comment, Float score) {
 		if (orderid == null || orderid.length() <= 0) {
 			return;
 		}
@@ -335,11 +335,11 @@ public class OrdersDao {
 		if (order == null) {
 			return;
 		} else {
-			if (score < 0) {
-				score = 5;
+			if (score < 0 || score > 5) {
+				score = (float) 5;
 			}
 			order.setComments(comment);
-			order.setCommentsscore(score);
+			order.setScore(score);
 			hibernateTemplate.update(order);
 		}
 	}

@@ -11,19 +11,18 @@ public class Orders implements java.io.Serializable {
 	// Fields
 
 	private String oid;
-	private Orderstate orderstate;
-	private Users usersByUsername;
+	private User user;
 	private Room room;
-	private Users usersByUseUsername;
-	private Timestamp undatetime;
+	private Orderstate orderstate;
 	private Timestamp datetime;
+	private Timestamp unDateTime;
 	private Float cost;
-	private Integer personnumber;
+	private Integer pnumber;
 	private Timestamp checkintime;
 	private Timestamp checkouttime;
 	private String remark;
 	private String comments;
-	private Float commentsscore;
+	private Float score;
 
 	// Constructors
 
@@ -31,32 +30,22 @@ public class Orders implements java.io.Serializable {
 	public Orders() {
 	}
 
-	/** minimal constructor */
-	public Orders(String oid, Timestamp datetime, Float cost, Integer personnumber) {
-		this.oid = oid;
-		this.datetime = datetime;
-		this.cost = cost;
-		this.personnumber = personnumber;
-	}
-
 	/** full constructor */
-	public Orders(String oid, Orderstate orderstate, Users usersByUsername, Room room, Users usersByUseUsername,
-			Timestamp undatetime, Timestamp datetime, Float cost, Integer personnumber, Timestamp checkintime,
-			Timestamp checkouttime, String remark, String comments, Float commentsscore) {
-		this.oid = oid;
-		this.orderstate = orderstate;
-		this.usersByUsername = usersByUsername;
+	public Orders(User user, Room room, Orderstate orderstate, Timestamp datetime, Timestamp unDateTime, Float cost,
+			Integer pnumber, Timestamp checkintime, Timestamp checkouttime, String remark, String comments,
+			Float score) {
+		this.user = user;
 		this.room = room;
-		this.usersByUseUsername = usersByUseUsername;
-		this.undatetime = undatetime;
+		this.orderstate = orderstate;
 		this.datetime = datetime;
+		this.unDateTime = unDateTime;
 		this.cost = cost;
-		this.personnumber = personnumber;
+		this.pnumber = pnumber;
 		this.checkintime = checkintime;
 		this.checkouttime = checkouttime;
 		this.remark = remark;
 		this.comments = comments;
-		this.commentsscore = commentsscore;
+		this.score = score;
 	}
 
 	// Property accessors
@@ -69,20 +58,12 @@ public class Orders implements java.io.Serializable {
 		this.oid = oid;
 	}
 
-	public Orderstate getOrderstate() {
-		return this.orderstate;
+	public User getUser() {
+		return this.user;
 	}
 
-	public void setOrderstate(Orderstate orderstate) {
-		this.orderstate = orderstate;
-	}
-
-	public Users getUsersByUsername() {
-		return this.usersByUsername;
-	}
-
-	public void setUsersByUsername(Users usersByUsername) {
-		this.usersByUsername = usersByUsername;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Room getRoom() {
@@ -93,20 +74,12 @@ public class Orders implements java.io.Serializable {
 		this.room = room;
 	}
 
-	public Users getUsersByUseUsername() {
-		return this.usersByUseUsername;
+	public Orderstate getOrderstate() {
+		return this.orderstate;
 	}
 
-	public void setUsersByUseUsername(Users usersByUseUsername) {
-		this.usersByUseUsername = usersByUseUsername;
-	}
-
-	public Timestamp getUndatetime() {
-		return this.undatetime;
-	}
-
-	public void setUndatetime(Timestamp undatetime) {
-		this.undatetime = undatetime;
+	public void setOrderstate(Orderstate orderstate) {
+		this.orderstate = orderstate;
 	}
 
 	public Timestamp getDatetime() {
@@ -117,6 +90,14 @@ public class Orders implements java.io.Serializable {
 		this.datetime = datetime;
 	}
 
+	public Timestamp getUnDateTime() {
+		return this.unDateTime;
+	}
+
+	public void setUnDateTime(Timestamp unDateTime) {
+		this.unDateTime = unDateTime;
+	}
+
 	public Float getCost() {
 		return this.cost;
 	}
@@ -125,12 +106,12 @@ public class Orders implements java.io.Serializable {
 		this.cost = cost;
 	}
 
-	public Integer getPersonnumber() {
-		return this.personnumber;
+	public Integer getPnumber() {
+		return this.pnumber;
 	}
 
-	public void setPersonnumber(Integer personnumber) {
-		this.personnumber = personnumber;
+	public void setPnumber(Integer pnumber) {
+		this.pnumber = pnumber;
 	}
 
 	public Timestamp getCheckintime() {
@@ -165,12 +146,12 @@ public class Orders implements java.io.Serializable {
 		this.comments = comments;
 	}
 
-	public Float getCommentsscore() {
-		return this.commentsscore;
+	public Float getScore() {
+		return this.score;
 	}
 
-	public void setCommentsscore(Float commentsscore) {
-		this.commentsscore = commentsscore;
+	public void setScore(Float score) {
+		this.score = score;
 	}
 
 }

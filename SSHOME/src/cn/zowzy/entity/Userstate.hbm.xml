@@ -10,14 +10,14 @@
             <column name="usid" />
             <generator class="native" />
         </id>
-        <property name="usdescription" type="java.lang.String">
-            <column name="usdescription" length="50" not-null="true" />
+        <property name="description" type="java.lang.String">
+            <column name="description" />
         </property>
-        <set name="userses" inverse="true">
+        <set name="users" inverse="true">
             <key>
-                <column name="usid" />
+                <column name="userstateid" />
             </key>
-            <one-to-many class="cn.zowzy.entity.Users" />
+            <one-to-many class="cn.zowzy.entity.User" />
         </set>
     </class>
 </hibernate-mapping>

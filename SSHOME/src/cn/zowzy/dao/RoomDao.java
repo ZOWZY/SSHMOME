@@ -92,7 +92,7 @@ public class RoomDao {
 	 * @param price
 	 *            价格
 	 */
-	public void changeRoomPrice(Integer roomid, float price) {
+	public void changeRoomPrice(Integer roomid, Float price) {
 		if (roomid < 0) {
 			return;
 		} else if (price < 0) {
@@ -143,7 +143,7 @@ public class RoomDao {
 	 * @param score
 	 *            评分
 	 */
-	public void changeScore(Integer roomid, float score) {
+	public void changeScore(Integer roomid, Float score) {
 		if (roomid == null) {
 			return;
 		} else if (roomid < 0) {
@@ -196,32 +196,32 @@ public class RoomDao {
 			return;
 		} else if (roomid < 0) {
 			return;
-		} else if (bed <= 0) {
+		} else if (bed < 0) {
 			return;
 		} else {
 			Room room = findRoomByRoomid(roomid);
 			if (room == null) {
 				return;
 			} else {
-				room.setBed(bed);
+				room.setBad(bed);
 				hibernateTemplate.update(room);
 			}
 		}
 	}
 
 	/**
-	 * 根据房源的编号修改房源是否有WIFI
+	 * 根据房源的编号修改房源的WIFI数量
 	 * 
 	 * @param roomid
 	 * @param wifi
 	 */
-	public void changeWifi(Integer roomid, Boolean wifi) {
+	public void changeWifi(Integer roomid, Integer wifi) {
 		if (roomid == null) {
 			return;
 		} else if (roomid < 0) {
 			return;
-		} else if (wifi == null) {
-			wifi = false;
+		} else if (wifi < 0) {
+			return;
 		} else {
 			Room room = findRoomByRoomid(roomid);
 			if (room == null) {
@@ -245,7 +245,8 @@ public class RoomDao {
 		} else if (roomid < 0) {
 			return;
 		} else if (tv < 0) {
-			tv = 0;
+			return;
+		} else {
 			Room room = findRoomByRoomid(roomid);
 			if (room == null) {
 				return;
@@ -253,23 +254,22 @@ public class RoomDao {
 				room.setTv(tv);
 				hibernateTemplate.update(room);
 			}
-
 		}
 	}
 
 	/**
-	 * 根据房源的编号修改房源是否有停车场
+	 * 根据房源的编号修改房源的停车场数量
 	 * 
 	 * @param roomid
 	 * @param park
 	 */
-	public void changePark(Integer roomid, Boolean park) {
+	public void changePark(Integer roomid, Integer park) {
 		if (roomid == null) {
 			return;
 		} else if (roomid < 0) {
 			return;
-		} else if (park == null) {
-			park = false;
+		} else if (park < 0) {
+			return;
 		} else {
 			Room room = findRoomByRoomid(roomid);
 			if (room == null) {
@@ -282,23 +282,24 @@ public class RoomDao {
 	}
 
 	/**
-	 * 根据房源的编号修改房源是否有电梯
+	 * 根据房源的编号修改房源的电梯数量
 	 * 
 	 * @param roomid
 	 * @param lift
 	 */
-	public void changeLift(Integer roomid, Boolean lift) {
+	public void changeLift(Integer roomid, Integer lift) {
 		if (roomid == null) {
 			return;
 		} else if (roomid < 0) {
 			return;
-		} else if (lift == null) {
-			lift = false;
+		} else if (lift < 0) {
+			return;
+		} else {
 			Room room = findRoomByRoomid(roomid);
 			if (room == null) {
 				return;
 			} else {
-				room.setLift(lift);
+				room.setTv(lift);
 				hibernateTemplate.update(room);
 			}
 		}
@@ -568,7 +569,7 @@ public class RoomDao {
 	}
 
 	/**
-	 * 复杂查询房源信息
+	 * 复杂查询房源信息（选中传1，没选传0）
 	 * @param localtion
 	 * @param personnumber
 	 * @param checkintime
@@ -587,8 +588,8 @@ public class RoomDao {
 	 * @return
 	 */
 	public List<Room> ComplexfindRooms(String localtion, Integer personnumber, Timestamp checkintime, Timestamp checkouttime,
-			Integer rtid, String title, Integer bedroom, Integer bed, Integer bathroom, Boolean kitchen, Boolean wifi, Boolean tv, Boolean park,
-			Boolean lift, String rule) {
+			Integer rtid, String title, Integer bedroom, Integer bed, Integer bathroom, Integer kitchen, Integer wifi, Integer tv, Integer park,
+			Integer lift, String rule) {
 		String hql = " from  Room where localtion=? and rtid=? and maxpersonnumber>=? and title like ? and bedroom=? and bed=? and bathroom=? and kitchen>=? and wifi>=? and tv>=? and rule=?";
 		List<Room> listA = (List<Room>) hibernateTemplate.find(hql, localtion, rtid, personnumber, title,bedroom,bed,bathroom,kitchen,wifi,tv,park,lift,rule);
 		List<Room> listB = findRoomsByTime(checkintime, checkouttime);

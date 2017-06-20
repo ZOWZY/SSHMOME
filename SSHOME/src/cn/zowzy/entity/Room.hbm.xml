@@ -10,78 +10,72 @@
             <column name="rid" />
             <generator class="native" />
         </id>
-        <many-to-one name="users" class="cn.zowzy.entity.Users" fetch="select">
-            <column name="usernameid" />
-        </many-to-one>
         <many-to-one name="roomtype" class="cn.zowzy.entity.Roomtype" fetch="select">
-            <column name="roomtypeid" />
+            <column name="rtid" />
         </many-to-one>
         <many-to-one name="roomstate" class="cn.zowzy.entity.Roomstate" fetch="select">
-            <column name="roomstateid" />
+            <column name="rsid" />
         </many-to-one>
         <property name="title" type="java.lang.String">
-            <column name="title" />
+            <column name="title" length="50" not-null="true" />
         </property>
-        <property name="location" type="java.lang.String">
-            <column name="location" />
+        <property name="localtion" type="java.lang.String">
+            <column name="localtion" length="200" not-null="true" />
         </property>
         <property name="maxpersonnumber" type="java.lang.Integer">
-            <column name="maxpersonnumber" />
+            <column name="maxpersonnumber" not-null="true" />
         </property>
         <property name="price" type="java.lang.Float">
-            <column name="price" precision="12" scale="0" />
+            <column name="price" precision="8" not-null="true" />
         </property>
         <property name="longitude" type="java.lang.Double">
-            <column name="longitude" precision="22" scale="0" />
+            <column name="longitude" precision="22" scale="0" not-null="true" />
         </property>
         <property name="latitude" type="java.lang.Double">
-            <column name="latitude" precision="22" scale="0" />
+            <column name="latitude" precision="22" scale="0" not-null="true" />
         </property>
         <property name="score" type="java.lang.Float">
-            <column name="score" precision="12" scale="0" />
+            <column name="score" precision="12" scale="0" not-null="true" />
         </property>
         <property name="description" type="java.lang.String">
-            <column name="description" />
+            <column name="description" length="65535" not-null="true" />
         </property>
-        <property name="bad" type="java.lang.Integer">
-            <column name="bad" />
+        <property name="bed" type="java.lang.Integer">
+            <column name="bed" not-null="true" />
         </property>
-        <property name="badroom" type="java.lang.Integer">
-            <column name="badroom" />
+        <property name="bedroom" type="java.lang.Integer">
+            <column name="bedroom" not-null="true" />
         </property>
         <property name="bathroom" type="java.lang.Integer">
-            <column name="bathroom" />
+            <column name="bathroom" not-null="true" />
         </property>
-        <property name="kitchen" type="java.lang.Integer">
-            <column name="kitchen" />
+        <property name="kitchen" type="java.lang.Boolean">
+            <column name="kitchen" not-null="true" />
         </property>
-        <property name="wifi" type="java.lang.Integer">
-            <column name="wifi" />
+        <property name="wifi" type="java.lang.Boolean">
+            <column name="wifi" not-null="true" />
         </property>
         <property name="tv" type="java.lang.Integer">
-            <column name="tv" />
+            <column name="tv" not-null="true" />
         </property>
-        <property name="park" type="java.lang.Integer">
-            <column name="park" />
+        <property name="park" type="java.lang.Boolean">
+            <column name="park" not-null="true" />
         </property>
-        <property name="lift" type="java.lang.Integer">
-            <column name="lift" />
+        <property name="lift" type="java.lang.Boolean">
+            <column name="lift" not-null="true" />
+        </property>
+        <property name="rule" type="java.lang.String">
+            <column name="rule" length="200" />
         </property>
         <set name="orderses" inverse="true">
             <key>
-                <column name="roomid" />
+                <column name="rid" />
             </key>
             <one-to-many class="cn.zowzy.entity.Orders" />
         </set>
-        <set name="roomrules" inverse="true">
-            <key>
-                <column name="roomid" />
-            </key>
-            <one-to-many class="cn.zowzy.entity.Roomrule" />
-        </set>
         <set name="collects" inverse="true">
             <key>
-                <column name="roomid" />
+                <column name="rid" />
             </key>
             <one-to-many class="cn.zowzy.entity.Collect" />
         </set>

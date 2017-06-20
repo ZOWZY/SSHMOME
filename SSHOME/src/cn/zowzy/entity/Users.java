@@ -1,8 +1,5 @@
 package cn.zowzy.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * Users entity. @author MyEclipse Persistence Tools
  */
@@ -20,9 +17,8 @@ public class Users implements java.io.Serializable {
 	private String paypassword;
 	private Float balance;
 	private String phone;
-	private Set collects = new HashSet(0);
-	private Set orderses = new HashSet(0);
-	private Set rooms = new HashSet(0);
+	private String changepasswordcode;
+	private String changepaypasswordcode;
 
 	// Constructors
 
@@ -30,9 +26,18 @@ public class Users implements java.io.Serializable {
 	public Users() {
 	}
 
+	/** minimal constructor */
+	public Users(String password, String email, String paypassword, Float balance, String phone) {
+		this.password = password;
+		this.email = email;
+		this.paypassword = paypassword;
+		this.balance = balance;
+		this.phone = phone;
+	}
+
 	/** full constructor */
 	public Users(Userstate userstate, Usertype usertype, String password, String email, String activecode,
-			String paypassword, Float balance, String phone, Set collects, Set orderses, Set rooms) {
+			String paypassword, Float balance, String phone, String changepasswordcode, String changepaypasswordcode) {
 		this.userstate = userstate;
 		this.usertype = usertype;
 		this.password = password;
@@ -41,9 +46,8 @@ public class Users implements java.io.Serializable {
 		this.paypassword = paypassword;
 		this.balance = balance;
 		this.phone = phone;
-		this.collects = collects;
-		this.orderses = orderses;
-		this.rooms = rooms;
+		this.changepasswordcode = changepasswordcode;
+		this.changepaypasswordcode = changepaypasswordcode;
 	}
 
 	// Property accessors
@@ -120,28 +124,20 @@ public class Users implements java.io.Serializable {
 		this.phone = phone;
 	}
 
-	public Set getCollects() {
-		return this.collects;
+	public String getChangepasswordcode() {
+		return this.changepasswordcode;
 	}
 
-	public void setCollects(Set collects) {
-		this.collects = collects;
+	public void setChangepasswordcode(String changepasswordcode) {
+		this.changepasswordcode = changepasswordcode;
 	}
 
-	public Set getOrderses() {
-		return this.orderses;
+	public String getChangepaypasswordcode() {
+		return this.changepaypasswordcode;
 	}
 
-	public void setOrderses(Set orderses) {
-		this.orderses = orderses;
-	}
-
-	public Set getRooms() {
-		return this.rooms;
-	}
-
-	public void setRooms(Set rooms) {
-		this.rooms = rooms;
+	public void setChangepaypasswordcode(String changepaypasswordcode) {
+		this.changepaypasswordcode = changepaypasswordcode;
 	}
 
 }

@@ -2,9 +2,17 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-	<table name="collect" catalog="SSHOME" class="Collect"></table>
-	<table name="user" catalog="SSHOME" class="User"></table>
-	<table name="room" catalog="SSHOME" class="Room"></table>
+<table name="collect" catalog="SSHOME" class="Collect">
+	<primary-key>
+		<generator class="native"></generator>
+	</primary-key>
+</table>
+<table name="user" catalog="SSHOME" class="User"></table>
+	<table name="room" catalog="SSHOME" class="Room">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
 	<table name="usertype" catalog="SSHOME" class="UserType"></table>
 	<table name="userstate" catalog="SSHOME" class="UserState"></table>
 	<table name="orders" catalog="SSHOME" class="Orders"></table>
@@ -14,4 +22,9 @@
 	<table name="oderstate" catalog="SSHOME" class="OrderState"></table>
 	<table name="orderstate" catalog="SSHOME" class="OrderState"></table>
 	<table name="users" catalog="SSHOME" class="Users"></table>
+	<table name="Users" catalog="SSHOME" class="Users">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
 </hibernate-reverse-engineering>

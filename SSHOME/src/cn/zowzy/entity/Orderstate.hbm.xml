@@ -10,12 +10,12 @@
             <column name="osid" />
             <generator class="native" />
         </id>
-        <property name="description" type="java.lang.String">
-            <column name="description" />
+        <property name="osdescription" type="java.lang.String">
+            <column name="osdescription" length="50" not-null="true" />
         </property>
         <set name="orderses" inverse="true">
             <key>
-                <column name="orderstateid" />
+                <column name="osid" />
             </key>
             <one-to-many class="cn.zowzy.entity.Orders" />
         </set>

@@ -203,7 +203,7 @@ public class RoomDao {
 			if (room == null) {
 				return;
 			} else {
-				room.setBad(bed);
+				room.setBed(bed);
 				hibernateTemplate.update(room);
 			}
 		}
@@ -227,7 +227,7 @@ public class RoomDao {
 			if (room == null) {
 				return;
 			} else {
-				room.setWifi(wifi);
+				room.setWifi(wifi>0?true:false);
 				hibernateTemplate.update(room);
 			}
 		}
@@ -275,7 +275,7 @@ public class RoomDao {
 			if (room == null) {
 				return;
 			} else {
-				room.setPark(park);
+				room.setPark(park>0?true:false);
 				hibernateTemplate.update(room);
 			}
 		}

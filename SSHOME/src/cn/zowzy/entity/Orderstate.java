@@ -12,7 +12,7 @@ public class Orderstate implements java.io.Serializable {
 	// Fields
 
 	private Integer osid;
-	private String description;
+	private String osdescription;
 	private Set orderses = new HashSet(0);
 
 	// Constructors
@@ -21,9 +21,14 @@ public class Orderstate implements java.io.Serializable {
 	public Orderstate() {
 	}
 
+	/** minimal constructor */
+	public Orderstate(String osdescription) {
+		this.osdescription = osdescription;
+	}
+
 	/** full constructor */
-	public Orderstate(String description, Set orderses) {
-		this.description = description;
+	public Orderstate(String osdescription, Set orderses) {
+		this.osdescription = osdescription;
 		this.orderses = orderses;
 	}
 
@@ -37,12 +42,12 @@ public class Orderstate implements java.io.Serializable {
 		this.osid = osid;
 	}
 
-	public String getDescription() {
-		return this.description;
+	public String getOsdescription() {
+		return this.osdescription;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setOsdescription(String osdescription) {
+		this.osdescription = osdescription;
 	}
 
 	public Set getOrderses() {

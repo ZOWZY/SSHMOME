@@ -10,11 +10,11 @@
             <column name="cid" />
             <generator class="native" />
         </id>
-        <many-to-one name="users" class="cn.zowzy.entity.Users" fetch="select">
-            <column name="usernameid" />
-        </many-to-one>
         <many-to-one name="room" class="cn.zowzy.entity.Room" fetch="select">
-            <column name="roomid" />
+            <column name="rid" />
         </many-to-one>
+        <property name="username" type="java.lang.String">
+            <column name="username" length="50" />
+        </property>
     </class>
 </hibernate-mapping>

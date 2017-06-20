@@ -57,7 +57,7 @@ public class OrdersDao {
 			orders.setRoom(room);
 			orders.setDatetime( new Timestamp(System.currentTimeMillis()));
 			orders.setCost(room.getPrice());
-			orders.setPnumber(personnumber);
+			orders.setPersonnumber(personnumber);
 			orders.setCheckintime(checkintime);
 			orders.setCheckouttime(checkouttime);
 			addOrders(orders);
@@ -339,7 +339,7 @@ public class OrdersDao {
 				score = (float) 5;
 			}
 			order.setComments(comment);
-			order.setScore(score);
+			order.setCommentsscore(score);
 			hibernateTemplate.update(order);
 		}
 	}

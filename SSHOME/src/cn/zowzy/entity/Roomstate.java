@@ -12,7 +12,7 @@ public class Roomstate implements java.io.Serializable {
 	// Fields
 
 	private Integer rsid;
-	private String description;
+	private String rsdescription;
 	private Set rooms = new HashSet(0);
 
 	// Constructors
@@ -21,9 +21,14 @@ public class Roomstate implements java.io.Serializable {
 	public Roomstate() {
 	}
 
+	/** minimal constructor */
+	public Roomstate(String rsdescription) {
+		this.rsdescription = rsdescription;
+	}
+
 	/** full constructor */
-	public Roomstate(String description, Set rooms) {
-		this.description = description;
+	public Roomstate(String rsdescription, Set rooms) {
+		this.rsdescription = rsdescription;
 		this.rooms = rooms;
 	}
 
@@ -37,12 +42,12 @@ public class Roomstate implements java.io.Serializable {
 		this.rsid = rsid;
 	}
 
-	public String getDescription() {
-		return this.description;
+	public String getRsdescription() {
+		return this.rsdescription;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setRsdescription(String rsdescription) {
+		this.rsdescription = rsdescription;
 	}
 
 	public Set getRooms() {

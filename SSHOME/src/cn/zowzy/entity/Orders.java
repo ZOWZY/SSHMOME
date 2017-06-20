@@ -11,18 +11,19 @@ public class Orders implements java.io.Serializable {
 	// Fields
 
 	private String oid;
-	private Users users;
-	private Room room;
 	private Orderstate orderstate;
+	private Room room;
+	private Timestamp undatetime;
 	private Timestamp datetime;
-	private Timestamp unDateTime;
 	private Float cost;
-	private Integer pnumber;
+	private Integer personnumber;
 	private Timestamp checkintime;
 	private Timestamp checkouttime;
 	private String remark;
 	private String comments;
-	private Float score;
+	private Float commentsscore;
+	private String username;
+	private String useUsername;
 
 	// Constructors
 
@@ -30,22 +31,30 @@ public class Orders implements java.io.Serializable {
 	public Orders() {
 	}
 
-	/** full constructor */
-	public Orders(Users users, Room room, Orderstate orderstate, Timestamp datetime, Timestamp unDateTime, Float cost,
-			Integer pnumber, Timestamp checkintime, Timestamp checkouttime, String remark, String comments,
-			Float score) {
-		this.users = users;
-		this.room = room;
-		this.orderstate = orderstate;
+	/** minimal constructor */
+	public Orders(Timestamp datetime, Float cost, Integer personnumber) {
 		this.datetime = datetime;
-		this.unDateTime = unDateTime;
 		this.cost = cost;
-		this.pnumber = pnumber;
+		this.personnumber = personnumber;
+	}
+
+	/** full constructor */
+	public Orders(Orderstate orderstate, Room room, Timestamp undatetime, Timestamp datetime, Float cost,
+			Integer personnumber, Timestamp checkintime, Timestamp checkouttime, String remark, String comments,
+			Float commentsscore, String username, String useUsername) {
+		this.orderstate = orderstate;
+		this.room = room;
+		this.undatetime = undatetime;
+		this.datetime = datetime;
+		this.cost = cost;
+		this.personnumber = personnumber;
 		this.checkintime = checkintime;
 		this.checkouttime = checkouttime;
 		this.remark = remark;
 		this.comments = comments;
-		this.score = score;
+		this.commentsscore = commentsscore;
+		this.username = username;
+		this.useUsername = useUsername;
 	}
 
 	// Property accessors
@@ -58,12 +67,12 @@ public class Orders implements java.io.Serializable {
 		this.oid = oid;
 	}
 
-	public Users getUsers() {
-		return this.users;
+	public Orderstate getOrderstate() {
+		return this.orderstate;
 	}
 
-	public void setUsers(Users users) {
-		this.users = users;
+	public void setOrderstate(Orderstate orderstate) {
+		this.orderstate = orderstate;
 	}
 
 	public Room getRoom() {
@@ -74,12 +83,12 @@ public class Orders implements java.io.Serializable {
 		this.room = room;
 	}
 
-	public Orderstate getOrderstate() {
-		return this.orderstate;
+	public Timestamp getUndatetime() {
+		return this.undatetime;
 	}
 
-	public void setOrderstate(Orderstate orderstate) {
-		this.orderstate = orderstate;
+	public void setUndatetime(Timestamp undatetime) {
+		this.undatetime = undatetime;
 	}
 
 	public Timestamp getDatetime() {
@@ -90,14 +99,6 @@ public class Orders implements java.io.Serializable {
 		this.datetime = datetime;
 	}
 
-	public Timestamp getUnDateTime() {
-		return this.unDateTime;
-	}
-
-	public void setUnDateTime(Timestamp unDateTime) {
-		this.unDateTime = unDateTime;
-	}
-
 	public Float getCost() {
 		return this.cost;
 	}
@@ -106,12 +107,12 @@ public class Orders implements java.io.Serializable {
 		this.cost = cost;
 	}
 
-	public Integer getPnumber() {
-		return this.pnumber;
+	public Integer getPersonnumber() {
+		return this.personnumber;
 	}
 
-	public void setPnumber(Integer pnumber) {
-		this.pnumber = pnumber;
+	public void setPersonnumber(Integer personnumber) {
+		this.personnumber = personnumber;
 	}
 
 	public Timestamp getCheckintime() {
@@ -146,12 +147,28 @@ public class Orders implements java.io.Serializable {
 		this.comments = comments;
 	}
 
-	public Float getScore() {
-		return this.score;
+	public Float getCommentsscore() {
+		return this.commentsscore;
 	}
 
-	public void setScore(Float score) {
-		this.score = score;
+	public void setCommentsscore(Float commentsscore) {
+		this.commentsscore = commentsscore;
+	}
+
+	public String getUsername() {
+		return this.username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getUseUsername() {
+		return this.useUsername;
+	}
+
+	public void setUseUsername(String useUsername) {
+		this.useUsername = useUsername;
 	}
 
 }

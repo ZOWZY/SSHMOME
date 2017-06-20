@@ -7,29 +7,26 @@
 <hibernate-mapping>
     <class name="cn.zowzy.entity.Orders" table="orders" catalog="sshome">
         <id name="oid" type="java.lang.String">
-            <column name="oid" />
+            <column name="oid" length="80" />
             <generator class="cn.zowzy.util.MakeOrderNum" />
         </id>
-        <many-to-one name="users" class="cn.zowzy.entity.Users" fetch="select">
-            <column name="usernameid" />
+        <many-to-one name="orderstate" class="cn.zowzy.entity.Orderstate" fetch="select">
+            <column name="osid" />
         </many-to-one>
         <many-to-one name="room" class="cn.zowzy.entity.Room" fetch="select">
-            <column name="roomid" />
+            <column name="rid" />
         </many-to-one>
-        <many-to-one name="orderstate" class="cn.zowzy.entity.Orderstate" fetch="select">
-            <column name="orderstateid" />
-        </many-to-one>
-        <property name="datetime" type="java.sql.Timestamp">
-            <column name="datetime" length="0" />
+        <property name="undatetime" type="java.sql.Timestamp">
+            <column name="undatetime" length="0" />
         </property>
-        <property name="unDateTime" type="java.sql.Timestamp">
-            <column name="unDateTime" length="0" />
+        <property name="datetime" type="java.sql.Timestamp">
+            <column name="datetime" length="0" not-null="true" />
         </property>
         <property name="cost" type="java.lang.Float">
-            <column name="cost" precision="12" scale="0" />
+            <column name="cost" precision="8" not-null="true" />
         </property>
-        <property name="pnumber" type="java.lang.Integer">
-            <column name="pnumber" />
+        <property name="personnumber" type="java.lang.Integer">
+            <column name="personnumber" not-null="true" />
         </property>
         <property name="checkintime" type="java.sql.Timestamp">
             <column name="checkintime" length="0" />
@@ -38,13 +35,19 @@
             <column name="checkouttime" length="0" />
         </property>
         <property name="remark" type="java.lang.String">
-            <column name="remark" />
+            <column name="remark" length="200" />
         </property>
         <property name="comments" type="java.lang.String">
-            <column name="comments" />
+            <column name="comments" length="65535" />
         </property>
-        <property name="score" type="java.lang.Float">
-            <column name="score" precision="12" scale="0" />
+        <property name="commentsscore" type="java.lang.Float">
+            <column name="commentsscore" precision="12" scale="0" />
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="username" length="50" />
+        </property>
+        <property name="useUsername" type="java.lang.String">
+            <column name="Use_username" length="50" />
         </property>
     </class>
 </hibernate-mapping>

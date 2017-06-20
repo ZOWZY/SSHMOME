@@ -10,12 +10,12 @@
             <column name="usid" />
             <generator class="native" />
         </id>
-        <property name="description" type="java.lang.String">
-            <column name="description" />
+        <property name="usdescription" type="java.lang.String">
+            <column name="usdescription" length="50" not-null="true" />
         </property>
         <set name="userses" inverse="true">
             <key>
-                <column name="userstateid" />
+                <column name="usid" />
             </key>
             <one-to-many class="cn.zowzy.entity.Users" />
         </set>

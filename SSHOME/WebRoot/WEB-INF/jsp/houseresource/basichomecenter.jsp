@@ -67,7 +67,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </div>
     	<div class="col-md-10">
-        	
         	<c:forEach var="room"  items="${roomList }" >
 	        	<div class="row">
 	            	<div class="col-md-3 checkborder">

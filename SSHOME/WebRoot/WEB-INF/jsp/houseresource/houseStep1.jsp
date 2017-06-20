@@ -56,6 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              </ul>
          </div>
 </div>
+<form action="${pageContext.request.contextPath}/House2Action.action" method="post">
 <div class="container">
     <div class="row">
         <div class="col-md-7 allposition">
@@ -66,46 +67,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="row">
             	<div class="col-md-4 nonmargin">
-					<select name="room_type" class="boxstyle">
+					<select id="roomtype" class="boxstyle" >  
+                    	<option value="-1">请选择房源类型</option>  
+                    	<c:forEach items="${roomtype}" var="roomtype">  
+                   			<option  value="${roomtype.rtid}" >${roomtype.rtid}</option>  
+                        </c:forEach>  
+                    </select>  
+					<%-- <select name="room_type" class="boxstyle">
 						<option value="entirehome">整套房源</option>
 						<option selected="" value="privateroom">独立房间</option>
 						<option value="sharedroom">合住房间</option>
-                    </select>
+                    </select> --%>
 				</div>
-				<div class="col-md-4 nonmargin">
-					<select name="person_capacity" class="boxstyle">
-                    	<option selected="" value="1">1位房客</option>
-						<option value="2">2位房客</option>
-						<option value="3">3位房客</option>
-						<option value="4">4位房客</option>
-						<option value="5">5位房客</option>
-						<option value="6">6位房客</option>
-					</select>
+				<div class=" col-md-4 nonmargin" >
+					<input class="boxstyle" type="text" placeholder="例如：青岛市李沧区">                    
 				</div>
 				<div class=" col-md-4"></div>
 			</div>
             <div class="row">
-				<div class=" col-md-8 nonmargin" >
-					<input class="boxstyle" type="text" placeholder="例如：青岛市李沧区" name="fulladdress" value=" 重庆">                    
-				</div>
+            	<div class="col-md-8 nonmargin">
+                	<input type="number" class="boxstyle" placeholder="可住人数">	
+                </div>			
                 <div class=" col-md-4 nonmargin"></div>
 			</div>
             <div class="row">
             	<div class="nonmargin">
-            		<a href="/SSHOME/House2Action.action"><input type="button" class="btn btn-info goonbutton" value="继续"></a>
+            		<a href=""><input type="submit" class="btn btn-info goonbutton" value="继续"></a>
                 </div>
             </div>
         </div>
-        
-        
          <div class="col-md-5">
         	<div><img src="picture/housestep1.jpg" /></div>
        	 	<div class="blank"></div>
     	</div>
     </div>
-    
-   
 </div>
+</form>
 
 
 

@@ -83,6 +83,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="borderstyle">
             	<div class="selectnumber">
+                	单日房价：<input type="text" value="">
+                </div>
+            	<div class="selectnumber">
                 	卧室数：<input type="number">
                 </div>
                 <div class="selectnumber">
@@ -90,9 +93,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
                 <div class="selectnumber">
                 	卫生间数：<input type="number">
-                </div>
-                <div class="selectnumber">
-                	最大可容纳房客数：<input type="number">
                 </div>
                 <div class="selectnumber">
                 	有无厨房：有<input type="checkbox">无<input type="checkbox">
